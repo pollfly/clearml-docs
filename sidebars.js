@@ -18,7 +18,7 @@ module.exports = {
         'clearml_sdk',
         'clearml_agent',
         'clearml_data',
-        {'Applications': ['apps/clearml_session', 'apps/clearml_task']},
+        {'CLI Tools': ['apps/clearml_session', 'apps/clearml_task']},
         {'Integrations': ['integrations/libraries', 'integrations/storage']},
 
         {'WebApp': ['webapp/webapp_overview', 'webapp/webapp_home',
@@ -32,7 +32,12 @@ module.exports = {
                     {'Models': ['webapp/webapp_model_table', 'webapp/webapp_model_viewing', 'webapp/webapp_model_modifying']},
                     'webapp/webapp_archiving']
             },
-            'webapp/webapp_profile', 'webapp/webapp_workers_queues']},
+            'webapp/webapp_profile', 'webapp/webapp_workers_queues',
+            {
+                'Applications': [
+
+                ]}]
+        },
         {'Configurations': ['configs/clearml_conf', 'configs/env_vars']},
         //'References': ['references/clearml_ref','references/clearml_agent_ref'],
         {'ClearML Server': ['deploying_clearml/clearml_server',
