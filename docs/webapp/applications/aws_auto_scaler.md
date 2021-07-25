@@ -50,14 +50,3 @@ Once launched, an auto-scaler task is created. On the page app, plots will appea
 worker usage, number of idle workers, idle time, and more. Additionally, there is a console log with the console output. 
 
 
-## App actions
-
-Hover over an app instance, and click the menu button <img src="/docs/latest/icons/ico-dots-v-menu.svg" alt="dots menu" className="icon size-sm space-sm" /> 
-that appears, then you will be able to access app actions.    
-
-|button|action|
-|--|--|
-|<img src="/docs/latest/icons/ico-settings.svg" alt="settings" className="icon size-sm space-sm" /> | See the instance configurations and update configurations |
-|<img src="/docs/latest/icons/ico-status-aborted.svg" alt="stop" className="icon size-sm space-sm" /> |Abort instance |
-|<img src="/docs/latest/icons/ico-clone.svg" alt="clone" className="icon size-sm space-sm" /> | Clone instance |
-|<img src="/docs/latest/icons/ico-trash.svg" alt="garbage" className="icon size-sm space-sm" />|Delete instance |
