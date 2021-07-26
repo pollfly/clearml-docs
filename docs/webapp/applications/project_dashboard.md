@@ -29,6 +29,6 @@ Once the app launched, a few plots appear:
 * **Tag summary** - pie chart of tag percentages in the projects
 * **Experiments** - Plot of tasks and their statuses$$$ 
 * **Monitoring** - Monitoring of GPU utilization and GPU memory usage
-* **Metric Monitoring** - Monitoring of the specified metric throughout the experiments$$$
-* **Active Workers** - number of active workers
-* **workers Table**
+* **Metric Monitoring** - Monitoring of the specified metric throughout the project's experiments
+* **Active Workers** - presents the number of active workers
+* **Workers Table** - presents a list of the workers
