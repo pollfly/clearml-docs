@@ -9,9 +9,6 @@ This is a wizard to make it more accessible to execute hyperparameter optimizati
 of finding the parameters that create the best results in an experiment. ClearML supports hyperparameter optimization 
 in its SDK (see [Hyperparameter Optimization](../../fundamentals/hpo.md))
 
-$$$If I understand correctly, discrete parameters is to choose specific values 
-to try out for a parameter, and uniform parameters to choose a range of parameter values and step size between. 
-
 ## Launching a hyperparameter optimization instance
 
 To launch an AWS auto-scaler instance:
@@ -34,8 +31,8 @@ To launch an AWS auto-scaler instance:
     - **Minimum Value** - minimum value of the parameter 
     - **Maximum Value** - maximum value of the parameter
     - **Step Size** - step size between parameter values
-  - **Max Experiments** - maximum number of experiments per parameter search 
-  - **Experiments to save** - number of last experiments to save
+  - **Max Experiments** - maximum number of experiments per parameter 
+  - **Experiments to save** - number of top experiments to save
   - **Time Limit** - time limit (in minutes) per experiment
   - **Min Iterations** - minimum iterations per experiment
   - **Max iterations** - maximum iterations per experiment 
@@ -43,8 +40,8 @@ To launch an AWS auto-scaler instance:
 ### Plots
 Once launched, a few plots will appear in the app:
 * Optimization objective  
-* summary 
-* budget
-* Resources
+* Summary - A tabular summary of the optimization results 
+* Budget - Presents remaining budget percentage compute time, iterations, and jobs over iteration number  
+* Resources - Number of workers listening to the execution queue and the number of running tasks over iteration number 
 * metrics
 
