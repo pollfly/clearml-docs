@@ -33,4 +33,4 @@ the app.
 
 
 Once the app is launched, plots will appear on most of the pages. Plots that present training scalars.
-Additionally, lower down on the page, there will be a console log. 
+Additionally, lower down on the page, there will be a console log.
