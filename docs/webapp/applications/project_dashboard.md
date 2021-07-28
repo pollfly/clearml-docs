@@ -26,7 +26,7 @@ To launch a Project Dashboard instance:
     
 Once the app launched, a few plots appear: 
 * **Task status** - pie chart of the task status percentages in the project
-* **Tag summary** - pie chart of tag percentages in the projects
+* **Tag summary** - pie chart presenting the percentages of development experiments vs. agent experiments 
 * **Experiments** - Plot of tasks and their statuses$$$ 
 * **Monitoring** - Monitoring of GPU utilization and GPU memory usage
 * **Metric Monitoring** - Monitoring of the specified metric throughout the project's experiments
