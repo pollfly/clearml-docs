@@ -9,6 +9,9 @@ This is a wizard to make it more accessible to execute hyperparameter optimizati
 of finding the parameters that create the best results in an experiment. ClearML supports hyperparameter optimization 
 in its SDK (see [Hyperparameter Optimization](../../fundamentals/hpo.md))
 
+![Hyperparameter Optimization App](../../img/webapp_apps_hpo.png)
+
+
 ## Launching a hyperparameter optimization instance
 
 To launch an AWS auto-scaler instance:
