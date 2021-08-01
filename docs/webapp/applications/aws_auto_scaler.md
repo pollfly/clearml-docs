@@ -2,13 +2,9 @@
 title: AWS Auto-Scaler
 ---
 
-The AWS auto-scaler application is a GUI app to optimize AWS EC2 instance scaling according to the instance types and budget 
-configured. 
-
-In the app, use a wizard to input configurations for the auto-scaler according to your budget, and then ClearML does the rest 
-and creates the instance.
-
-
+The AWS Auto-Scaler Application is a GUI to optimize AWS EC2 instance scaling according to the instance types and budget 
+configured. Use the app's wizard to input configurations for the auto-scaler according to your budget, and then ClearML 
+does the rest and creates the instance.
 
 ## Launching an instance 
 
@@ -44,14 +40,8 @@ To launch an AWS auto-scaler instance:
  - **Init script** - A bash script to execute when creating an instance, before ClearML Agent executes
  - **Custom Configuration** - A ClearML configuration file to use for executing experiments in ClearML Agent
 
-Once launched, the instance appears on the **APP INSTANCES** 
-list on the left column 
-
 
 ## Plots
-
-The app monitors your applications and can adjust instances based on the configurations that are specified. 
-Once launched, an auto-scaler task is created. 
 
 Once the app launched, a few plots appear: 
 * Workers - How many workers are in an idle state
