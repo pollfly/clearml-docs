@@ -4,6 +4,11 @@ title: ClearML Applications
 
 ClearML Applications are a new, experimental approach for extending ClearML functionality.
 
+package features available in ClearML with a UI interface.
+
+Allowing you to take any Task in the system and make it an "application" (a python script running on one of the service agents), 
+with the ability to configure it with a wizard (wizard definition is a json defining the diff steps, and mapping into the Task parameters/configuration), and allow you to add reports as well (with the same Task logger interface).
+
 The applications are a collection of wizards that offer a variety of functionalities where users don't have to 
 handle code.
 
