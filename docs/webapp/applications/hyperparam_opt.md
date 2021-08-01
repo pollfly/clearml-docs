@@ -2,49 +2,51 @@
 title: Hyperparameter Optimization
 ---
 
-A UI wizard for performing optimization with ability to specify an optimization strategy, targets, parameter values and ranges, 
-and experiment and time limits
+The Hyperparameter Optimization Application is a GUI for finding the parameters that create the best results in an experiment--without
+handling any code! 
 
-This is a wizard to make it more accessible to execute hyperparameter optimization. Hyperparameter optimization is the process
-of finding the parameters that create the best results in an experiment. ClearML supports hyperparameter optimization 
-in its SDK (see [Hyperparameter Optimization](../../fundamentals/hpo.md))
+Use the app's wizard to specify an optimization strategy, targets, parameeter values and ranges, 
+and experiment and time limits. Then the app does the rest: enqueueing clones of the base task with different parameter values, 
+then monitoring the results in order to find the optimal parameter values.
 
 ![Hyperparameter Optimization App](../../img/webapp_apps_hpo.png)
 
+## Launching a Hyperparameter Optimization App instance
 
-## Launching a hyperparameter optimization instance
-
-To launch an AWS auto-scaler instance:
-1. Go into the AWS Auto-Scaler App
+To launch a Hyperparameter Optimization instance:
+1. Navigate to the Hyperparameter Optimization App
 1. Click <img src="/docs/latest/icons/ico-add.svg" alt="add instance" className="icon size-sm space-sm" />
 1. Insert configurations:
-  - **Name** - App instance name 
-  - **Base Task ID** - ID of the task whose hyperparameters are going to be optimized
-  - **Optimization Strategy** - choose a strategy from a drop down menu (e.g. random, grid, Optuna)
-  - **Concurrent Tasks** - maximum number of concurrent tasks
-  - **Title** - title of metric to optimize
-  - **Series** - series of metric to optimize
-  - **Sign** - choose optimization goal, whether to maximize or minimize the metric value
-  - **Queue** - queue to enqueue tasks to (make sure an agent/s is assigned to that queue) 
-  - **Discrete Parameters** 
-    - **Parameter** - parameter name (include section name, e.g. `Args/lr`)
-    - **Values** - list specific values to try, separated by commas 
-  - **Uniform Parameters**
-    - **Parameter** - parameter name (include section name, e.g. `Args/batch_size`)
-    - **Minimum Value** - minimum value of the parameter 
-    - **Maximum Value** - maximum value of the parameter
-    - **Step Size** - step size between parameter values
-  - **Max Experiments** - maximum number of experiments per parameter 
-  - **Experiments to save** - number of top experiments to save
-  - **Time Limit** - time limit (in minutes) per experiment
-  - **Min Iterations** - minimum iterations per experiment
-  - **Max iterations** - maximum iterations per experiment 
+    - **Name** - App instance name 
+    - **Base Task ID** - ID of the task whose hyperparameters are going to be optimized
+    - **Optimization Strategy** - Choose a strategy from the drop down menu (e.g. random, grid, Optuna)
+    - **Concurrent Tasks** - Maximum number of concurrent tasks
+    - **Title** - Title of metric to maximize / minimize
+    - **Series** - Series of metric to maximize / minimize
+    - **Sign** - Choose optimization goal, whether to maximize or minimize the metric value
+    - **Queue** - Execution queue to enqueue tasks (make sure an agent/s is assigned to that queue) 
+    - **Discrete Parameters** 
+        - **Parameter** - Parameter name (include section name, e.g. `Args/lr`)
+        - **Values** - List specific parameter values to try, separated by commas 
+    - **Uniform Parameters**
+        - **Parameter** - Parameter name (include section name, e.g. `Args/batch_size`)
+        - **Minimum Value** - Minimum value of the parameter 
+        - **Maximum Value** - Maximum value of the parameter
+        - **Step Size** - Step size between parameter values
+    - **Max Experiments** - Maximum number of experiments per parameter 
+    - **Experiments to save** - Number of experiments to save. This number of experiments with the best results are saved, 
+      the rest are archived
+    - **Time Limit** - Time limit (in minutes) per experiment
+    - **Min Iterations** - Minimum iterations per experiment
+    - **Max iterations** - Maximum iterations per experiment 
+    - **Max Optimization Time** - Time limit (in minutes) of whole optimization process 
 
 ### Plots
 Once launched, a few plots will appear in the app:
-* Optimization objective  
-* Summary - A tabular summary of the optimization results 
-* Budget - Presents remaining budget percentage compute time, iterations, and jobs over iteration number  
-* Resources - Number of workers listening to the execution queue and the number of running tasks over iteration number 
-* metrics
+* **Optimization Objective** -  Scatter plot presenting the values of the metric being maximized / minimized, over iteration number
+* **Summary** - Tabular summary of the optimization results, which includes the metric and parameter values. 
+* **Budget** - Remaining budget percentages for compute time, iterations, and jobs  
+* **Resources** - Number of workers listening to the execution queue, and the number of running tasks over iteration number 
+* **Metric** - Last reported and maximum / minimum values of metric being maximized / minimized, over iteration number
+
 
