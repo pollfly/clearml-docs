@@ -16,6 +16,7 @@ The applications include:
   targets, parameter values and ranges, and experiment and time limits
 * [Nvidia Clara](nvidia_clara.md) - Create an instance of Clara, Nvidia's framework for healthcare and life sciences developers
 * [Project Dashboard](project_dashboard.md) - Monitor a project's progress, a metric’s statistics, and GPU and worker usage. The app also supports Slack alerts for task failure. 
+* [Cleanup Service](cleanup_app.md) - Delete old archived experiments after a specified period of time
 
 ## App layout
 
