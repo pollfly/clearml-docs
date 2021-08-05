@@ -2,11 +2,9 @@
 title: ClearML Applications
 ---
 
-ClearML Applications are a new, experimental approach for extending ClearML functionality.
-The applications are a collection of wizards that offer a variety of functionalities where users don't have to 
-handle code. Allowing you to take any Task in the system and make it an "application" (a python script running on one of the service agents), 
-with the ability to configure it with a wizard, and allow you to add reports as well (with the same Task logger interface).
-
+ClearML Applications are a new, experimental approach for extending ClearML functionalities where users don't have to 
+handle code. Each application includes a wizard where configurations are input and then ClearML launches an instance of the 
+application and monitors its performance.
 
 ![ClearML Applications main page](../../img/webapp_apps_overview.png)
 
@@ -19,25 +17,25 @@ The applications include:
 
 ## App layout
 
-Once entering an app, the app is split into a left column and the main section of the app. 
+When navigating to an app page, the page is split into the left column and the main section of the app. 
 
-In the left column of the app appears a list of all the **APP INSTANCES** that were launched. From there, new instances can 
-be created and [app actions](#app-actions) can be accessed.
+In the left column of the app appears a list of all the **APP INSTANCES** that were launched. From there, new instances 
+can be created and [app actions](#app-actions) can be accessed.
 
-When an app instance is chosen on the list on the left, app results appear on the main part of the 
+When an app instance is selected on the list on the left, the instance's results appear on the main section of the 
 page. Once an app is launched, the page presents information about the instance, including
 plots and console logs. 
 
 ## App actions
 
-Hover over an app instance in the instance list, and click the menu button <img src="/docs/latest/icons/ico-dots-v-menu.svg" alt="dots menu" className="icon size-sm space-sm" /> 
+Hover over an app instance in the app page's left column, and click the menu button <img src="/docs/latest/icons/ico-dots-v-menu.svg" alt="dots menu" className="icon size-sm space-sm" /> 
 that appears in order to access app actions. 
 
 |button|action|
 |--|--|
-|<img src="/docs/latest/icons/ico-settings.svg" alt="settings" className="icon size-sm space-sm" /> | See the instance configurations and update configurations |
-|<img src="/docs/latest/icons/ico-status-aborted.svg" alt="stop" className="icon size-sm space-sm" /> |Abort instance |
+|<img src="/docs/latest/icons/ico-settings.svg" alt="settings" className="icon size-sm space-sm" /> | See the instance's configurations |
+|<img src="/docs/latest/icons/ico-status-aborted.svg" alt="stop" className="icon size-sm space-sm" /> | Abort instance |
 |<img src="/docs/latest/icons/ico-clone.svg" alt="clone" className="icon size-sm space-sm" /> | Clone instance |
-|<img src="/docs/latest/icons/ico-trash.svg" alt="garbage" className="icon size-sm space-sm" />|Delete instance |
+|<img src="/docs/latest/icons/ico-trash.svg" alt="garbage" className="icon size-sm space-sm" />| Delete instance |
 
 
