@@ -15,8 +15,8 @@ The applications include:
 * [Hyperparameter optimization](hyperparam_opt.md) - Perform optimization with ability to specify an optimization strategy, 
   targets, parameter values and ranges, and experiment and time limits
 * [Nvidia Clara](nvidia_clara.md) - Create an instance of Clara, Nvidia's framework for healthcare and life sciences developers
-* [Project Dashboard](project_dashboard.md) - Monitor a project's progress, a metric’s statistics, and GPU and worker usage. The app also supports Slack alerts for task failure. 
-
+* [Project Dashboard](project_dashboard.md) - Monitor a project's progress, a metric’s statistics, and GPU and worker usage. The app also supports Slack alerts for task failure.
+* [Job Policy Controller](job_policy_app.md) - Monitor and control execution queues 
 ## App layout
 
 Once entering an app, the app is split into a left column and the main section of the app. 
