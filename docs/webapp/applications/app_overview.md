@@ -9,11 +9,11 @@ application and monitors its performance.
 ![ClearML Applications main page](../../img/webapp_apps_overview.png)
 
 The applications include:
-* [AWS auto-scaler](aws_auto_scaler.md) - Optimize AWS EC2 instance scaling according to the instance types and budget configured 
-* [Hyperparameter optimization](hyperparam_opt.md) - Perform optimization with ability to specify an optimization strategy, 
+* [AWS auto-scaler](aws_auto_scaler) - Optimize AWS EC2 instance scaling according to the instance types and budget configured 
+* [Hyperparameter optimization](hyperparam_opt) - Perform optimization with ability to specify an optimization strategy, 
   targets, parameter values and ranges, and experiment and time limits
-* [Nvidia Clara](nvidia_clara.md) - Create an instance of Clara, Nvidia's framework for healthcare and life sciences developers
-* [Project Dashboard](project_dashboard.md) - Monitor a project's progress, a metric’s statistics, and GPU and worker usage. The app also supports Slack alerts for task failure. 
+* [Nvidia Clara](nvidia_clara) - Create an instance of Clara, Nvidia's framework for healthcare and life sciences developers
+* [Project Dashboard](project_dashboard) - Monitor a project's progress, a metric’s statistics, and GPU and worker usage. The app also supports Slack alerts for task failure. 
 
 ## App layout
 
