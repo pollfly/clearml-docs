@@ -3,9 +3,8 @@ title: Cleanup Service
 ---
 
 The Cleanup Service Application is a GUI for deleting old archived experiments and their artifacts and models.
-This helps in maintaining an organized workspace by deleting experiments that haven't been archived
-for a specified amount of times. 
-
+This helps in maintaining an organized workspace by deleting experiments that have been archived
+for a specified amount of time.
 
 ## Launching a Cleanup Service instance
 
@@ -21,5 +20,5 @@ To launch a Cleanup Service instance:
         * **Delete Artifacts** - Choose whether to delete artifacts and models of tasks that are deleted
    
 
-Once the instance is launched, you will be able to see **Total deleted experiments** 
-and **Experiments deleted last iteration**. 
+Once the instance is launched, you will be able to see the **Total deleted experiments** of the instance, 
+and the number of **Experiments deleted last iteration**. 
