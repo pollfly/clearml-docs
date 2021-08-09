@@ -8,8 +8,6 @@ configured.
 Use the app's wizard to input configurations for the auto-scaler according to your budget. ClearML 
 then creates and monitors the instance.
 
-[AWS auto-scaler app]($$INSERT_IMAGE)
-
 ## Launching an AWS auto-scaler instance 
 
 To launch an AWS auto-scaler instance:
