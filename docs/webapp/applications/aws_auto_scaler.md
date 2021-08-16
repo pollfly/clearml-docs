@@ -51,5 +51,5 @@ Once the app launched, a few plots will appear in the app:
 
 ## Console
 
-Under the plots, a log will appear with all of the app's console outputs. 
+The complete experiment log containing everything printed to stdout and strerr appears in the console log below the plots.
 
