@@ -35,7 +35,8 @@ module.exports = {
             'webapp/webapp_profile', 'webapp/webapp_workers_queues',
             {
                 'Applications': ['webapp/applications/app_overview', 'webapp/applications/aws_auto_scaler',
-                    'webapp/applications/hyperparam_opt', 'webapp/applications/nvidia_clara', 'webapp/applications/project_dashboard'
+                    'webapp/applications/hyperparam_opt', 'webapp/applications/nvidia_clara', 'webapp/applications/project_dashboard',
+                    'webapp/applications/cleanup_app'
                 ]
             }
             ]
