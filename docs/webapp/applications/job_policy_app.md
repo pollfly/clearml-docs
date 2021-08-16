@@ -24,7 +24,8 @@ queue**.
         * **Reserved jobs** - Number of jobs reserved for this queue
         * **Maximum jobs** - Maximum number of jobs for this queue
         * **+ Add item** - Configure another queue to monitor
-   
+1. Click **LAUNCH NEW**
+
 ## Plots
 
 Once the app instance is launched a few plots will appear in the app's main area:
