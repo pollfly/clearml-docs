@@ -14,7 +14,7 @@ instances and their status in the app Dashboard.
 ## Launching an AWS Autoscaler App Instance 
 
 To launch an AWS Autoscaler instance:
-1. Navigate to the AWS Auto-Scaler App
+1. Navigate to the AWS Autoscaler App
 1. Click <img src="/docs/latest/icons/ico-add.svg" alt="add instance" className="icon size-sm space-sm" />
 1. Insert configurations:
    - **App Instance Name**  
@@ -27,16 +27,18 @@ To launch an AWS Autoscaler instance:
    - **Queue Polling Interval** - How often the autoscaler polls queues for tasks (in minutes). If there aren't enough resources 
      to execute the tasks, new instances are spun up. 
    - **Docker Image** - Default Docker image used to run experiments in
-   - **Resource List** - Configure the machine types for the autoscaler$$
+   - **Resource List** - Configure the machine types that will be auto-scaled
       - **Resource Name** - Assign a name to the EC2 instance type. For example 'aws4gpu'. 
       - **Max Instances** - Maximum number of concurrent instances of this type to spin
-      - **Queue Name** - Queue associated with the instance type. The tasks enqueued to this queue will be executed by this instance type 
+      - **Queue Name** - Queue associated with the instance type. The tasks enqueued to this queue will be executed by 
+        this instance type 
       - **EC2 Type** - See [Instance Types](https://aws.amazon.com/ec2/instance-types) for full list of types
-      - **Availability Zone** - See [availability zone](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html#Concepts.RegionsAndAvailabilityZones.AvailabilityZones) options
+      - **Availability Zone** - See [availability zone](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html#Concepts.RegionsAndAvailabilityZones.AvailabilityZones) 
+        options
       - **AMI** - Amazon Machine Image ID
       - **EBS Device** - Disc mount point
       - **EBS Volume Size** - Disc size in GB
-      - **Instance Key Pair**
+      - **Instance Key Pair** - The Amazon key pair name
       - **Security Group ID** - Amazon Security Group IDs separated by commas
       - **Use Spot Instance** - Check box to use a spot instance. Else, a reserved instance is used
       - **+ Add Item** - Configure another queue

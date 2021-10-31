@@ -19,23 +19,25 @@ To launch a Project Dashboard instance:
 1. Navigate to the Project Dashboard App
 1. Click <img src="/docs/latest/icons/ico-add.svg" alt="add instance" className="icon size-sm space-sm" />
 1. Insert configurations:
-    * **App Instance Name** 
-    * **Project** - Name of project to monitor
-    * **Metric Title** - Title of metric to track
-    * **Metric Series** - Metric series (variant) to track
-    * **Metric Sign** - Choose whether to track the metric's maximum or minimum value
-    * **Refresh Rate** - Dashboard's refresh rate in seconds
-    * **Slack API Token** - Token for Slack workspace for the purpose of sending alerts about task failure (optional)
-    * **Channel** - Slack channel to receive task failure alerts (optional) 
-    * **Min Iterations** - Minimum iterations to trigger Slack alerts about task failure
+    * **Monitored Project Name** - Name of project on server to monitor
+    * **Monitored Metric - Title** - Title of metric to track
+    * **Monitored Metric - Series** - Metric series (variant) to track
+    * **Monitored Metric - Trend** - Choose whether to track the monitored metric's highest or lowest values
+    * **Dashboard Title** - Name of app instance, which will appear in the instance list
+    * **Slack Integration API Token** - Token for Slack workspace for the purpose of sending alerts about task failure (optional)
+    * **Slack Integration - Channel Name** - Slack channel to receive task failure alerts (optional) 
+    * **Slack Integration - Report Iteration Threshold** - Minimum number of iterations to trigger Slack alerts about 
+      task failure
+* Click **Launch New**
    
-### Plots 
+## Plots 
 
-Once the app is launched, a few plots appear in the dashboard: 
-* **Task Status** - Pie chart of the task status percentages in the project
-* **Tag Summary** - Pie chart of the percentages of development experiments vs. agent experiments 
-* **Experiments** - Number of tasks per status over iteration number 
+Once the app is launched, a few plots appear in the app's dashboard: 
+* **Task Status Summary** - Pie chart of the task statuses in the project
+* **Task Type Summary** - Pie chart of the percentages of development experiments vs. agent experiments 
+* **Experiments Summary** - Number of tasks per status over iteration number 
 * **Monitoring** - GPU utilization and GPU memory usage
-* **Metric Monitoring** - Values of the specified metric over the dashboard's iterations
-* **Active Workers** - Number active workers
+* **Metric Monitoring** - Values of the specified metric over iterations
+* **Project's Active Workers** - Number active workers
 * **Workers Table** - List of active workers
+* **Failed Experiments** - Table of failed experiments and their time of failure

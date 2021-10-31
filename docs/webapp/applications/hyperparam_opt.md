@@ -16,16 +16,12 @@ then monitoring the results in order to find the optimal parameter values.
 To launch a Hyperparameter Optimization instance:
 1. Click <img src="/docs/latest/icons/ico-add.svg" alt="add instance" className="icon size-sm space-sm" />
 1. Insert configurations:
-    - **App Instance Name** - Name that will appear in the **APP INSTANCE** list 
     - **Base Task ID** - ID of the task whose hyperparameters will be optimized
-    - **Target Project** - Name of project where optimization tasks will be saved. If the project doesn't exist, it will 
-      be created on-the-fly
     - **Optimization Strategy** - Choose an optimization framework or strategy from the drop down menu (e.g. random, 
       grid, Optuna)
-    - **Concurrent Tasks** - Maximum number of concurrent tasks
-    - **Metric Title** - Title of metric to optimize
-    - **Metric Series** - Metric series (variant) to optimize
-    - **Optimization Objective** - Choose the optimization target, whether to maximize or minimize the value of the metric
+    - **Optimization Objective Metric Title** - Title of metric to optimize
+    - **Optimization Objective Metric Series** - Metric series (variant) to optimize
+    - **Optimization Objective Trend** - Choose the optimization target, whether to maximize or minimize the value of the metric
       specified above
     - **Execution Queue** - Queue for enqueuing optimization tasks (make sure an agent is assigned to that queue) 
     - **Discrete Parameters** - A list of discrete parameters and values to sample
@@ -35,12 +31,17 @@ To launch a Hyperparameter Optimization instance:
         - **Parameter** - Parameter name. Include section name (e.g. `Args/batch_size`)
         - **Minimum Value** and **Maximum Value** of parameter
         - **Step Size** - Step size between parameter values
-    - **Max Experiments** - Maximum total number of optimization experiments 
+    - **Optimization Job Title** -  Instance name that will appear in the **APP INSTANCE** list 
+    - **Optimization Process Project** - Name of project where optimization tasks will be saved. If the project doesn't exist, it will 
+      be created on-the-fly
+    - **Maximum Concurrent Tasks** - Maximum number of concurrent tasks
+    - **Maximum Number of Experiments** - Maximum total number of optimization experiments 
     - **Experiments to Save** - Number of best performing experiments to save (the rest are archived).
     - **Time Limit** - Time limit per experiment (in minutes)
-    - **Min Iterations** - Minimum iterations per experiment before stopping
-    - **Max Iterations** - Maximum iterations per experiment 
-    - **Max Optimization Time** - Max time in minutes of whole optimization process (leave empty for no time limit)
+    - **Minimal Iterations** - Minimum iterations per experiment before stopping
+    - **Maximum Iterations** - Maximum iterations per experiment 
+    - **Maximum Optimization Time** - Maximum time in minutes of whole optimization process (leave empty for no time 
+      limit)
 1. Click **LAUNCH NEW**
 
 ### Plots

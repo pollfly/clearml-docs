@@ -2,24 +2,24 @@
 title: ClearML Applications
 ---
 
-ClearML Applications are a new, experimental approach for extending ClearML's functionalities with no need to 
-handle code. Input configurations into an application's wizard and then ClearML will launch an instance of the 
-application and monitor its performance.
+ClearML Applications extend ClearML's functionalities to manage ML workloads with no need to handle code. Users can 
+input configurations in each app's GUI wizard in order to easily launch an application instance and monitor its 
+performance.
 
 ![ClearML Applications main page](../../img/webapp_apps_overview.png)
 
 The applications include:
-* [AWS Autoscaler](aws_auto_scaler) - Optimize AWS EC2 instance scaling according to the instance types and budget 
-* [Hyperparameter Optimization](hyperparam_opt) - Find the parameter values that lead to the best performing models, 
+* [AWS Autoscaler](aws_auto_scaler.md) - Optimize AWS EC2 instance scaling according to the instance types and budget 
+* [Hyperparameter Optimization](hyperparam_opt.md) - Find the parameter values that lead to the best performing models, 
   according to a configured metric objective and optimization strategy.
-* [Nvidia Clara](nvidia_clara) - Easily configure and use Clara, Nvidia's framework for healthcare and life sciences 
+* [Nvidia Clara](nvidia_clara.md) - Easily configure and use Clara, Nvidia's framework for healthcare and life sciences 
   developers
-* [Project Dashboard](project_dashboard) - Monitor a project's progress, a metric’s statistics, and GPU and worker usage. The app also supports Slack alerts about task failure 
+* [Project Dashboard](project_dashboard.md) - Monitor a project's progress, a metric’s statistics, and GPU and worker usage. The app also supports Slack alerts about task failure 
 
 ## App Layout
 
 When navigating to an application page, the page is split into two sections:
-* **App Instances** list - on the left column of the app page. From there, navigate between app instances, create new 
+* **App Instance** list - on the left column of the app page. From there, navigate between app instances, create new 
   instances, and access [app actions](#app-actions). 
   
 * Dashboard - the main section of the app page, to the right of the instance list. When an app instance is selected from 
