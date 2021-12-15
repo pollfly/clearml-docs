@@ -8,14 +8,14 @@ Each application has an application template (which defines the inputs and visua
 Running an application creates a new application instance with its own name and configuration.
 Behind the scenes, each application instance is actually a Task in ClearML.
 
-# Application overview
+## Application Overview
 
 Application have 2 main sections:
 
 1. Wizard - This is where the user configures the application itself.
 1. Dashboard - This is where the application visualizes information. It can hold text, scalar metrics, plots and more!
 
-# Defining an Application
+## Defining an Application
 
 An application contains a multiple components:
 1. python code (single file or multiple files)
@@ -24,7 +24,7 @@ An application contains a multiple components:
 1. assets folder containing the application's assets such as preview and icon 
 
 
-# Defining an app.conf file
+## Defining an app.conf File
 
 Every app.conf file is divided into 4 sections:
 
@@ -33,9 +33,9 @@ Every app.conf file is divided into 4 sections:
 1. Wizard - contains wizard's input fields definitions
 1. Dashboard - contains the dashboard's visualizations. Which plots will be shown and where.
 
-## General Section
+### General Section
 
-This section define general information about the application such as its name, description, icon, etc...
+This section defines the application's general information, such as its name, description, icon, etc.
 
 1. **id** - application id, each application requires a unique a id
 1. **version** - version for internal tracking (formatted x.x.x)
@@ -47,6 +47,7 @@ This section define general information about the application such as its name, 
 1. **details_page** - task or project. For debug purposes, should be disabled when released.
 1. **no_info_image** - path to a placeholder image that demonstrates how the application's dashboard would look like after running the application.
 1. **no_info_html** - path to a placeholder HTML that demonstrates how the application's dashboard would look like after running the application. Comes instead of the *no_info_image*. 
+
 ```yaml
 id: "my_app"
 version: "1.0.0"
@@ -59,7 +60,7 @@ details_page: "task"
 no_info_image: "apps_assets/apps-dashboard-preview.svg"
 ```
 
-## Task
+### Task
 The task section defines the actual application code.
 
 **Sections**
@@ -96,7 +97,7 @@ task {
 
 TODO - Show example of python code defining parameters, and then how to override them from this section.
 
-## Wizard
+### Wizard
 TODO HERE COMES A WIZARD IMAGE with title, hint, placeholder, info
 
 The wizard is the application developer's way of allowing users to configure its application. It is comprised of entries.
@@ -151,7 +152,8 @@ wizard {
                   and [predefined](https://clear.ml/docs/latest/docs/references/api/definitions#taskssection_params) Task fields, such as name
     - *section* - hyperparam section, Args \ General or custom section. these sections are defined in the application's python code.
     - *name* - name of the specific field
-### Targets
+
+#### Targets
 The ClearML application wizard saves the inputs provided by the users into objects in the underlying application Task.
 There are 3 possible targets:
 1. **hyperparam** - This is the simplest target, it is a hyperparameter that is overriden by the application, just like in the [task section](#task)
@@ -190,11 +192,11 @@ There are 3 possible targets:
    }
    ```
    :::note
-    Modifying the Task's name will modify the Application instance name in the UI
-    :::  
+   Modifying the Task's name will modify the Application instance name in the UI
+   :::  
  
 
-### Types
+#### Types
 1. native types - integer, string, float
 1. dropdown - a dropdown list of possible choices, an entry should be defined with a *choices* field:
 ```yaml
@@ -257,7 +259,7 @@ There are 3 possible targets:
 1. checkbox
 1. multiline_text
 
-## Dashboard
+### Dashboard
 The dashboard configures the visual outputs of the application.
 (TODO - Add image of the dashboard)
 The dashboard is broken into line, and each line can have multiple widgets in it.
@@ -297,14 +299,14 @@ dashboard {
 }
 ```
 
-### Widget Fields
+#### Widget Fields
 1. **title** - Name of the field, will appear above it in the dashboard
 1. **type**  - Widget type, supported types are: scalar-histogram, plot and html, debug-images, log, hyperparams (section, name), configuration(name) (TODO - Ask shy if it's working)
 1. **metric** - Title of metric reported by the Application Task. Relevant for scalar-histogram and plot
 1. **variant** - Series of metric reported by the Application Task. Relevant for scalar-histogram and plot
 1. **text** - Text to display, Relevant for HTML widgets.
 
-### Widget Types
+#### Widget Types
 There are 3 types of widgets
 1. **scalar-histogram** - these are scalars reported to the Application's Task. 
     ```yaml
@@ -330,7 +332,7 @@ Each widget shows a single scalar from the Application Task and it's possible ch
 1. **text** - this is a textbox. It's possible to add HTML tags to the text.
 (TODO - Image of the text box)
 
-## Multiline text
+### Multiline text
 For convenience, when writing long texts (in the *info* section for example), you can break it into multiple lines by wrapping like this """text""".
 This applies for any fields that show text such as *description*, *info* and *hint*.
 ```yaml
