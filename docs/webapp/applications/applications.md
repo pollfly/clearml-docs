@@ -1,5 +1,5 @@
 ---
-title: ClearML Applications
+title: Custom Applications
 ---
 
 Applications are a method to extend ClearML's functionality with the help of a simple UI wizard and a visualization dashboard.
