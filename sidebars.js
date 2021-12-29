@@ -17,34 +17,32 @@ module.exports = {
             'fundamentals/hpo', 'fundamentals/pipelines']},
         'clearml_sdk',
         'clearml_agent',
-        {'CLI Tools': ['apps/clearml_session', 'apps/clearml_task']},
         {'ClearML Data': ['clearml_data/clearml_data', 'clearml_data/clearml_data_cli', 'clearml_data/clearml_data_sdk', 'clearml_data/best_practices',
                 {'Workflows': ['clearml_data/data_management_examples/workflows', 'clearml_data/data_management_examples/data_man_simple', 'clearml_data/data_management_examples/data_man_folder_sync', 'clearml_data/data_management_examples/data_man_cifar_classification', 'clearml_data/data_management_examples/data_man_python']},]},
+        {'CLI Tools': ['apps/clearml_session', 'apps/clearml_task']},
         {'Integrations': ['integrations/libraries', 'integrations/storage']},
 
-        {'WebApp': ['webapp/webapp_overview', 'webapp/webapp_home',
-            {
-                'Projects': [
-                    'webapp/webapp_projects_page',
-                    'webapp/webapp_project_overview',
-                    {
-                        'Experiments': ['webapp/webapp_exp_table', 'webapp/webapp_exp_track_visual', 'webapp/webapp_exp_reproducing', 'webapp/webapp_exp_tuning',
-                            'webapp/webapp_exp_comparing', 'webapp/webapp_exp_sharing']
-                    },
-                    {'Models': ['webapp/webapp_model_table', 'webapp/webapp_model_viewing', 'webapp/webapp_model_modifying']},
-                    'webapp/webapp_archiving']
-            },
-            'webapp/webapp_profile',
-            'webapp/webapp_workers_queues',
-            {
-                'Applications': [
-                    'webapp/applications/app_overview', 'webapp/applications/aws_auto_scaler', 'webapp/applications/hyperparam_opt',
-                    'webapp/applications/nvidia_clara', 'webapp/applications/project_dashboard', 'webapp/applications/applications']
-            }
+        {
+            'WebApp': ['webapp/webapp_overview', 'webapp/webapp_home',
+                {
+                    'Projects': [
+                        'webapp/webapp_projects_page',
+                        'webapp/webapp_project_overview',
+                        {
+                            'Experiments': ['webapp/webapp_exp_table', 'webapp/webapp_exp_track_visual', 'webapp/webapp_exp_reproducing', 'webapp/webapp_exp_tuning',
+                                'webapp/webapp_exp_comparing', 'webapp/webapp_exp_sharing']
+                        },
+                        {'Models': ['webapp/webapp_model_table', 'webapp/webapp_model_viewing', 'webapp/webapp_model_modifying']},
+                        'webapp/webapp_archiving']
+                },
+                'webapp/webapp_profile',
+                'webapp/webapp_workers_queues',
+                'webapp/applications/app_overview',
             ]
         },
 
         {'Configurations': ['configs/configuring_clearml', 'configs/clearml_conf', 'configs/env_vars']},
+
         //'References': ['references/clearml_ref','references/clearml_agent_ref'],
         {'ClearML Server': ['deploying_clearml/clearml_server',
             {
@@ -59,7 +57,7 @@ module.exports = {
                     'deploying_clearml/clearml_server_es7_migration']
             },
             'deploying_clearml/clearml_server_config', 'deploying_clearml/clearml_config_for_clearml_server', 'deploying_clearml/clearml_server_security'
-        ]}
+        ]},
 
         //'Comments': ['Notes'],
 
