@@ -11,13 +11,14 @@ in the UI and send it for long-term training on a remote machine.
 
 **If you are not that lucky**, this section is for you :)
 
-## What does ClearML Session do?
-`clearml-session` is a feature that allows to launch a session of Jupyterlab and VS Code, and to execute code on a remote 
+## What Does ClearML Session Do?
+`clearml-session` is a feature that allows to launch a session of JupyterLab and VS Code, and to execute code on a remote 
 machine that better meets resource needs. With this feature, local links are provided, which can be used to access 
-JupyterLab and VS Code on a remote machine over a secure and encrypted SSH connection.
+JupyterLab and VS Code on a remote machine over a secure and encrypted SSH connection. By default, the JupyterLab and 
+VS Code remote sessions use ports 8878 and 8898 respectively. 
 
 <details className="cml-expansion-panel screenshot">
-<summary className="cml-expansion-panel-summary">Jupyter-Lab Window</summary>
+<summary className="cml-expansion-panel-summary">JupyterLab Window</summary>
 <div className="cml-expansion-panel-content">
 
 ![image](../img/session_jupyter.png)
@@ -36,12 +37,10 @@ JupyterLab and VS Code on a remote machine over a secure and encrypted SSH conne
 </div>
 </details>
 
-<!--![image](../img/clearml_session_jupyter.png)-->
-
 ## How it Works
 
 ClearML allows to leverage a resource (e.g. GPU or CPU machine) by utilizing the [ClearML Agent](../clearml_agent).
-A ClearML Agent will run on a target machine, and ClearML Session will instruct it to execute the Jupyter \ VS Code 
+A ClearML Agent will run on a target machine, and ClearML Session will instruct it to execute the Jupyter / VS Code 
 server to develop remotely.
 After entering a `clearml-session` command with all specifications: 
 
@@ -73,18 +72,18 @@ After entering a `clearml-session` command with all specifications:
 To run a session inside a Docker container, use the `--docker` flag and enter the docker image to use in the interactive 
 session.
 
-### Installing requirements
+### Installing Requirements
 `clearml-session` can install required Python packages when setting up the remote environment. A `requirement.txt` file 
 can be attached to the command using `--requirements </file/location.txt>`.
 Alternatively, packages can be manually specified, using `--packages "<package_name>"` 
 (for example `--packages "keras" "clearml"`), and they'll be automatically installed.
 
-### Accessing a git repository
+### Accessing a Git Repository
 To access a git repository remotely, add a `--git-credentials` flag and set it to `true`, so the local .git-credentials 
 file will be sent to the interactive session. This is helpful if working on private git repositories, and it allows for seamless 
 cloning and tracking of git references, including untracked changes. 
 
-### Re-launching and shutting down sessions 
+### Re-launching and Shutting Down Sessions 
 If a `clearml-session` was launched locally and is still running on a remote machine, users can easily reconnect to it.
 To reconnect to a previous session, execute `clearml-session` with no additional flags, and the option of reconnecting 
 to an existing session will show up: 
@@ -105,7 +104,7 @@ Connect to session [0-1] or 'N' to skip
 To shut down a remote session, which will free the `clearml-agent` and close the CLI, enter "Shutdown". If a session 
 is shutdown, there is no option to reconnect to it. 
 
-### Connecting to an existing session
+### Connecting to an Existing Session
 If a `clearml-session` is running remotely, it's possible to continue working on the session from any machine. 
 When `clearml-session` is launched, it initializes a task with a unique ID in the ClearML Server. 
 
@@ -116,7 +115,7 @@ To connect to an existing session:
 1. Click on the JupyterLab / VS Code link that is outputted, or connect directly to the SSH session
 
 
-### Starting a debugging session 
+### Starting a Debugging Session 
 Previously executed experiments in the ClearML system can be debugged on a remote interactive session. 
 Input into `clearml-session` the ID of a Task to debug, then `clearml-session` clones the experiment's git repository and 
 replicates the environment on a remote machine. Then the code can be interactively executed and debugged on JupyterLab / VS Code. 
@@ -132,13 +131,13 @@ The Task must be connected to a git repository, since currently single script de
 1. In JupyterLab / VS Code, access the experiment's repository in the `environment/task_repository` folder. 
 
 
-### Command line options
+### Command Line Options
 
 <div className="tbl-cmd">
 
 | Command line options | Description | Default value |
 |-----|---|---|
-| `--jupyter-lab` | Download a Jupyter-Lab environment | `true` |
+| `--jupyter-lab` | Download a JupyterLab environment | `true` |
 | `--vscode-server` | Download a VSCode environment | `true` |
 | `--public-ip` | Register the public IP of the remote machine (if you are running the session on a public cloud) | Session runs on the machine whose agent is executing the session|
 | `--init-script` | Specify a BASH init script file to be executed when the interactive session is being set up | `none` or previously entered BASH script |
@@ -147,8 +146,8 @@ The Task must be connected to a git repository, since currently single script de
 | `--remote-gateway` | Specify a gateway IP to pass to the interactive session, if an external address needs to be accessed | `none`|
 | `--base-task-id` | Pass the ID of a task that will become the base task, so the session will use its configurations | `none` or the previously entered base task |
 | `--disable-keepalive` | Disable transparent proxy that keep sockets alive to maintain the connection to the remote resource | `false` | 
-| `--queue-excluded-tag` | The queue option list will exclude queues with specified tags. See the `tags` parameter in the [queues.create](../references/api/endpoints#post-queuescreate) API call | `none` |
-| `--queue-include-tag` | The queue option list will include only queues with specified tags. See the `tags` parameter in the [queues.create](../references/api/endpoints#post-queuescreate) API call | `none` |
+| `--queue-excluded-tag` | The queue option list will exclude queues with specified tags. See the `tags` parameter in the [queues.create](../references/api/queues.md#post-queuescreate) API call | `none` |
+| `--queue-include-tag` | The queue option list will include only queues with specified tags. See the `tags` parameter in the [queues.create](../references/api/queues.md#post-queuescreate) API call | `none` |
 | `--skip-docker-network` | Pass the `--network host` flag to the Docker that is launching the remote session. See [Networking using the host network](https://docs.docker.com/network/network-tutorial-host/) | `false`|
 | `--username`| Set your own SSH username for the interactive session | `root` or a previously used username | 
 | `--password`| Set your own SSH password for the interactive session | A randomly generated password or a previously used one |

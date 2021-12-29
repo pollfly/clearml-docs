@@ -8,7 +8,7 @@ Metadata can be customized as needed using: **meta** dictionaries:
 
 ## Usage 
 
-### Adding Frame metadata
+### Adding Frame Metadata
 
 When instantiating a Frame, metadata that applies for the entire frame can be
 added as an argument.
@@ -28,9 +28,9 @@ frame = SingleFrame(
 frame.metadata['dangerous'] = 'no'
 ```
 
-### Adding ROI metadata
+### Adding ROI Metadata
 
-Metadata can be added to individual ROIs when adding an annotation to a `frame`, using the `add_annotation`
+Metadata can be added to individual ROIs when adding an annotation to a `frame`, using the [`SingleFrame.add_annotation`](../references/hyperdataset/singleframe.md#add_annotation)
 method. 
 
 ```python

@@ -1,10 +1,10 @@
 ---
-title: Tuning experiments
+title: Tuning Experiments
 ---
 
 Tune experiments and edit an experiment's execution details, then execute the tuned experiments on local or remote machines.
 
-## To tune an experiment and execute it remotely:
+## To Tune an Experiment and Execute it Remotely:
 
 1. Locate the experiment. Open the experiment's Project page from the Home page or the main Projects page.
 
@@ -32,7 +32,7 @@ Tune experiments and edit an experiment's execution details, then execute the tu
     The experiment's status becomes *Pending*. When the worker assigned to the queue fetches the Task (experiment), the
    status becomes *Running*. The experiment can now be tracked and its results visualized.
 
-## Modifying experiments
+## Modifying Experiments
 
 Experiments whose status is *Draft* are editable (see the [user properties](#user-properties) exception). In the **ClearML
 Web UI**, edit any of the following
@@ -51,11 +51,11 @@ User parameters are editable in any experiment, except experiments whose status 
 * [Initial weight input model](#initial-weights-input-model)
 * [Output destination for artifacts storage](#output-destination)
 
-### Execution details
+### Execution Details
 
 
 
-#### Source code
+#### Source Code
 
 Select source code by changing any of the following:
 
@@ -70,8 +70,8 @@ Select source code by changing any of the following:
 
 
 
-#### Base Docker image
-Select a pre-configured Docker that **ClearML Agent** will use to remotely execute this experiment (see [Building Docker containers](../clearml_agent.md#building-docker-containers)).
+#### Base Docker Image
+Select a pre-configured Docker that **ClearML Agent** will use to remotely execute this experiment (see [Building Docker containers](../clearml_agent.md#exporting-a-task-into-a-standalone-docker-container)).
 
 **To add, change, or delete a base Docker image:**
 
@@ -80,7 +80,7 @@ Select a pre-configured Docker that **ClearML Agent** will use to remotely execu
 
 
 
-#### Output destination
+#### Output Destination
 
 Set an output destination for model checkpoints (snapshots) and other artifacts. Examples of supported types of destinations
 and formats for specifying locations include:
@@ -95,14 +95,15 @@ and formats for specifying locations include:
 * In **EXECUTION** **>** **OUTPUT** > **DESTINATION** **>** hover **>** **EDIT** **>** edit **>** **SAVE**.
 
 
-:::note
+:::note Set Output Destination for Artifacts
 Also set the output destination for artifacts in code (see the `output_uri` parameter of the
-[Task.init](../references/sdk/task.md#classmethod-initproject_namenone-task_namenone-task_typetasktypestraining-training-tagsnone-reuse_last_task_idtrue-continue_last_taskfalse-output_urinone-auto_connect_arg_parsertrue-auto_connect_frameworkstrue-auto_resource_monitoringtrue-auto_connect_streamstrue)
-method), and in the **ClearML** configuration file for all experiments (see [default_output_uri](../configs/clearml_conf#config_default_output_uri)
+[Task.init](../references/sdk/task.md#taskinit)
+method), and in the **ClearML** configuration file 
+for all experiments (see [default_output_uri](../configs/clearml_conf.md#config_default_output_uri)
 on the **ClearML** Configuration Reference page).
 :::
 
-#### Log level
+#### Log Level
 
 Set a logging level for the experiment (see the standard Python [logging levels](https://docs.python.org/3/howto/logging.html#logging-levels)).
 
@@ -129,11 +130,11 @@ Add, change, or delete hyperparameters, which are organized in the **ClearML Web
 * **TF_DEFINE** - TensorFlow definitions (from code, TF_DEFINEs automatic logging).
 
 * **General** - Parameter dictionaries (from code, connected to the Task by calling the [Task.connect](../references/sdk/task.md#connect)
-  method.
+  method).
 
 * Environment variables - Tracked if the `CLEARML_LOG_ENVIRONMENT` environment variable was set (see this [FAQ](../faq#track-env-vars)).
 
-* Custom named parameter groups - see the `name` parameter in [Task.connect](../references/sdk/task.md#connectmutable-namenone).
+* Custom named parameter groups (see the `name` parameter in [Task.connect](../references/sdk/task.md#connect)).
 
 **To add, change, or delete hyperparameters:**
 
@@ -142,7 +143,7 @@ Add, change, or delete hyperparameters, which are organized in the **ClearML Web
 
 
 
-#### User properties
+#### User Properties
 
 User properties allow storing any descriptive information in key-value pair format. They are editable in any experiment,
 except experiments whose status is *Published* (read-only).
@@ -154,7 +155,7 @@ except experiments whose status is *Published* (read-only).
 
 
 
-#### Configuration objects
+#### Configuration Objects
 
 :::important
 In older versions of **ClearML Server**, the Task model configuration appeared in the **ARTIFACTS** tab **>** **MODEL
@@ -168,7 +169,7 @@ CONFIGURATION** section. Task model configurations now appear in **CONFIGURATION
 
 ### Artifacts
 
-### Initial weights input model
+### Initial Weights Input Model
 
 Edit model configuration and label enumeration, choose a different initial input weight model for the same project or any
 other project, or remove the model.
@@ -190,7 +191,7 @@ model in the **MODELS** tab.
 1. Edit the model configuration or label enumeration.
 
     * Model configuration - In the **NETWORK** tab **>** Hover and click **EDIT**. **>** CLick **EDIT** or **CLEAR** (to
-      remove the configuration
+      remove the configuration).
 
        Users can also search for the configuration (hover over the configuration textbox, the search box appears) and copy the
       configuration to the clipboard (hover and click <img src="/docs/latest/icons/ico-clipboard.svg" alt="Copy Clipboard" className="icon size-md" />).

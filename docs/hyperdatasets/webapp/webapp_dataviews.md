@@ -2,7 +2,7 @@
 title: Dataviews Table
 ---
 
-[Dataviews](../dataviews.mda) appear in the same Project as the experiment that stored the Dataview in the ClearML Enterprise platform, 
+[Dataviews](../dataviews.md) appear in the same Project as the experiment that stored the Dataview in the ClearML Enterprise platform, 
 as well as the **DATAVIEWS** tab in the **All Projects** page.
 
 The **Dataviews table** is a [customizable](#customizing-the-dataviews-table) list of Dataviews associated with a project.
@@ -19,7 +19,7 @@ to a new position.
 * **CREATED** - Elapsed time since the Dataview was created.
 * **DESCRIPTION**
 
-## Customizing the Dataviews table
+## Customizing the Dataviews Table
 
 The Dataviews table can be customized. Changes are persistent (cached in the browser), and represented in the URL. 
 Save customized settings in a browser bookmark, and share the URL with teammates.
@@ -38,12 +38,12 @@ The following Dataviews-table customizations are saved on a **per project** basi
 * Active sort order
 * Active filters
 
-If a project has sub-projects, the Dataviews can be viewed by their sub-project groupings or together with 
+If a project has subprojects, the Dataviews can be viewed by their subproject groupings or together with 
 all the Dataviews in the project. The customizations of these two views are saved separately. 
 :::
 
 
-## Dataview actions
+## Dataview Actions
 
 The following table describes the actions that can be performed from the Dataviews table. 
 
@@ -66,7 +66,7 @@ The same information can be found in the bottom menu, in a tooltip that appears 
 ![Dataviews table batch operations](../../img/webapp_dataview_table_batch_operations.png)
 
 
-## Viewing, adding, and editing Dataviews
+## Viewing, Adding, and Editing Dataviews
 
 **To view, add, or edit a Dataview:**
 

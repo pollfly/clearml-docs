@@ -31,11 +31,11 @@ and **ClearML Server** needs to be installed.
 
 * Read/write permissions for the default **Trains Server** data directory `/opt/clearml/data` and its subdirectories, or, 
   if this default directory is not used, the permissions for the directory and subdirectories that are used.
-* A minimum of 8GB system RAM.
+* A minimum of 8 GB system RAM.
 * Minimum free disk space of at least 30% plus two times the size of the data.
 * Python version >=2.7 or >=3.6, and Python accessible from the command-line as `python`
 
-### Migrating the data
+### Migrating the Data
 
 **To migrate the data:**
 
@@ -43,20 +43,28 @@ and **ClearML Server** needs to be installed.
 
     * **Linux and macOS**
     
-            docker-compose -f /opt/trains/docker-compose.yml down
-    
+        ```bash
+        docker-compose -f /opt/trains/docker-compose.yml down
+        ```
+   
     * **Windows**
-    
-            docker-compose -f c:\opt\trains\docker-compose-win10.yml down
+            
+        ```bash
+        docker-compose -f c:\opt\trains\docker-compose-win10.yml down
+        ```
             
     * **Kubernetes**
+        
+        ```bash
+        kubectl delete -k overlays/current_version
+        ```
     
-            kubectl delete -k overlays/current_version
-            
     * **Kubernetes using Helm**
     
-            helm del --purge trains-server
-            kubectl delete namespace trains            
+        ```bash
+        helm del --purge trains-server
+        kubectl delete namespace trains          
+        ```      
             
 1. For **Kubernetes** and **Kubernetes using Helm**, connect to the node in the Kubernetes cluster labeled `app=trains`.
                 
@@ -74,11 +82,13 @@ and **ClearML Server** needs to be installed.
 
     * **Linux, macOS, and Windows** - if managing own containers.
     
-        Run the migration script. If elevated privileges are used to run Docker (`sudo` in Linux, or admin in Windows), 
+      Run the migration script. If elevated privileges are used to run Docker (`sudo` in Linux, or admin in Windows), 
       then use elevated privileges to run the migration script.
     
-            python elastic_upgrade.py [-s|--source <source_path>] [-t|--target <target_path>] [-n|--no-backup] [-p|--parallel]
-    
+      ```bash
+      python elastic_upgrade.py [-s|--source <source_path>] [-t|--target <target_path>] [-n|--no-backup] [-p|--parallel]
+      ``` 
+      
         The following optional command line parameters can be used to control the execution of the migration script:           
     
         * `<source_path>` - The path to the Elasticsearch data directory in the current **Trains Server** deployment.  
@@ -125,13 +135,13 @@ and **ClearML Server** needs to be installed.
 
                 kubectl get jobs -n upgrade-elastic                                   
 
-### Finishing up
+### Finishing Up
 
 To finish up: 
 1. Verify the data migration
 1. Conclude the upgrade.
 
-#### Step 1. Verifying the data migration
+#### Step 1. Verifying the Data Migration
 
 Upon successful completion, the migration script renames the original **Trains Server** directory, which contains the now 
 migrated data, and prints a completion message:
@@ -150,7 +160,7 @@ For help in resolving migration issues, check the **allegro-clearml** [Slack Cha
 [GitHub Issues](https://github.com/allegroai/clearml-server/issues), and the **ClearML Server** sections of the [FAQ](../faq.md).     
 :::
     
-#### Step 2. Completing the installation
+#### Step 2. Completing the Installation
 
 After verifying the data migration completed successfully, conclude the **ClearML Server** installation process.
 
@@ -203,9 +213,9 @@ For backwards compatibility, the environment variables ``TRAINS_HOST_IP``, ``TRA
         docker-compose -f /opt/clearml/docker-compose.yml pull
         docker-compose -f /opt/clearml/docker-compose.yml up -d
 
-If issues arise during the upgrade, see the FAQ page, [How do I fix Docker upgrade errors?](../faq#common-docker-upgrade-errors).
+If issues arise during the upgrade, see the FAQ page, [How do I fix Docker upgrade errors?](../faq.md#common-docker-upgrade-errors).
 
-##### Other deployment formats
+##### Other Deployment Formats
 
 To conclude the upgrade for deployment formats other than Linux, follow their upgrade instructions: 
  

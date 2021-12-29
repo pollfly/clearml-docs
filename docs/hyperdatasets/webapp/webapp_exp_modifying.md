@@ -6,8 +6,8 @@ An experiment that has been executed can be [cloned](../../webapp/webapp_exp_rep
 execution details can be modified, and the modified experiment can be executed. 
 
 In addition to all the [**ClearML** tuning capabilities](../../webapp/webapp_exp_tuning.md), the **ClearML Enterprise WebApp** (UI) 
-enables modifying Dataviews, including: 
-* [Selected Dataview](#selected-dataview)
+enables modifying [Dataviews](webapp_dataviews.md), including: 
+* [Selected Dataview](#selecting-dataviews)
 * [Dataset versions](#selecting-dataset-versions)
 * [Frame filtering](#filtering-frames)
 * [Label mapping](#mapping-labels-label-translation)
@@ -15,16 +15,13 @@ enables modifying Dataviews, including:
 * [Data augmentation](#data-augmentation)
 * [Input frame iteration controls](#iteration-controls)
 
-
-The selection and control of input data can be modified in *Draft* experiments that are not [development experiments](../task.md#development-experiments). 
-Do this by modifying the Dataview used by the experiment. The Dataview specifies the Dataset versions from which frames 
-are iterated and frame filters (see [Dataviews](webapp_dataviews.md).   
+## Selecting Dataviews
 
 **To choose a Dataview**, do any of the following:
 
 * Create a new Dataview  
     
-    * Click **+** and then follow the instructions below to select Dataset versions, filter frames, map labels (label translation), 
+    * Click **+** and then follow the instructions below to select Hyper-Dataset versions, filter frames, map labels (label translation), 
       and set label enumeration, data augmentation, and iteration controls.
       
 * Select a different Dataview already associated with the experiment. 
@@ -33,14 +30,14 @@ are iterated and frame filters (see [Dataviews](webapp_dataviews.md).
   
 * Import a different Dataview associated with the same or another project.  
     
-    * Click <img src="/docs/latest/icons/ico-import.svg" className="icon size-md space-sm" /> (**Import dataview**) and then 
-      select **Import to current dataview** or **Import to aux dataview**.
+    * Click <img src="/docs/latest/icons/ico-import.svg" alt="Import" className="icon size-md space-sm" /> (**Import dataview**) and then 
+      select **Import to current dataview** or **Import as aux dataview**.
       
 :::note
 After importing a Dataview, it can be renamed and / or removed. 
 :::
 
-### Selecting Dataset versions
+### Selecting Dataset Versions
 
 To input data from a different data source or different version of a data source, select a different Dataset version used 
 by the Dataview.
@@ -62,7 +59,7 @@ by the Dataview.
 
 1. Click **SAVE**.
    
-## Filtering frames
+## Filtering Frames
 
 Filtering of SingleFrames iterated by a Dataview for input to the experiment is accomplished by frame filters. 
 For more detailed information, see [Filtering](../dataviews.md#filtering).
@@ -72,7 +69,7 @@ For more detailed information, see [Filtering](../dataviews.md#filtering).
 1. In the **FILTERING** area, click **EDIT**.
 1. For each frame filter:
 
-    1. Select the Dataset version to which the frame filter applies.
+    1. Select the Hyper-Dataset version to which the frame filter applies.
     1. Add, change, or remove any combination of the following rules:
     
         * ROI rule - Include or exclude frames containing any single ROI with any combination of labels in the Dataset 
@@ -85,7 +82,7 @@ For more detailed information, see [Filtering](../dataviews.md#filtering).
 
 1. Click **SAVE**.
     
-## Mapping labels (label translation)
+## Mapping Labels (Label Translation)
 
 Modify the ROI label mapping rules, which translate one or more input labels to another label for the output model. Labels 
 that are not mapped are ignored. 
@@ -95,17 +92,17 @@ that are not mapped are ignored.
 1. In the **MAPPING** section, click **EDIT**
     * Add (**+**) or edit a mapping:
       
-        1. Select the Dataset and version whose labels will be mapped.
+        1. Select the Hyper-Dataset and version whose labels will be mapped.
       
         1. Select one or more labels to map.
       
         1. Select or enter the label to map to in the output model.
     
-    * Remove (<img src="/docs/latest/icons/ico-trash.svg" className="icon size-md space-sm" />) a mapping.
+    * Remove (<img src="/docs/latest/icons/ico-trash.svg" alt="Trash" className="icon size-md space-sm" />) a mapping.
 
 1. Click **SAVE**
 
-## Label enumeration
+## Label Enumeration
 
 Modify the label enumeration assigned to output models.
 
@@ -117,13 +114,13 @@ Modify the label enumeration assigned to output models.
     
         * Select a label and then enter an integer for it.
     
-    * Remove (<img src="/docs/latest/icons/ico-trash.svg" className="icon size-md space-sm" />)  an enumeration.
+    * Remove (<img src="/docs/latest/icons/ico-trash.svg" alt="Trash" className="icon size-md space-sm" />)  an enumeration.
 
 1. Click **SAVE**.
 
-## Data augmentation
+## Data Augmentation
 
-Modify the on-the-fly data augmentation applied to frames input from the select Dataset versions and filtered by the frame filters. Data augmentation is applied in steps, where each step applies a method, operation, and strength.
+Modify the on-the-fly data augmentation applied to frame input from the select Hyper-Dataset versions and filtered by the frame filters. Data augmentation is applied in steps, where each step applies a method, operation, and strength.
  
 For more detailed information, see [Data Augmentation](../dataviews.md#data-augmentation).
 
@@ -133,11 +130,11 @@ For more detailed information, see [Data Augmentation](../dataviews.md#data-augm
 
     * Add (**+**) or edit an augmentation step - Select a **METHOD**, **OPERATION**, and **STRENGTH**.
         
-    * Remove (<img src="/docs/latest/icons/ico-trash.svg" className="icon size-md space-sm" />)  an augmentation step.
+    * Remove (<img src="/docs/latest/icons/ico-trash.svg" alt="Trash" className="icon size-md space-sm" />)  an augmentation step.
     
 1. Click **SAVE**.    
     
-## Iteration controls
+## Iteration Controls
 
 Modify the frame iteration performed by the Dataview to control the order, number, timing, and reproducibility of frames 
 for training.
@@ -161,7 +158,7 @@ For more detailed information, see [Iteration Control](../dataviews.md#iteration
          
     * **Infinite Iterations**
         
-1. Select the **RANDOM SEED** - If the experiment is rerun and the seed remains unchanged, the frames iteration is the same.
+1. Select the **RANDOM SEED** - If the experiment is rerun and the seed remains unchanged, the frame iteration is the same.
 
 1. For video, enter a **CLIP LENGTH** - For video data sources, in the number of sequential frames from a clip to iterate.
 

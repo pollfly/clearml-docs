@@ -25,7 +25,7 @@ The **ClearML Web UI** provides a deep experiment comparison, allowing to locate
 
 The **ClearML** experiment comparison provides [comparison features](#comparison-features) making it easy to compare experiments.
 
-## Selecting experiments to compare
+## Selecting Experiments to Compare
 
 **To select experiments to compare:**
 
@@ -45,7 +45,7 @@ The **DETAILS** tab includes deep comparisons of the following:
    * Output model and model design.
    * Other artifacts, if any.
 
-### Execution details
+### Execution Details
    * The Source code - repository, branch, commit ID, script file name, and working directory.
    * Uncommitted changes, sorted by file name.
    * Installed Python packages and versions, sorted by package name.
@@ -55,10 +55,10 @@ The **DETAILS** tab includes deep comparisons of the following:
 sorted by sections.
 
 
-### To locate the source differences:
+### To Locate the Source Differences:
 
-* Click the **DETAILS** tab **>** Expand highlighted sections, or, in the header, click <img src="/docs/latest/icons/ico-previous-diff.svg" alt="Previous diff" className="icon size-md" />
-  (Previous diff) or <img src="/docs/latest/icons/ico-next-diff.svg" alt="next difference" className="icon size-md space-sm" /> (Next diff).
+* Click the **DETAILS** tab **>** Expand highlighted sections, or, in the header, click <img src="/docs/latest/icons/ico-previous-diff.svg" alt="Up arrow" className="icon size-md" />
+  (Previous diff) or <img src="/docs/latest/icons/ico-next-diff.svg" alt="Down arrow" className="icon size-md space-sm" /> (Next diff).
 
 For example, in the image below, expanding **ARTIFACTS** **>** **Output Model** **>** **Model** shows that the model ID
 and name are different.
@@ -71,7 +71,7 @@ and name are different.
 
 Compare hyperparameters as values, or compare by metric (hyperparameter parallel coordinate comparison).
 
-### Values mode
+### Values Mode
 
 The Values mode is a side-by-side comparison that shows hyperparameter value differences highlighted line-by-line.
 
@@ -81,15 +81,15 @@ The Values mode is a side-by-side comparison that shows hyperparameter value dif
 1. In the dropdown menu (on the upper left, next to **+ Add Experiments**), choose **Values**.
 1. To show only differences, move the **Hide Identical Fields** slider to on.
 1. Locate differences by either:
-    * Clicking <img src="/docs/latest/icons/ico-previous-diff.svg" className="icon size-md space-sm" /> (Previous diff) or
-      <img src="/docs/latest/icons/ico-next-diff.svg" className="icon size-md space-sm" /> (Next diff).
+    * Clicking <img src="/docs/latest/icons/ico-previous-diff.svg" alt="Up arrow" className="icon size-md space-sm" /> (Previous diff) or
+      <img src="/docs/latest/icons/ico-next-diff.svg" alt="Down arrow" className="icon size-md space-sm" /> (Next diff).
     * Scrolling to see highlighted hyperparameters.
 
 For example, expanding **General** shows that the `batch_size` and `epochs` differ between the experiments.
 
 ![image](../img/webapp_compare_10.png)
 
-### Parallel Coordinates mode
+### Parallel Coordinates Mode
 
 In the Parallel Coordinates mode, compare a metric to any combination of hyperparameters using a parallel coordinates plot.
 
@@ -120,20 +120,20 @@ Hover over one of the experiment names in the legend, and the plot shows only th
 
 Visualize the comparison of scalars, which includes metrics and monitored resources in the **SCALARS** tab.
 
-### Compare specific values
+### Compare Specific Values
 
 **To compare specific values:**
 
 1. Click the **SCALARS** tab.
 1. In the dropdown menu (upper right of the left sidebar), choose either:
-    * **Last values** (the final or most recent value)
+    * **Last Values** (the final or most recent value)
     * **Min Values** (the minimal values)
     * **Max Values** (the maximal values)
 1. Sort by variant.
 
 ![image](../img/webapp_exp_comparing_scalars.png)
 
-### Compare scalar series
+### Compare Scalar Series
 
 Compare scalar series in plots and analyze differences using **ClearML Web UI** plot tools.
 
@@ -187,13 +187,13 @@ in the **PLOTS** tab.
 
 
 
-## Debug samples
+## Debug Samples
 
 Compare debug samples at any iteration to verify that an experiment is running as expected. The most recent iteration appears
 first. Use the viewer / player to inspect images, audio, video samples and do any of the following:
 * Move to the same sample in a different iteration (move the iteration slider).
 * Show the next or previous iteration's sample.
-* Download the file <img src="/docs/latest/icons/ico-download-json.svg" className="icon size-md space-sm" />.
+* Download the file <img src="/docs/latest/icons/ico-download-json.svg" alt="Download" className="icon size-md space-sm" />.
 * Zoom.
 * View the sample's iteration number, width, height, and coordinates.
 
@@ -203,8 +203,8 @@ first. Use the viewer / player to inspect images, audio, video samples and do an
 1. Locate debug samples by doing the following:
 
     * Filter by metric. In the **Metric** list, choose a metric.
-    * Show other iterations. Click <img src="/docs/latest/icons/ico-circle-older.svg" className="icon size-md space-sm" /> (Older images),
-      <img src="/docs/latest/icons/ico-circle-newer.svg" className="icon size-md space-sm" /> (New images), or <img src="/docs/latest/icons/ico-circle-newest.svg" className="icon size-md space-sm" /> (Newest images).
+    * Show other iterations. Click <img src="/docs/latest/icons/ico-circle-older.svg" alt="Left arrow" className="icon size-md space-sm" /> (Older images),
+      <img src="/docs/latest/icons/ico-circle-newer.svg" alt="Right arrow" className="icon size-md space-sm" /> (New images), or <img src="/docs/latest/icons/ico-circle-newest.svg" alt="right arrow, newest image" className="icon size-md space-sm" /> (Newest images).
 
     ![image](../img/webapp_compare_30.png)
 
@@ -212,8 +212,8 @@ first. Use the viewer / player to inspect images, audio, video samples and do an
 
     ![image](../img/webapp_compare_31.png)
 
-1. To move to the same sample in another iteration, click <img src="/docs/latest/icons/ico-previous.svg" className="icon size-md space-sm" />
-   (previous), <img src="/docs/latest/icons/ico-next.svg" className="icon size-md space-sm" /> (next), or move the slider.
+1. To move to the same sample in another iteration, click <img src="/docs/latest/icons/ico-previous.svg" alt="Left arrow" className="icon size-md space-sm" />
+   (previous), <img src="/docs/latest/icons/ico-next.svg" alt="Right arrow" className="icon size-md space-sm" /> (next), or move the slider.
 
 **To view a debug sample in the viewer / player:**
 
@@ -222,11 +222,11 @@ first. Use the viewer / player to inspect images, audio, video samples and do an
 1. Do any of the following:
 
     * Move to the same sample in another iteration - Move the slider, or click **<** (previous) or **>** (next).
-    * Download the file - Click  <img src="/docs/latest/icons/ico-download-json.svg" className="icon size-md space-sm" />.
+    * Download the file - Click  <img src="/docs/latest/icons/ico-download-json.svg" alt="Download" className="icon size-md space-sm" />.
     * Zoom
     * For images, locate a position on the sample - Hover over the sample and the X, Y coordinates appear in the legend below the sample.
 
-## Comparison features
+## Comparison Features
 
 To assist in experiment analysis, the comparison page supports:
 
@@ -241,7 +241,7 @@ To assist in experiment analysis, the comparison page supports:
 
 
 
-### Adding experiments to the comparison
+### Adding Experiments to the Comparison
 
 Add an experiment to the comparison - Click **Add Experiment** and start typing an experiment name. An experiment search
 and select dialog appears showing matching experiments to choose from. To add an experiment, click **+**. To Remove
@@ -251,49 +251,49 @@ an experiment, click <img src="/docs/latest/icons/ico-trash.svg" alt="Trash" cla
 
 
 
-### Finding the next or previous difference
+### Finding the Next or Previous Difference
 
-* Find the previous difference <img src="/docs/latest/icons/ico-previous-diff.svg" className="icon size-md space-sm" />, or
-  the next difference <img src="/docs/latest/icons/ico-next-diff.svg" className="icon size-md space-sm" />.
+* Find the previous difference <img src="/docs/latest/icons/ico-previous-diff.svg" alt="Up arrow" className="icon size-md space-sm" />, or
+  the next difference <img src="/docs/latest/icons/ico-next-diff.svg" alt="Down arrow" className="icon size-md space-sm" />.
 
 
 
-### Hiding identical fields
+### Hiding Identical Fields
 
 Move the **Hide Identical Fields** slider to "on" mode to see only fields that are different.
 
 
 
-### Searching all text
+### Searching All Text
 
 Search all text in the comparison.
 
 
 
-### Choosing a different base experiment
+### Choosing a Different Base Experiment
 
 Show differences in other experiments in reference to a new base experiment. To set a new base experiment, do one of the following:
-* Click on <img src="/docs/latest/icons/ico-switch-base.svg" className="icon size-md space-sm" /> on the top right of the experiment that will be the new base.
-* Click on <img src="/docs/latest/icons/ico-pan.svg" className="icon size-md space-sm" /> the new base experiment and drag it all the way to the left
+* Click on <img src="/docs/latest/icons/ico-switch-base.svg" alt="Switch base" className="icon size-md space-sm" /> on the top right of the experiment that will be the new base.
+* Click on <img src="/docs/latest/icons/ico-pan.svg" alt="Pan" className="icon size-md space-sm" /> the new base experiment and drag it all the way to the left
 
 ![image](../img/webapp_compare_22.png)
 
 
 
-### Dynamic ordering of the compared experiments
+### Dynamic Ordering of the Compared Experiments
 
-To reorder the experiments being compared, press <img src="/docs/latest/icons/ico-pan.svg" className="icon size-md space-sm" /> on the top right of the experiment that
+To reorder the experiments being compared, press <img src="/docs/latest/icons/ico-pan.svg" alt="Pan" className="icon size-md space-sm" /> on the top right of the experiment that
   needs to be moved, and drag the experiment to its new position.
 
 ![image](../img/webapp_compare_21.png)
 
-### Removing an experiment from the comparison
-Remove an experiment from the comparison, by pressing <img src="/docs/latest/icons/ico-remove-compare.svg" className="icon size-md space-sm" />
+### Removing an Experiment from the Comparison
+Remove an experiment from the comparison, by pressing <img src="/docs/latest/icons/ico-remove-compare.svg" alt="Minus" className="icon size-md space-sm" />
 on the top right of the experiment that needs to be removed.
 
 ![image](../img/webapp_compare_23.png)
 
-### Sharing experiments
+### Sharing Experiments
 
 To share a comparison table, copy the full URL from the address bar and send it to a teammate to collaborate. They will
 get the exact same page (including selected tabs etc.).

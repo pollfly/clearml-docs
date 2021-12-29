@@ -13,7 +13,7 @@ on a remote or local machine, from the remote repository and from a local script
 
 - [allegroai/events](https://github.com/allegroai/events) repository cloned (for local script execution)
 
-### Executing code from a remote repository 
+### Executing Code from a Remote Repository 
 
 ``` bash
 clearml-task --project keras_examples --name remote_test --repo https://github.com/allegroai/events.git --script /webinar-0620/keras_mnist.py --args batch_size=64 epochs=1 --queue default
@@ -49,15 +49,15 @@ Task id=2f96ee95b05d4693b360d0fcbb26b727 sent for execution on queue default
 Execution log at: https://app.community.clear.ml/projects/552d5399112d47029c146d5248570295/experiments/2f96ee95b05d4693b360d0fcbb26b727/output/log
 ```
 
-:::note
-**clearml-task** automatically finds the requirements.txt file in remote repositories. 
+:::note Adding Requirements
+`clearml-task` automatically finds the requirements.txt file in remote repositories. 
 If a remote repo does not have such a file, make sure to either add one with all the required Python packages, 
-or add the **`--packages '<package_name>`** flag to the command.
+or add the `--packages "<package_name>"` flag to the command (for example: `--packages "tqdm>=2.1" "scikit-learn"`).
 ::: 
 <br />
 
 
-### Executing a local script
+### Executing a Local Script
 Using `clearml-task` to execute a local script is very similar to using it with a remote repo.
 
 For this example, we will be using a local version of this [script](https://github.com/allegroai/events/blob/master/webinar-0620/keras_mnist.py).

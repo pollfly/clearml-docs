@@ -9,13 +9,15 @@ ClearML is an open source platform that automates and simplifies developing and 
 It is designed as an end-to-end MLOps suite allowing you to focus on developing your ML code & automation, 
 while ClearML ensures your work is reproducible and scalable.
 
-## What can you do with ClearML?
+![Architecture diagram](../img/clearml_architecture.png)
+
+## What Can You Do with ClearML?
 
 - Track and upload metrics and models with only 2 lines of code
-- Create a bot that sends you a slack message whenever you model improves in accuracy
+- Create a bot that sends you a Slack message whenever your model improves in accuracy
 - Automatically scale AWS instances according to your resources needs
 - Reproduce experiments with 3 mouse clicks
-- Much More!
+- Much more!
 
 #### Who We Are
-ClearML is supported by you :heart: and by the team behind [allegro.ai](https://www.allegro.ai) , where we build even more MLOps for enterprise companies. 
+ClearML is supported by you :heart: and by the team behind [allegro.ai](https://www.allegro.ai) , where we build even more MLOps for enterprise companies.
