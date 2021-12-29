@@ -33,11 +33,7 @@ module.exports = {
                     'webapp/webapp_archiving']
             },
             'webapp/webapp_profile', 'webapp/webapp_workers_queues',
-            {
-                'Applications': ['webapp/applications/app_overview', 'webapp/applications/aws_auto_scaler',
-                    'webapp/applications/hyperparam_opt', 'webapp/applications/nvidia_clara', 'webapp/applications/project_dashboard'
-                ]
-            }
+            'webapp/applications/app_overview'
             ]
         },
         {'Configurations': ['configs/clearml_conf', 'configs/env_vars']},
