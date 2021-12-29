@@ -37,7 +37,7 @@ module.exports = {
                 },
                 'webapp/webapp_profile',
                 'webapp/webapp_workers_queues',
-                'webapp/applications/app_overview',
+                {'Applications':['webapp/applications/app_overview', 'webapp/applications/applications']}
             ]
         },
 

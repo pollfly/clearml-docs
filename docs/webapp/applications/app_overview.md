@@ -13,6 +13,7 @@ The applications include:
 * [Hyperparameter Optimization](#hyperparameter-optimization) - Find the parameter values that yield the best performing models.
 * [Nvidia Clara](#nvidia-clara) - Easily configure and use Clara, Nvidia's framework for healthcare and life sciences developers
 * [Project Dashboard](#project-dashboard) - Monitor a project's progress, and GPU and worker usage. The app also supports Slack alerts about task failure
+* **Custom** - Create your own application! See full reference [here](applications.md)
 
 ## App Layout
 

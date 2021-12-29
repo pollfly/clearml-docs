@@ -2,8 +2,6 @@
 title: Custom Applications
 ---
 
-Applications are a method to extend ClearML's functionality with the help of a simple UI wizard and a visualization dashboard.
-ClearML Provides a few applications out of the box.
 Each application has an application template (which defines the inputs and visualizations of the application).
 Running an application creates a new application instance with its own name and configuration.
 Behind the scenes, each application instance is actually a Task in ClearML.
@@ -20,7 +18,7 @@ Application have 2 main sections:
 An application contains a multiple components:
 1. python code (single file or multiple files)
 1. requirements.txt file for the python library dependencies
-1. app.conf file, defining the application's description, entry point, wizard fields, dashboard widgets and more
+1. `app.conf` file, defining the application's description, entry point, wizard fields, dashboard widgets and more
 1. assets folder containing the application's assets such as preview and icon 
 
 
