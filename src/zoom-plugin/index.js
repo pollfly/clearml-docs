@@ -1,17 +1,14 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+import path from 'path';
+import { Plugin } from '@docusaurus/types';
+import validatePeerDependencies from 'validate-peer-dependencies';
 
-const path = require('path');
+validatePeerDependencies(__dirname);
 
-module.exports = function(context, options) {
+module.exports = function (): Plugin {
   return {
     name: 'docusaurus-plugin-image-zoom',
 
-    getClientModules(options) {
+    getClientModules() {
       return [path.resolve(__dirname, './zoom')];
     },
   };

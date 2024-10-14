@@ -1,46 +1,73 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import siteConfig from '@generated/docusaurus.config';
-import mediumZoom from 'medium-zoom'
+import mediumZoom, { Zoom, ZoomOptions, ZoomSelector } from 'medium-zoom';
 
-const {themeConfig} = siteConfig;
+const { themeConfig } = siteConfig;
+
+type ZoomConfig = {
+  selector: ZoomSelector;
+  background: {
+    light: string;
+    dark: string;
+  };
+  config: ZoomOptions;
+};
+
+function getBackgroundColor(zoom: ZoomConfig) {
+  const isDarkMode = document.querySelector('html[data-theme="dark"]');
+
+  return isDarkMode
+    ? zoom.background?.dark || 'rgb(50, 50, 50)'
+    : zoom.background?.light || 'rgb(255, 255, 255)';
+}
 
 export default (function () {
+  if (typeof window === 'undefined') {
+    return null;
+  }
 
-    if (typeof window === 'undefined') {
-        return null;
+  let zoomObject: Zoom;
+
+  const { zoom }: { zoom?: ZoomConfig } = themeConfig;
+  const { selector = '.markdown img', config = {} } = zoom || ({} as ZoomConfig);
+
+  if (!zoom) {
+    return null;
+  }
+
+  config.background = getBackgroundColor(zoom);
+
+  var observer = new MutationObserver(function () {
+    if (!zoomObject) {
+      return;
     }
 
-    const selector = (themeConfig && themeConfig.zoomSelector) || '.markdown img';
+    zoomObject.update({ background: getBackgroundColor(zoom) });
+  });
 
-    setTimeout(() => {
-        mediumZoom(selector, {
-                margin: 48,
-                background: '#00000090',
-            }
-        );
-    }, 1000);
+  const htmlNode = document.querySelector('html');
 
+  observer.observe(htmlNode!, {
+    attributes: true,
+    attributeFilter: ['data-theme'],
+  });
 
-    return {
-        onRouteUpdate({location}) {
+  setTimeout(() => {
+    if (zoomObject) {
+      zoomObject.detach();
+    }
 
-            if (location && location.hash && location.hash.length) {
-                return;
-            }
+    zoomObject = mediumZoom(selector, config);
+  }, 1000);
 
-            setTimeout(() => {
-                mediumZoom(selector, {
-                    margin: 48,
-                    background: '#00000090',
-                });
-            }, 1000);
+  return {
+    onRouteUpdate() {
+      setTimeout(() => {
+        if (zoomObject) {
+          zoomObject.detach();
+        }
 
-        },
-    };
+        zoomObject = mediumZoom(selector, config);
+      }, 1000);
+    },
+  };
 })();
