@@ -29,4 +29,5 @@ on the task that will be the new base.
 * Hover and click <img src="/docs/latest/icons/ico-drag.svg" alt="Pan icon" className="icon size-md space-sm" /> on the new base task and drag it all the way to the left
 
 
-![Dataview comparison](../../img/hyperdatasets/web-app/compare_dataviews.png)
+![Dataview comparison](../../img/hyperdatasets/compare_dataviews.png#light-mode-only)
+![Dataview comparison](../../img/hyperdatasets/compare_dataviews_dark.png#dark-mode-only)
