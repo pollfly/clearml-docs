@@ -672,8 +672,8 @@ Torch Nightly builds are ephemeral and are deleted from time to time.
 
 **`agent.package_manager.uv_files_from_repo_working_dir`** (*bool*) 
 
-* If set to `true`, the agent will look for the `uv.lock` or `pyproject.toml` file in the passed current working 
-directory instead of the repository's root directory.
+* If set to `true`, the agent will look for the `uv.lock` or `pyproject.toml` file in provided directory path instead of 
+  the repository's root directory.
 
 ---
 
@@ -685,7 +685,7 @@ directory instead of the repository's root directory.
 
 **`agent.package_manager.uv_version`** (*string*)
 
-* The `uv` version to use. For example, `">0.4"`, `"==0.4"`, `""` (empty string will install the latest version).
+* The `uv` version requirements. For example, `">0.4"`, `"==0.4"`, `""` (empty string will install the latest version).
 
 
 <br/>
