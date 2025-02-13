@@ -2,7 +2,7 @@
 title: Pipeline from Decorators
 ---
 
-The [pipeline_from_decorator.py](https://github.com/allegroai/clearml/blob/master/examples/pipeline/pipeline_from_decorator.py) 
+The [pipeline_from_decorator.py](https://github.com/clearml/clearml/blob/master/examples/pipeline/pipeline_from_decorator.py) 
 example demonstrates the creation of a pipeline in ClearML using the [`PipelineDecorator`](../../references/sdk/automation_controller_pipelinecontroller.md#class-automationcontrollerpipelinedecorator)
 class. 
 
@@ -58,7 +58,7 @@ PipelineDecorator.set_default_execution_queue('default')
 # PipelineDecorator.debug_pipeline()
 
 executing_pipeline(
-    pickle_url='https://github.com/allegroai/events/raw/master/odsc20-east/generic/iris_dataset.pkl',
+    pickle_url='https://github.com/clearml/events/raw/master/odsc20-east/generic/iris_dataset.pkl',
 )
 ```
 
