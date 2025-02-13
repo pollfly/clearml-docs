@@ -672,7 +672,7 @@ Torch Nightly builds are ephemeral and are deleted from time to time.
 
 **`agent.package_manager.uv_files_from_repo_working_dir`** (*bool*) 
 
-* If set to `true`, the agent will look for the `uv.lock` or `pyproject.toml` file in provided directory path instead of 
+* If set to `true`, the agent will look for the `uv.lock` or `pyproject.toml` file in the provided directory path instead of 
   the repository's root directory.
 
 ---
