@@ -89,7 +89,7 @@ Calling `get_local_copy()` returns a local cached copy of the artifact. Therefor
 need to download the artifact again.
 Calling `get()` gets a deserialized pickled object.
 
-Check out the [artifacts retrieval](https://github.com/allegroai/clearml/blob/master/examples/reporting/artifacts_retrieval.py) example code.
+Check out the [artifacts retrieval](https://github.com/clearml/clearml/blob/master/examples/reporting/artifacts_retrieval.py) example code.
 
 ### Models
 
@@ -112,10 +112,10 @@ Now, whenever the framework (TensorFlow/Keras/PyTorch etc.) stores a snapshot, t
 Loading models by a framework is also logged by the system; these models appear in an experiment's **Artifacts** tab,
 under the "Input Models" section.
 
-Check out model snapshots examples for [TensorFlow](https://github.com/allegroai/clearml/blob/master/examples/frameworks/tensorflow/tensorflow_mnist.py),
-[PyTorch](https://github.com/allegroai/clearml/blob/master/examples/frameworks/pytorch/pytorch_mnist.py),
-[Keras](https://github.com/allegroai/clearml/blob/master/examples/frameworks/keras/keras_tensorboard.py),
-[scikit-learn](https://github.com/allegroai/clearml/blob/master/examples/frameworks/scikit-learn/sklearn_joblib_example.py).
+Check out model snapshots examples for [TensorFlow](https://github.com/clearml/clearml/blob/master/examples/frameworks/tensorflow/tensorflow_mnist.py),
+[PyTorch](https://github.com/clearml/clearml/blob/master/examples/frameworks/pytorch/pytorch_mnist.py),
+[Keras](https://github.com/clearml/clearml/blob/master/examples/frameworks/keras/keras_tensorboard.py),
+[scikit-learn](https://github.com/clearml/clearml/blob/master/examples/frameworks/scikit-learn/sklearn_joblib_example.py).
 
 #### Loading Models
 Loading a previously trained model is quite similar to loading artifacts.

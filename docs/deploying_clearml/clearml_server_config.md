@@ -101,7 +101,7 @@ The ClearML Server uses the following configuration files:
 * `services.conf`
 
 When starting up, the ClearML Server will look for these configuration files, in the `/opt/clearml/config` directory
-(this path can be modified using the `CLEARML_CONFIG_DIR` environment variable). The default configuration files are in the [clearml-server](https://github.com/allegroai/clearml-server/tree/master/apiserver/config/default) repository.
+(this path can be modified using the `CLEARML_CONFIG_DIR` environment variable). The default configuration files are in the [clearml-server](https://github.com/clearml/clearml-server/tree/master/apiserver/config/default) repository.
 
 If you want to modify server configuration, and the relevant configuration file doesn't exist, you can create the file, 
 and input the relevant modified configuration. 
