@@ -80,7 +80,6 @@ values from the file, which can be modified before launching the app instance
 
 <div class="max-w-65">
 
-![llama deployment app form](../../img/apps_llama_form.png#light-mode-only)
-![llama deployment app form](../../img/apps_llama_form.png#dark-mode-only)
+![llama deployment app form](../../img/apps_llama_form.png)
 
 </div>

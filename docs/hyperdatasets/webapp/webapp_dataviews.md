@@ -1,5 +1,5 @@
 ---
-title: The Dataview Table
+title: The Dataview table
 ---
 
 The **Dataview table** is a [customizable](#customizing-the-dataview-table) list of Dataviews associated with a project.
