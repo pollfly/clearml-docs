@@ -82,54 +82,59 @@ module.exports = {
       },
       items: [
         {
-          to: '/docs',
-          label: 'Docs',
+          to: '/docs/',
+          label: 'Overview',
           position: 'left',
         },
         {
-          to:'/docs/hyperdatasets/overview',
-          label: 'Hyper-Datasets',
-          position: 'left',
+          to: '/docs/deploying_clearml/clearml_server',
+          label: 'Setup',
+          position: 'left'
         },
-        // {to: 'tutorials', label: 'Tutorials', position: 'left'},
-        // Please keep GitHub link to the right for consistency.
-        {to: '/docs/guides', label: 'Examples', position: 'left'},
-        //{to: '/docs/references', label: 'API', position: 'left'},
         {
-          label: 'References',
+          to: '/docs/getting_started/auto_log_exp',
+          label: 'Using ClearML',
+          position: 'left'
+        },
+        {
+          label: 'Developer Center',
           position: 'left', // or 'right'
           items: [
             {
-              label: 'SDK',
+              label: 'ClearML Basics',
+              to: '/docs/fundamentals/projects',
+            },
+            {
+              label: 'References',
               to: '/docs/references/sdk/task',
             },
             {
-              label: 'ClearML Agent',
-              to: '/docs/clearml_agent/clearml_agent_ref',
+              label: 'Best Practices',
+              to: '/docs/getting_started/ds/best_practices'
             },
             {
-              label: 'Server API',
-              to: '/docs/references/api',
+              label: 'Tutorials',
+              to: '/docs/guides',
             },
             {
-              label: 'Hyper-Datasets',
-              to: '/docs/references/hyperdataset',
+              label: 'Integrations',
+              to: '/docs/integrations'
             },
-
+            {
+              label: 'FAQ',
+              to: '/docs/faq',
+            },
             {
               label: 'Release Notes',
               to: '/docs/release_notes/clearml_server/open_source/ver_2_0',
             },
-            {
-              label: 'Community Resources',
-              to: '/docs/community',
-            }
+
           ],
         },
         {
-          label: 'FAQ',
+          label: 'Community Resources',
           position: 'left', // or 'right'
-          to: '/docs/faq'
+          to: '/docs/community',
         },
         {
           href: 'https://joinslack.clear.ml',
