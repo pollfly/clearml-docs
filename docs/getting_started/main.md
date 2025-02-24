@@ -1,8 +1,4 @@
----
-id: main
-title: What is ClearML?
-slug: /
----
+# What is ClearML?
 
 ClearML is an open-source, end-to-end AI Platform designed to streamline AI adoption and the entire development lifecycle. 
 It supports every phase of AI development, from research to production, allowing users to 
@@ -116,7 +112,7 @@ alert you whenever your model improves in accuracy)
 - Automatically scale cloud instances according to your resource needs with ClearML's 
 [AWS Autoscaler](../webapp/applications/apps_aws_autoscaler.md) and [GCP Autoscaler](../webapp/applications/apps_gcp_autoscaler.md)
 GUI applications
-- Run [hyperparameter optimization](../fundamentals/hpo.md) 
+- Run [hyperparameter optimization](../hpo.md) 
 - Build [pipelines](../pipelines/pipelines.md) from code 
 - Much more!
 
