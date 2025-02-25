@@ -68,7 +68,7 @@ module.exports = {
     },
     announcementBar: {
       id: 'supportus',
-      content: 'If you ❤️ ️<b>ClearML</b>, ⭐️ us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/allegroai/clearml">GitHub</a>!',
+      content: 'If you ❤️ ️<b>ClearML</b>, ⭐️ us on <a target="_blank" rel="noopener noreferrer" href="https://github.com/clearml/clearml">GitHub</a>!',
       isCloseable: true,
     },
     navbar: {
@@ -168,7 +168,7 @@ module.exports = {
           'aria-label': 'Twitter',
         },
         {
-          href: 'https://github.com/allegroai/clearml',
+          href: 'https://github.com/clearml/clearml',
           position: 'right',
           className: 'header-ico header-ico--github',
           'aria-label': 'GitHub repository',
@@ -215,7 +215,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/allegroai/clearml',
+              href: 'https://github.com/clearml/clearml',
             },
           ],
         },
@@ -233,13 +233,13 @@ module.exports = {
           // Please change this to your repo.
           breadcrumbs: false,
           editUrl:
-            'https://github.com/allegroai/clearml-docs/edit/main/',
+            'https://github.com/clearml/clearml-docs/edit/main/',
         },
         // API: {
           // sidebarPath: require.resolve('./sidebars.js'),
           // // Please change this to your repo.
           // editUrl:
-            // 'https://github.com/allegroai/clearml-docs/edit/main/',
+            // 'https://github.com/clearml/clearml-docs/edit/main/',
         // },
         blog: {
           blogTitle: 'ClearML Tutorials',
@@ -249,7 +249,7 @@ module.exports = {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/allegroai/clearml-docs/edit/main/tutorials/',
+            'https://github.com/clearml/clearml-docs/edit/main/tutorials/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
