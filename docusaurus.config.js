@@ -127,7 +127,7 @@ module.exports = {
               activeBaseRegex: '^/docs/latest/docs/guides',
             },
             {
-              label: 'Integrations',
+              label: 'Code Integrations',
               to: '/docs/integrations',
               activeBaseRegex: '^/docs/latest/docs/integrations(?!/storage)',
             },
