@@ -230,13 +230,13 @@ The **INFO** tab shows extended task information:
 * [Task description](#description)
 * [Task details](#task-details)
 
-### Latest Events Log 
+### Latest Events Log
 
-:::important Enterprise Feature
-The latest events log is available under the ClearML Enterprise plan.
+:::info Hosted Service and Enterprise Feature
+The latest events log is available only on the ClearML Hosted Service and under the ClearML Enterprise plan.
 :::
 
-The Enterprise Server also displays a detailed history of task activity: 
+The **INFO** tab includes a detailed history of task activity: 
 * Task action (e.g. status changes, project move, etc.)
 * Action time
 * Acting user
@@ -252,7 +252,7 @@ To download the task history as a CSV file, hover over the log and click <img sr
 ClearML maintains a system-wide, large but strict limit for task history items. Once the limit is reached, the oldest entries are purged to make room for fresh entries.
 :::
 
-### Description 
+### Description
 Add descriptive text to the task in the **Description** section. To modify the description, hover over the 
 description box and click **Edit**.
 
@@ -304,7 +304,7 @@ All scalars that ClearML automatically logs, as well as those explicitly reporte
 
 Scalar series can be displayed in [graph view](#graph-view) (default) or in [metric values view](#metric-values-view):
 
-#### Graph View 
+#### Graph View
 Scalar graph view (<img src="/docs/latest/icons/ico-charts-view.svg" alt="Graph view" className="icon size-md space-sm" />) 
 shows scalar series plotted as a time series line chart. By default, a single plot is shown for each scalar metric, 
 with all variants overlaid within.
