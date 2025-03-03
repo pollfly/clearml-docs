@@ -5,11 +5,10 @@ title: Building Bots
 ClearML can be used to build bots that monitor tasks and send notifications based on specific events or conditions.
 
 The base [`Monitor`](https://github.com/clearml/clearml/blob/master/clearml/automation/monitor.py) class provides 
-the functionalities for implementing custom task monitoring logic.
+the functionalities for implementing custom task monitoring logic. Developers can extend this class by inheriting it 
+and overriding its methods to introduce custom bot logic. 
 
-The `Monitor` class can be extended to introduce custom bot logic. Developers can inherit from this class and override 
-methods to introduce custom bot logic. For example, by overriding the `process_task` method, you 
-can:
+For example, by overriding methods like [`process_task()`](https://github.com/clearml/clearml/blob/master/clearml/automation/monitor.py#L131), you can:
 * Send notifications via Slack or other channels 
 * Log task statuses to a database 
 * Trigger automated responses when a task reaches a specific status
