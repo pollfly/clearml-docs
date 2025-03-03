@@ -2,6 +2,24 @@
 title: Building Bots
 ---
 
+You can use ClearML to build bots monitor tasks, sending notifications and alerts based on specific events or conditions.
+
+The base `Monitor` class provides essential functionalities that enable developers to implement task monitoring logic 
+tailored to their requirements. The Monitor class can be extended to create custom bot logic.
+
+This is useful for:
+* Real-Time Task Monitoring: Automate the tracking of task statuses (e.g., completed, failed) to streamline workflows 
+  and reduce manual log-checking.
+* Custom Notification Logic: Implement specific filtering criteria based on task names, project identifiers, or other 
+  criteria to receive alerts that are relevant to your needs.
+* Resource Efficiency: Utilize a customizable polling mechanism to minimize resource usage while continuously monitoring
+  tasks.
+
+The Monitor class can be extended to introduce custom bot logic. For example, by overriding the `process_task` method, you 
+can define specific actions to be taken when a task reaches a certain status—whether it’s sending notifications through 
+various channels (like Slack, email, etc.), logging to a database, or triggering automated responses.
+
+
 Using a Slack Bot for ClearML Task Monitoring
 
 Overview
@@ -21,7 +39,7 @@ Use Cases and Benefits
 
 Set filters for specific projects, users, or iteration thresholds to avoid unnecessary notifications.
 
-## ClearML Integration
+## SlackBot example
 
 This integration is powered by `clearml.automation.monitor`, which allows for efficient task tracking. The `SlackMonitor` 
 class extends the Monitor class from ClearML and enables customized Slack notifications based on task events. The bot 
