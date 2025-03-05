@@ -14,6 +14,9 @@ The Jupyter Lab session is set up using a [ClearML Agent](../../clearml_agent.md
 select a queue, and the agent servicing that queue will download and launch the IDE on its machine. When the server 
 setup is complete, the dashboard displays a link to access the Jupyter Lab session.  
 
+$$$$$$$$$ Session apps now create and backup your workspace, which means when you clone an instance you continue with the same session workspace.
+
+
 Once you have launched an app instance, you can view the following information in its dashboard: 
 * App status indicator
     * <img src="/docs/latest/icons/ico-jupyter-lab-loading.svg" alt="Jupyter loading" className="icon size-md" /> - Remote IDE is setting up 
