@@ -332,8 +332,8 @@ must be substituted with valid domain names or values from responses.
 
    ```
    APISERVER_URL="https://api.<BASE_DOMAIN>"
-   APISERVER_KEY="GGS9F4M6XB2DXJ5AFT9F"
-   APISERVER_SECRET="2oGujVFhPfaozhpuz2GzQfA5OyxmMsR3WVJpsCR5hrgHFs20PO"
+   APISERVER_KEY="<APISERVER_KEY>"
+   APISERVER_SECRET="<APISERVER_SECRET>"
    ```
 
 2. Create a *Tenant* (company):
@@ -525,7 +525,7 @@ Install the [Task Traffic Router](appgw.md) in your Kubernetes cluster, allowing
      apiServerUrlReference: "<http://clearml-enterprise-apiserver.clearml:8008>"
      apiserverKey: "<TENANT_KEY>"
      apiserverSecret: "<TENANT_SECRET>"
-     jwksKey: "ymLh1ok5k5xNUQfS944Xdx9xjf0wueokqKM2dMZfHuH9ayItG2"
+     jwksKey: "<JWKS_KEY>"
    ingress:
      enabled: true
      hostName: "<unique url in same domain as apiserver/webserver>"
