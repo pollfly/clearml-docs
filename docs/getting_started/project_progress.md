@@ -49,7 +49,7 @@ class. By extending this class, you can:
 * Send notifications via Slack or other channels
 * Trigger automated responses based on specific task conditions
 
-ClearML provides an example Slackbot built using the [`Monitor`](https://github.com/clearml/clearml/blob/master/clearml/automation/monitor.py) class. The Slackbot does the following:
+ClearML provides an example Slackbot built using the [`Monitor`](https://github.com/clearml/clearml/blob/master/clearml/automation/monitor.py) class. The example Slackbot does the following:
 
 * Monitors task status (completion, failure, etc.)
 * Sends notifications to a specified Slack channel
