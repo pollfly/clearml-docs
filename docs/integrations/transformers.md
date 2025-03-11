@@ -60,7 +60,7 @@ You can also select multiple tasks and directly [compare](../webapp/webapp_exp_c
 See an example of Transformers and ClearML in action [here](../guides/frameworks/huggingface/transformers.md). 
 
 ## Remote Execution
-ClearML logs all the information required to reproduce a task on a different machine (installed packages, 
+ClearML logs all the information required to reproduce a task run on a different machine (installed packages, 
 uncommitted changes etc.). The [ClearML Agent](../clearml_agent.md) listens to designated queues and when a task is 
 enqueued, the agent pulls it, recreates its execution environment, and runs it, reporting its scalars, plots, etc. to the 
 task manager.
