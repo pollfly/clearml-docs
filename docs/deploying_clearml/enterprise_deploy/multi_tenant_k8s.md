@@ -531,7 +531,7 @@ Install the [AI App Gateway](appgw.md) in your Kubernetes cluster, allowing it t
      hostName: "<unique url in same domain as apiserver/webserver>"
    ```
 
-2. Install AI Gateway Router in the specified tenant namespace:
+2. Install Task Traffic Router in the specified tenant namespace:
 
    ```
    helm install -n <TENANT_NAMESPACE> \\
