@@ -102,7 +102,7 @@ See more information about explicitly logging information to a ClearML Task:
 See [Explicit Reporting Tutorial](../guides/reporting/explicit_reporting.md).
 
 ## Remote Execution
-ClearML logs all the information required to reproduce a task on a different machine (installed packages, 
+ClearML logs all the information required to reproduce a task run on a different machine (installed packages, 
 uncommitted changes etc.). The [ClearML Agent](../clearml_agent.md) listens to designated queues and when a task is enqueued, 
 the agent pulls it, recreates its execution environment, and runs it, reporting its scalars, plots, etc. to the 
 task manager.
@@ -118,7 +118,7 @@ Use the ClearML [Autoscalers](../cloud_autoscaling/autoscaling_overview.md), to 
 cloud of your choice (AWS, GCP, Azure) and automatically deploy ClearML agents: the autoscaler automatically spins up 
 and shuts down instances as needed, according to a resource budget that you set.
 
-### Reproducing Tasks
+### Reproducing Task Runs
 
 ![Cloning, editing, enqueuing gif](../img/gif/integrations_yolov5.gif#light-mode-only)
 ![Cloning, editing, enqueuing gif](../img/gif/integrations_yolov5_dark.gif#dark-mode-only)
