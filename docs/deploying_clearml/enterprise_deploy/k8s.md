@@ -2,45 +2,46 @@
 title: Kubernetes
 ---
 
-This procedure is a step-by-step guide to the installation process for the ClearML Enterprise setup in a Kubernetes cluster.
-
-This guide will explain how to install the required ClearML Enterprise components and how to set them up.
+This guide provides step-by-step instructions for installing the ClearML Enterprise setup in a Kubernetes cluster.
 
 ## Prerequisites
 
 * A Kubernetes cluster  
-* An ingress controller (e.g. `nginx-ingress`) and the ability to create LoadBalancer services (e.g. MetalLB) if needed to expose ClearML  
-* Credentials for ClearML Enterprise GitHub Helm chart repository (a token provided by the ClearML Staff)  
-* Credentials for ClearML Enterprise DockerHub repository (a token provided by the ClearML Staff)  
-* Download URL for the ClearML Enterprise Applications package (provided by the ClearML Staff)
+* An ingress controller (e.g. `nginx-ingress`) and the ability to create LoadBalancer services (e.g. MetalLB) if needed 
+  to expose ClearML  
+* Credentials for ClearML Enterprise GitHub Helm chart repository 
+* Credentials for ClearML Enterprise DockerHub repository  
+* URL for downloading the ClearML Enterprise applications configuration
 
 ## Control Plane Installation
 
-The following procedures will address the installation of the control plane (server and required charts) and will 
+The following steps cover installing the control plane (server and required charts) and will 
 require some or all of the tokens/deliverables mentioned above.
 
 ### Requirements
 
-Add the ClearML Enterprise repository:
+* Add the ClearML Enterprise repository:
 
-```
-helm repo add clearml-enterprise https://raw.githubusercontent.com/clearml/clearml-enterprise-helm-charts/gh-pages --username <clearmlenterprise_GitHub_TOKEN> --password <clearmlenterprise_GitHub_TOKEN>
-```
+  ```
+  helm repo add clearml-enterprise https://raw.githubusercontent.com/clearml/clearml-enterprise-helm-charts/gh-pages --username <clearmlenterprise_GitHub_TOKEN> --password <clearmlenterprise_GitHub_TOKEN>
+  ```
 
-Update the repository locally:
+* Update the repository locally:
 
-```
-helm repo update
-```
+  ```
+  helm repo update
+  ```
 
 ### Install ClearML Enterprise Chart
 
-#### Configuration {#configuration}
-
-**Note:** in the following configuration, `<BASE_DOMAIN>` is a placeholder that must be substituted with a valid domain 
-that will have records pointing to the cluster’s ingress controller (see ingress details in the values below).
+#### Configuration 
 
 The Helm Chart must be installed with an `overrides.yaml` overriding values as follows:
+
+:::note
+In the following configuration, replace `<BASE_DOMAIN>` with a valid domain 
+that will have records pointing to the cluster’s ingress controller (see ingress details in the values below).
+:::
 
 ```
 imageCredentials:
@@ -109,11 +110,12 @@ The credentials specified in `<SUPERVISOR_USER_KEY>` and `<SUPERVISOR_USER_SECRE
 supervisor user from the ClearML Web UI accessible using the URL `app.<BASE_DOMAIN>`.
 
 Note that the `<SUPERVISOR_USER_EMAIL>` value must be explicitly quoted. To do so, put `\"` around the quoted value. 
-Example `"\"email@example.com\""`
+For example `"\"email@example.com\""`.
 
-#### Additional Configuration for Fixed Users (simple login)
+#### Additional Configuration Options
+##### Fixed Users (Simple Login)
 
-Enable and configure static login with username and password in `overrides.yaml`.
+Enable static login with username and password in `overrides.yaml`.
 
 This is an optional step in case SSO (Identity provider) configuration will not be performed.
 
@@ -137,13 +139,13 @@ apiserver:
       }
 ```
 
-#### Additional Configuration for SSO (Identity Provider)
+##### SSO (Identity Provider)
 
-Following are two examples (Auth0 and Keycloak) showing how to configure an identity provider on the ClearML server.
+The following examples (Auth0 and Keycloak) show how to configure an identity provider on the ClearML server.
 
-Make sure to add the following values configuring `extraEnvs` for `apiserver` in the `clearml-enterprise` values `override.yaml` file.
+Add the following values configuring `extraEnvs` for `apiserver` in the `clearml-enterprise` values `override.yaml` file.
 
-Make sure to substitute all placeholders (`<PLACEHOLDER>)` with the correct value for your configuration.
+Substitute all `<PLACEHOLDER>`s with the correct value for your configuration.
 
 ##### Auth0 Identity Provider 
 
@@ -198,7 +200,7 @@ helm install -n clearml \
 
 #### Configuration
 
-To configure the agent you will need to choose a Redis password and use that when setting up redis as well 
+To configure the agent you will need to choose a Redis password and use that when setting up Redis as well 
 (see [Shared Redis installation](multi_tenant_k8s.md#shared-redis-installation)).
 
 The Helm Chart must be installed with `overrides.yaml`:
@@ -226,7 +228,7 @@ helm install -n <WORKLOAD_NAMESPACE> \
      -f overrides.yaml
 ```
 
-Eventually, to create a queue by API run:
+To create a queue by API:
 
 ```
 curl $APISERVER_URL/queues.create \
@@ -238,13 +240,11 @@ curl $APISERVER_URL/queues.create \
 
 ## ClearML AI Application Gateway Installation
 
-### Install Application Gateway Chart
-
-#### Configuration
+### Configuring Chart
 
 `<APISERVER_TOKEN_SECRET>` should have the same value as `clearml.secureAuthTokenSecret` in the ClearML Enterprise Server overrides.
 
-The Helm Chart must be installed with `*overrides.yaml*`:
+The Helm Chart must be installed with `overrides.yaml`:
 
 ```
 imageCredentials:
@@ -293,21 +293,17 @@ helm install -n <WORKLOAD_NAMESPACE> \
 To install the ClearML Applications on the newly installed ClearML Enterprise control-plane, download the applications 
 package using the URL provided by the ClearML staff.
 
-**Note:** ClearML applications use prebuilt docker images provided by ClearML on the ClearML DockerHub repository. If 
-you are using an air-gapped system, these images must be available as part of your internal docker Artifactory, and the 
-correct docker images location must be specified before installing the applications 
-(see [Adjust application docker images location (optional)](#adjust-application-docker-images-location)).
 
-## Download and Extract
+### Download and Extract
 
 ```
 wget -O apps.zip "<ClearML enterprise applications configuration download url>"
 unzip apps.zip
 ```
 
-## Adjust Application Docker Images Location
+### Adjust Application Docker Images Location  (Air-Gapped Systems)
 
-(Air-Gapped systems) ClearML applications use prebuilt docker images provided by ClearML on the ClearML DockerHub 
+ClearML applications use pre-built docker images provided by ClearML on the ClearML DockerHub 
 repository. If you are using an air-gapped system, these images must be available as part of your internal docker 
 registry, and the correct docker images location must be specified before installing the applications.  
 
@@ -320,15 +316,15 @@ python convert_image_registry.py \
 ```
 
 The script will change the application zip files to point to the new registry, and will output the list of containers 
-that need to be copied to the local registry \- for example:
+that need to be copied to the local registry. For example:
 
 ```
 make sure allegroai/clearml-apps:hpo-1.10.0-1062 was added to local_registry/clearml-apps
 ```
 
-## Install the Applications
+### Install Applications
 
-Use the `upload_apps` Python script to upload the application packages to the ClearML server
+Use the `upload_apps.py` script to upload the application packages to the ClearML server:
 
 ```
 python upload_apps.py \
@@ -353,7 +349,12 @@ Deploying large models may fail due to shared memory size limitations. This issu
 > 3d3e22c3066f:168:168 [0] NCCL INFO init.cc:1799 -> 2
 ```
 
-To configure a proper SHM size you can use the following configuration in the agent `overrides.yaml`:
+To configure a proper SHM size you can use the following configuration in the agent `overrides.yaml`.
+
+Replace `<SIZE>` with the desired memory allocation in GiB, based on your model requirements.
+
+This example configures a specific queue, but you can include this setting in the `basePodTemplate` if you need to 
+apply it to all tasks.
 
 ```
 agentk8sglue:  
@@ -373,7 +374,3 @@ agentk8sglue:
               sizeLimit: <SIZE>Gi
 ```
 
-Replace `<SIZE>` with the desired memory allocation in GiB, based on your model requirements.
-
-The example above configures a specific queue, but you can include this setting in the `basePodTemplate` if you need to 
-apply it to all tasks.
