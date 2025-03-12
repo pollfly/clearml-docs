@@ -22,7 +22,8 @@ task = Task.init(task_name="<task_name>", project_name="<project_name>")
 ClearML logs the OmegaConf as a blob and can be viewed in the 
 [WebApp](../webapp/webapp_overview.md), in the task's **CONFIGURATION > CONFIGURATION OBJECTS > OmegaConf** section. 
 
-![Hydra configuration](../img/integrations_hydra_configs.png)
+![Hydra configuration](../img/integrations_hydra_configs.png#light-mode-only)
+![Hydra configuration](../img/integrations_hydra_configs_dark.png#dark-mode-only)
 
 ## Modifying Hydra Values
 
