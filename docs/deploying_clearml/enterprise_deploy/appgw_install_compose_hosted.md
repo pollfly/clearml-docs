@@ -1,5 +1,5 @@
 ---
-title: Installing AI Application Gateway with docker-compose - hosted server
+title: Docker-Compose - Hosted Server
 ---
 
 :::important Enterprise Feature 
@@ -21,9 +21,7 @@ plane while hosting their own workload nodes.
 * Credentials for the ClearML docker repository  
 * A valid ClearML Server installation
 
-## Recommendations
-
-* For a secure connection, we recommend having a DNS entry and a valid SSL Certificate assigned to the machine IP.
+Additionally, for a secure connection, it is recommended to have a DNS entry and a valid SSL Certificate assigned to the machine IP.
 
 ## Host Configuration
 
@@ -44,11 +42,11 @@ sudo systemctl start docker
 sudo docker login
 ```
 
-Use the ClearML docker hub credentials when prompted by docker login.
+Use the ClearML docker hub credentials when prompted by `docker` login.
 
 ### Docker-compose File
 
-This is an example of the docker-compose file you will need to create:
+This is an example of the `docker-compose` file you will need to create:
 
 ```
 version: '3.5'
@@ -108,12 +106,13 @@ TCP_PORT_END=
 
 Edit it according to the following guidelines:
 
-* `ROUTER_NAME`: The name of the Router, which needs to be unique for each tenant.  
-* `CLEARML_API_ACCESS_KEY, CLEARML_API_SECRET_KEY:` API credentials created in the ClearML web UI, for Admin user or Service Account with admin privileges. Make sure to label these credentials clearly, so that they will not be revoked by mistake.  
-* `ROUTER_URL`: The URL for this router. This URL will be shown in the UI of any application for users to access (Like hosted Jupyter or LLM UI).  
-* `TCP_ROUTER_ADDRESS`: The TCP Router external address, which is an IP of the host machine or a load balancer hostname, depending on the customer network configuration.  
-* `TCP_PORT_START`: The start port for the TCP Tasks, chosen by the customer. Ensure that ports are open and can be allocated on the host.  
-* `TCP_PORT_END`: The end port for the TCP Tasks, chosen by the customer. Ensure that ports are open and can be allocated on the host.
+* `ROUTER_NAME`: Unique name for this router.
+* `CLEARML_API_ACCESS_KEY, CLEARML_API_SECRET_KEY:` API credentials for Admin user or Service Account with admin privileges 
+  created in the ClearML web UI. Make sure to label these credentials clearly, so that they will not be revoked by mistake.  
+* `ROUTER_URL`: The URL for this router. This URL will be shown in the UI of any application for users to access (e.g. hosted Jupyter or LLM UI).  
+* `TCP_ROUTER_ADDRESS`:  Router external address, can be an IP or the host machine or a load balancer hostname, depends on network configuration.  
+* `TCP_PORT_START`: Start port for the TCP Tasks, chosen by the customer. Ensure that ports are open and can be allocated on the host.  
+* `TCP_PORT_END`: End port for the TCP Tasks, chosen by the customer. Ensure that ports are open and can be allocated on the host.
 
 ### Installation
 
@@ -127,7 +126,7 @@ sudo docker compose --env-file runtime.env up -d
 
 #### Running without Certificates
 
-When running on docker-compose with an HTTP interface and without certificates please set the following entry in the *runtime.env* as below:
+When running on `docker-compose` with an HTTP interface and without certificates, set the following entry in the `runtime.env`:
 
 ```
 AUTH_SECURE_ENABLED=false
@@ -135,22 +134,35 @@ AUTH_SECURE_ENABLED=false
 
 #### Install Multiple Routers for the Same Tenant
 
-To install multiple routers in the same tenant it is necessary to set parameters to identify and split the workload. Using this setting, each router will only handle routing to tasks that have originated from the specific queues it was assigned. This is important in case you have two different networks with two different agents, and tasks started by Agent A can only be reached by Router A (in the same network), but simply cannot be reached by Router B. The assumption in this case is that Agent A and Agent B will service different queues, and the Routers handling routing to the tasks executed by each agent will need to match the queue definitions.  
-Multiple routers in the same tenant must have different `ROUTER_NAME` and listen to different queues (`LISTEN_QUEUE_NAME`).
+To deploy multiple routers within the same tenant, you must configure each router to handle specific workloads. 
 
-**Router-A** *runtime.env*
+Using this setting, each router will only route tasks that originated from its assigned queues. This 
+is important in case you have multiple networks with different agents. For example:
+* Tasks started by Agent A can only be reached by Router A (within the same network), but cannot be reached by Router B
+* Agent B will handle a separate set of tasks which can only be reached by Router B
 
-```
-ROUTER_NAME=router-a
-LISTEN_QUEUE_NAME=queue1,queue2
-```
+The assumption in this case is that Agent A and Agent B will service different queues, and routers must be configured to 
+route tasks based on these queue definitions.
 
-**Router-2** *runtime.env*
+Each router in the same tenant must have: 
+* A unique `ROUTER_NAME` 
+* Distinct set of queues listed in `LISTEN_QUEUE_NAME`. It supports wildcards.
 
-```
-ROUTER_NAME=router-b
-LISTEN_QUEUE_NAME=queue3,queue4
-```
+For example:
+* **Router-A** `runtime.env`
 
-The environment variable `LISTEN_QUEUE_NAME` needs to be specified in the docker-compose file in case.  
-The `LISTEN_QUEUE_NAME` is a list of string names split by a comma. It supports wildcards.
+  ```
+  ROUTER_NAME=router-a
+  LISTEN_QUEUE_NAME=queue1,queue2
+  ```
+
+* **Router-B** `runtime.env`
+
+  ```
+  ROUTER_NAME=router-b
+  LISTEN_QUEUE_NAME=queue3,queue4
+  ````
+
+Ensure that `LISTEN_QUEUE_NAME` is included in the [`docker-compose` environment variables](#docker-compose-file) for each router 
+instance.
+
