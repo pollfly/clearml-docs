@@ -24,7 +24,7 @@ params = task.connect(params)  # enabling configuration override by clearml
 ```
 The hyperparameter configurations can be viewed in the WebApp in the task's **CONFIGURATION** tab. 
 
-![image](../../../img/examples_integration_pytorch_ignite_config.png)
+![Hyperparameters](../../../img/examples_integration_pytorch_ignite_config.png)
 
 ## Ignite TensorboardLogger
 
@@ -57,7 +57,7 @@ To view the model, in the **ARTIFACTS** tab, click the model name (or download i
 
 ClearML automatically tracks images logged to TensorboardLogger. They appear in **DEBUG SAMPLES**.
 
-![image](../../../img/examples_integration_pytorch_ignite_debug.png)
+![Debug Samples](../../../img/examples_integration_pytorch_ignite_debug.png)
 
 
 ## Ignite ClearMLLogger
