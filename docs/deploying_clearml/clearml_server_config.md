@@ -233,7 +233,7 @@ The following example, which is based on AWS load balancing, demonstrates the co
 
 
 
-### Opening Elasticsearch, MongoDB, and Redis for External Access 
+### Opening Elasticsearch, MongoDB, and Redis for External Access
 
 For improved security, the ports for ClearML Server Elasticsearch, MongoDB, and Redis servers are not exposed by default; 
 they are only open internally in the docker network. If external access is needed, open these ports (but make sure to 

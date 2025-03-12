@@ -2,7 +2,7 @@
 title: ClearML Python Package 
 ---
 
-This is step-by-step guide for installing the `clearml` Python package and connecting it to the ClearML Server. Once done,
+This is a step-by-step guide for installing the `clearml` Python package and connecting it to the ClearML Server. Once done,
 you can integrate `clearml` into your code. 
 
 ## Install ClearML

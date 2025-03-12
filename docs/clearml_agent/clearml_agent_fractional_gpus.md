@@ -80,7 +80,7 @@ For either setup, you can set up in your Enterprise ClearML Agent Helm chart the
 each queue. When a task is enqueued in ClearML, it translates into a Kubernetes pod running on the designated device 
 with the specified fractional resource as defined in the Agent Helm chart. 
 
-#### MIG-enabled GPUs 
+#### MIG-enabled GPUs
 The **ClearML Dynamic MIG Operator** (CDMO) chart enables running AI workloads on K8s with optimized hardware utilization 
 and workload performance by facilitating MIG GPU partitioning. Make sure you have a [MIG capable GPU](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/index.html#supported-gpus).
 
