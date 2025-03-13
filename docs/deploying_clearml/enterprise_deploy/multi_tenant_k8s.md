@@ -513,9 +513,9 @@ Create a `NetworkPolicy` in the tenant namespace with the following configuratio
          - podSelector: {}
    ```
 
-### Install AI Application Gateway Chart
+### Install AI App Gateway Router Chart
 
-Install the [AI App Gateway](appgw.md) in your Kubernetes cluster, allowing it to manage and route tasks:
+Install the AI App Gateway Router in your Kubernetes cluster, allowing it to manage and route tasks:
 
 1. Prepare the `overrides.yaml` file with the following content:
 
@@ -531,7 +531,7 @@ Install the [AI App Gateway](appgw.md) in your Kubernetes cluster, allowing it t
      hostName: "<unique url in same domain as apiserver/webserver>"
    ```
 
-2. Install Task Traffic Router in the specified tenant namespace:
+2. Install AI App Gateway Router in the specified tenant namespace:
 
    ```
    helm install -n <TENANT_NAMESPACE> \\

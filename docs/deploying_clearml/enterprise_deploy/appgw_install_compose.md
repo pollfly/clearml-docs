@@ -89,7 +89,7 @@ TCP_PORT_END=
 ```
 
 Edit it according to the following guidelines:
-* `PROXY_TAG`: AI Application Gateway Proxy tag.
+* `PROXY_TAG`: AI Application Gateway proxy tag.
 * `ROUTER_TAG`: AI Application Gateway Router tag.
 * `ROUTER_NAME`: Unique name for this router, needed in case of [multiple routers on the same tenant](#install-multiple-routers-for-the-same-tenant).
 * `ROUTER__WEBSERVER__SERVER_PORT`: Webserver port. Default is 8080 but can be set differently based on network needs.

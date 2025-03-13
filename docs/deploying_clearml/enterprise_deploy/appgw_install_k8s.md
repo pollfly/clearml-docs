@@ -6,12 +6,12 @@ title: Kubernetes Deployment
 The AI Application Gateway is available under the ClearML Enterprise plan.
 :::
 
-This guide details the installation of the ClearML AI Application Gateway.
-The AI Application Gateway enables access to session-based applications like VSCode and Jupyter.
+This guide details the installation of the ClearML AI App Gateway Router.
+The AI App Gateway Router enables access to session-based applications like VSCode and Jupyter.
 It acts as a proxy, discovering ClearML Tasks running within its namespace and configuring them for user access.
 
 :::important 
-AI Application Gateway must be installed in the same namespace as a dedicated ClearML Agent.
+The AI App Gateway Router must be installed in the same namespace as a dedicated ClearML Agent.
 It can only discover ClearML Tasks within its own namespace.
 :::
 
@@ -44,7 +44,7 @@ Replace `<GITHUB_TOKEN>` with your valid GitHub token that has access to the Cle
 
 ### Prepare Values
 
-Before installing the AI Application Gateway, create a Helm override file:
+Before installing the AI App Gateway Router, create a Helm override file:
 
 ```
 imageCredentials:
@@ -74,7 +74,7 @@ Edit it according to these guidelines:
 * `clearml.apiServerSecret`: ClearML server secret key.  
 * `clearml.apiServerUrlReference`: ClearML API server URL usually starting with `https://api.`.  
 * `clearml.authCookieName`: Cookie name used by the ClearML server to store the ClearML authentication cookie.
-* `clearml.sslVerify`: Enable or disable SSL certificate validation on apiserver calls check.  
+* `clearml.sslVerify`: Enable or disable SSL certificate validation on `apiserver` calls check.  
 * `ingress.hostName`: Hostname of router used by the ingress controller to access it.  
 * `tcpSession.routerAddress`: The external router address (can be an IP, hostname, or load balancer address) depending on your network setup. Ensure this address is accessible for TCP connections.
 * `tcpSession.service.type`: Service type used to expose TCP functionality, default is `NodePort`.
@@ -103,6 +103,6 @@ allegroai-enterprise/clearml-enterprise-task-traffic-router \
 
 Replace the placeholders with the following values:
 
-* `<RELEASE_NAME>` - Unique name for the AI Application Gateway within the namespace. This name will appear in the UI and be used for the redirection URL.
+* `<RELEASE_NAME>` - Unique name for the AI App Gateway Router within the namespace. This name will appear in the UI and be used for the redirection URL.
 * `<WORKLOAD_NAMESPACE>` - Namespace that will be shared with a dedicated ClearML Agent.
 * `<CHART_VERSION>` - Version recommended by the ClearML Support Team.
