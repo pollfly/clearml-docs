@@ -134,8 +134,6 @@ View saved model snapshots in the **ARTIFACTS** tab.
 
 ![Model snapshots](../img/ignite_artifact.png#light-mode-only)
 
-[//]: # (![Model snapshots]&#40;../img/ignite_artifact_dark.png#dark-mode-only&#41;)
-
 ### Scalars 
 
 View the scalars in the task's **SCALARS** tab.
