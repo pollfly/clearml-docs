@@ -327,9 +327,10 @@ module.exports = {
             {
                 'Open Source':
                         [
-                           'release_notes/sdk/open_source/ver_1_17',
+                           'release_notes/sdk/open_source/ver_1_18',
                            {
                                 'Older Versions': [
+                                   'release_notes/sdk/open_source/ver_1_17',
                                    'release_notes/sdk/open_source/ver_1_16', 'release_notes/sdk/open_source/ver_1_15',
                                    'release_notes/sdk/open_source/ver_1_14', 'release_notes/sdk/open_source/ver_1_13',
                                    'release_notes/sdk/open_source/ver_1_12', 'release_notes/sdk/open_source/ver_1_11',
@@ -399,8 +400,10 @@ module.exports = {
             'references/sdk/dataset',
             {'Pipeline': [
                 'references/sdk/automation_controller_pipelinecontroller',
+                'references/sdk/automation_controller_pipelinedecorator',
                 'references/sdk/automation_job_clearmljob'
-            ]},
+                ]
+            },
             'references/sdk/scheduler',
             'references/sdk/trigger',
             {'HyperParameter Optimization': [
@@ -635,11 +638,19 @@ module.exports = {
             'getting_started/architecture',
         ]},*/
         {
-            'Enterprise Server Deployment': [
-               'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
-               'deploying_clearml/enterprise_deploy/vpc_aws',
-               'deploying_clearml/enterprise_deploy/on_prem_ubuntu',
-            ]
+            'Enterprise Server':  {
+                'Deployment Options': [
+                   'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
+                   'deploying_clearml/enterprise_deploy/vpc_aws',
+                   'deploying_clearml/enterprise_deploy/on_prem_ubuntu',
+                ],
+                'Maintenance and Migration': [
+                   'deploying_clearml/enterprise_deploy/import_projects',
+                   'deploying_clearml/enterprise_deploy/change_artifact_links',
+                   'deploying_clearml/enterprise_deploy/delete_tenant',
+                ]
+
+            }
         },
         {
             type: 'category',
@@ -652,11 +663,8 @@ module.exports = {
             ]
         },
         'deploying_clearml/enterprise_deploy/custom_billing',
-        'deploying_clearml/enterprise_deploy/delete_tenant',
-        'deploying_clearml/enterprise_deploy/import_projects',
-        'deploying_clearml/enterprise_deploy/change_artifact_links',
         {
-            'Enterprise Applications': [
+            'UI Applications': [
                 'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
                 'deploying_clearml/enterprise_deploy/app_install_ex_server',
                 'deploying_clearml/enterprise_deploy/app_custom',

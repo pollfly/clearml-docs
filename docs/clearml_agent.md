@@ -17,7 +17,7 @@ title: ClearML Agent
 
 **ClearML Agent** is a virtual environment and execution manager for DL / ML solutions on GPU machines. It integrates with the **ClearML Python Package** and ClearML Server to provide a full AI cluster solution. <br/>
 Its main focus is around:
-- Reproducing tasks, including their complete environments. 
+- Reproducing task runs, including their complete environments. 
 - Scaling workflows on multiple target machines. 
 
 ClearML Agent executes a task or other workflow by reproducing the state of the code from the original machine 
@@ -46,7 +46,7 @@ install Python, so make sure to use a container or environment with the version 
 While the agent is running, it continuously reports system metrics to the ClearML Server (these can be monitored in the 
 [**Orchestration**](webapp/webapp_workers_queues.md) page).  
 
-Continue using ClearML Agent once it is running on a target machine. Reproduce tasks and execute 
+Continue using ClearML Agent once it is running on a target machine. Reproducing task runs and execute 
 automated workflows in one (or both) of the following ways: 
 * Programmatically (using [`Task.enqueue()`](references/sdk/task.md#taskenqueue) or [`Task.execute_remotely()`](references/sdk/task.md#execute_remotely))
 * Through the ClearML Web UI (without working directly with code), by cloning tasks and enqueuing them to the 

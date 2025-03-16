@@ -1,5 +1,5 @@
 ---
-title: Exporting and Importing ClearML Projects
+title: Project Migration
 ---
 
 When migrating from a ClearML Open Server to a ClearML Enterprise Server, you may need to transfer projects. This is done 
@@ -36,7 +36,7 @@ them before exporting.
 Execute the data tool within the `apiserver` container.
 
 Open a bash session inside the `apiserver` container of the server:  
-* In docker-compose:
+* In `docker-compose`:
   
   ```commandline
   sudo docker exec -it clearml-apiserver /bin/bash

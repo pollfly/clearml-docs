@@ -100,9 +100,10 @@ Install the ClearML chart with the required configuration:
 1. Prepare the `overrides.yaml` file and input the following content. Make sure to replace `<BASE_DOMAIN>` and `<SSO_*>` 
    with a valid domain that will have records pointing to the ingress controller accordingly.   
    The credentials specified in `<SUPERVISOR_USER_KEY>` and `<SUPERVISOR_USER_SECRET>` can be used to log in as the 
-   supervisor user in the web UI.  
+   supervisor user in the web UI.
+
    Note that the `<SUPERVISOR_USER_EMAIL>` value must be explicitly quoted. To do so, put `\\"` around the quoted value. 
-   For example `"\\"email@example.com\\””`
+   For example `"\\"email@example.com\\””`.
 
    ```
    imageCredentials:
@@ -192,7 +193,7 @@ Install the ClearML chart with the required configuration:
      enabled: true
    ```
 
-2. Install ClearML
+2. Install ClearML:
 
    ```
    helm install -n clearml \\
@@ -305,9 +306,9 @@ spec:
           kubernetes.io/metadata.name: clearml
 ```
 
-## Applications Installation
+## Application Installation
 
-To install ClearML GUI applications, follow these steps: 
+To install ClearML GUI applications: 
 
 1. Get the apps to install and the installation script by downloading and extracting the archive provided by ClearML
 
@@ -332,8 +333,8 @@ must be substituted with valid domain names or values from responses.
 
    ```
    APISERVER_URL="https://api.<BASE_DOMAIN>"
-   APISERVER_KEY="GGS9F4M6XB2DXJ5AFT9F"
-   APISERVER_SECRET="2oGujVFhPfaozhpuz2GzQfA5OyxmMsR3WVJpsCR5hrgHFs20PO"
+   APISERVER_KEY="<APISERVER_KEY>"
+   APISERVER_SECRET="<APISERVER_SECRET>"
    ```
 
 2. Create a *Tenant* (company):
@@ -491,7 +492,7 @@ To install the ClearML Agent Chart, follow these steps:
    -d '{"name":"default"}'
    ```
 
-### Tenant Namespace isolation with NetworkPolicies
+### Tenant Namespace Isolation with NetworkPolicies
 
 To ensure network isolation for each tenant, you need to create a `NetworkPolicy` in the tenant namespace. This way 
 the entire namespace/tenant will not accept any connection from other namespaces. 
@@ -525,7 +526,7 @@ Install the [Task Traffic Router](appgw.md) in your Kubernetes cluster, allowing
      apiServerUrlReference: "<http://clearml-enterprise-apiserver.clearml:8008>"
      apiserverKey: "<TENANT_KEY>"
      apiserverSecret: "<TENANT_SECRET>"
-     jwksKey: "ymLh1ok5k5xNUQfS944Xdx9xjf0wueokqKM2dMZfHuH9ayItG2"
+     jwksKey: "<JWKS_KEY>"
    ingress:
      enabled: true
      hostName: "<unique url in same domain as apiserver/webserver>"

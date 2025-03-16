@@ -2,6 +2,10 @@
 title: Application Installation on On-Prem and VPC Servers
 ---
 
+:::important Enterprise Feature
+UI application deployment is available under the ClearML Enterprise plan.
+:::
+
 ClearML Applications are like plugins that allow you to manage ML workloads and automatically run recurring workflows 
 without any coding. Applications are installed on top of the ClearML Server.
 
@@ -9,7 +13,7 @@ without any coding. Applications are installed on top of the ClearML Server.
 To run application you will need the following:
 * RAM: Make sure you have at least 400 MB of RAM per application instance.
 * Applications Service: Make sure that the applications agent service is up and running on your server:
-  * If you are using a docker-compose solution, make sure that the clearml-apps-agent service is running.
+  * If you are using a `docker-compose` solution, make sure that the clearml-apps-agent service is running.
   * If you are using a Kubernetes cluster, check for the clearml-clearml-enterprise-apps component.
 * Installation Files: Each application has its installation zip file. Make sure you have the relevant files for the 
 applications you wish to install.

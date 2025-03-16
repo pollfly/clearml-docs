@@ -28,7 +28,8 @@ And that's it! This creates a [ClearML Task](../fundamentals/task.md) which capt
 
 You can view all the task details in the [WebApp](../webapp/webapp_overview.md). 
 
-![Pytorch webapp](../img/examples_pytorch_distributed_example_08.png)
+![Pytorch webapp](../img/examples_pytorch_distributed_example_08.png#light-mode-only)
+![Pytorch webapp](../img/examples_pytorch_distributed_example_08_dark.png#dark-mode-only)
 
 ## Automatic Logging Control 
 By default, when ClearML is integrated into your PyTorch script, it captures PyTorch models. But, you may want to have 
@@ -96,7 +97,7 @@ additional tools, like argparse, TensorBoard, and matplotlib:
 * [PyTorch Distributed](../guides/frameworks/pytorch/pytorch_distributed_example.md) - Demonstrates using ClearML with the [PyTorch Distributed Communications Package (`torch.distributed`)](https://pytorch.org/tutorials/beginner/dist_overview.html)
 
 ## Remote Execution
-ClearML logs all the information required to reproduce a task on a different machine (installed packages, 
+ClearML logs all the information required to reproduce a task run on a different machine (installed packages, 
 uncommitted changes etc.). The [ClearML Agent](../clearml_agent.md) listens to designated queues and when a task is enqueued, 
 the agent pulls it, recreates its execution environment, and runs it, reporting its scalars, plots, etc. to the 
 task manager.
@@ -112,7 +113,7 @@ Use the ClearML [Autoscalers](../cloud_autoscaling/autoscaling_overview.md) to h
 cloud of your choice (AWS, GCP, Azure) and automatically deploy ClearML agents: the autoscaler automatically spins up 
 and shuts down instances as needed, according to a resource budget that you set.
 
-### Cloning, Editing, and Enqueuing
+### Reproducing Task Runs
 
 ![Cloning, editing, enqueuing gif](../img/gif/integrations_yolov5.gif#light-mode-only)
 ![Cloning, editing, enqueuing gif](../img/gif/integrations_yolov5_dark.gif#dark-mode-only)

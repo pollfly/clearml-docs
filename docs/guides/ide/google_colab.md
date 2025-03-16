@@ -16,7 +16,7 @@ and running, users can send Tasks to be executed on Google Colab's hardware.
 
 
 ## Steps 
-1. Open up [this Google Colab notebook](https://colab.research.google.com/github/allegroai/clearml/blob/master/examples/clearml_agent/clearml_colab_agent.ipynb).
+1. Open up [this Google Colab notebook](https://colab.research.google.com/github/clearml/clearml/blob/master/examples/clearml_agent/clearml_colab_agent.ipynb).
 
 1. Run the first cell, which installs all the necessary packages:
     ```
@@ -40,8 +40,8 @@ and running, users can send Tasks to be executed on Google Colab's hardware.
         api_host="https://api.clear.ml", 
         web_host="https://app.clear.ml", 
         files_host="https://files.clear.ml", 
-        key='6ZHX9UQMYL874A1NE8', 
-        secret='=2h6#%@Y&m*tC!VLEXq&JI7QhZPKuJfbaYD4!uUk(t7=9ENv'
+        key='<generated_key>', 
+        secret='<generated_secret>'
    )
    ```
    
