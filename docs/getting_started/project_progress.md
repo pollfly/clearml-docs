@@ -41,23 +41,21 @@ For more information, see [Project Dashboard](../webapp/applications/apps_dashbo
 ![Project Dashboard](../img/apps_dashboard.png#light-mode-only)
 ![Project Dashboard](../img/apps_dashboard_dark.png#dark-mode-only)
 
-## Slack Alerts
+## Task Monitoring
 
-ClearML allows you to monitor tasks and send notifications based on specific conditions or events using the [`clearml.automation.Monitor`](https://github.com/clearml/clearml/blob/master/clearml/automation/monitor.py) 
+ClearML task monitoring capabilities through the [`clearml.automation.Monitor`](https://github.com/clearml/clearml/blob/master/clearml/automation/monitor.py) 
 class. By extending this class, you can:
 
 * Send notifications via Slack or other channels
 * Trigger automated responses based on specific task conditions
 
-ClearML provides an example Slackbot built using the [`Monitor`](https://github.com/clearml/clearml/blob/master/clearml/automation/monitor.py) class. The example Slackbot does the following:
+For a practical example, see the [Slack Alerts Example](../guides/services/slack_alerts.md), which demonstrates how to:
 
-* Monitors task status (completion, failure, etc.)
-* Sends notifications to a specified Slack channel
-* Retrieves task details such as status, console logs, and links to the ClearML Web UI
+* Track task status (completion, failure, etc.)
+* Send notifications to a specified Slack channel
+* Retrieve task details such as status, console logs, and links to the ClearML Web UI
 
-You can configure filters for task types and projects to reduce unnecessary notifications.
-
-For a full example and detailed setup, see the [Slack Alerts Example](../guides/services/slack_alerts.md).
+You can also configure filters for task types and projects to reduce unnecessary notifications.
 
 ![Slack Alerts](../img/examples_slack_alerts.png#light-mode-only)
 ![Slack Alerts](../img/examples_slack_alerts_dark.png#dark-mode-only)
