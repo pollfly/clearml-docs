@@ -43,8 +43,8 @@ For more information, see [Project Dashboard](../webapp/applications/apps_dashbo
 
 ## Task Monitoring
 
-ClearML task monitoring capabilities through the [`clearml.automation.Monitor`](https://github.com/clearml/clearml/blob/master/clearml/automation/monitor.py) 
-class. By extending this class, you can:
+ClearML provides task monitoring capabilities through the [`clearml.automation.Monitor`](https://github.com/clearml/clearml/blob/master/clearml/automation/monitor.py) 
+class. With this class you can implement monitoring workflows such as:
 
 * Send notifications via Slack or other channels
 * Trigger automated responses based on specific task conditions
