@@ -6,13 +6,14 @@ title: Kubernetes Deployment
 The AI Application Gateway is available under the ClearML Enterprise plan.
 :::
 
-This guide details the installation of the ClearML AI App Gateway Router.
-The AI App Gateway Router enables access to session-based applications like VSCode and Jupyter.
-It acts as a proxy, discovering ClearML Tasks running within its namespace and configuring them for user access.
+This guide details the installation of the ClearML App Gateway Router.
+The App Gateway Router enables access to your AI workloads (e.g. remote IDEs like VSCode and Jupyter, model API interface, etc.).
+It acts as a proxy, identifying ClearML Tasks running within its [K8s namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 
+and making them available for network access.
 
 :::important 
-The AI App Gateway Router must be installed in the same namespace as a dedicated ClearML Agent.
-It can only discover ClearML Tasks within its own namespace.
+The App Gateway Router must be installed in the same K8s namespace as a dedicated ClearML Agent.
+It can only configure access for ClearML Tasks within its own namespace.
 :::
 
 
@@ -44,7 +45,7 @@ Replace `<GITHUB_TOKEN>` with your valid GitHub token that has access to the Cle
 
 ### Prepare Values
 
-Before installing the AI App Gateway Router, create a Helm override file:
+Before installing the App Gateway Router, create a Helm override file:
 
 ```
 imageCredentials:
@@ -67,13 +68,13 @@ tcpSession:
     end:
 ```
 
-Edit it according to these guidelines:
+Configuration options:
 
 * `imageCredentials.password`: ClearML DockerHub Access Token.
 * `clearml.apiServerKey`: ClearML server API key.  
 * `clearml.apiServerSecret`: ClearML server secret key.  
-* `clearml.apiServerUrlReference`: ClearML API server URL usually starting with `https://api.`.  
-* `clearml.authCookieName`: Cookie name used by the ClearML server to store the ClearML authentication cookie.
+* `clearml.apiServerUrlReference`: ClearML API server URL starting with `https://api.`.  
+* `clearml.authCookieName`: Cookie used by the ClearML server to store the ClearML authentication cookie.
 * `clearml.sslVerify`: Enable or disable SSL certificate validation on `apiserver` calls check.  
 * `ingress.hostName`: Hostname of router used by the ingress controller to access it.  
 * `tcpSession.routerAddress`: The external router address (can be an IP, hostname, or load balancer address) depending on your network setup. Ensure this address is accessible for TCP connections.
@@ -82,7 +83,7 @@ Edit it according to these guidelines:
 * `tcpSession.portRange.end`: End port for the TCP Session feature.
 
 
-The whole list of supported configuration is available with the command:
+The full list of supported configuration is available with the command:
 
 ```
 helm show readme allegroai-enterprise/clearml-enterprise-task-traffic-router
@@ -103,6 +104,15 @@ allegroai-enterprise/clearml-enterprise-task-traffic-router \
 
 Replace the placeholders with the following values:
 
-* `<RELEASE_NAME>` - Unique name for the AI App Gateway Router within the namespace. This name will appear in the UI and be used for the redirection URL.
-* `<WORKLOAD_NAMESPACE>` - Namespace that will be shared with a dedicated ClearML Agent.
+* `<RELEASE_NAME>` - Unique name for the App Gateway Router within the K8s namespace. This is a required parameter in 
+  Helm, which identifies a specific installation of the chart. The release name also defines the router’s name and 
+  appears in the UI within session app URLs in the IDE. While we typically recommend using a fixed string (e.g. 
+  `clearml-enterprise` or `clearml-agent`), it can be customized to support multiple installations within the same 
+  namespace by assigning different release names.
+* `<WORKLOAD_NAMESPACE>` - [Kubernetes Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 
+  where workloads will be executed. This namespace must be shared between a dedicated ClearML Agent and an App 
+  Gateway Router. The agent is responsible for monitoring its assigned task queues and spawning workloads within this 
+  namespace (unless otherwise configured). Meanwhile, the router monitors the same namespace for AI workloads, such as 
+  session-based tasks. The router has a namespace-limited scope, meaning it can only detect and manage tasks within its 
+  assigned namespace.
 * `<CHART_VERSION>` - Version recommended by the ClearML Support Team.
