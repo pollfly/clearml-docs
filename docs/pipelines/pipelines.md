@@ -12,7 +12,8 @@ products such as artifacts and parameters.
 When run, the controller will sequentially launch the pipeline steps. The pipeline logic and steps 
 can be executed locally, or on any machine using the [clearml-agent](../clearml_agent.md).
 
-![Pipeline UI](../img/pipelines_DAG.png)
+![Pipeline UI](../img/webapp_pipeline_DAG.png#light-mode-only)
+![Pipeline UI](../img/webapp_pipeline_DAG_dark.png#dark-mode-only)
 
 The [Pipeline Run](../webapp/pipelines/webapp_pipeline_viewing.md) page in the web UI displays the pipeline's structure 
 in terms of executed steps and their status, as well as the run's configuration parameters and output. See [pipeline UI](../webapp/pipelines/webapp_pipeline_page.md) 
@@ -20,7 +21,7 @@ for more details.
 
 ClearML pipelines are created from code using one of the following:
 * [PipelineController](pipelines_sdk_tasks.md) class - A pythonic interface for defining and configuring the pipeline 
-  controller and its steps. The controller and steps can be functions in your python code, or existing [ClearML tasks](../fundamentals/task.md).
+  controller and its steps. The controller and steps can be functions in your Python code, or existing [ClearML tasks](../fundamentals/task.md).
 * [PipelineDecorator](pipelines_sdk_function_decorators.md) class - A set of Python decorators which transform your 
   functions into the pipeline controller and steps
 
@@ -35,7 +36,7 @@ example of a pipeline with concurrent steps.
 ClearML supports multiple modes for pipeline execution:
 * **Remote Mode** (default) - In this mode, the pipeline controller logic is executed through a designated queue, and all 
   the pipeline steps are launched remotely through their respective queues. Since each task is executed independently, 
-  it can have control over its git repository (if needed), required python packages, and the specific container to use.
+  it can have control over its git repository (if needed), required Python packages, and the specific container to use.
 * **Local Mode** - In this mode, the pipeline is executed locally, and the steps are executed as sub-processes. Each 
   subprocess uses the exact same Python environment as the main pipeline logic.
 * **Debugging Mode** (for PipelineDecorator) - In this mode, the entire pipeline is executed locally, with the pipeline 
@@ -102,7 +103,12 @@ You can rerun the pipeline programmatically or via the ClearML Web UI:
 * To launch a new pipeline run in the UI, click **+ NEW RUN** in the [pipeline runs](../webapp/pipelines/webapp_pipeline_table.md) page. This opens a **NEW RUN** modal, where you 
 can set the run's parameters and execution queue.  
 
-  ![Pipeline params UI](../img/pipelines_new_run.png)
+<div class="max-w-75">
+
+  ![Pipeline params UI](../img/pipelines_new_run.png#light-mode-only)
+  ![Pipeline params UI](../img/pipelines_new_run_dark.png#dark-mode-only)
+
+</div>
 
 The new pipeline run will be executed through the execution queue by a ClearML agent. The agent will rebuild 
 the pipeline according to the configuration and DAG that was captured in the original run, and override the original 

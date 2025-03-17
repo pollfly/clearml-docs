@@ -31,7 +31,7 @@ You can create copies of a task ([clone](../webapp/webapp_exp_reproducing.md)) t
 * Set hyperparameter and run-time configuration values
 
 Modifying a task clone's configuration will have the executing ClearML agent override the original values:
-* Modified package requirements will have the experiment script run with updated packages
+* Modified package requirements will have the task script run with updated packages
 * Modified recorded command line arguments will have the ClearML agent inject the new values in their stead
 * Code-level configuration instrumented with [`Task.connect`](../references/sdk/task.md#connect) will be overridden by 
 modified hyperparameters
@@ -39,13 +39,14 @@ modified hyperparameters
 
 
 
-![Task](../img/fundamentals_task.png)
+![Task](../img/fundamentals_task.png#light-mode-only)
+![Task](../img/fundamentals_task_dark.png#dark-mode-only)
 
 ## Task Sections
 
 The sections of ClearML Task are made up of the information that a task captures and stores, which consists of code 
 execution details and execution outputs. This information is used for tracking 
-and visualizing results, reproducing, tuning, and comparing experiments, and executing workflows. 
+and visualizing results, reproducing, tuning, and comparing tasks, and executing workflows. 
 
 The captured [code execution information](../webapp/webapp_exp_track_visual.md#execution) includes: 
 * Git information 
@@ -60,15 +61,15 @@ The captured [execution output](../webapp/webapp_exp_track_visual.md#task-result
 * [Debug samples](../webapp/webapp_exp_track_visual.md#debug-samples)
 * [Models](models.md) 
 
-For a more in-depth description of each task section, see [Tracking Experiments and Visualizing Results](../webapp/webapp_exp_track_visual.md).
+For a more in-depth description of each task section, see [Tracking Tasks and Visualizing Results](../webapp/webapp_exp_track_visual.md).
 
 ### Execution Configuration
 ClearML logs a task's hyperparameters specified as command line arguments, environment or code level variables. This 
-allows experiments to be reproduced, and their hyperparameters and results can be saved and compared, which is key to 
+allows tasks to be reproduced, and their hyperparameters and results can be saved and compared, which is key to 
 understanding model behavior.
 
 Hyperparameters can be added from anywhere in your code, and ClearML provides multiple ways to log them. If you specify 
-your parameters using popular python packages, such as [argparse](https://docs.python.org/3/library/argparse.html) and 
+your parameters using popular Python packages, such as [argparse](https://docs.python.org/3/library/argparse.html) and 
 [click](https://click.palletsprojects.com/), all you need to do is [initialize](../references/sdk/task.md#taskinit) a task, and 
 ClearML will automatically log the parameters. ClearML also provides methods to explicitly report parameters.
 
@@ -79,10 +80,10 @@ See [Hyperparameters](hyperparameters.md) for more information.
 
 ### Artifacts
 
-ClearML allows easy storage of experiments' output products as artifacts that can later be accessed easily and used, 
+ClearML allows easy storage of tasks' output products as artifacts that can later be accessed easily and used, 
 through the [web UI](../webapp/webapp_overview.md) or programmatically.
 
-ClearML provides methods to easily track files generated throughout your experiments' execution such as:
+ClearML provides methods to easily track files generated throughout your tasks' execution such as:
 
 - Numpy objects 
 - Pandas DataFrames
@@ -91,7 +92,7 @@ ClearML provides methods to easily track files generated throughout your experim
 - Python objects
 - and more!
 
-Most importantly, ClearML also logs experiments' input and output models as well as interim model snapshots (see 
+Most importantly, ClearML also logs tasks' input and output models as well as interim model snapshots (see 
 [Models](models.md)).
 
 #### Logging Artifacts 
@@ -112,7 +113,7 @@ they are attached to, and then retrieving the artifact with one of its following
 * `get_local_copy()` - caches the files for later use and returns a path to the cached file. 
 * `get()` - use for Python objects. The method that returns the Python object.
    
-See more details in the [Using Artifacts example](https://github.com/allegroai/clearml/blob/master/examples/reporting/using_artifacts_example.py).
+See more details in the [Using Artifacts example](https://github.com/clearml/clearml/blob/master/examples/reporting/using_artifacts_example.py).
 
 ## Task Types
 Tasks have a *type* attribute, which denotes their purpose. This helps to further 
@@ -123,7 +124,7 @@ Available task types are:
 * *inference* - Model inference job (e.g. offline / batch model execution)
 * *controller* - A task that lays out the logic for other tasks' interactions, manual or automatic (e.g. a pipeline 
   controller) 
-* *optimizer* - A specific type of controller for optimization tasks (e.g. [hyperparameter optimization](hpo.md))
+* *optimizer* - A specific type of controller for optimization tasks (e.g. [hyperparameter optimization](../getting_started/hpo.md))
 * *service* - Long lasting or recurring service (e.g. server cleanup, auto ingress, sync services etc.)
 * *monitor* - A specific type of service for monitoring
 * *application* - A task implementing custom applicative logic, like [autoscaler](../guides/services/aws_autoscaler.md) 
@@ -173,20 +174,20 @@ The above diagram demonstrates how a previously run task can be used as a baseli
 ## Task States
 
 The state of a task represents its stage in the task lifecycle. It indicates whether the task is read-write (editable) or 
-read-only. For each state, a state transition indicates which actions can be performed on an experiment, and the new state 
+read-only. For each state, a state transition indicates which actions can be performed on a task, and the new state 
 after performing an action.
 
 The following table describes the task states and state transitions. 
 
 | State | Description / Usage | State Transition |
 |---|---|---|
-| *Draft* | The experiment is editable. Only experiments in *Draft* mode are editable. The experiment is not running locally or remotely. | If the experiment is enqueued for a [worker](../fundamentals/agents_and_queues.md) to fetch and execute, the state becomes *Pending*. |
-| *Pending* | The experiment was enqueued and is waiting in a queue for a worker to fetch and execute it. | If the experiment is dequeued, the state becomes *Draft*. |
-| *Running* | The experiment is running locally or remotely. | If the experiment is manually or programmatically terminated, the state becomes *Aborted*. |
-| *Completed* | The experiment ran and terminated successfully. | If the experiment is reset or cloned, the state of the cloned experiment or newly cloned experiment becomes *Draft*. Resetting deletes the logs and output of a previous run. Cloning creates an exact, editable copy. |
-| *Failed* | The experiment ran and terminated with an error. | The same as *Completed*. |
-| *Aborted* | The experiment ran, and was manually or programmatically terminated. The server's [non-responsive task monitor](../deploying_clearml/clearml_server_config.md#non-responsive-task-watchdog) aborts a task automatically after no activity has been detected for a specified time interval (configurable). | The same as *Completed*. |
-| *Published* | The experiment is read-only. Publish an experiment to prevent changes to its inputs and outputs. | A *Published* experiment cannot be reset. If it is cloned, the state of the newly cloned experiment becomes *Draft*. |
+| *Draft* | The task is editable. Only tasks in *Draft* mode are editable. The task is not running locally or remotely. | If the task is enqueued for a [worker](../fundamentals/agents_and_queues.md) to fetch and execute, the state becomes *Pending*. |
+| *Pending* | The task was enqueued and is waiting in a queue for a worker to fetch and execute it. | If the task is dequeued, the state becomes *Draft*. |
+| *Running* | The task is running locally or remotely. | If the task is manually or programmatically terminated, the state becomes *Aborted*. |
+| *Completed* | The task ran and terminated successfully. | If the task is reset or cloned, the state of the cloned task or newly cloned task becomes *Draft*. Resetting deletes the logs and output of a previous run. Cloning creates an exact, editable copy. |
+| *Failed* | The task ran and terminated with an error. | The same as *Completed*. |
+| *Aborted* | The task ran, and was manually or programmatically terminated. The server's [non-responsive task monitor](../deploying_clearml/clearml_server_config.md#non-responsive-task-watchdog) aborts a task automatically after no activity has been detected for a specified time interval (configurable). | The same as *Completed*. |
+| *Published* | The task is read-only. Publish a task to prevent changes to its inputs and outputs. | A *Published* task cannot be reset. If it is cloned, the state of the newly cloned task becomes *Draft*. |
 
 ## SDK Interface
 

@@ -12,7 +12,7 @@ The Settings page consists of the following sections:
   * [Profile](webapp_settings_profile.md#profile) - You basic user information
   * [Configuration](webapp_settings_profile.md#configuration) - Control general system behavior settings and input storage access credentials
   * [Workspace](webapp_settings_profile.md#workspace)  
-      * [ClearML credentials](webapp_settings_profile.md#clearml-credentials) - Create client credentials for ClearML and ClearML Agent to use 
+      * [ClearML credentials](webapp_settings_profile.md#clearml-api-credentials) - Create client credentials for ClearML and ClearML Agent to use 
       * [Configuration vault](webapp_settings_profile.md#configuration-vault) (ClearML Enterprise Server) - Define global ClearML client settings
         that are applied to all ClearML and ClearML Agent instances (which use the workspace's access 
         credentials)
@@ -24,6 +24,6 @@ The Settings page consists of the following sections:
   * [Identity Providers](webapp_settings_id_providers.md) (ClearML Enterprise Server) - Manage server identity providers
   * [Resource Configuration](webapp_settings_resource_configs.md) (ClearML Enterprise Server) - Define the available resources and the way in which they 
   will be allocated to different workloads 
-  * [Usage & Billing](webapp_settings_usage_billing.md) (ClearML Hosted Service) - View current usage information and billing details
-  * [Storage Credentials](webapp_settings_storage_credentials.md) (ClearML Enterprise Server) - Configure storage provider access credentials to 
+  * [Billing & Usage](webapp_settings_usage_billing.md) (ClearML Hosted Service) - View current billing details and usage information 
+  * [Storage Cleanup](webapp_settings_storage_credentials.md) (ClearML Enterprise Server) - Configure storage provider access credentials to 
   enable ClearML to delete artifacts stored in cloud storage when tasks and models are deleted

@@ -16,7 +16,7 @@ solution.
 * Flexible
     * On-line model deployment
     * On-line endpoint model/version deployment (i.e. no need to take the service down)
-    * Per model standalone preprocessing and postprocessing python code
+    * Per model standalone preprocessing and postprocessing Python code
 * Scalable
     * Multi model per container
     * Multi models per serving service
@@ -39,7 +39,7 @@ solution.
 
 ## Components
 
-![ClearML Serving](https://github.com/allegroai/clearml-serving/raw/main/docs/design_diagram.png?raw=true)
+![ClearML Serving](https://github.com/clearml/clearml-serving/raw/main/docs/design_diagram.png?raw=true)
 
 * **CLI** - Secure configuration interface for on-line model upgrade/deployment on running Serving Services
 

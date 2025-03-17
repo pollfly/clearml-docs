@@ -25,7 +25,8 @@ Once you have launched an app instance, you can view the following information i
 * Server's resources monitoring (CPU / GPU / vMem utilization)
 * Console - The console log shows the instance's activity, including server setup progress, server status changes
 
-![VS Code Dashboard](../../img/apps_vs_code.png)
+![VS Code Dashboard](../../img/apps_vs_code.png#light-mode-only)
+![VS Code Dashboard](../../img/apps_vs_code_dark.png#dark-mode-only)
 
 ## VS Code App Instance Configuration
 When configuring a new VS Code instance, you can fill in the required parameters or reuse the configuration of 
@@ -50,8 +51,8 @@ to open the app's instance launch form.
   * Repository
   * Branch
   * Commit
-* **Docker**
-  * Image - Docker image used to run the IDE in
+* **Container**
+  * Image - container image used to run the IDE in
   * Docker arguments - `docker run` arguments, as a single string
 * **Queue** - The queue serviced by the ClearML Agent that will execute the VS Code session
 * **Maximum idle time** (hours) - Maximum time of inactivity, after which the session will shut down. Configure idleness 

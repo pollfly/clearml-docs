@@ -14,19 +14,19 @@ Dataviews support:
 * Class label enumeration
 * Controls for the frame iteration, such as sequential or random iteration, limited or infinite iteration, and reproducibility. 
 
-Dataviews are lazy and optimize processing. When an experiment script runs in a local environment, Dataview pointers
-are initialized. If the experiment is cloned or extended, and that newly cloned or extended experiment is tuned and run, 
+Dataviews are lazy and optimize processing. When a task script runs in a local environment, Dataview pointers
+are initialized. If the task is cloned or extended, and that newly cloned or extended task is tuned and run, 
 only changed pointers are initialized. The pointers that did not change are reused.
 
 ## Dataview State
 Dataviews can be in either *Draft* or *Published* state.
 
-A *Draft* Dataview is editable. A *Published* Dataview is read-only, which ensures reproducible experiments and 
+A *Draft* Dataview is editable. A *Published* Dataview is read-only, which ensures reproducible tasks and 
 preserves the Dataview's settings. 
 
 ## Filtering
 
-A Dataview filters experiment input data, using one or more frame filters. A frame filter defines the criteria for the 
+A Dataview filters task input data, using one or more frame filters. A frame filter defines the criteria for the 
 selection of SingleFrames iterated by a Dataview.  
 
 A frame filter contains the following criteria:
@@ -71,40 +71,6 @@ ROI label mapping (label translation) applies to the new model. For example, app
 Define class labels for the new model and assign integers to each in order to maintain data conformity across multiple 
 codebases and datasets. It is important to set enumeration values for all labels of importance. 
 
-## Data Augmentation
-
-On-the-fly data augmentation is applied to SingleFrames, transforming images without creating new data. Apply data augmentation 
-in steps, where each step is composed of a method, an operation, and a strength as follows: 
-
-* **Affine** augmentation method - Transform an image's geometric shape to another position on a 2-dimensional plane. 
-  Use any of the following operations:
-
-    * Rotate
-    * Reflect-horiz - Flip images horizontally
-    * Reflect-vert - Flip images vertically
-    * Scale
-    * Shear - Skew
-    * No operation - Randomly select SingleFrames that are not transformed (skipped). If the experiment runs again, and 
-      the random seed in [iteration control](#iteration-control) is unchanged, the same SingleFrames are not augmented.
-    
-* **Pixel** augmentation method - Transform images by modifying pixel values while retaining shape and perspective.  
-  Use any of the following operations:
-
-    * Blur - Gaussian smoothing 
-    * Noise - ClearML Enterprise's own noise augmentation consisting of: 
-      * **high** noise - like snow on analog televisions with a weak TV signal 
-      * **low** noise - like a low resolution image magnified in localized areas on the image
-    * Recolor - using an internal RGB lookup-table
-    * No operation - Randomly select SingleFrames that are not transformed (skipped). If the experiment runs again, and 
-      the random seed in [iteration control](#iteration-control) is unchanged, the same SingleFrames are not augmented.
-    
-* Strength - A number applied to adjust the degree of transformation. The recommended strengths are the following:
-
-    * 0.0 - No effect
-    * 0.5 - Low (weak)
-    * 1.0 - Medium (recommended)
-    * 2.0 - High (strong)
-
 ## Iteration Control
 
 The input data **iteration control** settings determine the order, number, timing, and reproducibility of the Dataview iterating 
@@ -126,11 +92,11 @@ may repeat. The settings include the following:
       the maximum, then the actual number of SingleFrames are iterated. If the order is sequential, then no SingleFrames 
       repeat. If the order is random, then some SingleFrames may repeat. 
 
-    * Infinite Iterations - Iterate SingleFrames until the experiment is manually terminated. If the order is sequential, 
-      then all SingleFrames are iterated (unless the experiment is manually terminated before all iterate) and SingleFrames 
+    * Infinite Iterations - Iterate SingleFrames until the task is manually terminated. If the order is sequential, 
+      then all SingleFrames are iterated (unless the task is manually terminated before all iterate) and SingleFrames 
       repeat. If the order is random, then all SingleFrames may not be iterated, and some SingleFrames may repeat.
         
-* Random Seed - If the experiment is rerun and the seed remains unchanged, the SingleFrames iteration is the same.
+* Random Seed - If the task is rerun and the seed remains unchanged, the SingleFrames iteration is the same.
 
 * Clip Length - For video data sources, in the number of sequential SingleFrames from a clip to iterate.
 
@@ -173,13 +139,15 @@ You can retrieve the Dataview frames using [`DataView.to_list()`](../references/
 [`DataView.to_dict()`](../references/hyperdataset/dataview.md#to_dict), or [`DataView.get_iterator()`](../references/hyperdataset/dataview.md#get_iterator)
 (see [Accessing Frames](#accessing-frames)).
 
-#### ROI Queries: 
+### ROI Query Examples 
 
-* **ROI query for a single label**
+#### ROI query for a single label
 
 This example uses an ROI query to filter for frames containing at least one ROI with the label `cat`:
 
 ```python
+from allegroai import DataView, IterationOrder
+
 # Create a Dataview object for an iterator that randomly returns frames according to queries
 myDataView = DataView(iteration_order=IterationOrder.random, iteration_infinite=False)
 
@@ -195,11 +163,13 @@ myDataView.add_query(
 list_of_frames = myDataView.to_list()
 ```
 
-* **ROI query for one label OR another**
+#### ROI query for one label OR another
 
 This example uses an ROI query to filter for frames containing at least one ROI with either the label `cat` OR the label `dog`:
 
 ```python
+from allegroai import DataView
+
 # Add a query for a Dataset version 
 myDataView.add_query(
     dataset_name='myDataset', 
@@ -218,11 +188,13 @@ myDataView.add_query(
 list_of_frames = myDataView.to_list()
 ```
 
-* **ROI query for two specific labels in the same ROI**  
+#### ROI query for two specific labels in the same ROI
 
 This example uses an ROI query to filter for frames containing at least one ROI with both the label `Car` AND the label `partly_occluded`:
 
 ```python
+from allegroai import DataView
+
 # Add a query for a Dataset version
 myDataView.add_query(
     dataset_name='myDataset', 
@@ -235,12 +207,14 @@ myDataView.add_query(
 list_of_frames = myDataView.to_list()
 ```
 
-* **ROI query for one label AND NOT another (Lucene query)**    
+#### ROI query for one label AND NOT another (Lucene query)
 
 This example uses an ROI query to filter for frames containing at least one ROI that has with the label `Car` AND DOES NOT 
 have the label `partly_occluded`:
 
 ```python
+from allegroai import DataView
+
 # Add a query for a Dataset version
 # Use a Lucene Query
 #   "label" is a key in the rois dictionary of a frame
@@ -256,13 +230,15 @@ myDataView.add_query(
 list_of_frames = myDataView.to_list()
 ```
 
-* **ROI query for one label AND another label in different ROIs**
+#### ROI query for one label AND another label in different ROIs
 
 This example uses an ROI query to filter for frames containing at least one ROI with the label `Car` and at least one 
 ROI with the label `Person`. The example demonstrates using the `roi_queries` parameter of [`DataView.add_multi_query()`](../references/hyperdataset/dataview.md#add_multi_query) 
 with a list of [`DataView.RoiQuery`](../references/hyperdataset/dataview.md#roiquery) objects:
 
 ```python
+from allegroai import DataView
+
 myDataview = DataView()
 myDataview.add_multi_query(
     dataset_id=self._dataset_id,
@@ -274,13 +250,15 @@ myDataview.add_multi_query(
 list_of_frames = myDataView.to_list()
 ```
 
-* **ROI query for one label AND NOT another label in different ROIs**
+#### ROI query for one label AND NOT another label in different ROIs
 
 This example uses an ROI query to filter for frames containing at least one ROI with the label `Car` AND that DO NOT 
 contain ROIs with the label `Person`. To exclude an ROI, pass `must_not=True` in the [`DataView.RoiQuery`](../references/hyperdataset/dataview.md#roiquery) 
 object. 
 
 ```python
+from allegroai import DataView
+
 myDataview = DataView()
 myDataview.add_multi_query(
     dataset_id=self._dataset_id,
@@ -300,6 +278,8 @@ This example demonstrates an ROI query filtering for frames containing the ROI l
 from two versions of one Dataset, and one version of another Dataset:
 
 ```python
+from allegroai import DataView
+
 # Add queries:
 
 # The 1st Dataset version 
@@ -331,7 +311,7 @@ myDataView.add_query(
 list_of_frames = myDataView.to_list()
 ```
 
-#### Frame Queries
+### Frame Queries
 
 Use frame queries to filter frames by ROI labels and/or frame metadata key-value pairs that a frame must include or 
 exclude for the Dataview to return the frame. 
@@ -339,9 +319,13 @@ exclude for the Dataview to return the frame.
 **Frame queries** match frame meta key-value pairs, ROI labels, or both.
 They use the same logical OR, AND, NOT AND matching as ROI queries.
 
+#### Frame Query by Metadata
+
 This example demonstrates a frame query filtering for frames containing the meta key `city` value of `bremen`:
         
 ```python
+from allegroai import DataView
+
 # Add a frame query for frames with the meta key "city" value of "bremen"
 myDataView.add_query(
     dataset_name='myDataset',
@@ -354,6 +338,59 @@ myDataView.add_query(
 list_of_frames = myDataView.to_list()
 ```
 
+#### Frame Query by Date and Time
+Provided that a metadata field stores date and time values, you can query frames based on date ranges and specific time 
+intervals
+
+##### Frame Query for Specific Date
+This example demonstrates a frame query filtering for frames containing the meta key `updated` with the value of October 
+20th, 2024: 
+        
+```python
+# Add a frame query for frames with the meta key "updated" value of "2024-10-20"
+myDataView.add_query(
+    dataset_name='myDataset',
+    version_name='version',
+    frame_query='meta.updated:[2024-10-20 TO 2024-10-20]'
+)
+
+# retrieving the actual SingleFrames / FrameGroups 
+# you can also iterate over the frames with `for frame in myDataView.get_iterator():`
+list_of_frames = myDataView.to_list()
+```
+
+##### Frame Query for Date Range
+
+This example demonstrates a frame query filtering for frames containing the meta key `updated` with any value between the
+dates of October 20th and October 30th, 2024: 
+
+```python
+# Add a frame query for frames with the meta key "updated" value between "2024-10-20" and "2024-10-30"
+myDataView.add_query(
+    dataset_name='myDataset',
+    version_name='version',
+    frame_query='meta.updated:[2024-10-20 TO 2024-10-30]'
+)
+
+# retrieving the actual SingleFrames / FrameGroups 
+# you can also iterate over the frames with `for frame in myDataView.get_iterator():`
+list_of_frames = myDataView.to_list()
+```
+
+##### Frame Query for Time Interval
+
+This example demonstrates a frame query filtering for frames containing the meta key `updated` with any value between 
+`08:000` and `09:00` on October 20th, 2024: 
+
+```python
+# Add a frame query for frames with the meta key's value between 08:00:00 and 09:00:00 on 2024-10-20
+
+myDataView.add_query(
+    dataset_name='myDataset',
+    version_name='version',
+    frame_query='meta.<field_name>:[2024-10-20T08:00:00 TO 2024-10-20T09:00:00]'
+)
+```
 
 ### Controlling Query Iteration
 
@@ -367,6 +404,8 @@ This example demonstrates creating a Dataview and setting its parameters to iter
 manually terminated: 
 
 ```python
+from allegroai import DataView, IterationOrder
+
 # Create a Dataview object for an iterator that returns frames
 myDataView = DataView()
 
@@ -378,6 +417,8 @@ myDataView.set_iteration_parameters(order=IterationOrder.random, infinite=True)
 This example demonstrates creating a DataView and setting its parameters to iterate and return all frames matching a query:
 
 ```python
+from allegroai import DataView, IterationOrder
+
 # Create a Dataview object for an iterator for frames
 myDataView = DataView(iteration_order=IterationOrder.random, iteration_infinite=False)
 
@@ -404,6 +445,8 @@ This example demonstrates creating a Dataview and setting its parameters to iter
 Dataset version contains fewer than that number of frames matching the query, then fewer are returned by the iterator.
 
 ```python
+from allegroai import DataView, IterationOrder
+
 # Create a Dataview object for an iterator for frames
 myDataView = DataView(iteration_order=IterationOrder.random, iteration_infinite=True)
 
@@ -426,6 +469,8 @@ This example adjusts an imbalance in the input data to improve training for `Car
 one ROI labeled with both `Car` and `largely_occluded` will be input.
 
 ```python
+from allegroai import DataView, IterationOrder
+
 myDataView = DataView(iteration_order=IterationOrder.random, iteration_infinite=True)
 
 myDataView.add_query(
@@ -457,6 +502,8 @@ then use the labels you map **to** when setting enumeration values.
 For example, if the labels `truck`, `van`, and `car` are mapped **to** `vehicle`, then set enumeration for `vehicle`. 
 
 ```python
+from allegroai import DataView, IterationOrder
+
 # Create a Dataview object for an iterator that randomly returns frames according to queries
 myDataView = DataView(iteration_order=IterationOrder.random, iteration_infinite=True)
 
@@ -507,6 +554,8 @@ third uses `Car` (upper case "C").
 The example maps `Car` (upper case "C") to `car` (lower case "c"):
 
 ```python
+from allegroai import DataView, IterationOrder
+
 # Create a Dataview object for an iterator that randomly returns frames according to queries 
 myDataView = DataView(iteration_order=IterationOrder.random, iteration_infinite=True)
 
@@ -546,10 +595,12 @@ Dataview objects can be retrieved by the Dataview ID or name using the [`DataVie
 class method.
 
 ```python
+from allegroai import DataView
+
 my_dataview = DataView.get(dataview_id='<dataview_id>')
 ```
 
-Access the Dataview's frames as a python list, dictionary, or through a pythonic iterator.
+Access the Dataview's frames as a Python list, dictionary, or through a pythonic iterator.
 
 [`DataView.to_list()`](../references/hyperdataset/dataview.md#to_list) returns the Dataview queries result as a Python list. 	
 

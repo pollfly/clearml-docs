@@ -2,6 +2,10 @@
 title: Hyper-Datasets Page
 ---
 
+:::important ENTERPRISE FEATURE
+Hyper-Datasets are available under the ClearML Enterprise plan.
+:::
+
 Use the Hyper-Datasets Page to navigate between and manage hyper-datasets. 
 
 You can view the Hyper-Datasets page in Project view <img src="/docs/latest/icons/ico-project-view.svg" alt="Project view" className="icon size-md" /> 
@@ -20,7 +24,8 @@ Filter the hyper-datasets to find the one you're looking for more easily. These 
   * Filter by the absence of a tag (logical "NOT") by clicking its checkbox twice. An X will appear in the tag's checkbox.
 
 
-![Hyper-Dataset page](../../img/hyperdatasets/datasets_01.png)
+![Hyper-Dataset page](../../img/hyperdatasets/datasets_01.png#light-mode-only)
+![Hyper-Dataset page](../../img/hyperdatasets/datasets_01_dark.png#dark-mode-only)
 
 ## Project Cards
 
@@ -28,7 +33,8 @@ In Project view, project cards display a project's summarized hyper-dataset info
 
 <div class="max-w-50">
 
-![Hyper-Dataset project card](../../img/hyperdatasets/hyperdataset_project_card.png)
+![Hyper-Dataset project card](../../img/hyperdatasets/hyperdataset_project_card.png#light-mode-only)
+![Hyper-Dataset project card](../../img/hyperdatasets/hyperdataset_project_card_dark.png#dark-mode-only)
 
 </div>
 
@@ -45,7 +51,8 @@ In List view, the Hyper-Dataset cards display summarized dataset information:
 
 <div class="max-w-50">
 
-![Hyper-Dataset card](../../img/hyperdatasets/hyperdataset_card.png)
+![Hyper-Dataset card](../../img/hyperdatasets/hyperdataset_card.png#light-mode-only)
+![Hyper-Dataset card](../../img/hyperdatasets/hyperdataset_card_dark.png#dark-mode-only)
 
 </div>
 
@@ -70,9 +77,10 @@ To change the label color coding, hover over a label color, click the hand point
 Click <img src="/docs/latest/icons/ico-bars-menu.svg" alt="Menu" className="icon size-md space-sm" /> on the top right
 of a dataset card to open its context menu and access dataset actions:  
 
-<div class="max-w-50">
+<div class="max-w-75">
 
-![Hyper-Dataset context menu](../../img/webapp_hyperdataset_card_context_menu.png)
+![Hyper-Dataset context menu](../../img/hyperdatasets/webapp_hyperdataset_card_context_menu.png#light-mode-only)
+![Hyper-Dataset context menu](../../img/hyperdatasets/webapp_hyperdataset_card_context_menu_dark.png#dark-mode-only)
 
 </div>
 
@@ -85,6 +93,11 @@ of a dataset card to open its context menu and access dataset actions:
 To create a Hyper-Dataset, click the **+ NEW DATASET** button in the top right of the page, which will open a 
 **New Dataset** modal.
 
-![Hyper-Dataset creation modal](../../img/webapp_hyperdataset_creation.png)
+<div class="max-w-50">
+
+![Hyper-Dataset creation modal](../../img/hyperdatasets/webapp_hyperdataset_creation.png#light-mode-only)
+![Hyper-Dataset creation modal](../../img/hyperdatasets/webapp_hyperdataset_creation_dark.png#dark-mode-only)
+
+</div>
 
 This creates a new Hyper-Dataset that contains a single, empty draft version.

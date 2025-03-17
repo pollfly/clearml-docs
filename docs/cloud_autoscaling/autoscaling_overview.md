@@ -71,7 +71,7 @@ execute the tasks in the GPU queue.
 #### Docker
 Every task a cloud instance pulls will be run inside a docker container. When setting up an autoscaler app instance, 
 you can specify a default container to run the tasks inside. If the task has its own container configured, it will 
-override the autoscaler’s default docker image (see [Base Docker Image](../clearml_agent/clearml_agent_docker.md#base-docker-container)).
+override the autoscaler’s default docker image (see [Base Container](../getting_started/clearml_agent_base_docker.md#base-container)).
 
 #### Git Configuration 
 If your code is saved in a private repository, you can add your Git credentials so the ClearML Agents running on your
@@ -100,5 +100,5 @@ underutilized nodes. See [charts](https://github.com/kubernetes/autoscaler/tree/
 
 :::important Enterprise features
 The ClearML Enterprise plan supports K8S servicing multiple ClearML queues, as well as providing a pod template for each 
-queue for describing the resources for each pod to use. See [ClearML Helm Charts](https://github.com/allegroai/clearml-helm-charts/tree/main).  
+queue for describing the resources for each pod to use. See [ClearML Helm Charts](https://github.com/clearml/clearml-helm-charts/tree/main).  
 :::

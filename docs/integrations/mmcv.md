@@ -7,9 +7,9 @@ title: MMCV v1.x
 :::
 
 :::tip
-If you are not already using ClearML, see [Getting Started](../getting_started/ds/ds_first_steps.md) for setup 
-instructions.
+If you are not already using ClearML, see [ClearML Setup instructions](../clearml_sdk/clearml_sdk_setup).
 :::
+
 
 [MMCV](https://github.com/open-mmlab/mmcv/tree/1.x) is a computer vision framework developed by OpenMMLab. You can integrate ClearML into your 
 code using the `mmcv` package's [`ClearMLLoggerHook`](https://mmcv.readthedocs.io/en/master/_modules/mmcv/runner/hooks/logger/clearml.html)
@@ -46,8 +46,8 @@ runner.register_training_hooks(
 The `init_kwargs` dictionary can include any parameter from [`Task.init()`](../references/sdk/task.md#taskinit). 
 
 This creates a [ClearML Task](../fundamentals/task.md) `OpenMMLab cifar10` in the `examples` project.
-You can view the captured metrics in the experiment's **Scalars** tab in the [WebApp](../webapp/webapp_overview.md).
+You can view the captured metrics in the task's **Scalars** tab in the [WebApp](../webapp/webapp_overview.md).
 
 ![OpenMMLab scalars](../img/integration_openmmlab_scalars.png)
 
-See MMCV code example [here](https://github.com/allegroai/clearml/blob/master/examples/frameworks/openmmlab/openmmlab_cifar10.py).
+See MMCV code example [here](https://github.com/clearml/clearml/blob/master/examples/frameworks/openmmlab/openmmlab_cifar10.py).

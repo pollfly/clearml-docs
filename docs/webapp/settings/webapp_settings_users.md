@@ -19,7 +19,11 @@ Each row of the table includes:
 * If the user's invitation is pending, the date the user was added
 * [User groups](#user-groups) (ClearML Enterprise feature)
 
-![Users table](../../img/settings_user_table.png)
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-md" />
+to find a specific user by their name, email, or user ID. 
+
+![Users table](../../img/settings_user_table.png#light-mode-only)
+![Users table](../../img/settings_user_table_dark.png#dark-mode-only)
 
 ### Inviting New Teammates
 
@@ -38,7 +42,7 @@ user can only rejoin your workspace when you re-invite them.
 ## Service Accounts
 
 :::important Enterprise Feature
-This feature is available under the ClearML Enterprise plan.
+Service accounts are available under the ClearML Enterprise plan.
 :::
 
 Service accounts are ClearML users that provide services with access to the ClearML API, but not the 
@@ -67,9 +71,13 @@ Each row of the table includes:
 * Credentials - Number of credentials currently available to the account
 * Last active time
 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-md" /> 
+to find a specific service account by its name or ID.
+
 Hover over a service account in the table to **Edit** or **Delete** it.
 
-![Service accounts](../../img/settings_service_accounts.png)
+![Service accounts](../../img/settings_service_accounts.png#light-mode-only)
+![Service accounts](../../img/settings_service_accounts_dark.png#dark-mode-only)
 
 ### Creating a Service Account
 
@@ -129,11 +137,12 @@ To apply vault contents:
 * Click the toggle atop the vault to enable / disable the configurations
 * Once enabled, the configurations will be merged to the configuration file during ClearML and ClearML Agent usage
 
-In addition to the service account-specific configuration vault, [administrator vaults](#administrator-vaults) can also 
+In addition to the service account-specific configuration vault, [administrator vaults](webapp_settings_admin_vaults.md) can also 
 be applied to service accounts. See all the vaults applied to the account in the **Applied administrator vaults** below 
 the configuration vault.   
 
-![Service Account Config Vault](../../img/settings_service_account_config_vault.png)
+![Service Account Config Vault](../../img/settings_service_account_config_vault.png#light-mode-only)
+![Service Account Config Vault](../../img/settings_service_account_config_vault_dark.png#dark-mode-only)
 
 ### Deleting Service Account
 Deleting a service account will revoke its credentials, causing agents using the account's credentials to fail. 
@@ -146,7 +155,7 @@ To delete a service account:
 ## User Groups
 
 :::important Enterprise Feature
-This feature is available under the ClearML Enterprise plan, as part of the [Access Rules](webapp_settings_access_rules.md) 
+User groups are available under the ClearML Enterprise plan, as part of the [Access Rules](webapp_settings_access_rules.md) 
 feature.
 :::
 
@@ -160,8 +169,11 @@ The system includes three pre-configured groups that can't be removed:
 * `Queue admins` - Can create / delete / rename queues
 
 The user group table lists all the active user groups. Each row includes a group's name, description, member list, and ID. 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-md" /> 
+to find a specific user group by its name, description, or ID.
 
-![User Management Page](../../img/settings_user_management_table.png)
+![User Management Page](../../img/settings_user_management_table.png#light-mode-only)
+![User Management Page](../../img/settings_user_management_table_dark.png#dark-mode-only)
 
 ### Creating a User Group
 
@@ -169,11 +181,16 @@ The user group table lists all the active user groups. Each row includes a group
 1. Click **+ ADD GROUP**
 1. In the dialog, add a group name and description
 1. Add members to the group. When clicking the input box, a list of workspace members appears, from which group members 
-   can be selected. Filter the list by typing part of the username. To remove a member, Hover over a user's row and click 
+   can be selected. Filter the list by typing part of the username. To remove a member, hover over a user's row and click 
    the <img src="/docs/latest/icons/ico-trash.svg" alt="Trash can" className="icon size-md" /> button
 1. Click **SAVE**
 
-![User group creation dialog](../../img/settings_user_group.png)
+<div class="max-w-50">
+
+![User group creation dialog](../../img/settings_user_group.png#light-mode-only)
+![User group creation dialog](../../img/settings_user_group_dark.png#dark-mode-only)
+
+</div>
 
 ### Editing a User Group
 

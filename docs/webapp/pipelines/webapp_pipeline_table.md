@@ -1,5 +1,5 @@
 ---
-title: The Pipeline Runs Table
+title: The Pipeline Run Table
 ---
 
 The pipeline runs table is a [customizable](#customizing-the-runs-table) list of the pipeline's runs. Use it to
@@ -26,16 +26,17 @@ and choosing one of these options:
 
 The downloaded data consists of the currently displayed table columns.
 
-![Pipeline runs table](../../img/webapp_pipeline_runs_table.png)
+![Pipeline runs table](../../img/webapp_pipeline_runs_table.png#light-mode-only)
+![Pipeline runs table](../../img/webapp_pipeline_runs_table_dark.png#dark-mode-only)
 
 ## Run Table Columns
 
-The models table contains the following columns:
+The pipeline run table contains the following columns:
 
 | Column | Description | Type |
 |---|---|---|
 | **RUN** | Pipeline run identifier  |  String |
-| **VERSION** | The pipeline version number. Corresponds to the [PipelineController](../../references/sdk/automation_controller_pipelinecontroller.md#class-pipelinecontroller)'s and [PipelineDecorator](../../references/sdk/automation_controller_pipelinecontroller.md#class-automationcontrollerpipelinedecorator)'s `version` parameter | Version string |
+| **VERSION** | The pipeline version number. Corresponds to the [PipelineController](../../references/sdk/automation_controller_pipelinecontroller.md#class-pipelinecontroller)'s and [PipelineDecorator](../../references/sdk/automation_controller_pipelinedecorator.md#class-automationcontrollerpipelinedecorator)'s `version` parameter | Version string |
 | **TAGS** | Descriptive, user-defined, color-coded tags assigned to run. | Tag |
 | **STATUS** | Pipeline run's status. See a list of the [task states and state transitions](../../fundamentals/task.md#task-states). For Running, Failed, and Aborted runs, you will also see a progress indicator next to the status. See [here](../../pipelines/pipelines.md#tracking-pipeline-progress). |  String |
 | **USER** | User who created the run.  |  String |
@@ -98,7 +99,8 @@ you can set the run's parameters. By default, the fields are pre-filled with the
 
 Click **Advanced configurations** to change the run's execution queue.  
 
-![New run modal](../../img/webapp_pipeline_new_run.png)
+![New run modal](../../img/webapp_pipeline_new_run.png#light-mode-only)
+![New run modal](../../img/webapp_pipeline_new_run_dark.png#dark-mode-only)
 
 After clicking **RUN**, the new pipeline run is enqueued in the specified queue, and the run is added to the pipeline run table. 
 
@@ -125,7 +127,8 @@ Access these actions with the context menu in any of the following ways:
 
 <div class="max-w-50">
 
-![pipeline run context menu](../../img/webapp_pipelines_context_menu.png)
+![pipeline run context menu](../../img/webapp_pipelines_context_menu.png#light-mode-only)
+![pipeline run context menu](../../img/webapp_pipelines_context_menu_dark.png#dark-mode-only)
 
 </div> 
 
@@ -157,12 +160,14 @@ In the dropdown menu, select to view **Scalars** or **Plots**.
 
 **Scalars** shows pipeline run scalar results as time series line graphs. 
 
-![Scalar line graphs](../../img/pipelines_comparison_scalars.png)
+![Scalar line graphs](../../img/pipelines_comparison_scalars.png#light-mode-only)
+![Scalar line graphs](../../img/pipelines_comparison_scalars_dark.png#dark-mode-only)
 
 All single value scalars are plotted into a single clustered bar chart under the "Summary" title, where each cluster 
-represents a reported metric, and each bar in the cluster represents an experiment.
+represents a reported metric, and each bar in the cluster represents a task.
 
-![Single scalar comparison](../../img/pipelines_comparison_single_scalar.png)
+![Single scalar comparison](../../img/pipelines_comparison_single_scalar.png#light-mode-only)
+![Single scalar comparison](../../img/pipelines_comparison_single_scalar_dark.png#dark-mode-only)
 
 Click <img src="/docs/latest/icons/ico-settings.svg" alt="Setting Gear" className="icon size-md" /> to customize which 
 metrics to view.
@@ -174,14 +179,16 @@ In the **Scalars** view, click <img src="/docs/latest/icons/ico-tune.svg" alt="T
 Line, scatter, box, and bar graphs are compared by overlaying each metric/variant from all compared runs' into a single 
 comparative plot.
 
-![Merged plots](../../img/pipelines_comparison_plots_merged.png)
+![Merged plots](../../img/pipelines_comparison_plots_merged.png#light-mode-only)
+![Merged plots](../../img/pipelines_comparison_plots_merged_dark.png#dark-mode-only)
 
 Other plot types are displayed separately for each run.
 
-![Side-by-side plots](../../img/pipelines_comparison_plots.png)
+![Side-by-side plots](../../img/pipelines_comparison_plots.png#light-mode-only)
+![Side-by-side plots](../../img/pipelines_comparison_plots_dark.png#dark-mode-only)
 
 
 ### Run Details Comparison
 For a more in depth comparison of pipeline runs, select the runs to compare and click **Compare** in the batch action 
 bar. In the run comparison pages, you can compare details, hyperparameters, scalars, plots, and debug samples. For more 
-information, see [Comparing Experiments](../webapp_exp_comparing.md).
+information, see [Comparing Tasks](../webapp_exp_comparing.md).

@@ -2,12 +2,17 @@
 title: Annotation Tasks
 ---
 
+:::important ENTERPRISE FEATURE
+Annotation tasks are available under the ClearML Enterprise plan.
+:::
+
 Use the Annotations page to access and manage annotation Tasks.  
 
 Use annotation tasks to efficiently organize the annotation of frames in Dataset versions and manage the work of annotators 
 (see [Annotating Images and Videos](#annotating-images-and-video)).
 
-![Annotations page](../../img/annotation_page.png) 
+![Annotations page](../../img/hyperdatasets/annotation_page.png#light-mode-only)
+![Annotations page](../../img/hyperdatasets/annotation_page_dark.png#dark-mode-only) 
 
 Click on an annotation task card to open the frame viewer, where you can view the task's frames and annotate them.
 
@@ -15,7 +20,12 @@ Click on an annotation task card to open the frame viewer, where you can view th
 Click <img src="/docs/latest/icons/ico-bars-menu.svg" alt="Menu" className="icon size-md space-sm" /> on the top right 
 of an annotation task card to open its context menu and access annotation task actions.  
 
-![Annotation task card](../../img/annotation_task_card.png)
+<div class="max-w-75">
+
+![Annotation task card](../../img/hyperdatasets/annotation_task_card.png#light-mode-only)
+![Annotation task card](../../img/hyperdatasets/annotation_task_card_dark.png#dark-mode-only)
+
+</div>
 
 * **Annotate** - Go to annotation task frame viewer
 * **Info** - View annotation task's definitions: dataset versions, filters, and frame iteration specification
@@ -32,7 +42,8 @@ Sort the annotation tasks by either using **RECENT** or **NAME** option.
 
 ## Creating Annotation Tasks
 
-![Annotation task creation modal](../../img/hyperdatasets/annotation_task_01.png)
+![Annotation task creation modal](../../img/hyperdatasets/annotation_task_01.png#light-mode-only)
+![Annotation task creation modal](../../img/hyperdatasets/annotation_task_01_dark.png#dark-mode-only)
 
 **To create an annotation task:**
 
@@ -53,7 +64,7 @@ Sort the annotation tasks by either using **RECENT** or **NAME** option.
     1. In **ITERATION**, in the **ORDER** list, choose either:
                 
         * **Sequential** - Frames are sorted by the frame top-level `context_id` (primary sort key) and `timestamp` (secondary sort key) metadata key values, and returned by the iterator in the sorted order.
-        * **Random** - Frames are randomly returned using the value of the `random_seed` argument. The random seed is maintained with the experiments. Therefore, the random order is reproducible if the experiment is rerun.
+        * **Random** - Frames are randomly returned using the value of the `random_seed` argument. The random seed is maintained with the tasks. Therefore, the random order is reproducible if the task is rerun.
 
     1. In **REPETITION**, choose either **Use Each Frame Once** or **Limit Frames**. If you select **Limit Frames**, then in **Use Max. Frames**, type the number of frames to annotate.
     1. If iterating randomly, in **RANDOM SEED** type your seed or leave blank, and the ClearML Enterprise platform generates a seed for you.
@@ -61,7 +72,7 @@ Sort the annotation tasks by either using **RECENT** or **NAME** option.
             
 1. Click **Create**.
 
-## Annotating Images and Video 
+## Annotating Images and Video
 Annotate images and video by labeling regions of interest in Dataset version frames. The frames presented for annotation 
 depend upon the settings in the annotation task (see [Creating Annotation Tasks](#creating-annotation-tasks)).
 
@@ -132,7 +143,7 @@ You can add labels which describe the whole frame, with no specific coordinates.
 ## Frame Metadata
 
 **To edit frame metadata:** 
-1. Expand the **FRAME METADATA** area 
+1. Expand the **FRAMEGROUP METADATA** area 
 1. Click edit <img src="/docs/latest/icons/ico-metadata.svg" alt="edit metadata" className="icon size-md space-sm" /> 
    which will open an editing window
 1. Modify the metadata dictionary in JSON format

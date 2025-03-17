@@ -7,7 +7,7 @@ This page covers `clearml-data`, ClearML's file-based data management solution.
 See [Hyper-Datasets](../hyperdatasets/overview.md) for ClearML's advanced queryable dataset management solution.
 :::
 
-`clearml-data` is a data management CLI tool that comes as part of the `clearml` python package. Use `clearml-data` to 
+`clearml-data` is a data management CLI tool that comes as part of the `clearml` Python package. Use `clearml-data` to 
 create, modify, and manage your datasets. You can upload your dataset to any storage service of your choice (S3 / GS / 
 Azure / Network Storage) by setting the dataset's upload destination (see [`--storage`](#upload)). Once you have uploaded 
 your dataset, you can access it from any machine. 
@@ -107,7 +107,7 @@ Upload the local dataset changes to the server. By default, it's uploaded to the
 medium by entering an upload destination. For example: 
 * A shared folder: `/mnt/shared/folder`
 * S3: `s3://bucket/folder`
-* Non-AWS S3-like services (such as MinIO): `s3://host_addr:port/bucket` 
+* Non-AWS S3-like services (such as MinIO): `s3://host_addr:port/bucket`. **Note that port specification is required**. 
 * Google Cloud Storage: `gs://bucket-name/folder`
 * Azure Storage: `azure://<account name>.blob.core.windows.net/path/to/file`
 

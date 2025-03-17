@@ -214,7 +214,7 @@ Where `<gpu_fraction_value>` must be set to one of the following values:
 * "0.875"
 
 ## Container-based Memory Limits
-Use [`clearml-fractional-gpu`](https://github.com/allegroai/clearml-fractional-gpu)'s pre-packaged containers with 
+Use [`clearml-fractional-gpu`](https://github.com/clearml/clearml-fractional-gpu)'s pre-packaged containers with 
 built-in hard memory limitations. Workloads running in these containers will only be able to use up to the container's 
 memory limit. Multiple isolated workloads can run on the same GPU without impacting each other. 
 
@@ -223,7 +223,7 @@ memory limit. Multiple isolated workloads can run on the same GPU without impact
 #### Manual Execution 
 
 1. Choose the container with the appropriate memory limit. ClearML supports CUDA 11.x and CUDA 12.x with memory limits 
-ranging from 2 GB to 12 GB (see [clearml-fractional-gpu repository](https://github.com/allegroai/clearml-fractional-gpu/blob/main/README.md#-containers) for full list).
+ranging from 2 GB to 12 GB (see [clearml-fractional-gpu repository](https://github.com/clearml/clearml-fractional-gpu/blob/main/README.md#-containers) for full list).
 1. Launch the container:
 
    ```bash
@@ -232,7 +232,7 @@ ranging from 2 GB to 12 GB (see [clearml-fractional-gpu repository](https://gith
    
    This example runs the ClearML Ubuntu 22 with CUDA 12.3 container on GPU 0, which is limited to use up to 8GB of its memory.
    :::note
-   --pid=host is required to allow the driver to differentiate between the container's processes and other host processes when limiting memory usage
+   `--pid=host` is required to allow the driver to differentiate between the container's processes and other host processes when limiting memory usage
    :::
 1. Run the following command inside the container to verify that the fractional gpu memory limit is working correctly:
    ```bash
@@ -273,7 +273,8 @@ The agent’s default container can be overridden via the UI:
 1. Clone the task
 1. Set the Docker in the cloned task's **Execution** tab > **Container** section
    
-   ![Task container](../img/fractional_gpu_task_container.png)
+   ![Task container](../img/fractional_gpu_task_container.png#light-mode-only)
+   ![Task container](../img/fractional_gpu_task_container_dark.png#dark-mode-only)
 
 1. Enqueue the cloned task
 
@@ -311,7 +312,7 @@ when limiting memory usage.
 Build your own custom fractional GPU container by inheriting from one of ClearML's containers: In your Dockerfile, make 
 sure to include `From <clearml_container_image>` so the container will inherit from the relevant container.
 
-See example custom Dockerfiles in the [clearml-fractional-gpu repository](https://github.com/allegroai/clearml-fractional-gpu/tree/main/examples).
+See example custom Dockerfiles in the [clearml-fractional-gpu repository](https://github.com/clearml/clearml-fractional-gpu/tree/main/examples).
 
 ## Kubernetes Static MIG Fractions
 Set up NVIDIA MIG (Multi-Instance GPU) support for Kubernetes to define GPU fraction profiles for specific workloads 

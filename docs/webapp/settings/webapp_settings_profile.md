@@ -27,7 +27,7 @@ Disable for default desktop scale.
 * **Block running user's scripts in the browser** - Block any user and 3rd party scripts from running anywhere in the 
 WebApp. Note that if enabled, the WebApp will not display debug samples, [Hyper-Dataset frame previews](../../hyperdatasets/previews.md), 
 and embedded resources in [reports](../webapp_reports.md).
-* **Hide specific container arguments** - Specify which Docker environment variable values should be hidden in logs. 
+* **Hide specific container arguments** - Specify which container environment variable values should be hidden in logs. 
 When printed, the variable values are replaced with `********`. By default, `CLEARML_API_SECRET_KEY`, `CLEARML_AGENT_GIT_PASS`,
 `AWS_SECRET_ACCESS_KEY`, and `AZURE_STORAGE_KEY` values are redacted. To modify the hidden container argument list, click **Edit**.
 
@@ -60,9 +60,10 @@ ClearML Hosted Service users can be members of multiple workspaces, which are li
 To switch to another workspace, click on the **SWITCH TO WORKSPACE** button next to the name of the workspace you want 
 to switch to. 
  
-![Workspace configuration page](../../img/settings_workspace_configuration.png)
+![Workspace configuration page](../../img/settings_workspace_configuration.png#light-mode-only)
+![Workspace configuration page](../../img/settings_workspace_configuration_dark.png#dark-mode-only)
 
-### ClearML App Credentials
+### ClearML API Credentials
 
 Generate ClearML credentials, made up of an access and secret key pair, and insert them into your [configuration file](../../configs/clearml_conf.md) 
 or Jupyter Notebook to grant the ClearML SDK and the ClearML Agent API access to the server. 
@@ -73,31 +74,37 @@ You can create credentials for any workspace that you are a member of.
 
 1. In **WORKSPACE**, expand the desired workspace's panel (self-deployed ClearML Server users have one workspace)
 
-1. In **App Credentials**, click **+ Create new credentials**
+1. In **API Credentials**, click **+ Create new credentials**
 
 1. In the dialog that pops up, you can input a label for the new credentials 
 
 The dialog displays new credentials, formatted as a ready-to-copy configuration file section (including server configuration 
 information).
 
-![ClearML credentials](../../img/settings_configuration_creation.png)
+<div class="max-w-75">
+
+![ClearML credentials](../../img/settings_configuration_creation.png#light-mode-only)
+![ClearML credentials](../../img/settings_configuration_creation_dark.png#dark-mode-only)
+
+</div>
 
 You can edit the labels of credentials in your own workspace, or credentials that you created in other workspaces.
 
-**To edit the credentials label:** hover over the desired credentials, and click <img src="/docs/latest/icons/ico-edit.svg" alt="Edit Pencil" className="icon size-md" /> 
+**To edit the credentials label:** hover over the desired credentials, and click <img src="/docs/latest/icons/ico-edit.svg" alt="Edit Pencil" className="icon size-md" /> .
 
 You can revoke any credentials in your own workspace, or credentials that you created in other workspaces. Once revoked, 
 these credentials cannot be recovered.
 
-**To revoke ClearML credentials:** hover over the desired credentials, and click <img src="/docs/latest/icons/ico-trash.svg" alt="Trash can" className="icon size-md" />
+**To revoke ClearML credentials:** hover over the desired credentials, and click <img src="/docs/latest/icons/ico-trash.svg" alt="Trash can" className="icon size-md" /> .
 
 ### AI Application Gateway Tokens 
 
 :::important Enterprise Feature
-This feature is available under the ClearML Enterprise plan.
+The AI Application Gateway is available under the ClearML Enterprise plan.
 :::
 
-The AI Application Gateway enables external access to ClearML tasks and applications. The gateway is configured with an 
+The [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md) enables external access to ClearML 
+tasks and applications. The gateway is configured with an 
 endpoint or external address (ingress), accessible from outside ClearML.
 
 Generate tokens providing API access to the AI Application Gateway endpoints:
@@ -108,7 +115,7 @@ Generate tokens providing API access to the AI Application Gateway endpoints:
 
 ### Changing Your Workspace Name
 To change the name of your own workspace, click **Edit workspace name**  <img src="/docs/latest/icons/ico-edit.svg" alt="Edit Pencil" className="icon size-md" /> 
-(under App credentials) **>** modify the name **>** click <img src="/docs/latest/icons/ico-save.svg" alt="Check Mark" className="icon size-md" />. 
+(under API credentials) **>** modify the name **>** click <img src="/docs/latest/icons/ico-save.svg" alt="Check Mark" className="icon size-md" />. 
 
 ### Adding Users to Your Workspace
 
@@ -140,7 +147,7 @@ in that workspace. You can rejoin the workspace only if you are re-invited.
 ### Configuration Vault
 
 :::info Enterprise Feature
-This feature is available under the ClearML Enterprise plan.
+Configuration vaults are available under the ClearML Enterprise plan.
 :::
 
 Use the configuration vault to store global ClearML configuration entries that can extend the ClearML [configuration file](../../configs/clearml_conf.md) 
@@ -161,4 +168,5 @@ Fill in values using any of ClearML supported configuration formats: HOCON / JSO
 * Click the toggle atop the vault to enable / disable the configurations
 * Once enabled, the configurations will be merged to the configuration file during ClearML and ClearML Agent usage 
 
-![Configuration vault](../../img/settings_configuration_vault.png)
+![Configuration vault](../../img/settings_configuration_vault.png#light-mode-only)
+![Configuration vault](../../img/settings_configuration_vault_dark.png#dark-mode-only)

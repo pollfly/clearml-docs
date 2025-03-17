@@ -22,13 +22,13 @@ segmentation, and classification. Get the most out of YOLOv8 with ClearML:
 
 ## Setup
 
-1. Install the `clearml` python package:
+1. Install the `clearml` Python package:
 
    ```commandline
    pip install clearml
    ``` 
    
-1. To keep track of your experiments and/or data, ClearML needs to communicate to a server. You have 2 server options:
+1. To keep track of your tasks and/or data, ClearML needs to communicate to a server. You have 2 server options:
     * Sign up for free to the [ClearML Hosted Service](https://app.clear.ml/) 
     * Set up your own server, see [here](../deploying_clearml/clearml_server.md).  
 1. Connect the ClearML SDK to the server by creating credentials (go to the top right in the UI to **Settings > Workspace > Create new credentials**), 
@@ -43,13 +43,13 @@ code necessary.
  
 ## Training YOLOv8 with ClearML 
 
-To enable ClearML experiment tracking, simply install the `clearml` pip package in your execution environment.
+To enable ClearML task tracking, simply install the `clearml` pip package in your execution environment.
 
 ```commandline
 pip install clearml>=1.2.0
 ```
 
-This will enable integration with the YOLOv8 training script. In every training run from now on, the ClearML experiment 
+This will enable integration with the YOLOv8 training script. In every training run from now on, the ClearML task 
 manager will capture:
 * Source code and uncommitted changes
 * Installed packages
@@ -90,15 +90,15 @@ task within the `example` project.
 :::
 
 You can see all the captured data in the task's page of the ClearML [WebApp](../webapp/webapp_exp_track_visual.md). 
-Additionally, you can view all of your YOLOv8 runs tracked by ClearML in the [Experiments Table](../webapp/webapp_model_table.md). 
+Additionally, you can view all of your YOLOv8 runs tracked by ClearML in the [Task Table](../webapp/webapp_model_table.md). 
 Add custom columns to the table, such as mAP values, so you can easily sort and see what is the best performing model. 
-You can also select multiple experiments and directly [compare](../webapp/webapp_exp_comparing.md) them.   
+You can also select multiple tasks and directly [compare](../webapp/webapp_exp_comparing.md) them.   
 
 ## Remote Execution
-ClearML logs all the information required to reproduce an experiment on a different machine (installed packages, 
+ClearML logs all the information required to reproduce a task run on a different machine (installed packages, 
 uncommitted changes etc.). The [ClearML Agent](../clearml_agent.md) listens to designated queues and when a task is 
 enqueued, the agent pulls it, recreates its execution environment, and runs it, reporting its scalars, plots, etc. to the 
-experiment manager.
+task manager.
 
 Deploy a ClearML Agent onto any machine (e.g. a cloud VM, a local GPU machine, your own laptop) by simply running 
 the following command on it:
@@ -112,10 +112,10 @@ cloud of your choice (AWS, GCP, Azure) and automatically deploy ClearML agents: 
 shuts down instances as needed, according to a resource budget that you set.
 
 
-### Cloning, Editing, and Enqueuing
+### Reproducing Task Runs
 
-ClearML logs all the information required to reproduce an experiment, but you may also want to change a few parameters 
-and task details when you re-run an experiment, which you can do through ClearML's UI.
+ClearML logs all the information required to reproduce a task run, but you may also want to change a few parameters 
+and task details when you re-run it, which you can do through ClearML's UI.
 
 In order to be able to override parameters via the UI, 
 you have to run your code to [create a ClearML Task](../clearml_sdk/task_sdk.md#task-creation), which will log all the 
@@ -160,10 +160,11 @@ any of them through the UI.
 
 Use the UI to edit task details, then execute the task 
 with the new configuration on a remote machine:
-* Clone the experiment
+* Clone the task
 * Edit the hyperparameters and/or other details 
 * Enqueue the task
 
 The ClearML Agent executing the task will use the new values to [override any hard coded values](../clearml_agent.md). 
 
-![Cloning, editing, enqueuing gif](../img/gif/integrations_yolov5.gif)
+![Cloning, editing, enqueuing gif](../img/gif/integrations_yolov5.gif#light-mode-only)
+![Cloning, editing, enqueuing gif](../img/gif/integrations_yolov5_dark.gif#dark-mode-only)

@@ -12,7 +12,7 @@ This page describes the ClearML Server [deployment](#clearml-server-deployment-c
 * [Opening Elasticsearch, MongoDB, and Redis for External Access](#opening-elasticsearch-mongodb-and-redis-for-external-access)
 * [Web login authentication](#web-login-authentication) - Create and manage users and passwords
 * [Using hashed passwords](#using-hashed-passwords) - Option to use hashed passwords instead of plain-text passwords
-* [Non-responsive Task watchdog](#non-responsive-task-watchdog) - For inactive experiments
+* [Non-responsive Task watchdog](#non-responsive-task-watchdog) - For inactive tasks
 * [Custom UI context menu actions](#custom-ui-context-menu-actions)
 
 For all configuration options, see the [ClearML Configuration Reference](../configs/clearml_conf.md) page.
@@ -101,7 +101,7 @@ The ClearML Server uses the following configuration files:
 * `services.conf`
 
 When starting up, the ClearML Server will look for these configuration files, in the `/opt/clearml/config` directory
-(this path can be modified using the `CLEARML_CONFIG_DIR` environment variable). The default configuration files are in the [clearml-server](https://github.com/allegroai/clearml-server/tree/master/apiserver/config/default) repository.
+(this path can be modified using the `CLEARML_CONFIG_DIR` environment variable). The default configuration files are in the [clearml-server](https://github.com/clearml/clearml-server/tree/master/apiserver/config/default) repository.
 
 If you want to modify server configuration, and the relevant configuration file doesn't exist, you can create the file, 
 and input the relevant modified configuration. 
@@ -361,10 +361,16 @@ You can also use hashed passwords instead of plain-text passwords. To do that:
 
 ### Non-responsive Task Watchdog
 
-The non-responsive experiment watchdog monitors experiments that were not updated for a specified time interval, and then 
-the watchdog marks them as `aborted`. The non-responsive experiment watchdog is always active.
+The non-responsive task watchdog monitors for running tasks that have stopped communicating with the ClearML Server for a specified 
+time interval. If a task remains unresponsive beyond the set threshold, the watchdog marks it as `aborted`. 
 
-Modify the following settings for the watchdog:
+A task is considered non-responsive if the time since its last communication with the ClearML Server exceeds the 
+configured threshold. The watchdog starts counting after each successful communication with the server. If no further 
+updates are received within the specified time, the task is considered non-responsive. This typically happens if:
+* The task's main process is stuck but has not exited.
+* There is a network issue preventing the task from communicating with the server.
+
+You can configure the following watchdog settings:
 
 * Watchdog status - enabled / disabled
 * The time threshold (in seconds) of experiment inactivity (default value is 7200 seconds (2 hours)).
@@ -372,10 +378,15 @@ Modify the following settings for the watchdog:
  
 **To configure the non-responsive watchdog for the ClearML Server:**
 
-1. In the ClearML Server `/opt/clearml/config/services.conf` file, add or edit the `tasks.non_responsive_tasks_watchdog` 
-   section and specify the watchdog settings.
+1. Open the ClearML Server `/opt/clearml/config/services.conf` file.
+   
+   :::tip
+   If the `services.conf` file does not exist, create your own in ClearML Server's `/opt/clearml/config` directory (or 
+   an alternate folder you configured).
+   :::
 
-    For example:
+1. Add or edit the `tasks.non_responsive_tasks_watchdog` section and specify the watchdog settings. For example:
+
     ```
     tasks {
         non_responsive_tasks_watchdog {
@@ -389,11 +400,6 @@ Modify the following settings for the watchdog:
         }
     }
    ```
-   
-   :::tip
-   If the `apiserver.conf` file does not exist, create your own in ClearML Server's `/opt/clearml/config` directory (or 
-   an alternate folder you configured), and input the modified configuration
-   :::
         
 1. Restart ClearML Server.
 
@@ -422,7 +428,7 @@ options.
 ### Custom UI Context Menu Actions
 
 :::important Enterprise Feature
-This feature is available under the ClearML Enterprise plan.
+Custom UI context menu actions are available under the ClearML Enterprise plan.
 :::
 
 Create custom UI context menu actions to be performed on ClearML objects (projects, tasks, models, dataviews, or queues) 
@@ -464,8 +470,8 @@ an alternate folder you configured), and input the modified configuration
 :::
 
 The action will appear in the context menu for the object type in which it was specified:
-* Task, model, dataview - Right-click an object in the [experiments](../webapp/webapp_exp_table.md), [models](../webapp/webapp_model_table.md), 
-  and [dataviews](../hyperdatasets/webapp/webapp_dataviews.md) tables respectively. Alternatively, click the object to 
+* Task, model, dataview - Right-click an object in the [task](../webapp/webapp_exp_table.md), [model](../webapp/webapp_model_table.md), 
+  and [dataview](../hyperdatasets/webapp/webapp_dataviews.md) tables respectively. Alternatively, click the object to 
   open its info tab, then click the menu button <img src="/docs/latest/icons/ico-bars-menu.svg" className="icon size-md space-sm" /> 
   to access the context menu. 
 * Project - In the project page > click the menu button <img src="/docs/latest/icons/ico-bars-menu.svg" className="icon size-md space-sm" /> 

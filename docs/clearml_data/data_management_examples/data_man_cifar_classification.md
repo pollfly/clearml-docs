@@ -10,7 +10,7 @@ class to ingest the data.
 ### Downloading the Data
 Before registering the CIFAR dataset with `clearml-data`, you need to obtain a local copy of it.
 
-Execute this python script to download the data:
+Execute this Python script to download the data:
 ```python
 from clearml import StorageManager
 
@@ -68,13 +68,14 @@ reproducibility.
 Information about the dataset can be viewed in the WebApp, in the dataset's [details panel](../../webapp/datasets/webapp_dataset_viewing.md#version-details-panel). 
 In the panel's **CONTENT** tab, you can see a table summarizing version contents, including file names, file sizes, and hashes.
 
-![Dataset content tab](../../img/examples_data_management_cifar_dataset.png)
+![Dataset content tab](../../img/examples_data_management_cifar_dataset.png#light-mode-only)
+![Dataset content tab](../../img/examples_data_management_cifar_dataset_dark.png#dark-mode-only)
 
 ## Using the Dataset
 
 Now that you have a new dataset registered, you can consume it.
 
-The [data_ingestion.py](https://github.com/allegroai/clearml/blob/master/examples/datasets/data_ingestion.py) example 
+The [data_ingestion.py](https://github.com/clearml/clearml/blob/master/examples/datasets/data_ingestion.py) example 
 script demonstrates using the dataset within Python code.
 
 ```python
@@ -99,7 +100,7 @@ trainset = datasets.CIFAR10(
 
 In cases like this, where you use a dataset in a task, you can have the dataset's ID stored in the task's 
 hyperparameters. Passing `alias=<dataset_alias_string>` stores the dataset's ID in the 
-`dataset_alias_string` parameter in the experiment's **CONFIGURATION > HYPERPARAMETERS > Datasets** section. This way 
+`dataset_alias_string` parameter in the task's **CONFIGURATION > HYPERPARAMETERS > Datasets** section. This way 
 you can easily track which dataset the task is using. 
 
 [`Dataset.get_local_copy()`](../../references/sdk/dataset.md#get_local_copy) returns a path to the cached, 

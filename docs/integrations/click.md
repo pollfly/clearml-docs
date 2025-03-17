@@ -3,11 +3,11 @@ title: Click
 ---
 
 :::tip
-If you are not already using ClearML, see [Getting Started](../getting_started/ds/ds_first_steps.md) for setup 
+If you are not already using ClearML, see [ClearML Setup](../clearml_sdk/clearml_sdk_setup) for setup 
 instructions.
 :::
 
-[`click`](https://click.palletsprojects.com) is a python package for creating command-line interfaces. ClearML integrates 
+[`click`](https://click.palletsprojects.com) is a Python package for creating command-line interfaces. ClearML integrates 
 seamlessly with `click` and automatically logs its command-line parameters. 
 
 All you have to do is add two lines of code:
@@ -40,12 +40,13 @@ if __name__ == '__main__':
 ```
 
 When this code is executed, ClearML logs your command-line arguments, which you can view in the 
-[WebApp](../webapp/webapp_overview.md), in the experiment's **Configuration > Hyperparameters > Args** section. 
+[WebApp](../webapp/webapp_overview.md), in the task's **Configuration > Hyperparameters > Args** section. 
 
-![click configuration](../img/integrations_click_configs.png)
+![click configuration](../img/integrations_click_configs.png#light-mode-only)
+![click configuration](../img/integrations_click_configs_dark.png#dark-mode-only)
 
 In the UI, you can clone the task multiple times and set the clones' parameter values for execution by the [ClearML Agent](../clearml_agent.md).
 When the clone is executed, the executing agent will use the new parameter values as if set by the command-line.
 
-See [code examples](https://github.com/allegroai/clearml/blob/master/examples/frameworks/click) demonstrating integrating
+See [code examples](https://github.com/clearml/clearml/blob/master/examples/frameworks/click) demonstrating integrating
 ClearML with code that uses `click`.

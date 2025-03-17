@@ -1,12 +1,16 @@
 ---
-title: Tasks
+title: Dataviews
 ---
+
+:::important ENTERPRISE FEATURE
+Dataviews available under the ClearML Enterprise plan.
+:::
  
 Hyper-Datasets extend the ClearML [**Task**](../fundamentals/task.md) with [Dataviews](dataviews.md).
 
 ## Usage 
 
-Hyper-Datasets are supported by the `allegroai` python package.
+Hyper-Datasets are supported by the `allegroai` Python package.
 
 ### Connecting Dataviews to a Task
 

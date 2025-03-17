@@ -3,17 +3,17 @@ title: Keras Tuner
 ---
 
 :::tip
-If you are not already using ClearML, see [Getting Started](../../../getting_started/ds/ds_first_steps.md) for setup 
-instructions.
+If you are not already using ClearML, see [ClearML Setup instructions](../clearml_sdk/clearml_sdk_setup).
 :::
 
+
 Integrate ClearML into code that uses [Keras Tuner](https://www.tensorflow.org/tutorials/keras/keras_tuner). By 
-specifying `ClearMLTunerLogger` (see [kerastuner.py](https://github.com/allegroai/clearml/blob/master/clearml/external/kerastuner.py)) 
+specifying `ClearMLTunerLogger` (see [kerastuner.py](https://github.com/clearml/clearml/blob/master/clearml/external/kerastuner.py)) 
 as the Keras Tuner logger, ClearML automatically logs scalars and hyperparameter optimization.  
 
 ## ClearMLTunerLogger
 
-Take a look at [keras_tuner_cifar.py](https://github.com/allegroai/clearml/blob/master/examples/frameworks/kerastuner/keras_tuner_cifar.py) 
+Take a look at [keras_tuner_cifar.py](https://github.com/clearml/clearml/blob/master/examples/frameworks/kerastuner/keras_tuner_cifar.py) 
 example script, which demonstrates the integration of ClearML in a code that uses Keras Tuner. 
 
 The script does the following:
@@ -41,31 +41,36 @@ When the script runs, it logs:
 
 ## Scalars
 
-ClearML logs the scalars from training each network. They appear in the experiment's page in the **ClearML web UI**, under
+ClearML logs the scalars from training each network. They appear in the task's page in the **ClearML web UI**, under
 **SCALARS**.
 
-![image](../../../img/integration_keras_tuner_06.png)
+![Scalars](../../../img/integration_keras_tuner_06.png#light-mode-only)
+![Scalars](../../../img/integration_keras_tuner_06_dark.png#dark-mode-only)
 
 ## Summary of Hyperparameter Optimization
 
-ClearML automatically logs the parameters of each experiment run in the hyperparameter search. They appear in tabular 
+ClearML automatically logs the parameters of each task run in the hyperparameter search. They appear in tabular 
 form in **PLOTS**.
 
-![image](../../../img/integration_keras_tuner_07.png)
+![HPO summary plot](../../../img/integration_keras_tuner_07.png#light-mode-only)
+![HPO summary plot](../../../img/integration_keras_tuner_07_dark.png#dark-mode-only)
 
 ## Artifacts
 
 ClearML automatically stores the output model. It appears in **ARTIFACTS** **>** **Output Model**.
 
-![image](../../../img/integration_keras_tuner_03.png)
+![Artifact](../../../img/integration_keras_tuner_03.png#light-mode-only)
+![Artifact](../../../img/integration_keras_tuner_03_dark.png#dark-mode-only)
 
 Model details, such as snap locations, appear in the **MODELS** tab.
 
-![image](../../../img/integration_keras_tuner_04.png)
+![Model details](../../../img/integration_keras_tuner_04.png#light-mode-only)
+![Model details](../../../img/integration_keras_tuner_04_dark.png#dark-mode-only)
 
 The model configuration is stored with the model.
 
-![image](../../../img/integration_keras_tuner_05.png)
+![Model configuration](../../../img/integration_keras_tuner_05.png#light-mode-only)
+![Model configuration](../../../img/integration_keras_tuner_05_dark.png#dark-mode-only)
 
 ## Configuration Objects
 
@@ -73,12 +78,14 @@ The model configuration is stored with the model.
 
 ClearML automatically logs the TensorFlow Definitions, which appear in **CONFIGURATION** **>** **HYPERPARAMETERS**.
 
-![image](../../../img/integration_keras_tuner_01.png)
+![Hyperparameters](../../../img/integration_keras_tuner_01.png#light-mode-only)
+![Hyperparameters](../../../img/integration_keras_tuner_01_dark.png#dark-mode-only)
 
 ### Configuration
 
 The Task configuration appears in **CONFIGURATION** **>** **General**.
 
-![image](../../../img/integration_keras_tuner_02.png)
+![Configuration object](../../../img/integration_keras_tuner_02.png#light-mode-only)
+![Configuration object](../../../img/integration_keras_tuner_02_dark.png#dark-mode-only)
 
 

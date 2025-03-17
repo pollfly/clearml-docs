@@ -4,7 +4,7 @@ title: Explicit Reporting Tutorial
 
 In this tutorial, learn how to extend ClearML automagical capturing of inputs and outputs with explicit reporting. 
 
-In this example, you will add the following to the [pytorch_mnist.py](https://github.com/allegroai/clearml/blob/master/examples/frameworks/pytorch/pytorch_mnist.py) 
+In this example, you will add the following to the [pytorch_mnist.py](https://github.com/clearml/clearml/blob/master/examples/frameworks/pytorch/pytorch_mnist.py) 
 example script from ClearML's GitHub repo:
 
 * Setting an output destination for model checkpoints (snapshots).
@@ -14,12 +14,12 @@ example script from ClearML's GitHub repo:
 
 ## Prerequisites
 
-* The [clearml](https://github.com/allegroai/clearml) repository is cloned.
+* The [clearml](https://github.com/clearml/clearml) repository is cloned.
 * The `clearml` package is installed.
   
 ## Before Starting
 
-Make a copy of [pytorch_mnist.py](https://github.com/allegroai/clearml/blob/master/examples/frameworks/pytorch/pytorch_mnist.py) 
+Make a copy of [pytorch_mnist.py](https://github.com/clearml/clearml/blob/master/examples/frameworks/pytorch/pytorch_mnist.py) 
 to add explicit reporting to it.
 
 ```bash
@@ -29,7 +29,7 @@ cp pytorch_mnist.py pytorch_mnist_tutorial.py
 ## Step 1: Setting an Output Destination for Model Checkpoints
 
 Specify a default output location, which is where model checkpoints (snapshots) and artifacts will be stored when the 
-experiment runs. Some possible destinations include: 
+task runs. Some possible destinations include: 
 * Local destination 
 * Shared folder 
 * Cloud storage: 
@@ -234,7 +234,7 @@ task.register_artifact(
     
 ### Reference the Registered Artifact
 
-Once an artifact is registered, it can be referenced and utilized in the Python experiment script.
+Once an artifact is registered, it can be referenced and utilized in the Python task script.
 
 In the tutorial script, add [`Task.current_task()`](../../references/sdk/task.md#taskcurrent_task) and 
 [`Task.get_registered_artifacts()`](../../references/sdk/task.md#get_registered_artifacts) 
@@ -279,16 +279,16 @@ task.upload_artifact(
 
 ## Additional Information
 
-After extending the Python experiment script, run it and view the results in the **ClearML Web UI**.
+After extending the Python task script, run it and view the results in the **ClearML Web UI**.
 
 ```bash
 python pytorch_mnist_tutorial.py
 ```
 
-**To view the experiment results, do the following:**
+**To view the task results:**
 
 1. In the **ClearML Web UI**, on the Projects page, click the examples project.
-1. In the experiments table, click the **Extending automagical ClearML example** experiment.
+1. In the task table, click the **Extending automagical ClearML example** task.
 1. In the **ARTIFACTS** tab, **DATA AUDIT** section, click **Test_Loss_Correct**. The registered Pandas DataFrame appears, 
    including the file path, size, hash, metadata, and a preview.
 1. In the **OTHER** section, click **Loss**. The uploaded numpy array appears, including its related information.

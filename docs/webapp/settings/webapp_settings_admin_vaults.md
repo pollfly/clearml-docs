@@ -3,7 +3,7 @@ title: Administrator Vaults
 ---
 
 :::info Enterprise Feature
-This feature is available under the ClearML Enterprise plan.
+Administrator vaults are available under the ClearML Enterprise plan.
 :::
 
 Administrators can define multiple [configuration vaults](webapp_settings_profile.md#configuration-vault) which will each be applied to designated 
@@ -67,4 +67,5 @@ The **Administrator Vaults** table lists all currently defined vaults, and the f
 
 Hover over a vault in the table to **Download**, **Edit**, or **Delete** a vault.  
 
-![Admin vaults](../../img/settings_admin_vaults.png)
+![Admin vaults](../../img/settings_admin_vaults.png#light-mode-only)
+![Admin vaults](../../img/settings_admin_vaults_dark.png#dark-mode-only)

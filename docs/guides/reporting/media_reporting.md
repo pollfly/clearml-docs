@@ -2,7 +2,7 @@
 title: Media Reporting
 ---
 
-The [media_reporting.py](https://github.com/allegroai/clearml/blob/master/examples/reporting/media_reporting.py) example 
+The [media_reporting.py](https://github.com/clearml/clearml/blob/master/examples/reporting/media_reporting.py) example 
 demonstrates reporting (uploading) images, audio, and video. Use [`Logger.report_media()`](../../references/sdk/logger.md#report_media)
 to upload from: 
 * Local path
@@ -14,10 +14,10 @@ storage using [`Logger.set_default_upload_destination()`](../../references/sdk/l
 (note that [artifact storage](../../clearml_sdk/task_sdk.md#setting-upload-destination) is handled differently). 
 Set the storage credentials in the [clearml.conf file](../../configs/clearml_conf.md#sdk-section).
 
-ClearML reports media in the **ClearML Web UI** **>** experiment details **>** **DEBUG SAMPLES** 
+ClearML reports media in the **ClearML Web UI** **>** task details **>** **DEBUG SAMPLES** 
 tab. 
 
-When the script runs, it creates an experiment named `audio and video reporting` in the `examples` 
+When the script runs, it creates a task named `audio and video reporting` in the `examples` 
 project.
 
 ## Reporting (Uploading) Media from a Source by URL

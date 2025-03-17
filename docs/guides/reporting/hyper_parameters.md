@@ -2,16 +2,16 @@
 title: Hyperparameters Reporting
 ---
 
-The [hyper_parameters.py](https://github.com/allegroai/clearml/blob/master/examples/reporting/hyper_parameters.py) example 
+The [hyper_parameters.py](https://github.com/clearml/clearml/blob/master/examples/reporting/hyper_parameters.py) example 
 script demonstrates: 
 * ClearML's automatic logging of `argparse` command line options and TensorFlow Definitions
 * Logging user-defined hyperparameters with a parameter dictionary and connecting the dictionary to a Task. 
 
-Hyperparameters appear in the **web UI** in the experiment's page, under **CONFIGURATION** **>** **HYPERPARAMETERS**. 
-Each type is in its own subsection. Parameters from older experiments are grouped together with the ``argparse`` command 
+Hyperparameters appear in the **web UI** in the task's page, under **CONFIGURATION** **>** **HYPERPARAMETERS**. 
+Each type is in its own subsection. Parameters from older tasks are grouped together with the ``argparse`` command 
 line options (in the **Args** subsection).
 
-When the script runs, it creates an experiment named `hyper-parameters example` in the `examples` project.
+When the script runs, it creates a task named `hyper-parameters example` in the `examples` project.
 
 ## Argparse Command Line Options
 

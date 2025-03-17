@@ -2,15 +2,16 @@
 title: Monitoring Service Posting Slack Alerts
 ---
 
-The [Slack alerts example](https://github.com/allegroai/clearml/blob/master/examples/services/monitoring/slack_alerts.py) 
+The [Slack alerts example](https://github.com/clearml/clearml/blob/master/examples/services/monitoring/slack_alerts.py) 
 demonstrates how to use the `clearml.automation.monitor` class to implement a service that monitors the completion and 
 failure of tasks, and posts alert messages on a Slack channel.
 
-![Slack alert example](../../img/examples_slack_alerts.png)
+![Slack alert example](../../img/examples_slack_alerts.png#light-mode-only)
+![Slack alert example](../../img/examples_slack_alerts_dark.png#dark-mode-only)
 
-## Creating a Slack Bot
+## Creating a Slackbot
 
-Before configuring and running the Slack alert service, create a Slack Bot (**ClearML Bot**). 
+Before configuring and running the Slack alert service, create a Slackbot (**ClearML Bot**). 
 
 :::important
 The Slack API token and channel you create are required to configure the Slack alert service.
@@ -22,7 +23,7 @@ The Slack API token and channel you create are required to configure the Slack a
 1. In **Development Slack Workspace**, select a workspace.
 1. Click **Create App**.
 1. In **Basic Information**, under **Display Information**, complete the following:
-    - In **Short description**, enter "Allegro Train Bot".
+    - In **Short description**, enter "ClearML Train Bot".
     - In **Background color**, enter "#202432".
 1. Click **Save Changes**.
 1. In **OAuth & Permissions**, under **Scopes**, click **Add an OAuth Scope**, and then select the following permissions 
@@ -60,17 +61,17 @@ The script supports the following additional command line options:
 * `service_queue` - The queue to use when running remotely as a service. The default value is `services` (make sure 
   your workspace has such a queue and to assign a ClearML Agent to this queue).
 * `message_prefix` - A message prefix for Slack alerts. For example, to alert all channel members use: `"Hey <!here>"`. 
-* `min_num_iterations` - Minimal iteration threshold below which experiments are ignored. Use this option to eliminate 
+* `min_num_iterations` - Minimal iteration threshold below which tasks are ignored. Use this option to eliminate 
   debug sessions that fail quickly. The default value is 0.
 * `project` - The name of the project to monitor. By default, all projects are monitored.  
-* `include_manual_experiments` - Whether to include experiments that are running locally:
-  * `True` - Monitor all experiments (both local and remote, executed by ClearML Agent).
-  * `False` (default) - Monitor only remote experiments.
+* `include_manual_experiments` - Whether to include tasks that are running locally:
+  * `True` - Monitor all tasks (both local and remote, executed by ClearML Agent).
+  * `False` (default) - Monitor only remote tasks.
 * `include_completed_experiments` - If `False` (default), send alerts only for failed tasks. If `True`, send an alert 
   for completed and failed tasks.
 * `include_archived` - If `False` (default), only tasks that are not archived will be reported. This option can be
   useful if a task is archived between polling.
-* `refresh_rate` - How often to monitor the experiments in seconds. The default value is 10.0.
+* `refresh_rate` - How often to monitor the tasks in seconds. The default value is 10.0.
 * `include_users` - Only report tasks that were initiated by these users (usernames and user IDs are accepted).
   Mutually exclusive to `exclude_users`.
 * `exclude_users` - Only report tasks that were NOT initiated by these users (usernames and user IDs are accepted).
@@ -79,7 +80,7 @@ The script supports the following additional command line options:
 
 ## Configuration
     
-ClearML automatically logs command line options defined with argparse. They appear in the experiment's **CONFIGURATION** 
+ClearML automatically logs command line options defined with argparse. They appear in the task's **CONFIGURATION** 
 page under **HYPERPARAMETERS > Args**.
 
 ![Monitoring configuration](../../img/examples_slack_config.png)
@@ -89,7 +90,7 @@ execution (you'll typically want to use a ClearML Agent running in [services mod
 for such service tasks).
 
 ## Console
-All console output appears in the experiment's **CONSOLE** page.
+All console output appears in the task's **CONSOLE** page.
 
 ## Additional Information about slack_alerts.py
 

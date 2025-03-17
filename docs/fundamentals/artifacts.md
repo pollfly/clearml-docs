@@ -25,7 +25,7 @@ cleaning task logs its clean dataset for use by a subsequent training task).
 ## Logging Artifacts
 ClearML automatically logs artifacts created by popular frameworks, including TensorFlow and PyTorch. See [supported frameworks](../clearml_sdk/task_sdk.md#automatic-logging).
 
-You can also log any other object using [`Task.upload_artifact()`](../references/sdk/task.md#upload_)artifact. See 
+You can also log any other object using [`Task.upload_artifact()`](../references/sdk/task.md#upload_artifact). See 
 the [Artifacts Reporting](../guides/reporting/artifacts.md) example for details.
 
 ClearML can be configured to upload artifacts to any supported types of storage, which include local and shared folders, 
@@ -50,7 +50,8 @@ Artifacts appear under the **ARTIFACTS** tab of a Task. Each artifact's location
 applications are prohibited from accessing the local disk for security reasons)
 * **Network stored artifacts**: Display a download action to retrieve files from URLs (e.g., `https://`, `s3://`).
 
-![WebApp Artifacts section](../img/webapp_tracking_30.png)
+![WebApp Artifacts section](../img/webapp_tracking_30.png#light-mode-only)
+![WebApp Artifacts section](../img/webapp_tracking_30_dark.png#dark-mode-only)
 
 ## SDK Interface
 See the [Artifacts](../clearml_sdk/task_sdk.md#artifacts) section in the Task SDK page for an overview of how to work 

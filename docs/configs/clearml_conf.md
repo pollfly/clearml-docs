@@ -14,7 +14,7 @@ This reference page is organized by configuration file section:
 * [files](#files-section) - Define auto-generated files to apply into local file system
 
 
-See an [example configuration file](https://github.com/allegroai/clearml-agent/blob/master/docs/clearml.conf)
+See an [example configuration file](https://github.com/clearml/clearml-agent/blob/master/docs/clearml.conf)
 in the ClearML Agent GitHub repository. 
 
 :::info
@@ -22,7 +22,7 @@ The values in the ClearML configuration file can be overridden by environment va
 and command-line arguments. 
 :::
 
-# Editing Your Configuration File
+## Editing Your Configuration File
 
 To add, change, or delete options, edit your configuration file.
 
@@ -134,6 +134,15 @@ Use with care! This might introduce security risks by allowing access to keys/se
 the same argument is passed in both. If set to `False`, a task's docker arguments will override the `extra_docker_arguments`.
 
 ---
+
+**`agent.docker_args_filters`** (*list*)
+
+* Set a whitelist of allowed Docker arguments. Only arguments matching the specified patterns can be used when running
+a task. For example: `docker_args_filters: ["^--env$", "^-e$"]`.
+
+
+---
+
 **`agent.docker_container_name_format`** (*string*)
 
 :::note Compatibility Required
@@ -157,7 +166,7 @@ Compatible with Docker versions 0.6.5 and above
         
 **`agent.docker_force_pull`** (*bool*)
         
-* Always update the Docker image by forcing a Docker `pull` before running an experiment
+* Always update the Docker image by forcing a Docker `pull` before running a task
 
     The values are:
     
@@ -233,14 +242,14 @@ from `system_site_packages`
 
 **`agent.extra_docker_arguments`** (*[string]*)
         
-* Optional arguments to pass to the Docker image when ClearML Agent is running in [Docker mode](../clearml_agent/clearml_agent_execution_env.md#docker-mode). These are local for this agent, and will not be updated in the experiment's `docker_cmd` section. For example, `["--ipc=host", ]`.
+* Optional arguments to pass to the Docker image when ClearML Agent is running in [Docker mode](../clearml_agent/clearml_agent_execution_env.md#docker-mode). These are local for this agent, and will not be updated in the task's `docker_cmd` section. For example, `["--ipc=host", ]`.
         
 ---
         
 **`agent.extra_docker_shell_script`** (*[string]*)
         
 * When ClearML Agent is running in [Docker mode](../clearml_agent/clearml_agent_execution_env.md#docker-mode), this 
-optional shell script executes inside the Docker on startup, before the experiment starts. For example, `["apt-get install -y bindfs", ]`.
+optional shell script executes inside the Docker on startup, before the task starts. For example, `["apt-get install -y bindfs", ]`.
         
 ---
 
@@ -330,13 +339,13 @@ optional shell script executes inside the Docker on startup, before the experime
 
 **`agent.ignore_requested_python_version`** (*bool*)
 
-  * Indicates whether to ignore any requested python version 
+  * Indicates whether to ignore any requested Python version 
   
   * The values are:
     
-    * `true` - ignore any requested python version
-    * `false` - if a task was using a specific python version, and the system supports multiple versions, the agent will 
-      use the requested python version (default)
+    * `true` - ignore any requested Python version
+    * `false` - if a task was using a specific Python version, and the system supports multiple versions, the agent will 
+      use the requested Python version (default)
 
 ___
 
@@ -348,7 +357,7 @@ ___
 
 **`agent.python_binary`** (*string*)
         
-* Set the Python version to use when creating the virtual environment, and when launching the experiment. For example, `/usr/bin/python3` or `/usr/local/bin/python3.6`.
+* Set the Python version to use when creating the virtual environment, and when launching the task. For example, `/usr/bin/python3` or `/usr/local/bin/python3.6`.
         
 ---
         
@@ -367,7 +376,7 @@ ___
         
 **`agent.venvs_dir`** (*string*)
         
-* The target folder for virtual environments builds that are created when executing an experiment.
+* The target folder for virtual environments builds that are created when executing a task.
         
 ---
         
@@ -405,7 +414,7 @@ These settings define which Docker image and arguments should be used unless [ex
   * **`agent.default_docker.match_rules`** (*[dict]*)
 
     :::important Enterprise Feature
-    This feature is available under the ClearML Enterprise plan.
+    The `match_rules` configuration option is available under the ClearML Enterprise plan.
     :::
     
     * Lookup table of rules that determine the default container and arguments when running a worker in Docker mode. The 
@@ -623,7 +632,7 @@ ___
 **`agent.package_manager.system_site_packages`** (*bool*)
         
 * Indicates whether Python packages for virtual environments are inherited from the system when building a virtual environment 
-  for an experiment.
+  for a task.
 
     The values are:
     
@@ -736,7 +745,7 @@ Torch Nightly builds are ephemeral and are deleted from time to time.
         
 **`agent.vcs_cache.path`** (*string*)
         
-* The version control system cache clone folder when executing experiments.
+* The version control system cache clone folder when executing tasks.
      
 <br/>
 
@@ -1135,7 +1144,7 @@ URL to a CA bundle, or set this option to `false` to skip SSL certificate verifi
 
 **`sdk.development.log_os_environments`** (*[string]*)
 
-* Log specific environment variables. OS environments are listed in the UI, under an experiment's  
+* Log specific environment variables. OS environments are listed in the UI, under a task's  
   **CONFIGURATION > HYPERPARAMETERS > Environment** section. 
   Multiple selected variables are supported including the suffix `*`. For example: `"AWS_*"` will log any OS environment 
   variable starting with `"AWS_"`. Example: `log_os_environments: ["AWS_*", "CUDA_VERSION"]`
@@ -1146,7 +1155,7 @@ URL to a CA bundle, or set this option to `false` to skip SSL certificate verifi
     
 **`sdk.development.store_uncommitted_code_diff`** (*bool*)
     
-* For development mode, indicates whether to store the uncommitted `git diff` or `hg diff` in the experiment manifest. 
+* For development mode, indicates whether to store the uncommitted `git diff` or `hg diff` in the task manifest. 
 
     The values are:
 
@@ -1165,7 +1174,7 @@ URL to a CA bundle, or set this option to `false` to skip SSL certificate verifi
 
 **`sdk.development.support_stopping`** (*bool*)
     
-* For development mode, indicates whether to allow stopping an experiment if the experiment was aborted externally, its status was changed, or it was reset.
+* For development mode, indicates whether to allow stopping a task if the task was aborted externally, its status was changed, or it was reset.
 
     The values are:
     
@@ -1178,7 +1187,7 @@ URL to a CA bundle, or set this option to `false` to skip SSL certificate verifi
 
 **`sdk.development.task_reuse_time_window_in_hours`** (*float*)
     
-* For development mode, the number of hours after which an experiment with the same project name and experiment name is reused.
+* For development mode, the number of hours after which a task with the same project name and task name is reused.
     
 ---
     
@@ -1568,7 +1577,7 @@ environment {
 }
 ```
 
-### files section 
+### files section
 
 **`files`** (*dict*)
 
@@ -1619,7 +1628,7 @@ sdk {
 ## Configuration Vault
 
 :::important Enterprise Feature
-This feature is available under the ClearML Enterprise plan.
+Configuration vaults are available under the ClearML Enterprise plan.
 :::
 
 The ClearML Enterprise Server includes the configuration vault. Users can add configuration sections to the vault and, once 

@@ -20,6 +20,7 @@ The Gradio Launcher relies on the ClearML Traffic Router which implements user a
 to the IP/port served by the Gradio app. 
 
 If the ClearML AI application Gateway is not available, the Gradio app might not be accessible.
+For more information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
 
 Once you start a Gradio launcher instance, you can view the following information in its dashboard:
@@ -37,7 +38,9 @@ Once you start a Gradio launcher instance, you can view the following informatio
 * Live preview of the Gradio app
 * Console Log - The console log shows the launcher instance's activity, including server setup progress, server status 
   changes
- 
+
+![Gradio Dashboard](../../img/apps_gradio.png#light-mode-only)
+![Gradio Dashboard](../../img/apps_gradio_dark.png#dark-mode-only) 
 
 ## Gradio Launcher Instance Configuration
 When configuring a new Gradio launcher instance, you can fill in the required parameters or reuse the configuration of 

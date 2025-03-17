@@ -27,7 +27,7 @@ clearml-session --docker nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04 --packages 
 
 This sets the following arguments:
 
-* `--docker nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04` - Docker image
+* `--docker nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04` - Container image
     
 * `--packages "clearml" "tensorflow>=2.2" "keras"` - Required Python packages
       
@@ -39,7 +39,7 @@ name is `DevOps`.
 :::
    
 After launching the command, the `clearml-agent` listening to the `default` queue spins a remote Jupyter environment with 
-the specifications. It will automatically connect to the docker on the remote machine. 
+the specifications. It will automatically connect to the container on the remote machine. 
    
 The console should display the session's configuration details:
     
@@ -93,13 +93,13 @@ Now, let's execute some code in the remote session!
 
 1. Open up a new Notebook.
 
-1. In the first cell of the notebook, clone the [ClearML repository](https://github.com/allegroai/clearml): 
+1. In the first cell of the notebook, clone the [ClearML repository](https://github.com/clearml/clearml): 
 
    ```
-   !git clone https://github.com/allegroai/clearml.git
+   !git clone https://github.com/clearml/clearml.git
    ```
    
-1. In the second cell of the notebook, run this [script](https://github.com/allegroai/clearml/blob/master/examples/frameworks/keras/keras_tensorboard.py) 
+1. In the second cell of the notebook, run this [script](https://github.com/clearml/clearml/blob/master/examples/frameworks/keras/keras_tensorboard.py) 
    from the cloned repository:
    
    ```

@@ -3,10 +3,10 @@ title: ClearML Agent CLI
 ---
 
 The following page provides a reference to `clearml-agent`'s CLI commands:
-* [build](#build) - Create a worker environment without executing an experiment.
+* [build](#build) - Create a worker environment without executing a task.
 * [config](#config) - List your ClearML Agent configuration data.
-* [daemon](#daemon) - Run a worker daemon listening to a queue for Tasks (experiments) to execute.
-* [execute](#execute) - Execute an experiment, locally without a queue.
+* [daemon](#daemon) - Run a worker daemon listening to a queue for tasks to execute.
+* [execute](#execute) - Execute a task, locally without a queue.
 * [list](#list) - List the current workers.
 
 
@@ -32,6 +32,8 @@ clearml-agent build [-h] --id TASK_ID [--target TARGET]
                           
 ### Parameters
 
+<div className="tbl-cmd">
+
 |Name | Description| Mandatory |
 |---|----|---|
 |`--id`| Build a worker environment for this Task ID.|<img src="/docs/latest/icons/ico-optional-yes.svg" alt="Yes" className="icon size-md center-md" />|
@@ -49,6 +51,8 @@ clearml-agent build [-h] --id TASK_ID [--target TARGET]
 |`-O`| Compile optimized pyc code (see [python documentation](https://docs.python.org/3/using/cmdline.html#cmdoption-O)). Repeat for more optimization.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--target`| The target folder for the virtual environment and source code that will be used at launch.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 
+</div>
+
 ## config
 List your ClearML Agent configuration.
 
@@ -59,7 +63,7 @@ clearml-agent config [-h]
 ## daemon 
 
 Use the `daemon` command to spin up an agent on any machine: on-prem and/or cloud instance. When spinning up an agent, 
-assign it a queue(s) to service, and when experiments are added to its queues, the agent will pull and execute them. 
+assign it a queue(s) to service, and when tasks are added to its queues, the agent will pull and execute them. 
 
 With the `daemon` command you can configure your agent's behavior: allocate resources, prioritize queues, set it to run 
 in a Docker, and more. 
@@ -79,6 +83,8 @@ clearml-agent daemon [-h] [--foreground] [--queue QUEUES [QUEUES ...]] [--order-
 
                            
 ### Parameters
+
+<div className="tbl-cmd">
 
 |Name | Description| Mandatory |
 |---|----|---|
@@ -106,6 +112,8 @@ clearml-agent daemon [-h] [--foreground] [--queue QUEUES [QUEUES ...]] [--order-
 |`--uptime`| Specify uptime for clearml-agent in `<hours> <days>` format. For example, use `17-20 TUE` to set Tuesday's uptime to 17-20. <br/><br/>NOTES:<ul><li>This feature is available under the ClearML Enterprise plan </li><li>Make sure to configure only `--uptime` or `--downtime`, but not both.</li></ul>|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--use-owner-token`| Generate and use the task owner's token for the execution of the task.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 
+</div>
+
 ## execute
 
 Use the `execute` command to set an agent to build and execute specific tasks directly without listening to a queue.
@@ -122,6 +130,8 @@ clearml-agent execute [-h] --id TASK_ID [--log-file LOG_FILE] [--disable-monitor
 
                             
 ### Parameters                            
+
+<div className="tbl-cmd">
 
 |Name | Description| Mandatory |
 |---|----|---|
@@ -140,6 +150,8 @@ clearml-agent execute [-h] --id TASK_ID [--log-file LOG_FILE] [--disable-monitor
 |`-O`| Compile optimized pyc code (see [python documentation](https://docs.python.org/3/using/cmdline.html#cmdoption-O)). Repeat for more optimization.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--require-queue`| If the specified task is not queued, the execution will fail (used for 3rd party scheduler integration, e.g. K8s, SLURM, etc.)|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--standalone-mode`| Do not use any network connects, assume everything is pre-installed|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
+
+</div>
 
 ## list
 

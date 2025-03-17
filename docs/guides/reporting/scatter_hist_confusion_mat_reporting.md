@@ -2,15 +2,15 @@
 title: 2D Plots Reporting
 ---
 
-The [scatter_hist_confusion_mat_reporting.py](https://github.com/allegroai/clearml/blob/master/examples/reporting/scatter_hist_confusion_mat_reporting.py) 
+The [scatter_hist_confusion_mat_reporting.py](https://github.com/clearml/clearml/blob/master/examples/reporting/scatter_hist_confusion_mat_reporting.py) 
 example demonstrates reporting series data in the following 2D formats: 
 * [Histograms](#histograms)
 * [Confusion matrices](#confusion-matrices)
 * [Scatter plots](#2d-scatter-plots) 
 
-ClearML reports these tables in the **ClearML Web UI**, experiment details **>** **PLOTS** tab. 
+ClearML reports these tables in the **ClearML Web UI** **>** task's **PLOTS** tab. 
 
-When the script runs, it creates an experiment named `2D plots reporting` in the `examples` project.
+When the script runs, it creates a task named `2D plots reporting` in the `examples` project.
 
 ## Histograms
 

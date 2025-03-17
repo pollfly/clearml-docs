@@ -2,7 +2,7 @@
 title: Optuna
 ---
 
-[Optuna](https://optuna.readthedocs.io/en/latest) is a [hyperparameter optimization](../fundamentals/hpo.md) framework, 
+[Optuna](https://optuna.readthedocs.io/en/latest) is a [hyperparameter optimization](../getting_started/hpo.md) framework, 
 which makes use of different samplers such as grid search, random, bayesian, and evolutionary algorithms. You can integrate
 Optuna into ClearML's automated hyperparameter optimization. 
 
@@ -23,7 +23,7 @@ from clearml.automation import (
 from clearml.automation.optuna import OptimizerOptuna
 
 an_optimizer = HyperParameterOptimizer(
-    # This is the experiment we want to optimize
+    # This is the task we want to optimize
     base_task_id=args['template_task_id'],
     hyper_parameters=[
         UniformIntegerParameterRange('layer_1', min_value=128, max_value=512, step_size=128),

@@ -27,13 +27,14 @@ data lineages can be created, and users can track when and how their data change
 you can view a dataset's version history, as well as its contents, including annotations, metadata, masks, and other 
 information.
 
-![Frame viewer](img/hyperdatasets/web-app/dataset_example_frame_editor.png)
+![Frame viewer](img/hyperdatasets/dataset_example_frame_editor.png#light-mode-only)
+![Frame viewer](img/hyperdatasets/dataset_example_frame_editor_dark.png#dark-mode-only)
 
 The basic premise of Hyper-Datasets is that a user-formed query is a full representation of the dataset used by the ML/DL 
 process. Hyper-Datasets decouple metadata from raw data files, allowing you to manipulate metadata through sophisticated
-queries and parameters that can be tracked through the experiment manager. You can clone experiments using different 
+queries and parameters that can be tracked through the task manager. You can clone tasks using different 
 data manipulations--or [**DataViews**](hyperdatasets/dataviews.md)--without changing any of the hard coded values, making these manipulations part of 
-the experiment. 
+the task. 
 
 ClearML **Enterprise**'s Hyper-Datasets supports rapid prototyping, creating new opportunities such as: 
 * Hyperparameter optimization of the data itself

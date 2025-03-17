@@ -28,7 +28,8 @@ and choosing one of these options:
 
 The downloaded data consists of the currently displayed table columns.
 
-![Task table](../img/webapp_experiment_table.png)
+![Task table](../img/webapp_experiment_table.png#light-mode-only)
+![Task table](../img/webapp_experiment_table_dark.png#dark-mode-only)
 
 ## Creating Tasks
 
@@ -36,7 +37,7 @@ You can create tasks by:
 * Running code instrumented with ClearML (see [Task Creation](../clearml_sdk/task_sdk.md#task-creation))
 * [Cloning an existing task](webapp_exp_reproducing.md)
 * Via CLI using [`clearml-task`](../apps/clearml_task.md)
-* Through the UI interface: Input the task's details, including its source code and python requirements, and then 
+* Through the UI interface: Input the task's details, including its source code and Python requirements, and then 
 run it through a [ClearML Queue](../fundamentals/agents_and_queues.md#what-is-a-queue) or save it as a *draft*.
 
 To create a task through the UI interface:
@@ -56,7 +57,7 @@ To create a task through the UI interface:
        * Binary - The binary executing the script (e.g. python3, bash etc).
        * Type – How the code is provided
          * Script - The name of the file to run using the above specified binary
-         * Module - The name of a python module to run (Python only, see [Python module specification](https://docs.python.org/3/using/cmdline.html#cmdoption-m))
+         * Module - The name of a Python module to run (Python only, see [Python module specification](https://docs.python.org/3/using/cmdline.html#cmdoption-m))
          * Custom code - Directly provide the code to run. Write code, or upload a file:
            * File name - The script in which your code is stored. Click `Upload` to upload an existing file.
            * Content - The actual code. Click `Edit` to modify the script’s contents.
@@ -65,7 +66,7 @@ To create a task through the UI interface:
    * **Arguments** (*optional*) - Add [hyperparameter](../fundamentals/hyperparameters.md) values.
    * **Environment** (*optional*) - Set up the task’s execution environment
      * Python - Python environment settings
-       * Use Poetry - Force Poetry instead of pip package manager. Disables additional python settings.
+       * Use Poetry - Force Poetry instead of pip package manager. Disables additional Python settings.
        * Preinstalled venv - The name of a virtual environment available in the task’s execution environment to use when 
        running the task. Additionally, specify how to use the virtual environment:
          * Skip - Try to automatically detect an available virtual environment, and use it as is.
@@ -162,7 +163,8 @@ all the tasks in the project. The customizations of these two views are saved se
 
 ### Adding Metrics and/or Hyperparameters
 
-![Task table customization gif](../img/gif/webapp_exp_table_cust.gif)
+![Task table customization gif](../img/gif/webapp_exp_table_cust.gif#light-mode-only)
+![Task table customization gif](../img/gif/webapp_exp_table_cust_dark.gif#dark-mode-only)
 
 Add metrics and/or hyperparameters columns to the task table. The metrics and hyperparameters depend upon the
 tasks in the table.
@@ -184,7 +186,8 @@ tooltip that appears. To view all precise values in a column, hover over a float
 
 ### Filtering Columns
 
-![Filtering table gif](../img/gif/filter_screenshots.gif)
+![Filtering table gif](../img/gif/filter_screenshots.gif#light-mode-only)
+![Filtering table gif](../img/gif/filter_screenshots_dark.gif#dark-mode-only)
 
 Filters can be applied by clicking <img src="/docs/latest/icons/ico-filter-off.svg" alt="Filter" className="icon size-md" /> 
 on a column, and the relevant filter appears.
@@ -252,7 +255,8 @@ operations on the selected tasks. Actions can be performed only on the tasks tha
 of tasks that can be affected by each action. The same information can be found in the batch action bar, in a tooltip that
 appears when hovering over an action icon. 
 
-![Task table batch operations](../img/webapp_experiment_table_context_menu.png)
+![Task table batch operations](../img/webapp_experiment_table_context_menu.png#light-mode-only)
+![Task table batch operations](../img/webapp_experiment_table_context_menu_dark.png#dark-mode-only)
 
 ## Selecting Multiple Tasks
 
@@ -269,7 +273,7 @@ selecting items beyond the items currently on-screen:
 
 ## Comparing Tasks 
 
-The comparison view compares task scalar and plot results (for a more in depth comparison, see [Comparing Experiments](webapp_exp_comparing.md)). 
+The comparison view compares task scalar and plot results (for a more in depth comparison, see [Comparing Tasks](webapp_exp_comparing.md)). 
 When selected, the view presents a comparison of all [selected tasks](#selecting-multiple-tasks). If no 
 tasks are selected, the first 100 visible tasks in the table are displayed in the comparison. 
 
@@ -277,12 +281,14 @@ In the dropdown menu, select to view **Scalars** or **Plots**.
 
 **Scalars** shows task scalar results as time series line graphs. 
 
-![Merged comparison plots](../img/webapp_compare_view_1.png)
+![Merged comparison plots](../img/webapp_compare_view_1.png#light-mode-only)
+![Merged comparison plots](../img/webapp_compare_view_1_dark.png#dark-mode-only)
 
 All single value scalars are plotted into a single clustered bar chart under the "Summary" title, where each cluster 
 represents a reported metric, and each bar in the cluster represents a task.
 
-![Single scalar comparison](../img/webapp_compare_view_3.png)
+![Single scalar comparison](../img/webapp_compare_view_3.png#light-mode-only)
+![Single scalar comparison](../img/webapp_compare_view_3_dark.png#dark-mode-only)
 
 Click <img src="/docs/latest/icons/ico-settings.svg" alt="Setting Gear" className="icon size-md" /> to customize which 
 metrics to view.
@@ -296,11 +302,13 @@ task.
 Line, scatter, box, and bar graphs are compared by overlaying each metric/variant from all compared tasks' into a 
 single comparative plot. 
 
-![Merged comparison plots](../img/webapp_compare_view_4.png)
+![Merged comparison plots](../img/webapp_compare_view_4.png#light-mode-only)
+![Merged comparison plots](../img/webapp_compare_view_4_dark.png#dark-mode-only)
 
 Other plot types are displayed separately for each task.
 
-![Separate comparison plots](../img/webapp_compare_view_2.png)
+![Separate comparison plots](../img/webapp_compare_view_2.png#light-mode-only)
+![Separate comparison plots](../img/webapp_compare_view_2_dark.png#dark-mode-only)
 
 ## Creating a Task Leaderboard
 
@@ -321,4 +329,5 @@ based on their name by using the search bar.
 The final dashboard can be shared by copying the URL from the address bar, this address will replicate the exact same dashboard on any browser.
 The dashboard can also be bookmarked for later use.
 
-![Task table sharing](../img/webapp_exp_table_sharing.png)
+![Task table sharing](../img/webapp_exp_table_sharing.png#light-mode-only)
+![Task table sharing](../img/webapp_exp_table_sharing_dark.png#dark-mode-only)

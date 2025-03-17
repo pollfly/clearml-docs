@@ -16,7 +16,8 @@ endpoint activity and shuts down if the model remains inactive for a specified m
 The Embedding Model Deployment app makes use of the ClearML Traffic Router which implements a secure, authenticated 
 network endpoint for the model.
 
-If the ClearML AI application Gateway is not available, the model endpoint might not be accessible.
+If the ClearML AI application Gateway is not available, the model endpoint might not be accessible. 
+For more information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
 
 After starting an Embedding Model Deployment instance, you can view the following information in its dashboard:
@@ -44,7 +45,15 @@ After starting an Embedding Model Deployment instance, you can view the followin
   * GPU temperature
 * Console log - The console log shows the app instance's console output: setup progress, status changes, error messages, etc.
 
-![Embedding Model Deployment app](../../img/apps_embedding_model_deployment.png)
+![Embedding Model Deployment app](../../img/apps_embedding_model_deployment.png#light-mode-only)
+![Embedding Model Deployment app](../../img/apps_embedding_model_deployment_dark.png#dark-mode-only)
+
+:::tip EMBEDDING CLEARML VISUALIZATION
+You can embed plots from the app instance dashboard into [ClearML Reports](../webapp_reports.md). These visualizations 
+are updated live as the app instance(s) updates. The Enterprise Plan supports embedding resources in 
+external tools (e.g. Notion). Hover over the plot and click <img src="/docs/latest/icons/ico-plotly-embed-code.svg" alt="Embed code" className="icon size-md space-sm" /> 
+to copy the embed code, and navigate to a report to paste the embed code.
+:::
 
 ## Embedding Model Deployment Instance Configuration
 
@@ -63,13 +72,13 @@ To configure a new app instance, click `Launch New` <img src="/docs/latest/icons
 to open the app's configuration form.
 
 ### Configuration Options
-* Import Configuration - Import an app instance configuration file. This will fill the configuration form with the 
+* **Import Configuration** - Import an app instance configuration file. This will fill the configuration form with the 
 values from the file, which can be modified before launching the app instance
-* Project name - ClearML Project where your Embedding Model Deployment app instance will be stored
-* Task name - Name of ClearML Task for your Embedding Model Deployment app instance
-* Queue - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the Embedding Model 
+* **Project name** - ClearML Project where your Embedding Model Deployment app instance will be stored
+* **Task name** - Name of ClearML Task for your Embedding Model Deployment app instance
+* **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the Embedding Model 
 Deployment app instance task will be enqueued (make sure an agent is assigned to it)
-* Model Configuration
+* **Model Configuration**
   * Model - A ClearML Model ID or a Hugging Face model name (e.g. `openai-community/gpt2`)
   * Revision - The specific Hugging Face version of the model you want to use. You can use a specific commit ID or a 
   branch like `refs/pr/2`
@@ -85,9 +94,14 @@ Deployment app instance task will be enqueued (make sure an agent is assigned to
     Transformer models
   * \+ Add item - Add another model endpoint. Each model will be accessible through the same base URL, with the model 
   name appended to the URL.  
-* Hugging Face Token - Token for accessing Hugging Face models that require authentication
-* Idle Time Limit (Hours) - Maximum idle time after which the app instance will shut down
-* Export Configuration - Export the app instance configuration as a JSON file, which you can later import to create a 
+* **Hugging Face Token** - Token for accessing Hugging Face models that require authentication
+* **Idle Time Limit** (Hours) - Maximum idle time after which the app instance will shut down
+* **Export Configuration** - Export the app instance configuration as a JSON file, which you can later import to create a 
 new instance with the same configuration
 
-![Embedding Model Deployment form](../../img/apps_embedding_model_deployment_form.png)
+<div class="max-w-65">
+
+![Embedding Model Deployment form](../../img/apps_embedding_model_deployment_form.png#light-mode-only)
+![Embedding Model Deployment form](../../img/apps_embedding_model_deployment_form_dark.png#dark-mode-only)
+
+</div>

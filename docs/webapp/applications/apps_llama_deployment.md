@@ -16,6 +16,7 @@ The llama.cpp Model Deployment app makes use of the ClearML Traffic Router which
 network endpoint for the model. 
 
 If the ClearML AI application Gateway is not available, the model endpoint might not be accessible.
+For more information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
 
 After starting a llama.cpp Model Deployment instance, you can view the following information in its dashboard:
@@ -45,7 +46,14 @@ After starting a llama.cpp Model Deployment instance, you can view the following
 
 ![llama deployment dashboard](../../img/apps_llama_dashboard.png)
 
-## Llama.cpp Model Deployment Instance Configuration
+:::tip EMBEDDING CLEARML VISUALIZATION
+You can embed plots from the app instance dashboard into [ClearML Reports](../webapp_reports.md). These visualizations 
+are updated live as the app instance(s) updates. The Enterprise Plan supports embedding resources in 
+external tools (e.g. Notion). Hover over the plot and click <img src="/docs/latest/icons/ico-plotly-embed-code.svg" alt="Embed code" className="icon size-md space-sm" /> 
+to copy the embed code, and navigate to a report to paste the embed code.
+:::
+
+### Llama.cpp Model Deployment Instance Configuration
 
 When configuring a new llama.cpp Model Deployment instance, you can fill in the required parameters or reuse the 
 configuration of a previously launched instance.
@@ -60,22 +68,27 @@ To configure a new app instance, click `Launch New` <img src="/docs/latest/icons
 to open the app's configuration form.
 
 ## Configuration Options
-* Import Configuration - Import an app instance configuration file. This will fill the configuration form with the 
+* **Import Configuration** - Import an app instance configuration file. This will fill the configuration form with the 
 values from the file, which can be modified before launching the app instance
-* Project name - ClearML Project where your llama.cpp Model Deployment app instance will be stored
-* Task name - Name of [ClearML Task](../../fundamentals/task.md) for your llama.cpp Model Deployment app instance
-* Queue - The [ClearML Queue](../../fundamentals/agents_and_queues.md#agent-and-queue-workflow) to which the 
+* **Project name** - ClearML Project where your llama.cpp Model Deployment app instance will be stored
+* **Task name** - Name of [ClearML Task](../../fundamentals/task.md) for your llama.cpp Model Deployment app instance
+* **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the 
   llama.cpp Model Deployment app instance task will be enqueued (make sure an agent is assigned to it)  
-* Model - A ClearML Model ID or a Hugging Face model. The model must be in GGUF format. If you are using a 
+* **Model** - A ClearML Model ID or a Hugging Face model. The model must be in GGUF format. If you are using a 
   HuggingFace model, make sure to pass the path to the GGUF file. For example: `provider/repo/path/to/model.gguf`
-* General
+* **General**
   * Hugging Face Token - Token for accessing Hugging Face models that require authentication
   * Number of GPU Layers - Number of layers to store in VRAM. `9999` indicates that all layers should be loaded in 
   VRAM. Used to offload the model on the CPU RAM
-* Advanced Options
+* **Advanced Options**
   * Idle Time Limit (Hours) - Maximum idle time after which the app instance will shut down
   * Last Action Report Interval (Seconds) - The frequency at which the last activity made by the application is reported. 
   Used to stop the application from entering an idle state when the machine metrics are low but the application is 
   actually still running
 
-![llama deployment app form](../../img/apps_llama_form.png)
+<div class="max-w-65">
+
+![llama deployment app form](../../img/apps_llama_form.png#light-mode-only)
+![llama deployment app form](../../img/apps_llama_form_dark.png#dark-mode-only)
+
+</div>

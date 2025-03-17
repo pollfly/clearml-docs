@@ -2,41 +2,46 @@
 title: TensorFlow MNIST
 ---
 
-The [tensorflow_mnist.py](https://github.com/allegroai/clearml/blob/master/examples/frameworks/tensorflow/tensorflow_mnist.py) 
+The [tensorflow_mnist.py](https://github.com/clearml/clearml/blob/master/examples/frameworks/tensorflow/tensorflow_mnist.py) 
 example demonstrates the integration of ClearML into code that uses TensorFlow and Keras to train a neural network on 
 the Keras built-in [MNIST](https://www.tensorflow.org/api_docs/python/tf/keras/datasets/mnist) handwritten digits dataset. 
 
-When the script runs, it creates an experiment named `Tensorflow v2 mnist with summaries` in the `examples` project.
+When the script runs, it creates a task named `Tensorflow v2 mnist with summaries` in the `examples` project.
 
 ## Scalars
 
-The loss and accuracy metric scalar plots appear in the experiment's page in the **ClearML web UI** under 
+The loss and accuracy metric scalar plots appear in the task's page in the **ClearML web UI** under 
 **SCALARS**. Resource utilization plots, which are titled **:monitor: machine**, also appear in the **SCALARS** tab.
 
-![image](../../../img/examples_tensorflow_mnist_06.png)
+![Task scalars](../../../img/examples_tensorflow_mnist_06.png#light-mode-only)
+![Task scalars](../../../img/examples_tensorflow_mnist_06_dark.png#dark-mode-only)
 
 ## Hyperparameters
 
 ClearML automatically logs TensorFlow Definitions. They appear in **CONFIGURATION** **>** **HYPERPARAMETERS** 
 **>** **TF_DEFINE**.
 
-![image](../../../img/examples_tensorflow_mnist_01.png)
+![Task hyperparameters](../../../img/examples_tensorflow_mnist_01.png#light-mode-only)
+![Task hyperparameters](../../../img/examples_tensorflow_mnist_01_dark.png#dark-mode-only)
 
 ## Console
 
 All console output appears in **CONSOLE**.
 
-![image](../../../img/examples_tensorflow_mnist_05.png)
+![Task console](../../../img/examples_tensorflow_mnist_05.png#light-mode-only)
+![Task console](../../../img/examples_tensorflow_mnist_05_dark.png#dark-mode-only)
 
 ## Artifacts
 
-Models created by the experiment appear in the experiment's **ARTIFACTS** tab. ClearML automatically logs and tracks 
+Models created by the task appear in the task's **ARTIFACTS** tab. ClearML automatically logs and tracks 
 models and any snapshots created using TensorFlow. 
 
-![image](../../../img/examples_tensorflow_mnist_03.png)
+![Task models](../../../img/examples_tensorflow_mnist_03.png#light-mode-only)
+![Task models](../../../img/examples_tensorflow_mnist_03_dark.png#dark-mode-only)
 
 Clicking on a model's name takes you to the [model's page](../../../webapp/webapp_model_viewing.md), where you can 
 view the model's details and access the model.
 
 
-![image](../../../img/examples_tensorflow_mnist_10.png)
+![Model details](../../../img/examples_tensorflow_mnist_10.png#light-mode-only)
+![Model details](../../../img/examples_tensorflow_mnist_10_dark.png#dark-mode-only)
