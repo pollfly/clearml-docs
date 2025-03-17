@@ -77,12 +77,12 @@ cloud of your choice (AWS, GCP, Azure) and automatically deploy ClearML agents: 
 and shuts down instances as needed, according to a resource budget that you set.
 
 
-### Reproducing Tasks
+### Reproducing Task Runs
 
 ![Cloning, editing, enqueuing gif](../img/gif/integrations_yolov5.gif#light-mode-only)
 ![Cloning, editing, enqueuing gif](../img/gif/integrations_yolov5_dark.gif#dark-mode-only)
 
-Use ClearML's web interface to reproduce tasks and edit their details, like hyperparameters or input models, then execute the tasks 
+Use ClearML's web interface to reproduce task runs and edit their details, like hyperparameters or input models, then execute the tasks 
 with the new configuration on a remote machine.
 
 When ClearML is integrated into a script, it captures and stores configurations, such as hyperparameters 
