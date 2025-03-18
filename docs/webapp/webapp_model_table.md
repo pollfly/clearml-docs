@@ -11,6 +11,10 @@ using the buttons on the top left of the page. Use the table view for a comparat
 columns of interest. Use the details view to access a selected model's details, while keeping the model list in view. 
 Details view can also be accessed by double-clicking a specific model in the table view to open its details view. 
 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+to find specific models. You can query by the model name, ID and description. To search using regex, click the `.*` 
+icon on the search bar.
+
 You can archive models so the model table doesn't get too cluttered. Click **OPEN ARCHIVE** on the top of the
 table to open the archive and view all archived models. From the archive, you can restore 
 models to remove them from the archive, and permanently delete models.

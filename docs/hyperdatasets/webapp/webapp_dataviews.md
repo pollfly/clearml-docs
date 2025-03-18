@@ -18,6 +18,10 @@ using the buttons on the top left of the page. Use the table view for a comparat
 columns of interest. Use the details view to access a selected Dataview's details, while keeping the Dataview list in view.
 Details view can also be accessed by double-clicking a specific Dataview in the table view to open its details view. 
 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+to find specific dataviews. You can query by the dataview name, ID, description, hyper-datasets, and versions. 
+To search using regex, click the `.*` icon on the search bar.
+
 You can archive Dataviews so the Dataview table doesn't get too cluttered. Click **OPEN ARCHIVE** on the top of the 
 table to open the archive and view all archived Dataviews. From the archive, you can restore 
 Dataviews to remove them from the archive. You can also permanently delete Dataviews.
