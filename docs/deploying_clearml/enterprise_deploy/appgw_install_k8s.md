@@ -7,7 +7,7 @@ The AI Application Gateway is available under the ClearML Enterprise plan.
 :::
 
 This guide details the installation of the ClearML App Gateway Router.
-The App Gateway Router enables access to your AI workloads (e.g. remote IDEs like VSCode and Jupyter, model API interface, etc.).
+The App Gateway Router enables access to your AI workload applications (e.g. remote IDEs like VSCode and Jupyter, model API interface, etc.).
 It acts as a proxy, identifying ClearML Tasks running within its [K8s namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 
 and making them available for network access.
 
@@ -106,13 +106,12 @@ Replace the placeholders with the following values:
 
 * `<RELEASE_NAME>` - Unique name for the App Gateway Router within the K8s namespace. This is a required parameter in 
   Helm, which identifies a specific installation of the chart. The release name also defines the router’s name and 
-  appears in the UI within session app URLs in the IDE. While we typically recommend using a fixed string (e.g. 
-  `clearml-enterprise` or `clearml-agent`), it can be customized to support multiple installations within the same 
+  appears in the UI within AI workload application URLs (e.g. Remote IDE URLs). This can be customized to support multiple installations within the same 
   namespace by assigning different release names.
 * `<WORKLOAD_NAMESPACE>` - [Kubernetes Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 
   where workloads will be executed. This namespace must be shared between a dedicated ClearML Agent and an App 
   Gateway Router. The agent is responsible for monitoring its assigned task queues and spawning workloads within this 
-  namespace (unless otherwise configured). Meanwhile, the router monitors the same namespace for AI workloads, such as 
-  session-based tasks. The router has a namespace-limited scope, meaning it can only detect and manage tasks within its 
+  namespace. The router monitors the same namespace for AI workloads (e.g. remote IDE applications). The router has a 
+  namespace-limited scope, meaning it can only detect and manage tasks within its 
   assigned namespace.
 * `<CHART_VERSION>` - Version recommended by the ClearML Support Team.

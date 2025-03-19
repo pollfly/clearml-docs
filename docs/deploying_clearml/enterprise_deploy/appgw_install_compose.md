@@ -93,10 +93,11 @@ Edit it according to the following guidelines:
   specified during installation. This tag is provided by ClearML to ensure compatibility with the recommended version.
 * `ROUTER_TAG`: App Gateway Router tag. The Docker image tag for the router component. It defines the specific version 
   to be installed and is provided by ClearML as part of the setup process.
-* `ROUTER_NAME`: Each router needs to have a unique name across ClearML server tenant (in case of [multiple routers on the same tenant](#multiple-router-in-the-same-tenant)).
+* `ROUTER_NAME`: In the case of [multiple routers on the same tenant](#multiple-router-in-the-same-tenant), each router 
+  needs to have a unique name.
 * `ROUTER__WEBSERVER__SERVER_PORT`: Webserver port. The default port is 8080, but it can be adjusted to meet specific network requirements.
-* `ROUTER_URL`: External address to access the router.  This can be the IP address or DNS of the node where the router 
-  is running, or the address of a load balancer if the router operates behind a proxy/load balancer. Clients use this URL 
+* `ROUTER_URL`: External address to access the router. This can be the IP address or DNS of the node where the router 
+  is running, or the address of a load balancer if the router operates behind a proxy/load balancer. This URL is used 
   to access AI workload applications (e.g. remote IDE, model deployment, etc.), so it must be reachable and resolvable for them.
 * `CLEARML_API_HOST`: ClearML API server URL starting with `https://api.`
 * `CLEARML_API_ACCESS_KEY`: ClearML server API key.
