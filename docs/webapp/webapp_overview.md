@@ -37,7 +37,8 @@ Click the profile menu button <img src="/docs/latest/icons/ico-me.svg" alt="Prof
 to access the following:
 * **Settings** - Navigate to ClearML's [Settings](settings/webapp_settings_profile.md) page:
   * Set personal [WebApp preferences](settings/webapp_settings_profile.md)
-  * Manage [workspace API credentials  and personal configuration vault](settings/webapp_settings_profile.md#clearml-api-credentials) (Enterprise offering)
+  * Manage [workspace API credentials](settings/webapp_settings_profile.md#clearml-api-credentials) 
+  * Manage [personal configuration vault](settings/webapp_settings_profile.md#configuration-vault) (Enterprise offering)
   * Configure [cloud storage access credentials](settings/webapp_settings_profile.md#browser-cloud-storage-access) for the ClearML Web UI
   * Administrator settings
     * Manage [users and workspaces](settings/webapp_settings_users.md)
