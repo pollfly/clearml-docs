@@ -40,77 +40,72 @@ This is an example of the `docker-compose` file you will need:
 ```
 version: '3.5'
 services:
-task_traffic_webserver:
-  image: allegroai/task-traffic-router-webserver:${TASK-TRAFFIC-ROUTER-WEBSERVER-TAG}
-  ports:
-   - "80:8080"
-  restart: unless-stopped
-  container_name: task_traffic_webserver
-  volumes:
-   - ./task_traffic_router/config/nginx:/etc/nginx/conf.d:ro
-   - ./task_traffic_router/config/lua:/usr/local/openresty/nginx/lua:ro
-task_traffic_router:
-  image: allegroai/task-traffic-router:${TASK-TRAFFIC-ROUTER-TAG}
-  restart: unless-stopped
-  container_name: task_traffic_router
-  volumes:
-   - /var/run/docker.sock:/var/run/docker.sock
-   - ./task_traffic_router/config/nginx:/etc/nginx/conf.d:rw
-   - ./task_traffic_router/config/lua:/usr/local/openresty/nginx/lua:rw
-  environment:
-   - LOGGER_LEVEL=INFO
-   - CLEARML_API_HOST=${CLEARML_API_HOST:?err}
-   - CLEARML_API_ACCESS_KEY=${CLEARML_API_ACCESS_KEY:?err}
-   - CLEARML_API_SECRET_KEY=${CLEARML_API_SECRET_KEY:?err}
-   - ROUTER_URL=${ROUTER_URL:?err}
-   - ROUTER_NAME=${ROUTER_NAME:?err}
-   - AUTH_ENABLED=${AUTH_ENABLED:?err}
-   - SSL_VERIFY=${SSL_VERIFY:?err}
-   - AUTH_COOKIE_NAME=${AUTH_COOKIE_NAME:?err}
-   - AUTH_BASE64_JWKS_KEY=${AUTH_BASE64_JWKS_KEY:?err}
-   - LISTEN_QUEUE_NAME=${LISTEN_QUEUE_NAME}
-   - EXTRA_BASH_COMMAND=${EXTRA_BASH_COMMAND}
-   - TCP_ROUTER_ADDRESS=${TCP_ROUTER_ADDRESS}
-   - TCP_PORT_START=${TCP_PORT_START}
-   - TCP_PORT_END=${TCP_PORT_END}
-
+  task_traffic_webserver:
+    image: clearml/ai-gateway-proxy:${PROXY_TAG:?err}
+    network_mode: "host"
+    restart: unless-stopped
+    container_name: task_traffic_webserver
+    volumes:
+    - ./task_traffic_router/config/nginx:/etc/nginx/conf.d:ro
+    - ./task_traffic_router/config/lua:/usr/local/openresty/nginx/lua:ro
+  task_traffic_router:
+    image: clearml/ai-gateway-router:${ROUTER_TAG:?err}
+    restart: unless-stopped
+    container_name: task_traffic_router
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./task_traffic_router/config/nginx:/etc/nginx/conf.d:rw
+    - ./task_traffic_router/config/lua:/usr/local/openresty/nginx/lua:rw
+    environment:
+    - ROUTER_NAME=${ROUTER_NAME:?err}
+    - ROUTER__WEBSERVER__SERVER_PORT=${ROUTER__WEBSERVER__SERVER_PORT:?err}
+    - ROUTER_URL=${ROUTER_URL:?err}
+    - CLEARML_API_HOST=${CLEARML_API_HOST:?err}
+    - CLEARML_API_ACCESS_KEY=${CLEARML_API_ACCESS_KEY:?err}
+    - CLEARML_API_SECRET_KEY=${CLEARML_API_SECRET_KEY:?err}
+    - AUTH_COOKIE_NAME=${AUTH_COOKIE_NAME:?err}
+    - AUTH_SECURE_ENABLED=${AUTH_SECURE_ENABLED}
+    - TCP_ROUTER_ADDRESS=${TCP_ROUTER_ADDRESS}
+    - TCP_PORT_START=${TCP_PORT_START}
+    - TCP_PORT_END=${TCP_PORT_END}
 ```
 
-Create a *runtime.env* file containing the following entries:
+Create a `runtime.env` file containing the following entries:
 
 ```
-TASK-TRAFFIC-ROUTER-WEBSERVER-TAG=
-TASK-TRAFFIC-ROUTER-TAG=
-CLEARML_API_HOST=https://api.
+PROXY_TAG=
+ROUTER_TAG=
+ROUTER_NAME=main-router
+ROUTER__WEBSERVER__SERVER_PORT=8010
+ROUTER_URL=
+CLEARML_API_HOST=
 CLEARML_API_ACCESS_KEY=
 CLEARML_API_SECRET_KEY=
-ROUTER_URL=
-ROUTER_NAME=main-router
-AUTH_ENABLED=true
-SSL_VERIFY=true
 AUTH_COOKIE_NAME=
-AUTH_BASE64_JWKS_KEY=
-LISTEN_QUEUE_NAME=
-EXTRA_BASH_COMMAND=
+AUTH_SECURE_ENABLED=true
 TCP_ROUTER_ADDRESS=
 TCP_PORT_START=
 TCP_PORT_END=
 ```
 
 Edit it according to the following guidelines:
-
-* `CLEARML_API_HOST`: URL usually starting with `https://api.`  
-* `CLEARML_API_ACCESS_KEY`: ClearML server api key  
-* `CLEARML_API_SECRET_KEY`: ClearML server secret key  
-* `ROUTER_URL`: URL for this router that was previously configured in the load balancer starting with `https://`  
-* `ROUTER_NAME`: Unique name for this router  
-* `AUTH_ENABLED`: Enable or disable http calls authentication when the router is communicating with the ClearML server  
-* `SSL_VERIFY`: Enable or disable SSL certificate validation when the router is communicating with the ClearML server  
-* `AUTH_COOKIE_NAME`: Cookie name used by the ClearML server to store the ClearML authentication cookie. This can usually be found in the `value_prefix` key starting with `allegro_token` in `envoy.yaml` file in the ClearML server installation (`/opt/allegro/config/envoy/envoy.yaml`) (see below)  
-* `AUTH_SECURE_ENABLED`: Enable the Set-Cookie `secure` parameter  
-* `AUTH_BASE64_JWKS_KEY`: Value form `k` key in the `jwks.json` file in the ClearML server installation  
-* `LISTEN_QUEUE_NAME`: (*optional*) Name of queue to check for tasks (if none, every task is checked)  
-* `EXTRA_BASH_COMMAND`: Command to be launched before starting the router  
+* `PROXY_TAG`: AI Application Gateway proxy tag. The Docker image tag for the proxy component, which needs to be 
+  specified during installation. This tag is provided by ClearML to ensure compatibility with the recommended version.
+* `ROUTER_TAG`: App Gateway Router tag. The Docker image tag for the router component. It defines the specific version 
+  to be installed and is provided by ClearML as part of the setup process.
+* `ROUTER_NAME`: In the case of [multiple routers on the same tenant](#multiple-router-in-the-same-tenant), each router 
+  needs to have a unique name.
+* `ROUTER__WEBSERVER__SERVER_PORT`: Webserver port. The default port is 8080, but it can be adjusted to meet specific network requirements.
+* `ROUTER_URL`: External address to access the router. This can be the IP address or DNS of the node where the router 
+  is running, or the address of a load balancer if the router operates behind a proxy/load balancer. This URL is used 
+  to access AI workload applications (e.g. remote IDE, model deployment, etc.), so it must be reachable and resolvable for them.
+* `CLEARML_API_HOST`: ClearML API server URL starting with `https://api.`
+* `CLEARML_API_ACCESS_KEY`: ClearML server API key.
+* `CLEARML_API_SECRET_KEY`: ClearML server secret key.
+* `AUTH_COOKIE_NAME`: Cookie used by the ClearML server to store the ClearML authentication cookie. This can usually be 
+  found in the `envoy.yaml` file in the ClearML server installation (`/opt/allegro/config/envoy/envoy.yaml`), under the 
+  `value_prefix` key starting with `allegro_token` 
+* `AUTH_SECURE_ENABLED`: Enable the Set-Cookie `secure` parameter. Set to `false` in case services are exposed with `http`.
 * `TCP_ROUTER_ADDRESS`: Router external address, can be an IP or the host machine or a load balancer hostname, depends on network configuration  
 * `TCP_PORT_START`: Start port for the TCP Session feature  
 * `TCP_PORT_END`: End port for the TCP Session feature
@@ -121,12 +116,42 @@ Run the following command to start the router:
 sudo docker compose --env-file runtime.env up -d
 ```
 
-:::note How to find my jwkskey
+### Advanced Configuration
 
-The *JSON Web Key Set* (*JWKS*) is a set of keys containing the public keys used to verify any JSON Web Token (JWT).
+#### Using Open HTTP
 
-In a `docker-compose` server installation, this can be found in the `CLEARML__secure__auth__token_secret` env var in the apiserver server component.
+To deploy the App Gateway Router on open HTTP (without a certificate), set the `AUTH_SECURE_ENABLED` entry
+to `false` in the `runtime.env` file. 
 
-:::
+#### Multiple Router in the Same Tenant
 
+If you have workloads running in separate networks that cannot communicate with each other, you need to deploy multiple
+routers, one for each isolated environment. Each router will only process tasks from designated queues, ensuring that 
+tasks are correctly routed to agents within the same network.
 
+For example:
+* If Agent A and Agent B are in separate networks, each must have its own router to receive tasks.
+* Router A will handle tasks from Agent A’s queues. Router B will handle tasks from Agent B’s queues.
+
+To achieve this, each router must be configured with:
+* A unique `ROUTER_NAME`
+* A distinct set of queues defined in `LISTEN_QUEUE_NAME`.
+
+##### Example Configuration
+Each router's `runtime.env` file should include:
+
+* Router A:
+
+  ```
+  ROUTER_NAME=router-a  
+  LISTEN_QUEUE_NAME=queue1,queue2  
+  ```
+
+* Router B:
+
+  ```
+  ROUTER_NAME=router-b  
+  LISTEN_QUEUE_NAME=queue3,queue4  
+  ```
+  
+Make sure `LISTEN_QUEUE_NAME` is set in the  [`docker-compose` environment variables](#docker-compose-file) for each router instance.

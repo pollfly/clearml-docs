@@ -30,12 +30,12 @@ their instances:
   * [Embedding Model Deployment](../../webapp/applications/apps_embed_model_deployment.md)  
   * [Llama.cpp Model Deployment](../../webapp/applications/apps_llama_deployment.md)
 
-The AI Application Gateway is provided through an additional component to the ClearML Server deployment: The ClearML Task Traffic Router.  
-If your ClearML Deployment does not have the Task Traffic Router properly installed, these application instances may not be accessible. 
+The AI Application Gateway requires an additional component to the ClearML Server deployment: the **ClearML App Gateway Router**.
+If your ClearML Deployment does not have the App Gateway Router properly installed, these application instances may not be accessible. 
 
 #### Installation 
 
-The Task Traffic Router supports two deployment options:
+The App Gateway Router supports two deployment options:
 
 * [Docker Compose](appgw_install_compose.md)  
 * [Kubernetes](appgw_install_k8s.md)
