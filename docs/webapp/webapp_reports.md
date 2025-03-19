@@ -175,6 +175,10 @@ or in List view <img src="/docs/latest/icons/ico-flat-view.svg" alt="List view" 
 view, all reports are shown side-by-side. In Project view, reports are organized according to their projects, and 
 top-level projects are displayed. Click on a project card to view the project's reports.
 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+to find specific reports. You can query by the report name, ID, tags, project, description, and report content.
+To search using regex, click the `.*` icon on the search bar.
+
 ![Report page](../img/webapp_report_page.png#light-mode-only)
 ![Report page](../img/webapp_report_page_dark.png#dark-mode-only)
 

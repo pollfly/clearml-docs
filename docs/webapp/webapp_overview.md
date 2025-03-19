@@ -3,11 +3,13 @@ title: WebApp
 ---
 
 The **ClearML Web UI** is the graphical user interface for the ClearML platform, which includes:
-* Task management
-* Browsing
-* Resource utilization monitoring
-* Profile management
-* Direct access to the ClearML community (Slack channel, YouTube, and GitHub).
+* ML workload automation
+* Resource utilization monitoring and management 
+* Live model endpoint monitoring
+* ML experiment management and visualization 
+* Model and Dataset viewing and management
+* Pipeline creation and monitoring
+* User and administrator settings
 
 ![WebApp screenshots gif](../img/gif/webapp_screenshots.gif#light-mode-only)
 ![WebApp screenshots gif](../img/gif/webapp_screenshots_dark.gif#dark-mode-only)
@@ -15,43 +17,46 @@ The **ClearML Web UI** is the graphical user interface for the ClearML platform,
 ## UI Modules 
 The WebApp's sidebar provides access to the following modules:
 
-* <img src="/docs/latest/icons/ico-homepage.svg" alt="Homepage" className="icon size-md space-md" />[Dashboard](webapp_home.md) - The dashboard for recent activity and quick access to tasks and projects. 
-
-* <img src="/docs/latest/icons/ico-projects.svg" alt="Projects" className="icon size-md space-md" />[Projects](webapp_projects_page.md) - The main experimentation page. Access your tasks and models as they are organized into projects. The tasks and models are displayed in tables which let you:
-  * Track ongoing tasks and visualize their results 
-  * Reproduce previously run tasks 
-  * Tune tasks with no code change 
-  * Compare tasks 
-  * Share tasks and their models with other ClearML hosted service users
-*  <img src="/docs/latest/icons/ico-side-bar-datasets.svg" alt="Datasets" className="icon size-md space-md" />[Datasets](datasets/webapp_dataset_page.md) - View and manage your datasets. 
-* <img src="/docs/latest/icons/ico-pipelines.svg" alt="Pipelines" className="icon size-md space-md" />[Pipelines](pipelines/webapp_pipeline_page.md) - View and manage your pipelines. 
-* <img src="/docs/latest/icons/ico-model-endpoints.svg" alt="Model endpoints" className="icon size-md space-md" />[Model Endpoints](webapp_model_endpoints.md) - Monitor your live model endpoints. 
-* <img src="/docs/latest/icons/ico-reports.svg" alt="Reports" className="icon size-md space-md" />[Reports](webapp_reports.md) - View and manage your reports. 
-* <img src="/docs/latest/icons/ico-workers.svg" alt="Workers and Queues" className="icon size-md space-md" />[Orchestration](webapp_workers_queues.md) - Autoscale, monitor, and manage your resource usage and workers queues. 
 * <img src="/docs/latest/icons/ico-applications.svg" alt="ClearML Apps" className="icon size-md space-md" />[Applications](applications/apps_overview.md) - ClearML's GUI applications for no-code workflow execution (available in the ClearML Pro and Enterprise plans).
+* <img src="/docs/latest/icons/ico-workers.svg" alt="Workers and Queues" className="icon size-md space-md" />[Orchestration](webapp_workers_queues.md) - Autoscaling, resource usage monitoring and allocation management.
+* <img src="/docs/latest/icons/ico-model-endpoints.svg" alt="Model endpoints" className="icon size-md space-md" />[Model Endpoints](webapp_model_endpoints.md) - Monitor your live model endpoints. 
+* <img src="/docs/latest/icons/ico-side-bar-datasets.svg" alt="Datasets" className="icon size-md space-md" />[Datasets](datasets/webapp_dataset_page.md) - View and manage your datasets.
+* <img src="/docs/latest/icons/ico-projects.svg" alt="Projects" className="icon size-md space-md" />[Projects](webapp_projects_page.md) - The main experimentation page. Access your tasks and models as they are organized into projects. The tasks and models are displayed in tables which let you:
+  * Track ongoing tasks and visualize their results
+  * Reproduce previous task runs 
+  * Tune task parameter values with no code change
+  * Compare tasks and models
+  * Share tasks and models with other ClearML hosted service users
+  * Create and share rich content [Reports](webapp_reports.md)
+* <img src="/docs/latest/icons/ico-pipelines.svg" alt="Pipelines" className="icon size-md space-md" />[Pipelines](pipelines/webapp_pipeline_page.md) - View and manage your pipelines.
 
 ## UI Top Bar 
 ### Settings Menu
 
 Click the profile menu button <img src="/docs/latest/icons/ico-me.svg" alt="Profile button" className="icon size-lg space-sm" />
-in the top right corner of the web UI screen to access the following:
-* **Settings** - Navigate to ClearML's user [Settings](settings/webapp_settings_profile.md) page:
-  * Set [WebApp preferences](settings/webapp_settings_profile.md)
-  * Manage [workspace API credentials](settings/webapp_settings_profile.md#clearml-api-credentials)
+to access the following:
+* **Settings** - Navigate to ClearML's [Settings](settings/webapp_settings_profile.md) page:
+  * Set personal [WebApp preferences](settings/webapp_settings_profile.md)
+  * Manage [workspace API credentials](settings/webapp_settings_profile.md#clearml-api-credentials) 
+  * Manage [personal configuration vault](settings/webapp_settings_profile.md#configuration-vault) (Enterprise offering)
   * Configure [cloud storage access credentials](settings/webapp_settings_profile.md#browser-cloud-storage-access) for the ClearML Web UI
-  * ClearML Hosted service specific options
+  * Administrator settings
     * Manage [users and workspaces](settings/webapp_settings_users.md)
-    * Manage [resource access permissions](settings/webapp_settings_access_rules.md) (available in the ClearML Enterprise plan)
+    * View [usage and billing](settings/webapp_settings_usage_billing.md) information (Free Hosted Service)
+    * Manage [access rules](settings/webapp_settings_access_rules.md) (available in the ClearML Enterprise plan)
     * Define [configuration vaults](settings/webapp_settings_admin_vaults.md) to apply to designated user groups (available in the ClearML Enterprise plan)
     * Manage [server identity providers](settings/webapp_settings_id_providers.md) (available in the ClearML Enterprise plan)
-    * Define the [available resources](settings/webapp_settings_resource_configs.md) and the way in which they will be 
-    allocated to different workloads (available in the ClearML Enterprise plan)
-    * View [billing and usage](settings/webapp_settings_usage_billing.md) information
-* **Invite a User** to your workspace (supported in hosted service). Click **Invite a User** > input user's 
-email > click **ADD** > page redirects to the [Users & Groups](settings/webapp_settings_users.md#user-groups) section of 
+    * Define the [resource access policies](settings/webapp_settings_resource_configs.md) (available in the ClearML Enterprise plan)
+* Workspace Control (Free Hosted Service)
+  * **Invite a User** to your workspace (supported in hosted service). Click **Invite a User** > input user's 
+  email > click **ADD** > page redirects to the [Users & Groups](settings/webapp_settings_users.md#user-groups) section of 
   the **Settings** page 
-* **Switch to Workspace** - Hosted service users can be members of multiple workspaces. These workspaces are listed here. 
+  * **Switch to Workspace** - Hosted service users can be members of multiple workspaces. These workspaces are listed here. 
   Click a workspace to switch to.
+* Appearance - Select the UI color scheme:
+  * Light: ClearML will be in a light theme.
+  * Dark: ClearML will be in a dark theme.
+  * System: ClearML will follow your device’s theme.
 * **Logout** of ClearML 
 
 ### Finding What You're Looking for
@@ -60,20 +65,12 @@ to find your ClearML resources.
 
 To search using regex, click the `.*` icon on the search bar. 
 
-Search results are returned for the different ClearML objects:
-* Tasks - Searching a task table looks for matches in the tasks' name, ID, description and input and 
-output models. The enterprise version also includes task Dataviews' hyper-datasets and versions. 
-* Models - Searching a Model table looks for matches in the models' name, ID and description.
-* Dataviews (Enterprise only) - Searching a Dataview table looks for matches in the Dataviews' name, ID, description, 
-hyper-datasets, and versions.
-* Datasets - Searching the datasets page looks for matches in the datasets' name, ID, and description. In a dataset's
-version table, a search looks for matches in the versions' name, ID, and description. 
-* Pipelines - Searching the pipelines page looks for matches in the datasets' name, ID, and description. In a pipeline
-run's table, a search looks for matches in the runs' name and ID. 
-* Reports - Searching the reports page looks for matches in the reports' name, ID, tags, project, description, and 
-report content.
+The search functionality is tailored to each page, returning results specific to the object type displayed on the page. 
+For example, searching a task table looks for matches in the tasks' name, ID, description and input and output models. 
+On the reports page, it matches reports by name, ID, tags, project, description, and content. Similarly, searches in 
+models, datasets, pipelines, dataviews, and annotations, focus on attributes relevant to their respective objects.
 
-The search bar in the [Dashboard](webapp_home.md) page searches the whole WebApp for objects that match queries as 
+The search bar in the [Project Dashboard](webapp_home.md) page searches the whole WebApp for objects that match queries as 
 specified above and returns results divided by object type (projects, tasks, models, etc.). 
 
 :::tip Additional filtering
