@@ -61,7 +61,7 @@ The `task` section describes the task to run, containing the following fields:
   * `branch` - The branch to use
   * `entry_point` - The python file to run
   * `working_dir` - The directory to run it from
-* `hyperparams` (*Optional*) - A list of the task’s hyper-parameters used by the application, with their default values. There is no need to specify all the parameters here, but it enables summarizing of the parameters that will be targeted by the wizard entries described below, and allows to specify default values to optional parameters appearing in the wizard.
+* `hyperparams` (*Optional*) - A list of the task’s hyperparameters used by the application, with their default values. There is no need to specify all the parameters here, but it enables summarizing of the parameters that will be targeted by the wizard entries described below, and allows to specify default values to optional parameters appearing in the wizard.
 
 #### Example
 The `task` section in the simple application example:
@@ -276,7 +276,7 @@ The section contains the following information:
       * hyperparameter
       * configuration
       * html
-    * `text` - For HTML. You can refer to task elements such as hyper-parameters by using  `${hyperparams.<section>.<parameter name>.value}`
+    * `text` - For HTML. You can refer to task elements such as hyperparameters by using  `${hyperparams.<section>.<parameter name>.value}`
     * `metric` - For plot, scalar-histogram, debug-images, scalar - Name of the metric
     * `variant` - For plot, scalar-histogram, debug-images, scalar - List of variants to display
     * `key` - For histograms, one of the following: `iter`, `timestamp` or, `iso_time`

@@ -38,7 +38,7 @@ It is recommended to use a VPC with IPv6 enabled for future usage expansion.
 1. Create a security group for the main server (`clearml-main`):
 
     * Ingress:
-      * TCP port 10000, from the load balancer's security group
+      * TCP port 10000 from the load balancer's security group
       * TCP port 22 from trusted IP addresses.
    * Egress: All addresses and ports
 
