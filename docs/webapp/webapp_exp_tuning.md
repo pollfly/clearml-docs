@@ -6,9 +6,9 @@ Tune tasks and edit their execution details, then execute the tuned tasks on loc
 
 ## To Tune a Task and Execute it Remotely:
 
-1. Locate the task. Open the task's Project page from the Dashboard or the main Projects page.
+1. Locate the task. Open the task's Project page from the Project Dashboard or the main Projects page.
 
-    * On the Dashboard,
+    * On the Project Dashboard,
       * Click on a task from RECENT TASKS
       * In RECENT PROJECTS **>** click on a project card **>** click task
       * In RECENT PROJECTS **>** click **VIEW ALL** **>** click the project card **>** click task
