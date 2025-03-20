@@ -88,7 +88,7 @@ TCP_PORT_START=
 TCP_PORT_END=
 ```
 
-Edit it according to the following guidelines:
+**Configuration Options:**
 * `PROXY_TAG`: AI Application Gateway proxy tag. The Docker image tag for the proxy component, which needs to be 
   specified during installation. This tag is provided by ClearML to ensure compatibility with the recommended version.
 * `ROUTER_TAG`: App Gateway Router tag. The Docker image tag for the router component. It defines the specific version 
