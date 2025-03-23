@@ -17,6 +17,11 @@ depth comparison, see [Comparing Tasks](webapp_exp_comparing.md)). This view com
 the scalars/plots of currently selected tasks. If no tasks are selected, the first 100
 visible tasks in the table are compared.
 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+to find specific tasks. You can query by the task name, ID, description and input and output models. In the Enterprise version, 
+you can also query by the task’s dataviews' hyper-datasets and versions. To search using regex, click the `.*` 
+icon on the search bar.
+
 You can archive tasks so the table doesn't get too cluttered. Click **OPEN ARCHIVE** on the top of the
 table to open the archive and view all archived tasks. From the archive, you can restore 
 tasks to remove them from the archive. You can also permanently delete tasks.

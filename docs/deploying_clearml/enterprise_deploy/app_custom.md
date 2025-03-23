@@ -29,12 +29,12 @@ The `General` section is the root-level section of the configuration file, and c
 * `id` - A unique id for the application
 * `name` - The name to display in the web application
 * `version` - The version of the application implementation. Recommended to have three numbers and to bump up when updating applications, so that older running instances can still be displayed
-* `provider` - The person/team/group who is the owner of the application. This will appears in the UI 
+* `provider` - The person/team/group who is the owner of the application. This will appear in the UI 
 * `description` - Short description of the application to be displayed in the ClearML Web UI
 * `icon` (*Optional*) - Small image to display in the ClearML web UI as an icon for the application. Can be a public web url or an image in the application’s assets directory (described below)
 * `no_info_html` (*Optional*) - HTML content to display as a placeholder for the dashboard when no instance is available. Can be a public web url or a file in the application’s assets directory (described below)
 * `default-queue` - The queue to which application instance will be sent when launching a new instance. This queue should have an appropriate agent servicing it. See details in the Custom Apps Agent section below.
-* `badges` (*Optional*) - List of strings to display as a bacge/label in the UI
+* `badges` (*Optional*) - List of strings to display as a badge/label in the UI
 * `resumable` - Boolean indication whether a running application instance can be restarted if required. Default is false.
 * `category` (*Optional*) - Way to separate apps into different tabs in the ClearML web UI
 * `featured` (*Optional*) - Value affecting the order of applications. Lower values are displayed first. Defaults to 500
@@ -61,7 +61,7 @@ The `task` section describes the task to run, containing the following fields:
   * `branch` - The branch to use
   * `entry_point` - The python file to run
   * `working_dir` - The directory to run it from
-* `hyperparams` (*Optional*) - A list of the task’s hyper-parameters used by the application, with their default values. There is no need to specify all the parameters here, but it enables summarizing of the parameters that will be targeted by the wizard entries described below, and allows to specify default values to optional parameters appearing in the wizard.
+* `hyperparams` (*Optional*) - A list of the task’s hyperparameters used by the application, with their default values. There is no need to specify all the parameters here, but it enables summarizing of the parameters that will be targeted by the wizard entries described below, and allows to specify default values to optional parameters appearing in the wizard.
 
 #### Example
 The `task` section in the simple application example:
@@ -264,7 +264,7 @@ The dashboard elements are organized into lines.
 
 The section contains the following information:
 * `lines` - The array of line elements, each containing:
-  * `style` - CSS definitions for the line e.g setting the line height
+  * `style` - CSS definitions for the line e.g. setting the line height
   * `contents` - An array of dashboard elements to display in a given line. Each element may have several fields:
     * `title` - Text to display at the top of the field
     * `type` - one of the following:
@@ -276,7 +276,7 @@ The section contains the following information:
       * hyperparameter
       * configuration
       * html
-    * `text` - For HTML. You can refer to task elements such as hyper-parameters by using  `${hyperparams.<section>.<parameter name>.value}`
+    * `text` - For HTML. You can refer to task elements such as hyperparameters by using  `${hyperparams.<section>.<parameter name>.value}`
     * `metric` - For plot, scalar-histogram, debug-images, scalar - Name of the metric
     * `variant` - For plot, scalar-histogram, debug-images, scalar - List of variants to display
     * `key` - For histograms, one of the following: `iter`, `timestamp` or, `iso_time`

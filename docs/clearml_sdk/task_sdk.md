@@ -74,6 +74,7 @@ After invoking `Task.init` in a script, ClearML starts its automagical logging, 
     * [AutoKeras](../integrations/autokeras.md)
     * [CatBoost](../integrations/catboost.md)
     * [Fast.ai](../integrations/fastai.md)
+    * [Hugging Face Transformers](../integrations/transformers.md)
     * [LightGBM](../integrations/lightgbm.md)
     * [MegEngine](../integrations/megengine.md)
     * [MONAI](../integrations/monai.md)
