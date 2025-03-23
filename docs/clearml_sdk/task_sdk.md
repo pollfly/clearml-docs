@@ -65,6 +65,7 @@ After invoking `Task.init` in a script, ClearML starts its automagical logging, 
         * [argparse](../guides/reporting/hyper_parameters.md#argparse-command-line-options)
         * [Python Fire](../integrations/python_fire.md)
         * [LightningCLI](../integrations/pytorch_lightning.md)
+        * [jsonargparse](../integrations/jsonargparse.md)
     * TensorFlow Definitions (`absl-py`)
     * [Hydra](../integrations/hydra.md) - ClearML logs the OmegaConf which holds all the configuration files, as well as values overridden during runtime. 
 * **Models** - ClearML automatically logs and updates the models and all snapshot paths saved with the following frameworks:

@@ -68,7 +68,7 @@ pip install clearml
    The **LOCAL PYTHON** tab shows the data required by the setup wizard (a copy to clipboard action is available on 
    hover).
     
-1. At the command prompt `Paste copied configuration here:`, copy and paste the ClearML credentials.
+1. At the command prompt `Paste copied configuration here:`, paste the ClearML credentials.
    The setup wizard verifies the credentials. 
    ```console
    Detected credentials key="********************" secret="*******"

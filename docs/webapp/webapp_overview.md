@@ -18,16 +18,22 @@ The **ClearML Web UI** is the graphical user interface for the ClearML platform,
 The WebApp's sidebar provides access to the following modules:
 
 * <img src="/docs/latest/icons/ico-applications.svg" alt="ClearML Apps" className="icon size-md space-md" />[Applications](applications/apps_overview.md) - ClearML's GUI applications for no-code workflow execution (available in the ClearML Pro and Enterprise plans).
+
 * <img src="/docs/latest/icons/ico-workers.svg" alt="Workers and Queues" className="icon size-md space-md" />[Orchestration](webapp_workers_queues.md) - Autoscaling, resource usage monitoring and allocation management.
+
 * <img src="/docs/latest/icons/ico-model-endpoints.svg" alt="Model endpoints" className="icon size-md space-md" />[Model Endpoints](webapp_model_endpoints.md) - Monitor your live model endpoints. 
+
 * <img src="/docs/latest/icons/ico-side-bar-datasets.svg" alt="Datasets" className="icon size-md space-md" />[Datasets](datasets/webapp_dataset_page.md) - View and manage your datasets.
+
 * <img src="/docs/latest/icons/ico-projects.svg" alt="Projects" className="icon size-md space-md" />[Projects](webapp_projects_page.md) - The main experimentation page. Access your tasks and models as they are organized into projects. The tasks and models are displayed in tables which let you:
+
   * Track ongoing tasks and visualize their results
   * Reproduce previous task runs 
   * Tune task parameter values with no code change
   * Compare tasks and models
   * Share tasks and models with other ClearML hosted service users
   * Create and share rich content [Reports](webapp_reports.md)
+
 * <img src="/docs/latest/icons/ico-pipelines.svg" alt="Pipelines" className="icon size-md space-md" />[Pipelines](pipelines/webapp_pipeline_page.md) - View and manage your pipelines.
 
 ## UI Top Bar 

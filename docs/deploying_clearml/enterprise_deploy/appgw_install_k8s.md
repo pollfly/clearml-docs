@@ -68,7 +68,7 @@ tcpSession:
     end:
 ```
 
-Configuration options:
+**Configuration options:**
 
 * `imageCredentials.password`: ClearML DockerHub Access Token.
 * `clearml.apiServerKey`: ClearML server API key.  
