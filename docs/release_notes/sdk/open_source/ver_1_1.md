@@ -203,7 +203,7 @@ title: Version 1.1
 - Add support for uploading artifacts with a list of files using `Task.upload_artifcats(name, [Path(), Path()])`
 - Add missing *clearml-task* parameters `--docker_args`, `--docker_bash_setup_script` and `--output-uri`
 - Change `CreateAndPopulate` will auto list packages imported but not installed locally
-- Add `clearml.task.populate.create_task_from_function()` to create a Task from a function, wrapping function input arguments into hyper-parameter section as kwargs and storing function results as named artifacts
+- Add `clearml.task.populate.create_task_from_function()` to create a Task from a function, wrapping function input arguments into hyperparameter section as kwargs and storing function results as named artifacts
 - Add support for Task serialization (e.g. for pickle)
 - Add `Task.get_configuration_object_as_dict()`
 - Add `docker_image` argument to `Task.set_base_docker()` (deprecate `docker_cmd`)

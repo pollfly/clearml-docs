@@ -42,7 +42,8 @@ if __name__ == '__main__':
 When this code is executed, ClearML logs your command-line arguments, which you can view in the 
 [WebApp](../webapp/webapp_overview.md), in the task's **Configuration > Hyperparameters > Args** section. 
 
-![click configuration](../img/integrations_click_configs.png)
+![click configuration](../img/integrations_click_configs.png#light-mode-only)
+![click configuration](../img/integrations_click_configs_dark.png#dark-mode-only)
 
 In the UI, you can clone the task multiple times and set the clones' parameter values for execution by the [ClearML Agent](../clearml_agent.md).
 When the clone is executed, the executing agent will use the new parameter values as if set by the command-line.

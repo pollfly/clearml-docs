@@ -71,8 +71,8 @@ optimization.
    from clearml import Task
   
    task = Task.init(
-       project_name='Hyper-Parameter Optimization',
-       task_name='Automatic Hyper-Parameter Optimization',
+       project_name='Hyperparameter Optimization',
+       task_name='Automatic Hyperparameter Optimization',
        task_type=Task.TaskTypes.optimizer,
        reuse_last_task_id=False
    )

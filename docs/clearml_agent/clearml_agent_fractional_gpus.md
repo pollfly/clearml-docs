@@ -80,7 +80,7 @@ For either setup, you can set up in your Enterprise ClearML Agent Helm chart the
 each queue. When a task is enqueued in ClearML, it translates into a Kubernetes pod running on the designated device 
 with the specified fractional resource as defined in the Agent Helm chart. 
 
-#### MIG-enabled GPUs 
+#### MIG-enabled GPUs
 The **ClearML Dynamic MIG Operator** (CDMO) chart enables running AI workloads on K8s with optimized hardware utilization 
 and workload performance by facilitating MIG GPU partitioning. Make sure you have a [MIG capable GPU](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/index.html#supported-gpus).
 
@@ -232,7 +232,7 @@ ranging from 2 GB to 12 GB (see [clearml-fractional-gpu repository](https://gith
    
    This example runs the ClearML Ubuntu 22 with CUDA 12.3 container on GPU 0, which is limited to use up to 8GB of its memory.
    :::note
-   --pid=host is required to allow the driver to differentiate between the container's processes and other host processes when limiting memory usage
+   `--pid=host` is required to allow the driver to differentiate between the container's processes and other host processes when limiting memory usage
    :::
 1. Run the following command inside the container to verify that the fractional gpu memory limit is working correctly:
    ```bash

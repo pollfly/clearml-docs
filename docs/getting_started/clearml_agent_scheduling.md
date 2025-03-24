@@ -82,7 +82,7 @@ Currently, these runtime properties can only be set using an ClearML REST API ca
 endpoint, as follows: 
 
 * The body of the request must contain the `worker-id`, and the runtime property to add.
-* An expiry date is optional. Use the format `"expiry":<time>`. For example,  `"expiry":86400` will set an expiry of 24 hours.
+* An expiry date is optional. Use the format `"expiry":<time>`. For example, `"expiry":86400` will set an expiry of 24 hours.
 * To delete the property, set the expiry date to zero, `"expiry":0`.
 
 For example, to force a worker on for 24 hours:

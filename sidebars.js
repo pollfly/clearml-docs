@@ -470,68 +470,6 @@ module.exports = {
             label: 'WebApp',
             link: {type: 'doc', id: 'webapp/webapp_overview'},
             items: [
-                'webapp/webapp_home',
-                {'Projects': [
-                    'webapp/webapp_projects_page',
-                    'webapp/webapp_project_overview',
-                    {'Tasks': [
-                        'webapp/webapp_exp_table',
-                        'webapp/webapp_exp_track_visual',
-                        'webapp/webapp_exp_reproducing',
-                        'webapp/webapp_exp_tuning',
-                        'webapp/webapp_exp_comparing'
-                    ]},
-                    {'Models': [
-                        'webapp/webapp_model_table',
-                        'webapp/webapp_model_viewing',
-                        'webapp/webapp_model_comparing'
-                    ]},
-                    {'Dataviews': [
-                        'hyperdatasets/webapp/webapp_dataviews',
-                        'hyperdatasets/webapp/webapp_exp_track_visual',
-                        'hyperdatasets/webapp/webapp_exp_modifying',
-                        'hyperdatasets/webapp/webapp_exp_comparing'
-                    ]},
-                    'webapp/webapp_exp_sharing'
-                ]},
-                {'Datasets': [
-                    'webapp/datasets/webapp_dataset_page',
-                    'webapp/datasets/webapp_dataset_viewing'
-                ]},
-                {'Hyper-Datasets': [
-                    'hyperdatasets/webapp/webapp_datasets',
-                    'hyperdatasets/webapp/webapp_datasets_versioning',
-                    'hyperdatasets/webapp/webapp_datasets_frames',
-                    'hyperdatasets/webapp/webapp_annotator'
-                ]},
-                {'Pipelines': [
-                    'webapp/pipelines/webapp_pipeline_page',
-                    'webapp/pipelines/webapp_pipeline_table',
-                    'webapp/pipelines/webapp_pipeline_viewing'
-                ]},
-                'webapp/webapp_model_endpoints',
-                'webapp/webapp_reports',
-                {
-                    type: 'category',
-                    collapsible: true,
-                    collapsed: true,
-                    label: 'Orchestration',
-                    link: {type: 'doc', id: 'webapp/webapp_workers_queues'},
-                    items: [
-                        'webapp/webapp_orchestration_dash',
-                        {
-                            type: 'category',
-                            collapsible: true,
-                            collapsed: true,
-                            label: 'Autoscalers',
-                            items: [
-                                'webapp/applications/apps_aws_autoscaler',
-                                'webapp/applications/apps_gcp_autoscaler',
-                            ]
-                        },
-                        'webapp/resource_policies'
-                    ]
-                },
                 {
                     type: 'category',
                     collapsible: true,
@@ -561,6 +499,70 @@ module.exports = {
                         ]},
                     ]
                 },
+                {
+                    type: 'category',
+                    collapsible: true,
+                    collapsed: true,
+                    label: 'Orchestration',
+                    link: {type: 'doc', id: 'webapp/webapp_workers_queues'},
+                    items: [
+                        'webapp/webapp_orchestration_dash',
+                        {
+                            type: 'category',
+                            collapsible: true,
+                            collapsed: true,
+                            label: 'Autoscalers',
+                            items: [
+                                'webapp/applications/apps_aws_autoscaler',
+                                'webapp/applications/apps_gcp_autoscaler',
+                            ]
+                        },
+                        'webapp/resource_policies'
+                    ]
+                },
+                'webapp/webapp_model_endpoints',
+                {'Datasets': [
+                    'webapp/datasets/webapp_dataset_page',
+                    'webapp/datasets/webapp_dataset_viewing'
+                    ]
+                },
+                {'Hyper-Datasets': [
+                    'hyperdatasets/webapp/webapp_datasets',
+                    'hyperdatasets/webapp/webapp_datasets_versioning',
+                    'hyperdatasets/webapp/webapp_datasets_frames',
+                    'hyperdatasets/webapp/webapp_annotator'
+                ]},
+                {'Projects': [
+                    'webapp/webapp_home',
+                    'webapp/webapp_projects_page',
+                    'webapp/webapp_project_overview',
+                    {'Tasks': [
+                        'webapp/webapp_exp_table',
+                        'webapp/webapp_exp_track_visual',
+                        'webapp/webapp_exp_reproducing',
+                        'webapp/webapp_exp_tuning',
+                        'webapp/webapp_exp_comparing'
+                    ]},
+                    {'Models': [
+                        'webapp/webapp_model_table',
+                        'webapp/webapp_model_viewing',
+                        'webapp/webapp_model_comparing'
+                    ]},
+                    {'Dataviews': [
+                        'hyperdatasets/webapp/webapp_dataviews',
+                        'hyperdatasets/webapp/webapp_exp_track_visual',
+                        'hyperdatasets/webapp/webapp_exp_modifying',
+                        'hyperdatasets/webapp/webapp_exp_comparing'
+                    ]},
+                    'webapp/webapp_exp_sharing',
+                    'webapp/webapp_reports',
+                ]},
+                {'Pipelines': [
+                    'webapp/pipelines/webapp_pipeline_page',
+                    'webapp/pipelines/webapp_pipeline_table',
+                    'webapp/pipelines/webapp_pipeline_viewing'
+                ]},
+
                 {
                     type: 'category',
                     collapsible: true,
@@ -634,60 +636,55 @@ module.exports = {
                 ]},
             ]
         },
-/*        {'Getting Started': [
-            'getting_started/architecture',
-        ]},*/
-        {
-            'Enterprise Server':  {
-                'Deployment Options': [
-                   'deploying_clearml/enterprise_deploy/k8s',
-                   'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
-                   'deploying_clearml/enterprise_deploy/vpc_aws',
-                   'deploying_clearml/enterprise_deploy/on_prem_ubuntu',
-                ],
-                'Maintenance and Migration': [
-                   'deploying_clearml/enterprise_deploy/import_projects',
-                   'deploying_clearml/enterprise_deploy/change_artifact_links',
-                   'deploying_clearml/enterprise_deploy/delete_tenant',
-                ]
-
-            }
-        },
         {
             type: 'category',
             collapsible: true,
             collapsed: true,
-            label: 'ClearML Application Gateway',
+            label: 'Enterprise Server',
             items: [
-                'deploying_clearml/enterprise_deploy/appgw_install_compose',
-                'deploying_clearml/enterprise_deploy/appgw_install_k8s',
-            ]
-        },
-        'deploying_clearml/enterprise_deploy/custom_billing',
-        {
-            'UI Applications': [
-                'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
-                'deploying_clearml/enterprise_deploy/app_install_ex_server',
-                'deploying_clearml/enterprise_deploy/app_custom',
-            ]
-        },
-        {
-            'User Management': [
-                'user_management/user_groups',
-                'user_management/access_rules',
-                'user_management/admin_vaults',
-                {
-                    type: 'category',
-                    collapsible: true,
-                    collapsed: true,
-                    label: 'Identity Provider Integration',
-                    link: {type: 'doc', id: 'user_management/identity_providers'},
-                    items: [
-                        'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
-                        'deploying_clearml/enterprise_deploy/sso_saml_k8s',
-                        'deploying_clearml/enterprise_deploy/sso_keycloak',
-                        'deploying_clearml/enterprise_deploy/sso_active_directory'
+                {'Deployment Options': [
+                    'deploying_clearml/enterprise_deploy/k8s',
+                   'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
+                    'deploying_clearml/enterprise_deploy/vpc_aws',
+                    'deploying_clearml/enterprise_deploy/on_prem_ubuntu',
                     ]
+                },
+                {'Maintenance and Migration': [
+                    'deploying_clearml/enterprise_deploy/import_projects',
+                    'deploying_clearml/enterprise_deploy/change_artifact_links',
+                    'deploying_clearml/enterprise_deploy/delete_tenant',
+                    ]
+                },
+                {'ClearML Application Gateway': [
+                    'deploying_clearml/enterprise_deploy/appgw_install_compose',
+                    'deploying_clearml/enterprise_deploy/appgw_install_k8s',
+                    ]
+                },
+                'deploying_clearml/enterprise_deploy/custom_billing',
+                {'UI Applications': [
+                   'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
+                   'deploying_clearml/enterprise_deploy/app_install_ex_server',
+                   'deploying_clearml/enterprise_deploy/app_custom',
+                   ]
+                },
+                {'User Management': [
+                   'user_management/user_groups',
+                   'user_management/access_rules',
+                   'user_management/admin_vaults',
+                   {
+                        type: 'category',
+                        collapsible: true,
+                        collapsed: true,
+                        label: 'Identity Provider Integration',
+                        link: {type: 'doc', id: 'user_management/identity_providers'},
+                        items: [
+                            'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
+                            'deploying_clearml/enterprise_deploy/sso_saml_k8s',
+                            'deploying_clearml/enterprise_deploy/sso_keycloak',
+                            'deploying_clearml/enterprise_deploy/sso_active_directory'
+                        ]
+                   },
+                   ]
                 },
             ]
         },

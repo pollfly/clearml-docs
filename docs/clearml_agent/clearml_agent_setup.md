@@ -40,7 +40,7 @@ it can't do that when running from a virtual environment.
     If the setup wizard's response indicates that a configuration file already exists, follow the instructions [here](#adding-clearml-agent-to-a-configuration-file). 
    The wizard does not edit or overwrite existing configuration files.
 
-1. At the command prompt `Paste copied configuration here:`, copy and paste the ClearML credentials and press **Enter**. 
+1. At the command prompt `Paste copied configuration here:`, paste the ClearML credentials and press **Enter**. 
    The setup wizard confirms the credentials. 
         
    ```
