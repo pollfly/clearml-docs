@@ -351,9 +351,10 @@ module.exports = {
             {
                 'Enterprise':
                         [
-                           'release_notes/sdk/enterprise/ver_3_12',
+                           'release_notes/sdk/enterprise/ver_3_13',
                            {
                                 'Older Versions': [
+                                   'release_notes/sdk/enterprise/ver_3_12',
                                    'release_notes/sdk/enterprise/ver_3_11',
                                    'release_notes/sdk/enterprise/ver_3_10',
                                 ]
