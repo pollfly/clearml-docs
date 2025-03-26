@@ -644,7 +644,8 @@ module.exports = {
             label: 'Enterprise Server',
             items: [
                 {'Deployment Options': [
-                    'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
+                    'deploying_clearml/enterprise_deploy/k8s',
+                   'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
                     'deploying_clearml/enterprise_deploy/vpc_aws',
                     'deploying_clearml/enterprise_deploy/on_prem_ubuntu',
                     ]
