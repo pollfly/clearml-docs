@@ -1,4 +1,3 @@
-
 ---
 title: Autoscaling Resources
 ---
@@ -19,7 +18,7 @@ ClearML offers the following resource autoscaling solutions:
 * [Kubernetes integration](#kubernetes-integration) - Deploy agents in Kubernetes for automated resource allocation and scaling
 * [Custom autoscaler implementation](#custom-autoscaler-implementation) using the `AutoScaler` class
 
-### GUI Autoscaler Applications
+## GUI Autoscaler Applications
 For users on Pro and Enterprise plans, ClearML provides a UI applications to configure autoscaling for cloud 
 resources. These applications include:
 * [AWS Autoscaler](../webapp/applications/apps_aws_autoscaler.md): Automatically provisions and shuts down AWS EC2 instances based on workload demand.
@@ -27,7 +26,7 @@ resources. These applications include:
 
 These applications allow users to set up autoscaling with minimal configuration, defining compute budgets and resource limits directly through the UI.
 
-### Kubernetes Integration
+## Kubernetes Integration
 
 You can install `clearml-agent` through a Helm chart.
 
@@ -51,15 +50,15 @@ The ClearML Enterprise plan supports K8S servicing multiple ClearML queues, as w
 queue for describing the resources for each pod to use. See [ClearML Helm Charts](https://github.com/clearml/clearml-helm-charts/tree/main).
 :::
 
-### Custom Autoscaler Implementation
-Users can build their own autoscaler using the [`clearml.automation.auto_scaler.AutoScaler`](https://github.com/clearml/clearml/blob/master/clearml/automation/auto_scaler.py#L77) class which enables:
-* Direct control over instance scaling logic.
-* Custom rules for resource allocation.
+## Custom Autoscaler Implementation
+You can build their own autoscaler using the [`clearml.automation.auto_scaler.AutoScaler`](https://github.com/clearml/clearml/blob/master/clearml/automation/auto_scaler.py#L77) class which enables:
+* Direct control over instance scaling logic
+* Custom rules for resource allocation
 
 An `AutoScaler` instance monitors ClearML task queues and dynamically adjusts the number of cloud instances based on workload demand.
 By integrating with a [CloudDriver](https://github.com/clearml/clearml/blob/master/clearml/automation/cloud_driver.py#L62), 
-it supports multiple cloud providers like AWS and GCP.
+it supports cloud providers like AWS and GCP.
 
 See the [AWS Autoscaler Example](../guides/services/aws_autoscaler.md) for a practical implementation using the 
-AutoScaler class. The script can be adapted for GCP autoscaling as well.
+`AutoScaler` class. The script can be adapted for GCP autoscaling as well.
 
