@@ -12,8 +12,12 @@ or comparison view <img src="/docs/latest/icons/ico-charts-view.svg" alt="Compar
 using the buttons on the top left of the page. Use the details view to access a selected run's details, while keeping 
 the run list in view. Details view can also be accessed by double-clicking a specific pipeline run in the table view to 
 open its details view. Use the [comparison view](#comparing-runs) to compare your pipeline run's scalar and plot results. 
-This view compares the scalars/plots of currently selected pipeline runs. If no runs are selected, The first 100 visible 
+This view compares the scalars/plots of currently selected pipeline runs. If no runs are selected, the first 100 visible 
 runs in the table are compared.
+
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+to find specific pipeline runs. You can query by the run name, ID, and description.
+To search using regex, click the `.*` icon on the search bar.
 
 You can archive pipeline runs so the runs table doesn't get too cluttered. Click **OPEN ARCHIVE** on the top of the 
 table to open the archive and view all archived runs. From the archive, you can restore 

@@ -145,7 +145,7 @@ filters.
    * Source rule - Query frame source information. Enter a Lucene query of frame metadata fields in the format 
    `sources.<key>:<value>` (can use AND, OR, and NOT operators).
    
-A frame filter can contain a number of rules. For each frame filter, the rules are applied with a logical AND operator. For example, the dataset version in the image below has one filter. “Frame Filter 1” has two rules: 
+A frame filter can contain a number of rules. For each frame filter, the rules are applied with a logical AND operator. For example, the dataset version in the image below has one filter. "Frame Filter 1" has two rules: 
 1. ROI rule - the frame must include an ROI with the `cat` label
 2. Source rule - the frames must be 640 pixels wide. 
 

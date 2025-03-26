@@ -95,7 +95,7 @@ Add custom columns to the table, such as mAP values, so you can easily sort and 
 You can also select multiple tasks and directly [compare](../webapp/webapp_exp_comparing.md) them.   
 
 ## Remote Execution
-ClearML logs all the information required to reproduce a task on a different machine (installed packages, 
+ClearML logs all the information required to reproduce a task run on a different machine (installed packages, 
 uncommitted changes etc.). The [ClearML Agent](../clearml_agent.md) listens to designated queues and when a task is 
 enqueued, the agent pulls it, recreates its execution environment, and runs it, reporting its scalars, plots, etc. to the 
 task manager.
@@ -112,9 +112,9 @@ cloud of your choice (AWS, GCP, Azure) and automatically deploy ClearML agents: 
 shuts down instances as needed, according to a resource budget that you set.
 
 
-### Cloning, Editing, and Enqueuing
+### Reproducing Task Runs
 
-ClearML logs all the information required to reproduce a task, but you may also want to change a few parameters 
+ClearML logs all the information required to reproduce a task run, but you may also want to change a few parameters 
 and task details when you re-run it, which you can do through ClearML's UI.
 
 In order to be able to override parameters via the UI, 

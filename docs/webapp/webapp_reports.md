@@ -175,6 +175,10 @@ or in List view <img src="/docs/latest/icons/ico-flat-view.svg" alt="List view" 
 view, all reports are shown side-by-side. In Project view, reports are organized according to their projects, and 
 top-level projects are displayed. Click on a project card to view the project's reports.
 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+to find specific reports. You can query by the report name, ID, tags, project, description, and report content.
+To search using regex, click the `.*` icon on the search bar.
+
 ![Report page](../img/webapp_report_page.png#light-mode-only)
 ![Report page](../img/webapp_report_page_dark.png#dark-mode-only)
 
@@ -429,7 +433,11 @@ image enclosed in parentheses:
 
 The rendered output should look like this:
 
-![Logo](https://raw.githubusercontent.com/clearml/clearml/master/docs/clearml-logo.svg)
+<img class="light-mode-only" src="https://raw.githubusercontent.com/clearml/clearml/master/docs/clearml-logo.svg" alt="Logo"/>
+
+<img class="dark-mode-only" src="https://raw.githubusercontent.com/clearml/clearml/master/docs/clearml-logo-dark.svg" alt="Logo"/>
+
+<br/>
 
 To add a title to the image, which you can see in a tooltip when hovering over the image, add the title after the image's
 link: 
@@ -439,7 +447,9 @@ link:
 ```
 The rendered output should look like this:
 
-<img src="https://raw.githubusercontent.com/clearml/clearml/master/docs/clearml-logo.svg" alt="Logo with Title" title="ClearML logo"/>
+<img class="light-mode-only" src="https://raw.githubusercontent.com/clearml/clearml/master/docs/clearml-logo.svg" title="ClearML logo"/>
+
+<img class="dark-mode-only" src="https://raw.githubusercontent.com/clearml/clearml/master/docs/clearml-logo-dark.svg" title="ClearML logo"/>
 
 Hover over the image to see its title. 
 

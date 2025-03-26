@@ -16,6 +16,10 @@ Use annotation tasks to efficiently organize the annotation of frames in Dataset
 
 Click on an annotation task card to open the frame viewer, where you can view the task's frames and annotate them.
 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+to find specific annotation tasks. You can query by the task’s name, hyper-dataset version, and ID.
+To search using regex, click the `.*` icon on the search bar.
+
 ## Annotation Task Actions
 Click <img src="/docs/latest/icons/ico-bars-menu.svg" alt="Menu" className="icon size-md space-sm" /> on the top right 
 of an annotation task card to open its context menu and access annotation task actions.  

@@ -2,7 +2,7 @@
 title: ClearML Python Package 
 ---
 
-This is step-by-step guide for installing the `clearml` Python package and connecting it to the ClearML Server. Once done,
+This is a step-by-step guide for installing the `clearml` Python package and connecting it to the ClearML Server. Once done,
 you can integrate `clearml` into your code. 
 
 ## Install ClearML
@@ -68,7 +68,7 @@ pip install clearml
    The **LOCAL PYTHON** tab shows the data required by the setup wizard (a copy to clipboard action is available on 
    hover).
     
-1. At the command prompt `Paste copied configuration here:`, copy and paste the ClearML credentials.
+1. At the command prompt `Paste copied configuration here:`, paste the ClearML credentials.
    The setup wizard verifies the credentials. 
    ```console
    Detected credentials key="********************" secret="*******"

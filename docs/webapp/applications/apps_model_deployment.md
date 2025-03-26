@@ -13,10 +13,11 @@ it serves your model through a secure, publicly accessible network endpoint. The
 shuts down if the model remains inactive for a specified maximum idle time.
 
 :::info AI Application Gateway
-The vLLM Model Deployment app makes use of the ClearML Traffic Router which implements a secure, authenticated 
+The vLLM Model Deployment app makes use of the App Gateway Router which implements a secure, authenticated 
 network endpoint for the model.
 
 If the ClearML AI application Gateway is not available, the model endpoint might not be accessible.
+For more information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
 
 Once you start a vLLM Model Deployment instance, you can view the following information in its dashboard:
@@ -48,6 +49,12 @@ etc.
 ![vLLM Model Deployment App](../../img/apps_model_deployment.png#light-mode-only)
 ![vLLM Model Deployment App](../../img/apps_model_deployment_dark.png#dark-mode-only)
 
+:::tip EMBEDDING CLEARML VISUALIZATION
+You can embed plots from the app instance dashboard into [ClearML Reports](../webapp_reports.md). These visualizations 
+are updated live as the app instance(s) updates. The Enterprise Plan supports embedding resources in 
+external tools (e.g. Notion). Hover over the plot and click <img src="/docs/latest/icons/ico-plotly-embed-code.svg" alt="Embed code" className="icon size-md space-sm" /> 
+to copy the embed code, and navigate to a report to paste the embed code.
+:::
 
 ## vLLM Model Deployment Instance Configuration
 

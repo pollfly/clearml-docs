@@ -18,6 +18,10 @@ contents (i.e. tasks, models etc.) via the folder with the bracketed (`[ ]`) pro
 If a project does not contain any subprojects, clicking on its folder will open its task table (or [Project Overview](webapp_project_overview.md)
 page when relevant).
 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+to find specific projects. You can query by the project’s name and ID.
+To search using regex, click the `.*` icon on the search bar.
+
 ## Project Folders
 
 Project folders display summarized project information:  

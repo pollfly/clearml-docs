@@ -1,8 +1,8 @@
 ---
-title: Reproducing Tasks
+title: Reproducing Task Runs
 ---
 
-Reproduce tasks on local or remote machines in one of the following ways:
+Reproducing task runs on local or remote machines in one of the following ways:
 * Cloning any task - Make an exact copy, while maintaining the original task
 * Resetting a task whose status is not *Published* - Delete the previous run's logs and output
 

@@ -25,6 +25,10 @@ Filter the datasets to find the one you're looking for more easily. These filter
   respectively. These options appear on the top of the tag list.
   * Filter by the absence of a tag (logical "NOT") by clicking its checkbox twice. An X will appear in the tag's checkbox.
 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+to find specific datasets. You can query by the dataset name, ID, or description. To search using regex, click the `.*` 
+icon on the search bar.
+
 ![Dataset page](../../img/webapp_dataset_page.png#light-mode-only)
 ![Dataset page](../../img/webapp_dataset_page_dark.png#dark-mode-only)
 
