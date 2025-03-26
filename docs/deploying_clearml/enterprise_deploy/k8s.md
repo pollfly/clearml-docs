@@ -60,7 +60,7 @@ that will have records pointing to the cluster’s ingress controller (see ingre
 
 ```
 imageCredentials:
- password: "<allegroaienterprise_DockerHub_TOKEN>"
+ password: "<clearml_enterprise_DockerHub_TOKEN>"
 
 
 clearml:
