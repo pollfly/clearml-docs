@@ -66,13 +66,13 @@ imageCredentials:
 clearml:
  cookieDomain: "<BASE_DOMAIN>"
  # Set values for improved security
- apiserverKey: ""
- apiserverSecret: ""
- fileserverKey: ""
- fileserverSecret: ""
- secureAuthTokenSecret: ""
- testUserKey: ""
- testUserSecret: ""
+ apiserverKey: "<GENERATED_API_SERVER_KEY>"
+ apiserverSecret: "<GENERATED_API_SERVER_SECRET>"
+ fileserverKey: "<GENERATED_FILE_SERVER_KEY>"
+ fileserverSecret: "<GENERATED_FILE_SERVER_SECRET>"
+ secureAuthTokenSecret: "<GENERATED_AUTH_TOKEN_SECRET>"
+ testUserKey: "<GENERATED_TEST_USER_KEY>"
+ testUserSecret: "<GENERATED_TEST_USER_SECRET>"
 
 
 apiserver:

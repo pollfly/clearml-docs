@@ -565,7 +565,7 @@ curl $APISERVER_URL/system.create_company \
 ### Limit Features for all Users
 
 This Helm Chart value in the `overrides.yaml` will have priority over all tenants, and will limit the features 
-available to any user in the system. This means that even if the feature is enabled for the tenant, if it;s not in this 
+available to any user in the system. This means that even if the feature is enabled for the tenant, if it's not in this 
 list, the user will not see it.
 
 Example: all users will only have the `applications` feature enabled.

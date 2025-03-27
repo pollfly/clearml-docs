@@ -29,17 +29,18 @@ script changes the values in the databases, and can't be undone.
 ## Fixing MongoDB links
 
 1. Access the `apiserver` Docker container:  
-  * In `docker-compose:`
+
+   * In `docker-compose:`
     
-     ```commandline
-     sudo docker exec -it allegro-apiserver /bin/bash
-      ```
+      ```commandline
+      sudo docker exec -it allegro-apiserver /bin/bash
+       ```
     
-  * In Kubernetes:
+   * In Kubernetes:
    
-     ```commandline
-     kubectl exec -it -n clearml <clearml-apiserver-pod-name> -- bash
-     ```
+      ```commandline
+      kubectl exec -it -n clearml <clearml-apiserver-pod-name> -- bash
+      ```
 
 1. Navigate to the script location in the `upgrade` folder:
 
