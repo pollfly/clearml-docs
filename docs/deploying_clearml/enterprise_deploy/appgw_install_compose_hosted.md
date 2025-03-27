@@ -10,7 +10,7 @@ The AI Application Gateway enables external access  to ClearML tasks, and applic
 require HTTP or TCP access. The gateway is configured with an endpoint or external address, making these services 
 accessible from the user's machine, outside the workload nodes’ network.
 
-This guide details the installation of the App Gateway Router for ClearML users who use ClearML's SaaS control 
+This guide details the installation of the App Gateway Router for ClearML users who use ClearML's hosted control 
 plane while hosting their own workload nodes.
 
 ## Requirements
