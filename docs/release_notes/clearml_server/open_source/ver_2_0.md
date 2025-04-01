@@ -18,7 +18,7 @@ Upgrading to ClearML Server v1.17 from a previous version:
 * New UI task creation options
   * Support bash as well as Python scripts
   * Support file upload
-* New UI setting for configuring cloud storage credentials with which ClearML can clean up cloud storage artifacts on task deletion.
+* New UI setting for configuring cloud storage credentials with which ClearML can clean up cloud storage artifacts on task deletion ([ClearML Server GitHub issue #144](https://github.com/clearml/clearml-server/issues/144)).
 * Add UI scalar plots presentation of plots in sections grouped by metrics.
 * Add UI batch export plot embed codes for all metric plots in a single click.
 * Add UI pipeline presentation of steps grouped into stages
