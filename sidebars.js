@@ -418,6 +418,7 @@ module.exports = {
                 'references/sdk/hpo_parameters_uniformparameterrange',
                 'references/sdk/hpo_parameters_parameterset',
             ]},
+            'references/sdk/http_router',
             {'Enterprise Hyper-Datasets': [
                 {'Hyper-Dataset': [
                     'references/hyperdataset/hyperdataset',
