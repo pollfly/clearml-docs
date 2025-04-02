@@ -12,7 +12,7 @@ title: Version 2.0
 **Bug Fixes**
 * Fix ctrl-f does not open a search bar in UI editor modals ([ClearML Web GitHub issue #99](https://github.com/clearml/clearml-web/issues/99))
 * Fix UI smoothed plots are dimmer than original plots in dark mode ([ClearML Server GitHub issue #270](https://github.com/clearml/clearml-server/issues/270))
-* Fix webserver configuration environment variables don't load with single-quoted strings
+* Fix webserver configuration environment variables don't load with single-quoted strings ([ClearML Server GitHub issue #271](https://github.com/clearml/clearml-server/issues/271))
 * Fix image plots sometimes not rendered in UI
 * Fix "All" tag filter not working in UI model selection modal in comparison pages
 * Fix manual refresh function sometimes does not work in UI task 
