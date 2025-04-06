@@ -456,14 +456,17 @@ module.exports = {
         {'Server API': [
             'references/api/index',
             'references/api/definitions',
-            'references/api/login',
             'references/api/debug',
+            'references/api/events',
+            'references/api/login',
+            'references/api/models',
+            'references/api/pipelines',
             'references/api/projects',
             'references/api/queues',
-            'references/api/workers',
-            'references/api/events',
-            'references/api/models',
+            'references/api/reports',
+            'references/api/serving',
             'references/api/tasks',
+            'references/api/workers',
         ]},
         {
             type: 'category',
@@ -645,7 +648,8 @@ module.exports = {
             label: 'Enterprise Server',
             items: [
                 {'Deployment Options': [
-                    'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
+                    'deploying_clearml/enterprise_deploy/k8s',
+                   'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
                     'deploying_clearml/enterprise_deploy/vpc_aws',
                     'deploying_clearml/enterprise_deploy/on_prem_ubuntu',
                     ]
@@ -658,7 +662,8 @@ module.exports = {
                 },
                 {'ClearML Application Gateway': [
                     'deploying_clearml/enterprise_deploy/appgw_install_compose',
-                    'deploying_clearml/enterprise_deploy/appgw_install_k8s',
+                    'deploying_clearml/enterprise_deploy/appgw_install_compose_hosted',
+                'deploying_clearml/enterprise_deploy/appgw_install_k8s',
                     ]
                 },
                 'deploying_clearml/enterprise_deploy/custom_billing',

@@ -202,7 +202,7 @@ you'll get is the best performance here because our checks already run, so you s
 open the PR, so basically the dummy task here was found to be the best performance, and it has been tagged but that 
 means that every single time I open a PR or I update a PR, it will search ClearML, and get this dummy task. It will get 
 this one, and then we say if we find the best task, if not we'll just add the best performance anyway because you're the 
-first task in the list, you'll always be getting best performance, but if you're not then we'll get the best latest 
+first task in the list, you'll always be getting the best performance, but if you're not then we'll get the best latest 
 metric. For example `get_reported_scalars().get('Performance Metric').get('Series 1').get('y')`, so the `y` value there 
 so this could basically be the best or the highest map from a task or the highest F1 score from a task, or any some 
 such. Then you have the best metric. We do the same thing for the current task as well, and then it's fairly easy. We 
