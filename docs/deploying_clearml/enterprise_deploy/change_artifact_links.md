@@ -30,7 +30,7 @@ script changes the values in the databases, and can't be undone.
 
 1. Access the `apiserver` Docker container:  
 
-   * In `docker-compose:`
+   * In `docker-compose`:
     
       ```commandline
       sudo docker exec -it allegro-apiserver /bin/bash

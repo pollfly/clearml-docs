@@ -7,7 +7,7 @@ In this tutorial, you will go over the model lifecycle -- from training to servi
 * Serving the model using **ClearML Serving**  
 * Spinning the inference container
 
-The tutorial also covers the following`clearml-serving` features: 
+The tutorial also covers the following `clearml-serving` features: 
 * Automatic model deployment 
 * Canary endpoints
 * Model performance monitoring 
