@@ -221,8 +221,8 @@ You can enable automatic logging of a step's metrics /artifacts / models to the 
 
 * `monitor_metrics` (optional) - Automatically log the step's reported metrics also on the pipeline Task. The expected 
   format is one of the following:
-    * List of pairs metric (title, series) to log: [(step_metric_title, step_metric_series), ]. Example: `[('test', 'accuracy'), ]`
-    * List of tuple pairs, to specify a different target metric to use on the pipeline Task: [((step_metric_title, step_metric_series), (target_metric_title, target_metric_series)), ]. 
+    * List of pairs metric (title, series) to log: `[(step_metric_title, step_metric_series), ]`. Example: `[('test', 'accuracy'), ]`
+    * List of tuple pairs, to specify a different target metric to use on the pipeline Task: `[((step_metric_title, step_metric_series), (target_metric_title, target_metric_series)), ]`. 
       Example: `[[('test', 'accuracy'), ('model', 'accuracy')], ]`
 * `monitor_artifacts` (optional) - Automatically log the step's artifacts on the pipeline Task.
     * Provided a list of artifact names created by the step function, these artifacts will be logged automatically also 
