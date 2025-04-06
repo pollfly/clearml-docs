@@ -30,12 +30,12 @@ To configure groups that should automatically become admins in ClearML set the f
 CLEARML__services__login__sso__saml_client__microsoft_ad__groups__admins=[<admin_group_name1>, <admin_group_name2>, ...]
 ```
 
-To change the the default Group Claim set the following environment variable:
+To change the default Group Claim, set the following environment variable:
 ```
 CLEARML__services__login__sso__saml_client__microsoft_ad__groups__claim=...
 ```
 
-To make group matching case insensitive set the following environment variable:
+To make group matching case-insensitive, set the following environment variable:
 ```
 CLEARML__services__login__sso__saml_client__microsoft_ad__groups__case_sensitive=false
 ```

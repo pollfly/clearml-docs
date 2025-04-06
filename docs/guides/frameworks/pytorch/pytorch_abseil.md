@@ -9,7 +9,7 @@ The example script does the following:
 * Trains a simple deep neural network on the PyTorch built-in [MNIST](https://pytorch.org/vision/stable/datasets.html#mnist)
   dataset
 * Creates a task named `pytorch mnist train with abseil` in the `examples` project
-* ClearML automatically logs the absl.flags, and the models (and their snapshots) created by PyTorch 
+* ClearML automatically logs the `absl.flags`, and the models (and their snapshots) created by PyTorch 
 * Additional metrics are logged by calling [`Logger.report_scalar()`](../../../references/sdk/logger.md#report_scalar)
   
 ## Scalars

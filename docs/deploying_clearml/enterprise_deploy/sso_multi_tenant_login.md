@@ -15,7 +15,7 @@ ClearML tenant can be associated with a particular external tenant
    <clearml_webapp_address>/login
    <clearml_webapp_address>/login/<external tenant ID>
    ```
-3. Make sure the external tenant ID and groups are returned as claims for a each user
+3. Make sure the external tenant ID and groups are returned as claims for each user
 
 ## Configure ClearML to use Multi-Tenant Mode
 

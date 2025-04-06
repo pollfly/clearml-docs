@@ -10,7 +10,7 @@ browser).
 
 In the following sections, you will be instructed to set up different environment variables for the ClearML Server. If 
 using a `docker-compose` deployment, these should be defined in your `docker-compose.override.yaml` file, under the 
-`apiserver` service’ environment variables, as follows:
+`apiserver` service’s environment variables, as follows:
 
 ```
 services:
