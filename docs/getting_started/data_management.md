@@ -49,7 +49,7 @@ Your goal is to create an immutable copy of the data to be used by further steps
 The second step is to preprocess the data. First access the data, then modify it,
 and lastly create a new version of the data.
 
-1. Create a task for you data preprocessing (not required):
+1. Create a task for your data preprocessing (not required):
    
    ```python
    from clearml import Task, Dataset
