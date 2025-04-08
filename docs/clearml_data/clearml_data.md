@@ -37,7 +37,7 @@ lineage and content information. See [dataset UI](../webapp/datasets/webapp_data
 
 ## Setup
 
-`clearml-data` comes built-in with the `clearml` Python package! Check out the [ClearML Setup](../clearml_sdk/clearml_sdk_setup) 
+`clearml-data` comes built-in with the `clearml` Python package! Check out the [ClearML Setup](../clearml_sdk/clearml_sdk_setup.md) 
 guide for more info!
 
 ## Using ClearML Data

@@ -3,7 +3,7 @@ title: PyTorch Ignite
 ---
 
 :::tip
-If you are not already using ClearML, see [ClearML Setup instructions](../clearml_sdk/clearml_sdk_setup).
+If you are not already using ClearML, see [ClearML Setup instructions](../clearml_sdk/clearml_sdk_setup.md).
 :::
 
 [PyTorch Ignite](https://pytorch.org/ignite/index.html) is a library for training and evaluating neural networks in 

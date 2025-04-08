@@ -3,7 +3,7 @@ title: AutoKeras
 ---
 
 :::tip
-If you are not already using ClearML, see [Getting Started](../clearml_sdk/clearml_sdk_setup) for setup 
+If you are not already using ClearML, see [Getting Started](../clearml_sdk/clearml_sdk_setup.md) for setup 
 instructions.
 :::
 

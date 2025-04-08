@@ -89,4 +89,4 @@ After deploying ClearML Server, the services expose the following node ports:
 ## Next Step
 
 To keep track of your experiments and/or data, the `clearml` package needs to communicate with your server. 
-For instruction to connect the ClearML SDK to the server, see [ClearML Setup](../clearml_sdk/clearml_sdk_setup).
+For instruction to connect the ClearML SDK to the server, see [ClearML Setup](../clearml_sdk/clearml_sdk_setup.md).
