@@ -3,7 +3,7 @@ title: scikit-learn
 ---
 
 :::tip
-If you are not already using ClearML, see [ClearML Setup instructions](../clearml_sdk/clearml_sdk_setup).
+If you are not already using ClearML, see [ClearML Setup instructions](../clearml_sdk/clearml_sdk_setup.md).
 :::
 
 

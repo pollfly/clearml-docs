@@ -2,7 +2,7 @@
 title: Setup
 ---
 
-## Installation 
+## Installation
 
 :::note
 If ClearML was previously configured, follow [this](#adding-clearml-agent-to-a-configuration-file) to add 
