@@ -120,8 +120,8 @@ The `wizard` section defines the entries to display in the application instance�
     * `model`
     * `queue`
     * `dataset_version`
-  * `display_field` - The field of the source object to display in the list. Usually “name”
-  * `value_field` - The field of the source object to use for configuring the app instance. Usually “id”
+  * `display_field` - The field of the source object to display in the list. Usually "name"
+  * `value_field` - The field of the source object to use for configuring the app instance. Usually "id"
   * `filter` - Allows to limit the choices list by setting a filter on one or more of the object’s fields. See Project Selection example below
 * `target` - Where in the application instance’s task the values will be set. Contains the following:
   * `field` - Either `configuration` or `hyperparams`
