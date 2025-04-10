@@ -1,5 +1,5 @@
 ---
-title: Deploying ClearML in Nutanix
+title: Deploying ClearML in Nutanix Kubernetes Platform (NKP)
 ---
 
 This guide outlines how to deploy the ClearML control plane within the Nutanix Enterprise Cloud environment and 
