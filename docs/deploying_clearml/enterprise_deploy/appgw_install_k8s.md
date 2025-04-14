@@ -27,7 +27,7 @@ It can only configure access for ClearML Tasks within its own namespace.
 
 ## Optional for HTTPS
 
-* A valid DNS entry for the new TTR instance  
+* A valid DNS entry for the new App Gateway Router instance  
 * A valid SSL certificate
 
 ## Helm
@@ -91,7 +91,7 @@ helm show readme allegroai-enterprise/clearml-enterprise-task-traffic-router
 
 ### Install
 
-To install the TTR component via Helm use the following command:
+To install the App Gateway Router component via Helm use the following command:
 
 ```
 helm upgrade --install \
