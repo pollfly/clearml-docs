@@ -49,11 +49,11 @@ optimization.
   documentation.
 * **BOHB** - [`automation.hpbandster.OptimizerBOHB`](../references/sdk/hpo_hpbandster_bandster_optimizerbohb.md). BOHB performs robust and efficient hyperparameter optimization 
   at scale by combining the speed of Hyperband searches with the guidance and guarantees of convergence of Bayesian Optimization. 
-  For more information about HpBandSter BOHB, see the [HpBandSter](../https://automl.github.io/HpBandSter/build/html/index.html) 
+  For more information about HpBandSter BOHB, see the [HpBandSter](https://automl.github.io/HpBandSter/build/html/index.html) 
   documentation and a [code example](../guides/frameworks/pytorch/notebooks/image/hyperparameter_search.md).
 * **Random** uniform sampling of hyperparameters - [`automation.RandomSearch`](../references/sdk/hpo_optimization_randomsearch.md).
 * **Full grid** sampling strategy of every hyperparameter combination - [`automation.GridSearch`](../references/sdk/hpo_optimization_gridsearch.md).
-* **Custom** - [`automation.optimization.SearchStrategy`](../https://github.com/clearml/clearml/blob/master/clearml/automation/optimization.py#L268) - Use a custom class and inherit from the ClearML automation base strategy class. 
+* **Custom** - [`automation.optimization.SearchStrategy`](https://github.com/clearml/clearml/blob/master/clearml/automation/optimization.py#L295) - Use a custom class and inherit from the ClearML automation base strategy class. 
 
 
 ## Defining a Hyperparameter Optimization Search Example
@@ -131,7 +131,7 @@ optimization.
 ## Optimizer Execution Options
 The `HyperParameterOptimizer` provides options to launch the optimization tasks locally or through a ClearML [queue](../fundamentals/agents_and_queues.md#what-is-a-queue).
 Start a `HyperParameterOptimizer` instance using either [`HyperParameterOptimizer.start()`](../references/sdk/hpo_optimization_hyperparameteroptimizer.md#start) 
-or [`HyperParameterOptimizer.start_locally()`](references/sdk/hpo_optimization_hyperparameteroptimizer.md#start_locally). 
+or [`HyperParameterOptimizer.start_locally()`](../references/sdk/hpo_optimization_hyperparameteroptimizer.md#start_locally). 
 Both methods run the optimizer controller locally. `start()` launches the base task clones through a queue 
 specified when instantiating the controller, while `start_locally()` runs the tasks locally.
 

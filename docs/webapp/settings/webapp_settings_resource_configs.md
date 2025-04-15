@@ -148,7 +148,7 @@ resources from the H100 pool.
 All available resources having been assigned - 2 jobs of each team will remain pending until some of the currently 
 running jobs finish and resources become available.
 
-## Applying Resource Configuration 
+## Applying Resource Configuration
 Administrators can globally activate/deactivate resource policy management. To enable the currently provisioned 
 configuration, click on the `Enable resource management` toggle. Enabling resource management will service the policy 
 queues according to the provisioned resource profile and pool assignments. Disabling the resource management will stop 
