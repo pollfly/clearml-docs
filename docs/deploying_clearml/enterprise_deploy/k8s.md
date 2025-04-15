@@ -127,7 +127,7 @@ clearmlApplications:
 ```
 
 
-The credentials specified in `<SUPERVISOR_USER_KEY>` and `<SUPERVISOR_USER_SECRET>` can be used to login as the
+The credentials specified in `<SUPERVISOR_USER_KEY>` and `<SUPERVISOR_USER_SECRET>` can be used to log in as the
 supervisor user from the ClearML Web UI accessible using the URL `app.<BASE_DOMAIN>`.
 
 

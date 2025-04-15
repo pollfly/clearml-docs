@@ -402,7 +402,7 @@ appear in a tooltip and its usage percentage will appear at the center of the ch
 ![Version label statistics](../../img/hyperdatasets/dataset_version_statistics.png#light-mode-only)
 ![Version label statistics](../../img/hyperdatasets/dataset_version_statistics_dark.png#dark-mode-only)
 
-## Metadata 
+## Metadata
 The **Metadata** tab presents any additional metadata that has been attached to the dataset version.
 
 **To edit a version's metadata,**
@@ -414,7 +414,7 @@ The **Metadata** tab presents any additional metadata that has been attached to 
 ![Version metadata](../../img/hyperdatasets/dataset_version_metadata.png#light-mode-only)
 ![Version metadata](../../img/hyperdatasets/dataset_version_metadata_dark.png#dark-mode-only)
 
-## Info 
+## Info
 
 The **Info** tab presents a version's general information:
 * Version ID 

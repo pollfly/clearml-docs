@@ -48,11 +48,11 @@ title: Version 1.0
 
 - Fix `default_output_uri` for Dataset creation ([ClearML GitHub issue 371](https://github.com/clearml/clearml/issues/371))
 - Fix `clearml-task` failing without a docker script ([ClearML GitHub issue 378](https://github.com/clearml/clearml/issues/378))
-- Fix PyTorch DDP sub-process spawn multi-process
+- Fix PyTorch DDP sub-process spawn multiprocess
 - Fix `Task.execute_remotely()` on created Task (not initialized Task)
 - Fix auto scaler custom bash script should be called last before starting agent
 - Fix auto scaler spins too many instances at once then kills the idle ones (spin time is longer than poll time)
-- Fix multi-process spawn context using `ProcessFork` kills sub-process before parent process ends
+- Fix multiprocess spawn context using `ProcessFork` kills sub-process before parent process ends
 
 ### ClearML 1.0.3
 

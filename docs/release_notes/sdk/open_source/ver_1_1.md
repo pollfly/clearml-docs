@@ -74,7 +74,7 @@ title: Version 1.1
 * Fix `matplotlib` auto-magic detect bar graph series name ([ClearML GitHub issue #518](https://github.com/clearml/clearml/issues/518))
 * Fix path limitation on storage services (posix, object storage) when storing target artifacts by limiting length of 
   project name (full path) and task name used for object path ([ClearML GitHub issue #516](https://github.com/clearml/clearml/issues/516))
-* Fix multi-processing context block catching exception
+* Fix multiprocessing context block catching exception
 * Fix Google Cloud Storage with no default project causes a crash
 * Fix main process's reporting subprocess lost, switch back to thread mode
 * Fix forked `StorageHelper` should use its own `ThreadExecuter`
@@ -239,7 +239,7 @@ title: Version 1.1
 - Fix Python2 compatibility
 - Fix *clearml-task* exit with error when failing to verify `output_uri` (output warning instead)
 - Fix unsafe Google Storage delete object
-- Fix multi-process spawning wait-for-uploads can create a deadlock in very rare cases
+- Fix multiprocess spawning wait-for-uploads can create a deadlock in very rare cases
 - Fix `task.set_parent()` fails when passing Task object
 - Fix `PipelineController` skipping queued Tasks
 - Remove `humanfriendly` dependency (unused)

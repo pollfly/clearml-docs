@@ -26,7 +26,7 @@ Manage administrator vaults in ClearML UI, under **SETTINGS \> Administrator Vau
 * **Create** vaults  
 * **Edit** vault contents.
 
-For more information see [Administrator Vaults](../webapp/settings/webapp_settings_admin_vaults) settings page.
+For more information see [Administrator Vaults](../webapp/settings/webapp_settings_admin_vaults.md) settings page.
 
 ## Managing Vaults via the REST API
 
@@ -116,7 +116,7 @@ curl -s -XPUT $CLEARML_SERVER/users.add_or_update_vault \
 ```
 
 In the example above, the group ID `"30795571-a470-4717-a80d-e8705fc776bf"` refers to the Users group (to which all users 
-belong). You can define other groups in the [Users & Groups](../webapp/settings/webapp_settings_users#user-groups) 
+belong). You can define other groups in the [Users & Groups](../webapp/settings/webapp_settings_users.md#user-groups) 
 settings page and create vaults for these specific groups.
 
 The command returns the ID of the newly created vault. For example:

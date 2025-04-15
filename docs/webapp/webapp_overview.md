@@ -89,7 +89,7 @@ and [datasets](datasets/webapp_dataset_page.md)) provide column filters to easil
 Click the help menu button <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> 
 in the top right corner of the web UI screen to access the self-help resources including:
 * ClearML Python Package setup - Instruction to get started with the `clearml` Python package
-* [ClearML on YouTube](https://www.youtube.com/c/ClearML/featured) <img src="/docs/latest/icons/ico-youtube.svg" alt="Youtube" className="icon size-md space-sm" />  - Instructional videos on integrating ClearML into your workflow
+* [ClearML on YouTube](https://www.youtube.com/c/ClearML/featured) <img src="/docs/latest/icons/ico-youtube.svg" alt="YouTube" className="icon size-md space-sm" />  - Instructional videos on integrating ClearML into your workflow
 * Online Documentation
 * Pro Tips - Tips for working with ClearML efficiently
 * [Contact Us](https://clear.ml/contact-us) - Quick access to ClearML contact form
