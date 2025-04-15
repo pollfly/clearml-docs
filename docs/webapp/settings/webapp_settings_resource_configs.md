@@ -15,7 +15,7 @@ The Resource Configuration settings page shows the [currently provisioned](#appl
 the defined resource pools, resource profiles, and the resource allocation architecture. 
 
 ## Resource Pools
-A resource pool is an aggregation of resources available for use, such as a Kubernetes cluster or a GPU superpod. 
+A resource pool is an aggregation of resources available for use, such as a Kubernetes cluster or a GPU SuperPOD. 
 Administrators specify the total number of resources available in each pool. The resource policy manager ensures 
 workload assignment up to the available number of resources.
 
