@@ -2,6 +2,10 @@
 title: Resource Configuration
 ---
 
+:::important Enterprise Feature
+Resource Configuration is available under the ClearML Enterprise plan.
+:::
+
 Administrators can define [Resource Policies](../resource_policies.md) to implement resource quotas and 
 reservations for different user groups to prioritize workload usage across available resources. 
 
