@@ -425,6 +425,21 @@ an alternate folder you configured), and input the modified configuration
 See the [Flask-Cors documentation](https://flask-cors.readthedocs.io/en/latest/api.html) for detailed initialization 
 options.
 
+
+### Removing Fileserver Artifacts for Deleted Tasks
+When a task is deleted from ClearML, any associated artifacts stored on the fileserver can also be automatically deleted. 
+This clean-up is performed by the `async_delete` service. For this to work properly, the ClearML Server needs to know 
+how to access the fileserver in order to locate and delete the related artifacts. 
+
+To enable automatic artifact deletion, set the `CLEARML_FILES_HOST` environment variable to 
+the URL of your fileserver. 
+
+For example:
+```
+CLEARML_FILES_HOST="http://localhost:8081"
+```
+
+
 ### Custom UI Context Menu Actions
 
 :::important Enterprise Feature
