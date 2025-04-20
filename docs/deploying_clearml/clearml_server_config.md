@@ -428,8 +428,8 @@ options.
 
 ### Removing Fileserver Artifacts for Deleted Tasks
 When a task is deleted from ClearML, any associated artifacts stored on the fileserver can also be automatically deleted. 
-This clean-up is performed by the `async_delete` service. For this to work properly, the ClearML Server needs to know 
-how to access the fileserver in order to locate and delete the related artifacts. 
+This clean-up is performed by the `async_delete` service. ClearML Server determines whether artifacts are stored
+on the fileserver based on their URLs.
 
 To enable automatic artifact deletion, set the `CLEARML_FILES_HOST` environment variable to 
 the URL of your fileserver. 
