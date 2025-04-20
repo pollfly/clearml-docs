@@ -133,6 +133,7 @@ All the task information that ClearML captures can be viewed in the [WebApp](../
 View saved model snapshots in the **ARTIFACTS** tab.
 
 ![Model snapshots](../img/ignite_artifact.png#light-mode-only)
+![Model snapshots](../img/ignite_artifact_dark.png#dark-mode-only)
 
 ### Scalars 
 
