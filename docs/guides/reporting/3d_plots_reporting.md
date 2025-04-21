@@ -1,5 +1,5 @@
 ---
-title: 3D Plots Reporting
+title: 3D Plot Reporting
 ---
 
 The [3d_plots_reporting.py](https://github.com/clearml/clearml/blob/master/examples/reporting/3d_plots_reporting.py) 
@@ -28,7 +28,8 @@ Logger.current_logger().report_surface(
 ```
 View the reported surface plot in **PLOTS**.
 
-![Surface plot](../../img/examples_reporting_02.png)
+![Surface plot](../../img/examples_reporting_02.png#light-mode-only)
+![Surface plot](../../img/examples_reporting_02_dark.png#dark-mode-only)
 
 ## 3D Scatter Plot
 
@@ -49,4 +50,5 @@ Logger.current_logger().report_scatter3d(
 ```
 
 View the reported 3D scatter plot in **PLOTS**.
-![3d scatter plot](../../img/examples_reporting_01.png)
+![3d scatter plot](../../img/examples_reporting_01.png#light-mode-only)
+![3d scatter plot](../../img/examples_reporting_01_dark.png#dark-mode-only)

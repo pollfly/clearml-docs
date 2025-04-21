@@ -27,7 +27,8 @@ for i in range(10):
     logger.report_scalar(title="graph B", series="series B", iteration=i, value=10./(i+1))
 ```
 
-![Separate scalar plots](../../img/colab_explicit_reporting_01.png)
+![Separate scalar plots](../../img/colab_explicit_reporting_01.png#light-mode-only)
+![Separate scalar plots](../../img/colab_explicit_reporting_01_dark.png#dark-mode-only)
 
 ```python
 # report two scalar series on the same graph
@@ -36,7 +37,8 @@ for i in range(10):
     logger.report_scalar(title="unified graph", series="series B", iteration=i, value=10./(i+1))
 ```    
 
-![Unified scalar plots](../../img/colab_explicit_reporting_02.png)
+![Unified scalar plots](../../img/colab_explicit_reporting_02.png#light-mode-only)
+![Unified scalar plots](../../img/colab_explicit_reporting_02_dark.png#dark-mode-only)
 
 ## Plots
 
@@ -63,7 +65,8 @@ logger.report_scatter2d(
 )
 ```
 
-![2d scatter plot](../../img/colab_explicit_reporting_04.png)
+![2d scatter plot](../../img/colab_explicit_reporting_04.png#light-mode-only)
+![2d scatter plot](../../img/colab_explicit_reporting_04_dark.png#dark-mode-only)
 
 ### 3D Plots
 
@@ -83,7 +86,8 @@ logger.report_scatter3d(
 )
 ```
 
-![3d scatter plot](../../img/colab_explicit_reporting_05.png)
+![3d scatter plot](../../img/colab_explicit_reporting_05.png#light-mode-only)
+![3d scatter plot](../../img/colab_explicit_reporting_05_dark.png#dark-mode-only)
 
 To plot a series as a surface plot, use [`Logger.report_surface()`](../../references/sdk/logger.md#report_surface).
 
@@ -101,7 +105,8 @@ logger.report_surface(
 )
 ```
 
-![3d surface plot](../../img/colab_explicit_reporting_06.png)
+![3d surface plot](../../img/colab_explicit_reporting_06.png#light-mode-only)
+![3d surface plot](../../img/colab_explicit_reporting_06_dark.png#dark-mode-only)
 
 ### Confusion Matrices
 
@@ -120,7 +125,8 @@ logger.report_confusion_matrix(
 )
 ```   
 
-![Confusion matrix](../../img/colab_explicit_reporting_03.png)
+![Confusion matrix](../../img/colab_explicit_reporting_03.png#light-mode-only)
+![Confusion matrix](../../img/colab_explicit_reporting_03_dark.png#dark-mode-only)
 
 ### Histograms
 
@@ -140,7 +146,8 @@ logger.report_histogram(
 )
 ```
     
-![Histogram](../../img/colab_explicit_reporting_12.png)
+![Histogram](../../img/colab_explicit_reporting_12.png#light-mode-only)
+![Histogram](../../img/colab_explicit_reporting_12_dark.png#dark-mode-only)
     
 ```python
 # report a two histograms on the same plot
@@ -164,7 +171,8 @@ logger.report_histogram(
 )
 ```
 
-![Two histograms in one plot](../../img/colab_explicit_reporting_07.png)
+![Two histograms in one plot](../../img/colab_explicit_reporting_07.png#light-mode-only)
+![Two histograms in one plot](../../img/colab_explicit_reporting_07_dark.png#dark-mode-only)
 
 ## Media
 
@@ -188,7 +196,8 @@ image_local_copy = StorageManager.get_local_copy(
 logger.report_media(title='audio', series='pink panther', iteration=1, local_path=audio_local_copy)
 ``` 
 
-![Audio sample](../../img/colab_explicit_reporting_08.png)
+![Audio sample](../../img/colab_explicit_reporting_08.png#light-mode-only)
+![Audio sample](../../img/colab_explicit_reporting_08_dark.png#dark-mode-only)
 
 ### HTML
 
@@ -201,7 +210,8 @@ logger.report_media(
 )
 ```
 
-![HTML sample](../../img/colab_explicit_reporting_09.png)
+![HTML sample](../../img/colab_explicit_reporting_09.png#light-mode-only)
+![HTML sample](../../img/colab_explicit_reporting_09_dark.png#dark-mode-only)
 
 ### Images
 
@@ -214,7 +224,8 @@ logger.report_image(
 )
 ```
 
-![Image sample](../../img/colab_explicit_reporting_10.png)
+![Image sample](../../img/colab_explicit_reporting_10.png#light-mode-only)
+![Image sample](../../img/colab_explicit_reporting_10_dark.png#dark-mode-only)
 
 ### Video
 
@@ -227,7 +238,8 @@ logger.report_media(
 )
 ```
 
-![Video sample](../../img/colab_explicit_reporting_11.png)
+![Video sample](../../img/colab_explicit_reporting_11.png#light-mode-only)
+![Video sample](../../img/colab_explicit_reporting_11_dark.png#dark-mode-only)
 
 ## Text
 
@@ -237,4 +249,5 @@ Report text messages by calling [`Logger.report_text()`](../../references/sdk/lo
 logger.report_text("hello, this is plain text")
 ```    
 
-![Text report to console](../../img/colab_explicit_reporting_13.png)
+![Text report to console](../../img/colab_explicit_reporting_13.png#light-mode-only)
+![Text report to console](../../img/colab_explicit_reporting_13_dark.png#dark-mode-only)
