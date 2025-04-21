@@ -9,8 +9,8 @@ ClearML reports these HTML debug samples in the **ClearML Web UI** **>** task's 
 
 When the script runs, it creates a task named `html samples reporting` in the `examples` project.
 
-![Debig Samples](../../img/examples_reporting_05.png#light-mode-only)
-![Debig Samples](../../img/examples_reporting_05_dark.png#dark-mode-only)
+![Debug Samples](../../img/examples_reporting_05.png#light-mode-only)
+![Debug Samples](../../img/examples_reporting_05_dark.png#dark-mode-only)
 
 ## Reporting HTML URLs
 
