@@ -138,7 +138,7 @@ output_model.update_weights(weights_filename='models/model.pth')
 ```
 
 ## Analyzing Models 
-While experimenting, you build up your model catalog. In the ClearML's web UI, model information can be located through 
+While experimenting, you build up your model catalog. In the ClearML web UI, model information can be located through 
 a project's Model Table or through the model's associated task.
 
 Models associated with a task appear in the task's **ARTIFACTS** tab. To see further model details, including design, 
