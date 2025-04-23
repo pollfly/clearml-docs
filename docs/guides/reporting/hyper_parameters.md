@@ -48,7 +48,7 @@ flags.DEFINE_string('echo5', '5', 'Text to echo.', module_name='test')
 
 ```    
 
-TensorFlow Definitions appear in **HYPEPARAMETERS** **>** **TF_DEFINE**.
+TensorFlow Definitions appear in **HYPERPARAMETERS** **>** **TF_DEFINE**.
 
 ![image](../../img/examples_reporting_hyper_param_03.png)
 
