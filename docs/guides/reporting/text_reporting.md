@@ -10,7 +10,7 @@ When the script runs, it creates a task named `text reporting` in the `examples`
 
 
 ## Reporting Text to Console
-To report text to the task console, call [`Logger.report_text()`](../../references/sdk/logger.md#report_text)
+To report text to the task console, call [`Logger.report_text()`](../../references/sdk/logger.md#report_text):
 
 ```python
 # report text
@@ -24,7 +24,7 @@ Text reported with `Logger.report_text()` appears in the task's **CONSOLE** tab 
 
 ## Reporting Text as Debug Samples
 To report longer text as a debug sample (e.g., logs, large text outputs, or structured text files),
-use [`Logger.report_media()`](../../references/sdk/logger.md#report_media) with a text stream and `.txt` file extension.
+use [`Logger.report_media()`](../../references/sdk/logger.md#report_media) with a text stream and `.txt` file extension:
 
 ```python
 text_to_send = """
