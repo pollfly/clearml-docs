@@ -248,7 +248,7 @@ Filter by date/time metadata fields using Lucene queries.
   
   * Open a frame in the frame viewer to see its metadata.  
 
-    ![Frame datetimee metadata in frame viewer](../../img/hyperdatasets/frame_filtering_14.png#light-mode-only)
+    ![Frame datetime metadata in frame viewer](../../img/hyperdatasets/frame_filtering_14.png#light-mode-only)
     ![Frame datetime metadata in frame viewer](../../img/hyperdatasets/frame_filtering_14_dark.png#dark-mode-only)
   
 </Collapsible>

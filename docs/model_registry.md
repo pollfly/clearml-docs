@@ -101,7 +101,7 @@ input_model_2 = InputModel.import_model(
 )
 ```
 
-After instantiating an InputModel instance, you can connect it to a task object, so the model can be traced to n 
+After instantiating an InputModel instance, you can connect it to a task object, so the model can be traced to a
 task. 
 
 ```python
