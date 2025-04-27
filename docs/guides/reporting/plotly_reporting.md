@@ -35,4 +35,5 @@ When the script runs, it creates a task named `plotly reporting` in the examples
 ClearML reports Plotly figures, and displays them in the **ClearML Web UI** **>** task's **PLOTS** 
 tab.
 
-![Web UI task plots](../../img/examples_reporting_13.png)
+![Web UI task plots](../../img/examples_reporting_13.png#light-mode-only)
+![Web UI task plots](../../img/examples_reporting_13_dark.png#dark-mode-only)
