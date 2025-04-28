@@ -7,7 +7,8 @@ demonstrates explicit scalar reporting. ClearML reports scalars in the **ClearML
 
 When the script runs, it creates a task named `scalar reporting` in the `examples` project.
 
-To reports scalars, call [`Logger.report_scalar()`](../../references/sdk/logger.md#report_scalar). 
+## Reporting Scalar Series 
+To report scalar series, call [`Logger.report_scalar()`](../../references/sdk/logger.md#report_scalar). 
 To report more than one series on the same plot, use the same `title` argument. For different plots, use different 
 `title` arguments. 
 
@@ -31,4 +32,20 @@ for i in range(100):
     )
 ```
 
-![image](../../img/examples_reporting_14.png)
+![Scalars series](../../img/examples_reporting_14.png#light-mode-only)
+![Scalars series](../../img/examples_reporting_14_dark.png#dark-mode-only)
+
+## Reporting Single Scalar Values 
+
+To report single scalar values (individual metrics, not part of a series), use [`Logger.report_single_value()`](../../references/sdk/logger.md#report_single_value).
+
+```python
+# Report individual scalar values
+Logger.current_logger().report_single_value(name="metric A", value=486)
+Logger.current_logger().report_single_value(name="metric B", value=305.95)
+```
+
+Single value scalars are shown in the UI in the task's **SCALARS** tab under the `Summary` table.
+
+![Single scalars](../../img/examples_reporting_14a.png#light-mode-only)
+![Single scalars](../../img/examples_reporting_14a_dark.png#dark-mode-only)
