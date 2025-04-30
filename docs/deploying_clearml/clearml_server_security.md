@@ -33,7 +33,7 @@ has been configured. It is recommended to use an [object storage solution](../in
 
 ## Server Credentials and Secrets
 
-By default, ClearML Server comes with default values that are designed to allow to set it up quickly and to start working 
+By default, ClearML Server comes with default values designed to allow you to quickly set it up and to start working 
 with the ClearML SDK.
 
 However, this also means that the **server must be secured** by either preventing any external access, or by changing 

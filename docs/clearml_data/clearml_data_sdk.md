@@ -246,7 +246,7 @@ dataset.get_logger().report_table(
     title="Raw Dataset Metadata", series="Raw Dataset Metadata", csv="path/to/csv"
 )
 
-# Attach a historgram to the table
+# Attach a histogram to the table
 dataset.get_logger().report_histogram(
     title="Class distribution",
     series="Class distribution",
@@ -261,7 +261,7 @@ dataset.get_logger().report_histogram(
 
 To upload the dataset files to network storage, use [`Dataset.upload()`](../references/sdk/dataset.md#upload). 
 
-Use the `output_url` parameter to specify storage target, such as S3 / GS / Azure. For example:
+Use the `output_url` parameter to specify a storage target, such as S3 / GS / Azure. For example:
 * A shared folder: `/mnt/share/folder`
 * S3: `s3://bucket/folder`
 * Non-AWS S3-like services (such as MinIO): `s3://host_addr:port/bucket`. **Note that port specification is required**. 

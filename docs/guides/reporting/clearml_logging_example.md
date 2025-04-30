@@ -17,7 +17,7 @@ In the ``clearml`` GitHub repository, this example includes a clickable icon to 
 
 ## Scalars
 
-To reports scalars, call [`Logger.report_scalar()`](../../references/sdk/logger.md#report_scalar). 
+To report scalars, call [`Logger.report_scalar()`](../../references/sdk/logger.md#report_scalar). 
 The scalar plots appear in the **web UI** in **SCALARS**.
 
 ```python

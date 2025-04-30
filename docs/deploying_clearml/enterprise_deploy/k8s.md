@@ -58,82 +58,45 @@ that will have records pointing to the cluster’s ingress controller (see ingre
 :::
 
 
-```
+```yaml
 imageCredentials:
- password: "<clearml_enterprise_DockerHub_TOKEN>"
-
+  password: "<clearml_enterprise_DockerHub_TOKEN>"
 
 clearml:
- cookieDomain: "<BASE_DOMAIN>"
- # Set values for improved security
- apiserverKey: "<GENERATED_API_SERVER_KEY>"
- apiserverSecret: "<GENERATED_API_SERVER_SECRET>"
- fileserverKey: "<GENERATED_FILE_SERVER_KEY>"
- fileserverSecret: "<GENERATED_FILE_SERVER_SECRET>"
- secureAuthTokenSecret: "<GENERATED_AUTH_TOKEN_SECRET>"
- testUserKey: "<GENERATED_TEST_USER_KEY>"
- testUserSecret: "<GENERATED_TEST_USER_SECRET>"
-
+  cookieDomain: "<BASE_DOMAIN>"
+  # Set values for improved security
+  apiserverKey: "<GENERATED_API_SERVER_KEY>"
+  apiserverSecret: "<GENERATED_API_SERVER_SECRET>"
+  fileserverKey: "<GENERATED_FILE_SERVER_KEY>"
+  fileserverSecret: "<GENERATED_FILE_SERVER_SECRET>"
+  secureAuthTokenSecret: "<GENERATED_AUTH_TOKEN_SECRET>"
+  testUserKey: "<GENERATED_TEST_USER_KEY>"
+  testUserSecret: "<GENERATED_TEST_USER_SECRET>"
 
 apiserver:
- ingress:
-   enabled: true
-   hostName: "api.<BASE_DOMAIN>"
- service:
-   type: ClusterIP
- extraEnvs:
-   - name: CLEARML__services__organization__features__user_management_advanced
-     value: "true"
-   - name: CLEARML__services__auth__ui_features_per_role__user__show_datasets
-     value: "false"
-   - name: CLEARML__services__auth__ui_features_per_role__user__show_orchestration
-     value: "false"
-   - name: CLEARML__services__workers__resource_usages__supervisor_company
-     value: "<SUPERVISOR_TENANT_ID>"
-   - name: CLEARML__secure__credentials__supervisor__role
-     value: "system"
-   - name: CLEARML__secure__credentials__supervisor__allow_login
-     value: "true"
-   - name: CLEARML__secure__credentials__supervisor__user_key
-     value: "<SUPERVISOR_USER_KEY>"
-   - name: CLEARML__secure__credentials__supervisor__user_secret
-     value: "<SUPERVISOR_USER_SECRET>"
-   - name: CLEARML__secure__credentials__supervisor__sec_groups
-     value: "[\"users\", \"admins\", \"queue_admins\"]"
-   - name: CLEARML__secure__credentials__supervisor__email
-     value: "\"<SUPERVISOR_USER_EMAIL>\""
-   - name: CLEARML__apiserver__company__unique_names
-     value: "true"
-
+  ingress:
+    enabled: true
+    hostName: "api.<BASE_DOMAIN>"
+  service:
+    type: ClusterIP
 
 fileserver:
- ingress:
-   enabled: true
-   hostName: "file.<BASE_DOMAIN>"
- service:
-   type: ClusterIP
-
+  ingress:
+    enabled: true
+    hostName: "file.<BASE_DOMAIN>"
+  service:
+    type: ClusterIP
 
 webserver:
- ingress:
-   enabled: true
-   hostName: "app.<BASE_DOMAIN>"
- service:
-   type: ClusterIP
-
+  ingress:
+    enabled: true
+    hostName: "app.<BASE_DOMAIN>"
+  service:
+    type: ClusterIP
 
 clearmlApplications:
- enabled: true
+  enabled: true
 ```
-
-
-The credentials specified in `<SUPERVISOR_USER_KEY>` and `<SUPERVISOR_USER_SECRET>` can be used to log in as the
-supervisor user from the ClearML Web UI accessible using the URL `app.<BASE_DOMAIN>`.
-
-
-Note that the `<SUPERVISOR_USER_EMAIL>` value must be explicitly quoted. To do so, put `\"` around the quoted value.
-For example `"\"email@example.com\""`.
-
 
 #### Additional Configuration Options
 ##### Fixed Users (Simple Login)
@@ -181,7 +144,7 @@ Substitute all `<PLACEHOLDER>`s with the correct value for your configuration.
 ##### Auth0 Identity Provider
 
 
-```
+```yaml
 apiserver:
  extraEnvs:
    - name: CLEARML__secure__login__sso__oauth_client__auth0__client_id
@@ -202,7 +165,7 @@ apiserver:
 ##### Keycloak Identity Provider
 
 
-```
+```yaml
 apiserver:
  extraEnvs:
    - name: CLEARML__secure__login__sso__oauth_client__keycloak__client_id
@@ -217,8 +180,6 @@ apiserver:
      value: "<KC_URL>/realms/<REALM_NAME>/protocol/openid-connect/token"
    - name: CLEARML__services__login__sso__oauth_client__keycloak__idp_logout
      value: "true"
-
-
 ```
 
 
@@ -247,24 +208,24 @@ To configure the agent you will need to choose a Redis password and use that whe
 The Helm Chart must be installed with `overrides.yaml`:
 
 
-```
+```yaml
 imageCredentials:
- password: "<CLEARML_DOCKERHUB_TOKEN>"
+  password: "<CLEARML_DOCKERHUB_TOKEN>"
 clearml:
- agentk8sglueKey: "<ACCESS_KEY>"
- agentk8sglueSecret: "<SECRET_KEY>"
+  agentk8sglueKey: "<ACCESS_KEY>"
+  agentk8sglueSecret: "<SECRET_KEY>"
 agentk8sglue:
- apiServerUrlReference: "https://api.<BASE_DOMAIN>"
- fileServerUrlReference: "https://files.<BASE_DOMAIN>"
- webServerUrlReference: "https://app.<BASE_DOMAIN>"
- defaultContainerImage: "python:3.9"
+  apiServerUrlReference: "https://api.<BASE_DOMAIN>"
+  fileServerUrlReference: "https://files.<BASE_DOMAIN>"
+  webServerUrlReference: "https://app.<BASE_DOMAIN>"
+  defaultContainerImage: "python:3.9"
 ```
 
 
 #### Installing the Chart
 
 
-```
+```bash
 helm install -n <WORKLOAD_NAMESPACE> \
     clearml-agent \
     clearml-enterprise/clearml-enterprise-agent \
@@ -276,7 +237,7 @@ helm install -n <WORKLOAD_NAMESPACE> \
 To create a queue by API:
 
 
-```
+```bash
 curl $APISERVER_URL/queues.create \
 -H "Content-Type: application/json" \
 -H "X-Clearml-Impersonate-As:<USER_ID>" \
@@ -294,22 +255,22 @@ curl $APISERVER_URL/queues.create \
 The Helm Chart must be installed with `overrides.yaml`:
 
 
-```
+```yaml
 imageCredentials:
- password: "<DOCKERHUB_TOKEN>"
+  password: "<DOCKERHUB_TOKEN>"
 clearml:
- apiServerKey: ""
- apiServerSecret: ""
- apiServerUrlReference: "https://api."
- authCookieName: ""
+  apiServerKey: ""
+  apiServerSecret: ""
+  apiServerUrlReference: "https://api."
+  authCookieName: ""
 ingress:
- enabled: true
- hostName: "task-router.dev"
+  enabled: true
+  hostName: "task-router.dev"
 tcpSession:
- routerAddress: "<NODE_IP OR EXTERNAL_NAME>"
- portRange:
-   start: <START_PORT>
-   end: <END_PORT>
+  routerAddress: "<NODE_IP OR EXTERNAL_NAME>"
+  portRange:
+    start: <START_PORT>
+    end: <END_PORT>
 ```
 
 
@@ -330,7 +291,7 @@ tcpSession:
 ### Installing the Chart
 
 
-```
+```bash
 helm install -n <WORKLOAD_NAMESPACE> \
     clearml-ttr \
     clearml-enterprise/clearml-enterprise-task-traffic-router \
@@ -429,20 +390,20 @@ This example configures a specific queue, but you can include this setting in th
 apply it to all tasks.
 
 
-```
+```yaml
 agentk8sglue: 
- queues:
-   GPUshm:
-     templateOverrides:
-       env:
-         - name: VLLM_SKIP_P2P_CHECK
-           value: "1"
-       volumeMounts:
-         - name: dshm
-           mountPath: /dev/shm
-       volumes:
-         - name: dshm
-           emptyDir:
-             medium: Memory
-             sizeLimit: <SIZE>Gi
+  queues:
+    GPUshm:
+      templateOverrides:
+        env:
+          - name: VLLM_SKIP_P2P_CHECK
+            value: "1"
+        volumeMounts:
+          - name: dshm
+            mountPath: /dev/shm
+        volumes:
+          - name: dshm
+            emptyDir:
+              medium: Memory
+              sizeLimit: <SIZE>Gi
 ```

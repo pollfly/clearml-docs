@@ -8,7 +8,7 @@ For feature requests or bug reports, see **ClearML** [GitHub issues](https://git
 
 If you have any questions, post on the **ClearML** [Slack channel](https://joinslack.clear.ml).
 
-Or, tag your questions on [stackoverflow](https://stackoverflow.com/questions/tagged/clearml) with the **clearml** tag.
+Or, tag your questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/clearml) with the **clearml** tag.
 
 You can always find us at [support@clear.ml](mailto:support@clear.ml?subject=ClearML).
 

@@ -58,7 +58,7 @@ ClearML provides flexibility for explicitly connecting input models and experime
 
 ## WebApp Interface
 
-In the ClearML's web UI, model information can be located through a project's Model Table or through the model's creating 
+In the ClearML web UI, model information can be located through a project's Model Table or through the model's creating 
 task.
 
 Models associated with a task appear in the task's **ARTIFACTS** tab. To see further model details, including design, 

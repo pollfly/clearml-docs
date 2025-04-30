@@ -127,7 +127,13 @@ Deploying the server requires a minimum of 8 GB of memory, 16 GB is recommended.
        ```
        sudo chown -R 1000:1000 /opt/clearml
        ```
-    
+       
+       :::note
+       This assumes the container processes run as UID 1000 and GID 1000. The ownership of `/opt/clearml` must match the 
+       UID and GID used inside the container. If the container runs as a different user or group, update the ownership 
+       accordingly to ensure they can access the mounted directories.
+       :::
+   
     * macOS:
 
        ```

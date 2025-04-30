@@ -380,7 +380,7 @@ list_of_frames = myDataView.to_list()
 ##### Frame Query for Time Interval
 
 This example demonstrates a frame query filtering for frames containing the meta key `updated` with any value between 
-`08:000` and `09:00` on October 20th, 2024: 
+`08:00` and `09:00` on October 20th, 2024: 
 
 ```python
 # Add a frame query for frames with the meta key's value between 08:00:00 and 09:00:00 on 2024-10-20
