@@ -131,10 +131,10 @@ should be reviewed and modified prior to the server installation
    sudo mkdir -pv /opt/allegro/data/mongo_4/configdb
    sudo mkdir -pv /opt/allegro/data/mongo_4/db
    sudo mkdir -pv /opt/allegro/data/redis
+   sudo mkdir -pv /opt/allegro/data/fileserver
    sudo mkdir -pv /opt/allegro/data/fileserver/tmp
    sudo mkdir -pv /opt/allegro/logs/apiserver
    sudo mkdir -pv /opt/allegro/documentation
-   sudo mkdir -pv /opt/allegro/data/fileserver
    sudo mkdir -pv /opt/allegro/logs/fileserver
    sudo mkdir -pv /opt/allegro/logs/fileserver-proxy
    sudo mkdir -pv /opt/allegro/data/fluentd/buffer
