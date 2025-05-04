@@ -53,8 +53,8 @@ automated workflows in one (or both) of the following ways:
   queue that a ClearML Agent is servicing.
 
 The agent facilitates [overriding task execution detail](webapp/webapp_exp_tuning.md) values through the UI without 
-code modification. Modifying a task clone’s configuration will have the ClearML agent executing it override the 
-original values:
+code modification. When you modify a cloned task’s configuration, the ClearML agent will override the original values 
+during execution:
 * Modified package requirements will have the task script run with updated packages
 * Modified recorded command line arguments will have the ClearML agent inject the new values in their stead
 * Code-level configuration instrumented with [`Task.connect()`](references/sdk/task.md#connect) will be overridden by modified hyperparameters

@@ -29,7 +29,7 @@ The top of the dashboard displays the current resource availability and utilizat
 picture of the resources available and in use. The **Total** section displays available and idle resource counts. 
 These counts are also available per worker category. 
 
-The **Totals** section displays:
+The **Total** section displays:
 * GPUs - The total number of GPUs in currently running workers out of the total number of GPUs in all provisioned workers, and the number of idle GPUs. GPUs are considered idle when their average 
 utilization falls below 80%.
 * CPUs - The total number of CPUs in currently running workers out of the total number of CPUs in all provisioned workers, and the number of idle CPUs. CPUs are considered idle when their average 
@@ -99,7 +99,7 @@ The threshold values applied to the dashboard table affect all workspace users w
 
 </div>
 
-Clicking on a resource group opens the group's info panel and replace the **Overview** graph with that resource's usage
+Clicking on a resource group opens the group's info panel and replaces the **Overview** graph with that resource's usage
 history. 
 
 ![Resource group info panel](../img/webapp_orch_dash_resource_group_info.png#light-mode-only)
