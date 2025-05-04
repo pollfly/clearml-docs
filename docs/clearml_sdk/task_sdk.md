@@ -47,7 +47,7 @@ If multiple tasks need to be created in the same process (for example, for loggi
 make sure to close a task, before initializing a new one. To close a task simply call [`Task.close()`](../references/sdk/task.md#close) 
 (see example [here](../guides/advanced/multiple_tasks_single_process.md)).
 
-When initializing a task, its project needs to be specified. If the project entered does not exist, it will be created on-the-fly. 
+When initializing a task, its project needs to be specified. If the project entered does not exist, it is created on-the-fly. 
 Projects can be divided into subprojects, just like folders are broken into subfolders.
 
 For example:
@@ -166,8 +166,8 @@ auto_connect_arg_parser={}
 ```
 
 ### Task Reuse
-Every `Task.init` call will create a new task for the current execution.
-To mitigate the clutter that a multitude of debugging tasks might create, a task will be reused if:
+Every `Task.init` call creates a new task for the current execution.
+To mitigate the clutter that a multitude of debugging tasks might create, a task is reused if:
 * The last time it was executed (on this machine) was under 24 hours ago (configurable, see 
   [`sdk.development.task_reuse_time_window_in_hours`](../configs/clearml_conf.md#task_reuse) in 
   the ClearML configuration reference)
@@ -486,7 +486,7 @@ a_func_task = task.create_function_task(
     some_argument=123
 )
 ```
-Arguments passed to the function will be automatically logged in the 
+Arguments passed to the function are automatically logged in the 
 task's **CONFIGURATION** tab under the **HYPERPARAMETERS > Function** section. 
 Like any other arguments, they can be changed from the UI or programmatically.
 
