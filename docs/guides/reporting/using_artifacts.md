@@ -23,7 +23,8 @@ initialized in the same script.
 
 Artifact details (location and size) can be viewed in ClearML's **web UI > task details > ARTIFACTS tab > OTHER section**. 
 
-![Artifacts in WebApp](../../img/examples_using_artifacts_1.png)
+![Artifacts in WebApp](../../img/examples_using_artifacts_1.png#light-mode-only)
+![Artifacts in WebApp](../../img/examples_using_artifacts_1_dark.png#dark-mode-only)
 
 ## Task 2: Accessing an Artifact
 

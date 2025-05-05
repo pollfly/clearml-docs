@@ -42,29 +42,34 @@ Logger.current_logger().report_scalar(
 These scalars can be visualized in plots, which appear in the [ClearML web UI](../../../webapp/webapp_overview.md), in 
 the task's **SCALARS** tab. 
 
-![image](../../../img/examples_pytorch_mnist_07.png)
+![Scalars](../../../img/examples_pytorch_mnist_07.png#light-mode-only)
+![Scalars](../../../img/examples_pytorch_mnist_07_dark.png#dark-mode-only)
 
 ## Hyperparameters
 
 ClearML automatically logs command line options defined with abseil flags. They appear in **CONFIGURATION** **>** 
 **HYPERPARAMETERS** **>** **TF_DEFINE**.
 
-![image](../../../img/examples_pytorch_abseil_params.png)
+![Hyperparameters](../../../img/examples_pytorch_abseil_params.png#light-mode-only)
+![Hyperparameters](../../../img/examples_pytorch_abseil_params_dark.png#dark-mode-only)
 
 ## Console
 
 Text printed to the console for training progress, as well as all other console output, appear in **CONSOLE**.
 
-![image](../../../img/examples_pytorch_mnist_06.png)
+![Console](../../../img/examples_pytorch_mnist_06.png#light-mode-only)
+![Console](../../../img/examples_pytorch_mnist_06_dark.png#dark-mode-only)
 
 ## Artifacts
 
 Models created by the task appear in the task's **ARTIFACTS** tab. ClearML automatically logs and tracks 
 models and any snapshots created using PyTorch.  
 
-![image](../../../img/examples_pytorch_abseil_models.png)
+![Artifacts](../../../img/examples_pytorch_abseil_models.png#light-mode-only)
+![Artifacts](../../../img/examples_pytorch_abseil_models_dark.png#dark-mode-only)
 
 Clicking on the model name takes you to the [model's page](../../../webapp/webapp_model_viewing.md), where you can view 
 the model's details and access the model.
 
-![image](../../../img/examples_pytorch_abseil_models_2.png)
+![Model](../../../img/examples_pytorch_abseil_models_2.png#light-mode-only)
+![Model](../../../img/examples_pytorch_abseil_models_2_dark.png#dark-mode-only)

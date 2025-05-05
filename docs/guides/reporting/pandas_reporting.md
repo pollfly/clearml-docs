@@ -33,7 +33,8 @@ Logger.current_logger().report_table(
 )
 ```
 
-![image](../../img/examples_reporting_12.png)
+![DataFrame table](../../img/examples_reporting_12.png#light-mode-only)
+![DataFrame table](../../img/examples_reporting_12_dark.png#dark-mode-only)
 
 ## Reporting CSV Files as Tables
 
@@ -50,4 +51,5 @@ Logger.current_logger().report_table(
 )
 ```
 
-![image](../../img/examples_reporting_11.png)
+![CSV table](../../img/examples_reporting_11.png#light-mode-only)
+![CSV table](../../img/examples_reporting_11_dark.png#dark-mode-only)

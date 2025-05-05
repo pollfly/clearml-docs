@@ -53,9 +53,11 @@ Logger.current_logger().report_histogram(
 )
 ```
 
-![image](../../img/examples_reporting_15.png)
+![Single histogram](../../img/examples_reporting_15.png#light-mode-only)
+![Single histogram](../../img/examples_reporting_15_dark.png#dark-mode-only)
 
-![image](../../img/examples_reporting_15a.png)
+![Double histogram](../../img/examples_reporting_15a.png#light-mode-only)
+![Double histogram](../../img/examples_reporting_15a_dark.png#dark-mode-only)
 
 ## Confusion Matrices
 
@@ -74,7 +76,8 @@ Logger.current_logger().report_confusion_matrix(
 )
 ```
 
-![image](../../img/examples_reporting_16.png)
+![Confusion matrix](../../img/examples_reporting_16.png#light-mode-only)
+![Confusion matrix](../../img/examples_reporting_16_dark.png#dark-mode-only)
 
 ```python
 # report confusion matrix with 0,0 is at the top left
@@ -88,6 +91,9 @@ Logger.current_logger().report_confusion_matrix(
     yaxis_reversed=True,
 )
 ```
+
+![Confusion matrix](../../img/examples_reporting_16a.png#light-mode-only)
+![Confusion matrix](../../img/examples_reporting_16a_dark.png#dark-mode-only)
 
 ## 2D Scatter Plots
 
@@ -132,4 +138,5 @@ Logger.current_logger().report_scatter2d(
 )
 ```    
 
-![image](../../img/examples_reporting_17.png)
+![Scatter plot](../../img/examples_reporting_17.png#light-mode-only)
+![Scatter plot](../../img/examples_reporting_17_dark.png#dark-mode-only)

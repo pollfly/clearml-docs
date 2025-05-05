@@ -30,7 +30,8 @@ args = parser.parse_args()
 
 Command line options appears in **HYPERPARAMETERS** **>** **Args**.
 
-![image](../../img/examples_reporting_hyper_param_01.png)
+![Command line options](../../img/examples_reporting_hyper_param_01.png#light-mode-only)
+![Command line options](../../img/examples_reporting_hyper_param_01_dark.png#dark-mode-only)
 
 ## TensorFlow Definitions
 
@@ -50,7 +51,8 @@ flags.DEFINE_string('echo5', '5', 'Text to echo.', module_name='test')
 
 TensorFlow Definitions appear in **HYPERPARAMETERS** **>** **TF_DEFINE**.
 
-![image](../../img/examples_reporting_hyper_param_03.png)
+![TF Defines](../../img/examples_reporting_hyper_param_03.png#light-mode-only)
+![TF Defines](../../img/examples_reporting_hyper_param_03_dark.png#dark-mode-only)
 
 ## Parameter Dictionaries
 
@@ -78,5 +80,6 @@ parameters['float'] = '9.9'
 
 Parameters from dictionaries connected to Tasks appear in **HYPERPARAMETERS** **>** **General**.
 
-![image](../../img/examples_reporting_hyper_param_02.png)
+![Parameter dictionaries](../../img/examples_reporting_hyper_param_02.png#light-mode-only)
+![Parameter dictionaries](../../img/examples_reporting_hyper_param_02_dark.png#dark-mode-only)
 

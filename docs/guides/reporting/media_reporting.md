@@ -40,7 +40,8 @@ Logger.current_logger().report_media(
 
 The reported audio can be viewed in the **DEBUG SAMPLES** tab. Click a thumbnail to open the audio player.
 
-![Audio debug samples](../../img/examples_reporting_08.png)
+![Audio debug samples](../../img/examples_reporting_08.png#light-mode-only)
+![Audio debug samples](../../img/examples_reporting_08_dark.png#dark-mode-only)
 
 
 ## Reporting (Uploading) Media from a Local File
@@ -59,4 +60,5 @@ Logger.current_logger().report_media(
     
 The reported video can be viewed in the **DEBUG SAMPLES** tab. Click a thumbnail to open the video player.
 
-![Video debug samples](../../img/examples_reporting_09.png)
+![Video debug samples](../../img/examples_reporting_09.png#light-mode-only)
+![Video debug samples](../../img/examples_reporting_09_dark.png#dark-mode-only)

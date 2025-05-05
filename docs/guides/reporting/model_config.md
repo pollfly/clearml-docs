@@ -44,14 +44,16 @@ output_model.update_weights(register_uri=model_url)
 ## WebApp
 The model appears in the task's **ARTIFACTS** tab.
 
-![Task artifacts](../../img/examples_model_logging_artifacts.png)
+![Task artifacts](../../img/examples_model_logging_artifacts.png#light-mode-only)
+![Task artifacts](../../img/examples_model_logging_artifacts_dark.png#dark-mode-only)
 
 Clicking on the model name takes you to the [model's page](../../webapp/webapp_model_viewing.md), where you can view the 
 model's details and access the model.
 
 The model's **LABELS** tab displays its label enumeration.
 
-![Model Labels tab](../../img/examples_model_logging_labels.png)
+![Model Labels tab](../../img/examples_model_logging_labels.png#light-mode-only)
+![Model Labels tab](../../img/examples_model_logging_labels_dark.png#dark-mode-only)
 
 ## Additional Example
 
