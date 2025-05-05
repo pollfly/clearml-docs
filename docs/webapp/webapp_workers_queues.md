@@ -58,7 +58,7 @@ The worker table shows the currently available workers and their current executi
 * Training iteration.
 
 
-Clicking on a worker will open the worker's details panel and replace the graph with that worker's resource utilization 
+Clicking on a worker opens the worker's details panel and replaces the graph with that worker's resource utilization 
 information. The resource metric being monitored can be selected through the menu at the graph's top left corner:
 * CPU and GPU Usage
 * Memory Usage
@@ -66,7 +66,7 @@ information. The resource metric being monitored can be selected through the men
 * Network Usage.
 
 The worker's details panel includes the following two tabs:
-* **INFO** - worker information:
+* **INFO** - Worker information:
     * Worker Name
     * Update time - The last time the worker reported data
     * Current Task - The task currently being executed by the worker

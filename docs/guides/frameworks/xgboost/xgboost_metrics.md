@@ -25,7 +25,7 @@ View saved snapshots in the task's **ARTIFACTS** tab.
 ![Artifacts tab](../../../img/examples_xgboost_metric_artifacts.png#light-mode-only)
 ![Artifacts tab](../../../img/examples_xgboost_metric_artifacts_dark.png#dark-mode-only) 
 
-To view the model details, click the model name in the **ARTIFACTS** page, which will open the model's info tab. Alternatively, download the model.
+To view the model details, click the model name in the **ARTIFACTS** page to open its info tab. Alternatively, download the model.
 
 ![Model info panel](../../../img/examples_xgboost_metric_model.png#light-mode-only)
 ![Model info panel](../../../img/examples_xgboost_metric_model_dark.png#dark-mode-only)
