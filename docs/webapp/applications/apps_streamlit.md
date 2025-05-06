@@ -40,6 +40,9 @@ Once you start a Streamlit launcher instance, you can view the following informa
 * Console Log - The console log shows the launcher instance's activity, including server setup progress, server status 
   changes
 
+![Streamlit Dashboard](../../img/apps_streamlit.png#light-mode-only)
+![Streamlit Dashboard](../../img/apps_streamlit_dark.png#dark-mode-only) 
+
 ## Streamlit Launcher Instance Configuration
 When configuring a new Streamlit launcher instance, you can fill in the required parameters or reuse the configuration of 
 a previously launched instance.  
@@ -73,3 +76,6 @@ to open the app's instance launch form.
   which the Streamlit app and the launcher instance will shut down.
 * **Export Configuration** - Export the app instance configuration as a JSON file, which you can later import to create 
   a new instance with the same configuration 
+
+![Streamlit launch form](../../img/apps_streamlit_form.png#light-mode-only)
+![Streamlit launch form](../../img/apps_streamlit_form_dark.png#dark-mode-only) 
