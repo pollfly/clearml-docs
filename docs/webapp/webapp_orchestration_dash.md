@@ -66,6 +66,7 @@ When viewing a group's usage, you can select what data to view in the dropdown m
 
 The **Resource Groups** table displays current usage numbers for each group:
 * Worker count - number of workers in the group
+* GPU count
 * Average GPU Utilization (%)
 * Average CPU Load (%)
 * Available (total) RAM (GB)
