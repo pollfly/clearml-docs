@@ -65,6 +65,9 @@ information. The resource metric being monitored can be selected through the men
 * Video Memory Usage
 * Network Usage.
 
+If a worker has multiple GPUs, the **CPU and GPU Usage** and **Video Memory Usage** graphs display separate usage plots 
+for each GPU (e.g., GPU 0, GPU 1, etc.) in addition to an overall average GPU usage plot.
+
 The worker's details panel includes the following two tabs:
 * **INFO** - Worker information:
     * Worker Name

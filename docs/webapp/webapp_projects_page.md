@@ -71,7 +71,11 @@ of a project folder to open its context menu and access the following project ac
 
 </div>
 
-* **Edit** - Rename the project and/or modify its default output destination.
+* **Project Settings** 
+  * **General** - Set the project’s name, project path and default output destination
+  * **Scalar View Defaults** - Configure the default scalar view configuration for tasks and models
+    * **Scalar view setting** - Grouping, X-axis units and plot smoothing (See [Scalar Plot Tools](webapp_exp_track_visual.md#scalar-plot-tools))
+    * **Default scalars** - Choose which metrics are visible by default when viewing task/model scalars.
 * **New Project** - Create a new project (by default a subproject). 
 * **Move to** - Move the project into another project. If the target project does not exist, it is created on-the-fly.
 * **Delete** - Delete the project. To delete a project, all of its contents (i.e. any pipelines/reports/datasets) must

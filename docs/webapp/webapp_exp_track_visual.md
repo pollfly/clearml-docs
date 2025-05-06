@@ -354,6 +354,15 @@ are on the left side of the window. The tools include:
   plots to display. For example, to display specific plots, click **HIDE ALL**, and then click <img src="/docs/latest/icons/ico-show.svg" alt="Eye Show" className="icon size-md space-sm" /> 
   on each plot you want to view.
 
+:::tip Default scalar display
+After adjusting the scalar display (e.g. grouping, axis, smoothing), click Set as default to save the current 
+configuration as the default view for the project’s task and model scalars.
+:::
+
+See additional [plot controls](#plot-controls) below.
+
+#### Embedding Plots
+
 To embed scalar plots in your [Reports](webapp_reports.md), hover over a plot and click Embed <img src="/docs/latest/icons/ico-plotly-embed-code.svg" alt="Embed code" className="icon size-md space-sm" />, 
 which will copy to clipboard the embed code to put in your Reports. To quickly get the embed codes for all plots of a 
 specific metric, click Embed <img src="/docs/latest/icons/ico-plotly-embed-code.svg" alt="Embed code" className="icon size-md space-sm" /> 
@@ -365,7 +374,7 @@ on the group section header (available when plots are [grouped by](#group_by) `N
 In contrast to static screenshots, embedded resources 
 are retrieved when the report is displayed allowing your reports to show the latest up-to-date data.
 
-See additional [plot controls](#plot-controls) below.
+
 
 #### Metric Values View
 

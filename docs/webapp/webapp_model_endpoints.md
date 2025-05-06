@@ -44,6 +44,7 @@ information:
 
 You can apply column filters by clicking <img src="/docs/latest/icons/ico-filter-off.svg" alt="Filter" className="icon size-md" />, 
 and sort endpoints by clicking <img src="/docs/latest/icons/ico-sort-off.svg" alt="Sort order" className="icon size-md space-sm" /> on the relevant column.
+Use the page’s search bar to search by endpoint name, ID, and model fields.
 
 ## Active Endpoint Details 
 Clicking on a model endpoint opens it in detailed view.
