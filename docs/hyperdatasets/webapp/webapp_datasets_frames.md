@@ -43,9 +43,7 @@ Use frame viewer controls to navigate between frames in a Hyper-Dataset Version,
 |<img src="/docs/latest/icons/ico-zoom-in.svg" alt="Zoom in icon" className="icon size-md space-sm" />|Zoom in| **+** or Ctrl + Mouse wheel| 
 |<img src="/docs/latest/icons/ico-zoom-out.svg" alt="Zoom out icon" className="icon size-md space-sm" />|Zoom out| **-** or Ctrl + Mouse wheel |
 |Percentage textbox|Zoom percentage| <img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> |
-|`Current Source`|When viewing multi-source FrameGroups, select which of the FrameGroups' sources to display: <ul><li>`Default preview source`: present the first available source for each frame (sources are retrieved in ASCIIbetical order)</li><li>`All sources `: Present all the FrameGroup’s sources in a grid</li><li>Specific source: Select an individual source by name from the list of available sources</li></ul>
-
-|<img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> | 
+|`Current Source`|When viewing multi-source FrameGroups, select which of the FrameGroups' sources to display: <ul><li>`Default preview source`: present the first available source for each frame (sources are retrieved in ASCIIbetical order)</li><li>`All sources `: Present all the FrameGroup’s sources in a grid</li><li>Specific source: Select an individual source by name from the list of available sources</li></ul>|<img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> | 
 |<img src="/docs/latest/icons/ico-shared-item.svg" alt="Copy URL" className="icon size-md space-sm" />| Copy frame URL. A direct link to view the current frame|<img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> | 
 
 #### Additional Keyboard Shortcuts
