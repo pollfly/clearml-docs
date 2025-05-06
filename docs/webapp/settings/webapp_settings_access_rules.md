@@ -1,5 +1,5 @@
 ---
-title: Access Rules
+title: Access Rules (RBAC)
 ---
 
 :::important Enterprise Feature 

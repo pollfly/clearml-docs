@@ -673,7 +673,7 @@ module.exports = {
                    'deploying_clearml/enterprise_deploy/app_custom',
                    ]
                 },
-                {'User Management': [
+                {'Configuration and Access Controls': [
                    'user_management/user_groups',
                    'user_management/access_rules',
                    'user_management/admin_vaults',
