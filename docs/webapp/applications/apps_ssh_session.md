@@ -26,7 +26,7 @@ Once you have launched an app instance, you can view the following information i
   * <img src="/docs/latest/icons/ico-ssh-idle.svg" alt="Idle instance" className="icon size-lg space-sm" /> - Remote SSH session is idle
   * <img src="/docs/latest/icons/ico-ssh-stopped.svg" alt="Stopped instance" className="icon size-lg space-sm" /> - Remote SSH session is stopped
 * Idle time
-* Restored workspace - If a previous session’s workspace was restored, this will display its session ID
+* Restored workspace - If a previous session’s workspace was restored, this will display that session's ID
 * Current session ID
 * SSH:Host:Port - The hostname and port for the SSH connection
 * User - SSH username for the interactive session
@@ -68,23 +68,27 @@ values from the file, which can be modified before launching the app instance
   * Repository
   * Branch
   * Commit
+  * Store git repository as part of the snapshot - If you select to `Store git repo`, a copy of the repo will be stored 
+    in the workspace under `./git_repo`. Otherwise, the workspace will include a  `./git_repo_not_synced` soft link to the 
+    expected repo path
 * **Container** - Input details to run the session in Docker container
   * Image - Container image to launch
   * Docker Arguments - Additional arguments for the Docker image
   * Init Script - Bash script that is executed upon container boot (comments are supported only at the beginning of the 
   line)
 * **Extra Packages** - Specify Python packages to install when setting up the remote environment
-* **Persistent Workspace Path** - Specify your workspace root directory, it will be automatically stored when the session is 
-closed and restored into a new instance when the session app instance is cloned (example: `~/workspace`)
+* **Persistent Workspace Path** - Specify your workspace root directory. It will be automatically stored when the session 
+  is closed and available for restoring into new sessions (example: `~/workspace`)
 * **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the SSH Session app 
   instance task will be enqueued (make sure an agent is assigned to that queue)
 * **Maximum idle time** (in hours) - Maximum idle time after which the app instance will shut down
-* **Interactive Session Name** - Name your current interactive session
+* **Interactive Session Name** -  Name for your current interactive session
 * **Advanced Options**
-  * Interactive Session Project - The project in which the interactive session is created.  If left empty, the default 
-  project  `Interactive Session` is used
-  * Interactive Session Tags - Comma separated list of tags to add to your interactive session
-  * Restore Interactive Workspace ID - Input a previously run interactive session ID to restore its workspace
+  * Interactive Session Project - The ClearML project in which the interactive session is created. If left empty, the 
+  default project `Interactive Session` is used 
+  * Interactive Session Tags - Comma separated list of tags to add to your interactive session task. 
+  * Restore Interactive Workspace ID - Input a previously run interactive session ID to restore its workspace (when 
+    cloning a previously run app instance, this field is automatically filled with its ID)
   * Use DropBear SSH server instead of OpenSSH server - Use DropBear SSH server instead of OpenSSH server. Required if 
   not running as root inside container
   * Idle Network Threshold (MB) - Network throughput under which the session will be considered idle

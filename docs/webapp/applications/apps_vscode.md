@@ -66,7 +66,7 @@ to open the app's instance launch form.
     line)
 * **Extra Packages** - Extra Python packages to be installed
 * **Persistent Workspace Path** - Specify your workspace root directory. It will be automatically stored when the session 
-  is closed and available for restoring into a new sessions (example: `~/workspace`)
+  is closed and available for restoring into new sessions (example: `~/workspace`)
 * **Queue** - The queue serviced by the ClearML Agent that will execute the VS Code session
 * **Maximum idle time** (hours) - Maximum time of inactivity, after which the session will shut down. Configure idleness 
   definitions under `Advanced Options`.  
