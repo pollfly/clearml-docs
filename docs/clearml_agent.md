@@ -23,7 +23,8 @@ Its main focus is around:
 ClearML Agent executes a task or other workflow by reproducing the state of the code from the original machine 
 to a remote machine.
 
-![ClearML Agent flow diagram](img/clearml_agent_flow_diagram.png)
+![ClearML Agent flow diagram](img/clearml_agent_flow_diagram.png#light-mode-only)
+![ClearML Agent flow diagram](img/clearml_agent_flow_diagram_dark.png#dark-mode-only)
 
 The preceding diagram demonstrates a typical flow where an agent executes a task:  
 
