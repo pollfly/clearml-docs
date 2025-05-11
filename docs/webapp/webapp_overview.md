@@ -66,18 +66,25 @@ to access the following:
 * **Logout** of ClearML 
 
 ### Finding What You're Looking for
-Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" />
-to find your ClearML resources.
 
-To search using regex, click the `.*` icon on the search bar. 
+The ClearML UI provides two search options on most pages:
+* **In-page search**: Each object (e.g. projects, tasks etc.) page includes its own search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+  for filtering the objects shown on that page. This search focuses on attributes relevant to that object type:
+  * Projects: show projects whose name or ID match the searched text 
+  * Tasks: show tasks whose name, ID, description, or input/output models match the searched text
+  * Models:  show models whose name, ID, or description match the searched text.
+  * Dataviews:  show dataviews whose name, ID, description, hyper-datasets, or hyper-dataset versions match the searched text.
+  * Reports: show reports whose name, ID, tags, project, description, or content match the searched text.
+  * Datasets: show datasets whose name, ID, or description match the searched text 
+  * Pipeline Runs:  show reports whose name, ID, or description match the searched text
+* **Global search**: The search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+  on the top banner of every page searches the whole WebApp for objects that match the queries as specified above and 
+  returns results grouped by object (projects, tasks, models, etc.).
 
-The search functionality is tailored to each page, returning results specific to the object type displayed on the page. 
-For example, searching a task table looks for matches in the tasks' name, ID, description and input and output models. 
-On the reports page, it matches reports by name, ID, tags, project, description, and content. Similarly, searches in 
-models, datasets, pipelines, dataviews, and annotations, focus on attributes relevant to their respective objects.
+To use regular expressions, click the .* icon in the search bar.
 
-The search bar in the [Project Dashboard](webapp_home.md) page searches the whole WebApp for objects that match queries as 
-specified above and returns results divided by object type (projects, tasks, models, etc.). 
+![WebApp Search options](../img/webapp_search_options.png#light-mode-only)
+![WebApp Search options](../img/webapp_search_options_dark.png#dark-mode-only)
 
 :::tip Additional filtering
 ClearML's object tables (e.g. [tasks](webapp_exp_table.md), [models](webapp_model_table.md), [pipelines](pipelines/webapp_pipeline_table.md), 
