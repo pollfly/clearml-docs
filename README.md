@@ -1,27 +1,41 @@
-<div align="center">
+<p style="text-align: center">
+  <img align="center" src="https://github.com/clearml/clearml/tree/master/docs/clearml-logo.svg#gh-light-mode-only" alt="Clear|ML"><img align="center" src="https://github.com/clearml/clearml/tree/master/docs/clearml-logo-dark.svg#gh-dark-mode-only" alt="Clear|ML">
+</p>
 
-<a href="https://app.clear.ml"><img src="https://github.com/clearml/clearml/blob/master/docs/clearml-logo.svg?raw=true" width="250px"></a>
+# The Infrastructure Platform for AI Builders
 
+ClearML is a full-stack, open MLOps platform designed to streamline everything from infrastructure management to GenAI 
+deployment. 
 
-**ClearML - The End-to-End Platform for AI Builders
-</br>Accelerate Your Generative AI Adoption and LLMOps & MLOps Development Lifecycle**
+Platform Capabilities
+* Infrastructure Control Plane – Seamlessly manage and provision GPU resources across cloud, on-prem, and hybrid setups 
+with multi-tenancy, billing, quotas, and secure isolation
+* AI Development Center – A cloud-like IDE for AI builders with one-click access to tools for data integration, monitoring, 
+model tracking, CI/CD, and experiment automation
+* GenAI App Engine – Rapidly deploy LLMs and GenAI workloads with built-in access control, vector database support, and 
+feedback loops for continuous improvement
 
-</div>
+## Core Repositories
 
-# ClearML Documentation Website
+* [clearml](https://github.com/clearml/clearml) – Python SDK for tracking, dataset/versioning, and automation
+* [clearml-server](https://github.com/clearml/clearml-server) – Backend services and APIs
+* [clearml-agent](https://github.com/clearml/clearml-agent) – Worker agent for remote execution and scheduling
+* [clearml-web](https://github.com/clearml/clearml-web) – Web interface for full experiment and system visibility
+* [clearml-session](https://github.com/clearml/clearml-session) - Tool for launching remote JupyterLab / VSCode sessions inside any docker, on Cloud/On-Prem machines
+* [clearml-serving](https://github.com/clearml/clearml-serving) – Framework for model deployment and orchestration
+* [clearml-docs](https://github.com/clearml/clearml-docs) – Source for ClearML’s official documentation
 
-The [ClearML documentation website](https://clear.ml/docs/latest/docs) is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
+## Contributing
 
+PRs are always welcome ❤️ See more details in the ClearML [Guidelines for Contributing](https://github.com/clearml/clearml/blob/master/docs/contributing.md).
 
-## Contributing (yes, please!)
+## Want to Learn More?
 
-**PRs are always welcome** :heart:
-
-Good PR examples:
-* If you see something that is inaccurate or missing
-* A topic that interests you is not addressed
-* You feel that a guide would have made your life easier
-* Anything you know / experienced that might also help other community members
-* Setup and use case examples
-
-_May the force (and the goddess of learning rates) be with you!_
+* Documentation: Explore the full [ClearML Documentation](https://clear.ml/docs/latest/docs/) 
+* YouTube Channel: Subscribe to the [ClearML YouTube Channel](https://www.youtube.com/c/ClearML) to watch tutorials, 
+  presentations, and community discussions
+* Community Support:
+  * Join the conversation in our [Slack community](https://joinslack.clear.ml)
+  * Ask questions on Stack Overflow using the [clearml](https://stackoverflow.com/questions/tagged/clearml) tag
+* Issues and Features: For bugs or feature requests, open an issue here on GitHub in any of the repositories.
+* Contact Us: Reach out anytime at info@clear.ml
