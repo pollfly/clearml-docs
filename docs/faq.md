@@ -274,7 +274,7 @@ To fix this, the registered URL of each model needs to be replaced with its curr
    sudo docker exec -it clearml-mongo /bin/bash
    ```
 
-1. Create the following script inside the Docker shell (Make sure to replace `<old-bucket-name>` and `<new-bucket-name>`, as well as the URL protocol prefixes if you aren't using S3):  
+1. Create the following script inside the Docker shell (make sure to replace `<old-bucket-name>` and `<new-bucket-name>`, as well as the URL protocol prefixes if you aren't using S3):  
     ```bash
     cat <<EOT >> script.js
     db.model.find({uri:{$regex:/^s3/}}).forEach(function(e,i) {

@@ -355,7 +355,7 @@ are on the left side of the window. The tools include:
   on each plot you want to view.
 
 :::tip Default scalar display
-After adjusting the scalar display (e.g. grouping, axis, smoothing), click Set as default to save the current 
+After adjusting the scalar display (e.g. grouping, axis, smoothing), click **Set as default** to save the current 
 configuration as the default view for the project’s task and model scalars.
 :::
 

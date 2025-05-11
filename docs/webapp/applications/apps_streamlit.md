@@ -72,7 +72,7 @@ to open the app's instance launch form.
   app instance task will be enqueued (make sure an agent is assigned to that queue)
 * **Docker Image** - Docker image the ClearML Agent will use for running the Streamlit app
 * **Arguments** - Arguments to be passed to the script
-* **Idle Time Limit** (Hours) - Maximum idle time (Period in which no requests are received by the Streamlit app) after 
+* **Idle Time Limit** (Hours) - Maximum idle time (period in which no requests are received by the Streamlit app) after 
   which the Streamlit app and the launcher instance will shut down.
 * **Export Configuration** - Export the app instance configuration as a JSON file, which you can later import to create 
   a new instance with the same configuration 
