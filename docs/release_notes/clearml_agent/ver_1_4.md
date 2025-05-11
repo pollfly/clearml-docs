@@ -18,7 +18,7 @@ title: Version 1.4
 * Add support for MIG devices (use `0:1` for GPU 0 slice 1, or use 0.1)
 * Add `agent.enable_git_ask_pass` to improve passing user/pass to git commands
 * Add docker `ssh_ro_folder` (default `/.ssh`) and changed docker `ssh_folder `(default: `~/.ssh`)
-* Allow overriding pytorch lookup page (See `torch_page`, `torch_nightly_page` and `torch_url_template_prefix` under the 
+* Allow overriding pytorch lookup page (see `torch_page`, `torch_nightly_page` and `torch_url_template_prefix` under the 
   `agent.package_manager` configuration settings)
 * Add support for abort callback registration
 * K8s glue

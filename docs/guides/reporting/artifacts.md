@@ -25,7 +25,7 @@ is different). Configure ClearML in any of the following ways:
 When the script runs, it creates a task named `artifacts example` in the `examples` project. 
 
 ClearML reports artifacts in the **ClearML Web UI** **>** task details **>** **ARTIFACTS** tab.
-examples_reporting_03
+
 ![Task artifacts](../../img/examples_reporting_03.png#light-mode-only)
 ![Task artifacts](../../img/examples_reporting_03_dark.png#dark-mode-only)
 

@@ -70,7 +70,7 @@ to open the app's instance launch form.
   app instance task will be enqueued (make sure an agent is assigned to that queue)
 * **Docker Image** - Docker image the ClearML Agent will use for running the Gradio app
 * **Arguments** - Arguments to be passed to the script
-* **Idle Time Limit** (Hours) - Maximum idle time (Period in which no requests are received by the Gradio app) after 
+* **Idle Time Limit** (Hours) - Maximum idle time (period in which no requests are received by the Gradio app) after 
   which the Gradio app and the launcher instance will shut down.
 * **Export Configuration** - Export the app instance configuration as a JSON file, which you can later import to create 
   a new instance with the same configuration 
