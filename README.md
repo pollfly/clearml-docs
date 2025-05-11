@@ -1,5 +1,5 @@
 <p style="text-align: center">
-  <img align="center" src="https://github.com/clearml/clearml/tree/master/docs/clearml-logo.svg#gh-light-mode-only" alt="Clear|ML"><img align="center" src="https://github.com/clearml/clearml/tree/master/docs/clearml-logo-dark.svg#gh-dark-mode-only" alt="Clear|ML">
+  <img align="center" src="logo/clearml-logo.svg#gh-light-mode-only" alt="Clear|ML"><img align="center" src="logo/clearml-logo-dark.svg#gh-dark-mode-only" alt="Clear|ML">
 </p>
 
 # The Infrastructure Platform for AI Builders
