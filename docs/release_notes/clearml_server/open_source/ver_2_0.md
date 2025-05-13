@@ -2,26 +2,6 @@
 title: Version 2.0
 ---
 
-### ClearML Server 2.0.1
-
-**New Features**
-* New UI task creation options
-  * Support bash as well as python scripts
-  * Support file upload
-
-**Bug Fixes**
-* Fix ctrl-f does not open a search bar in UI editor modals ([ClearML Web GitHub issue #99](https://github.com/clearml/clearml-web/issues/99))
-* Fix UI smoothed plots are dimmer than original plots in dark mode ([ClearML Server GitHub issue #270](https://github.com/clearml/clearml-server/issues/270))
-* Fix webserver configuration environment variables don't load with single-quoted strings ([ClearML Server GitHub issue #271](https://github.com/clearml/clearml-server/issues/271))
-* Fix image plots sometimes not rendered in UI
-* Fix "All" tag filter not working in UI model selection modal in comparison pages
-* Fix manual refresh function sometimes does not work in UI task 
-* Fix UI embedded plot colors do not change upon UI theme change
-* Fix deleting a parameter in the UI task creation modal incorrectly removes another parameter
-* Fix UI global search displays aborted tasks as completed
-* Fix can't show/hide specific UI plot variants
-* Fix UI breadcrumbs sometimes does not display project name
-
 ### ClearML Server 2.0.0
 
 **Breaking Changes**
