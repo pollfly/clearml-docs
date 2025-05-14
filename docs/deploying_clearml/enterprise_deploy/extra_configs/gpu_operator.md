@@ -1,31 +1,28 @@
-ðŸŸ¡ Ready, missing link
 ---
-TODO:
-- Link: fractional GPUs
-
+title: Basic Deployment - Suggested GPU Operator Values
 ---
 
-# Basic Deployment - Suggested GPU Operator Values
 
 ## Add the Helm Repo Locally
 
-Add the ClearML Helm repository:
-``` bash
+Add the NVIDIA GPU Operator Helm repository:
+```bash
 helm repo add nvidia https://nvidia.github.io/gpu-operator
 ```
 
 Update the repository locally:
-``` bash
+```bash
 helm repo update
 ```
 
 ## Installation
 
-As mentioned by NVIDIA, this configuration is needed to prevent unprivileged containers from bypassing the Kubernetes Device Plugin API.
+To prevent unprivileged containers from bypassing the Kubernetes Device Plugin API, configure the GPU operator with the 
+following override values.
 
 Create a `gpu-operator.override.yaml` file with the following content:
 
-``` yaml
+```yaml
 toolkit:
   env:
     - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_ENVVAR_WHEN_UNPRIVILEGED
@@ -48,14 +45,17 @@ devicePlugin:
       value: all
 ```
 
-Install the gpu-operator:
+Install the `gpu-operator`:
 
 ``` bash
 helm install -n gpu-operator gpu-operator nvidia/gpu-operator --create-namespace -f gpu-operator.override.yaml
 ```
 
-# Fractioning
+## Fractional GPU Support
 
-For fractional GPU support, refer to the dedicated guides.
-
-TODO link to the fractional_gpus directory page in documentation
+For support with fractional GPUs, refer to the dedicated guides:
+* [ClearML Dynamic MIG Operator](../fractional_gpus/cdmo.md) (CDMO) – Dynamically configures MIG GPUs on supported devices.
+* [ClearML Enterprise Fractional GPU Injector](../fractional_gpus/cfgi.md) (CFGI) – Enables fractional (non-MIG) GPU 
+  allocation for better hardware utilization and workload distribution in Kubernetes.
+* [CDMO and CFGI on the same Cluster](../fractional_gpus/cdmo_cfgi_same_cluster.md) - In clusters with multiple nodes and 
+  varying GPU types, the `gpu-operator` can be used to manage different device configurations and fractioning modes.

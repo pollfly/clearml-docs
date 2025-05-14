@@ -167,36 +167,39 @@ helm install -n cfgi cfgi clearml-enterprise/clearml-fractional-gpu-injector --c
 
 ## Usage
 
-Fractional GPU Injector will inject CUDA files on pods that have the following label:
+To use fractional GPUs, label your pod with:
 
 ```yaml
 labels:
   clearml-injector/fraction: "<GPU_FRACTION_VALUE>"
 ```
 
-where `"<GPU_FRACTION_VALUE>"` must be equal one of following values:
+Valid values for `"<GPU_FRACTION_VALUE>"` include: 
 
-* "0.0625" (1/16th)
-* "0.125" (1/8th)
-* "0.250"
-* "0.375"
-* "0.500"
-* "0.625"
-* "0.750"
-* "0.875"
-
-Valid values for `"<GPU_FRACTION_VALUE>"` include integer representation of GPUs such as `1.000` or `2` or `2.0` etc.
+* Fractions: 
+  * "0.0625" (1/16th)
+  * "0.125" (1/8th)
+  * "0.250"
+  * "0.375"
+  * "0.500"
+  * "0.625"
+  * "0.750"
+  * "0.875"
+* Integer representation of GPUs such as `1.000`, `2`, `2.0`, etc.
 
 ### ClearML Enterprise Agent Configuration
 
-In order to specify resource allocation when using the CFGI, the following values configuration should be set in `clearml-agent-values.override.yaml`.
+To run ClearML jobs that request specific GPU fractions, configure the queues in your `clearml-agent-values.override.yaml` file.
 
-The label `clearml-injector/fraction: "<GPU_FRACTION_VALUE>"` is required in order to specify a fraction of the GPU to be 
-assigned to the pod started for a task pulled from the respective queue.
+Each queue should include a `templateOverride` that sets the `clearml-injector/fraction` label, which determines the 
+fraction of a GPU to allocate (e.g., "0.500" for half a GPU).
+
+This label is used by the CFGI to assign the correct portion of GPU resources to the pod running the task.
 
 #### CFGI Version >= 1.3.0
 
-Starting from version 1.3.0, there is no need to specify the resources field.
+Starting from version 1.3.0, there is no need to specify the resources field. You only need to set the labels:
+
 
 ``` yaml
 agentk8sglue:
@@ -221,6 +224,8 @@ agentk8sglue:
 ```
 
 #### CFGI Version < 1.3.0
+
+For versions older than 1.3.0, the GPU limits must be defined: 
 
 ```yaml
 agentk8sglue:
@@ -256,24 +261,22 @@ agentk8sglue:
 
 ## Upgrading Chart
 
-### Upgrades / Values Upgrades
-
-To update to the latest version of this chart:
+To upgrade to the latest version of this chart:
 
 ```bash
 helm repo update
 helm upgrade -n cfgi cfgi clearml-enterprise/clearml-fractional-gpu-injector
 ```
 
-To change values on an existing installation:
+To apply changes to values on an existing installation:
 
 ```bash
 helm upgrade -n cfgi cfgi clearml-enterprise/clearml-fractional-gpu-injector -f cfgi-values.override.yaml
 ```
 
-## Disable Fractions
+## Disabling Fractions
 
-To toggle between timeSlicing and vanilla full GPUs, remove the `devicePlugin.config` section from the `gpu-operator.override.yaml` 
+To revert to standard GPU scheduling (without time slicing), remove the `devicePlugin.config` section from the `gpu-operator.override.yaml` 
 file and upgrade the `gpu-operator`:
 
 ```yaml

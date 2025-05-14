@@ -2,14 +2,14 @@
 title: Install CDMO and CFGI on the same Cluster
 ---
 
-In clusters with multiple nodes with different GPU types, the `gpu-operator` can be used to manage different devices and 
-fractioning modes.
+In clusters with multiple nodes and varying GPU types, the `gpu-operator` can be used to manage different device configurations
+and fractioning modes.
 
 ## Configuring the NVIDIA GPU Operator
 
-The NVIDIA `gpu-operator` allows defining multiple configurations for the Device Plugin.
+The NVIDIA `gpu-operator` supports defining multiple configurations for the Device Plugin.
 
-The following YAML values define two usable configs as "mig" and "ts" (time-slicing).
+The following example YAML defines two configurations: "mig" and "ts" (time-slicing).
 
 ``` yaml
 migManager:
@@ -67,52 +67,50 @@ devicePlugin:
           migStrategy: mixed
 ```
 
-## Usage
+## Applying Configuration to Nodes
 
-Previously defined configurations need to be applied to Kubernetes nodes using labels. After a label is added to a node, 
-the NVIDIA `device-plugin` will automatically reconfigure it.
+To activate a configuration, label the Kubernetes node accordingly. After a node is labeled, 
+the NVIDIA `device-plugin` will automatically reload the new configuration.
 
-The following is an example using the previous configuration.
+Example usage:
+  * Apply the `mig` (MIG mode) config:
+    ``` bash
+    kubectl label node <NODE_NAME> nvidia.com/device-plugin.config=mig
+    ```
 
-* Apply the MIG `mig` config:
-  ``` bash
-  kubectl label node <NODE_NAME> nvidia.com/device-plugin.config=mig
-  ```
+  * Apply the `ts` (time slicing) config:
+    ``` bash
+    kubectl label node <NODE_NAME> nvidia.com/device-plugin.config=ts
+    ```
 
-* Apply the time slicing `ts` config:
-  ``` bash
-  kubectl label node <NODE_NAME> nvidia.com/device-plugin.config=ts
-  ```
+  * Apply the `all-disabled` (standard full GPU access) config:
+    ``` bash
+    kubectl label node <NODE_NAME> nvidia.com/device-plugin.config=all-disabled
+    ```
 
-* Apply the vanilla full GPUs `all-disabled` config:
-  ``` bash
-  kubectl label node <NODE_NAME> nvidia.com/device-plugin.config=all-disabled
-  ```
+## Installing CDMO and CFGI
 
-## Install CDMO and CFGI
+After configuring the NVIDIA `gpu-operator` and labeling nodes, proceed with the standard installations of [CDMO](cdmo.md) 
+and [CFGI](cfgi.md).
 
-After configuring the NVIDIA `gpu-operator` and labeling nodes, proceed with the standard [CDMO](cdmo.md) and [CFGI](cfgi.md) 
-installation.
-
-## Disabling
+## Disabling Configurations 
 
 ### Time Slicing
 
-To toggle between time slicing and vanilla full GPUs, simply toggle the label value between `ts` and `all-disabled` using 
-the `--overwrite` flag in kubectl.
+To switch between time-slicing and full GPU access, update the node label using the `--overwrite` flag:
 
 ### MIG
 
-To disable MIG, follow these steps:
+To disable MIG mode:
 
-1. Ensure there are no more running workflows requesting any form of GPU on the Node(s) before re-configuring it.
-2. Remove the CDMO label from the target Node(s) to disable the dynamic MIG reconfiguration.
+1. Ensure there are no more running workflows requesting any form of GPU on the node(s) before re-configuring it.
+2. Remove the CDMO label from the target node(s) to disable the dynamic MIG reconfiguration.
 
     ``` bash
     kubectl label nodes <NODE_NAME> "cdmo.clear.ml/gpu-partitioning-"
     ```
 
-3. Execute a shell into the `device-plugin-daemonset` Pod instance running on the target Node(s) and execute the following commands:
+3. Execute a shell in the `device-plugin-daemonset` Pod instance running on the target node(s) and execute the following commands:
 
     ``` bash
     nvidia-smi mig -dci
@@ -122,7 +120,7 @@ To disable MIG, follow these steps:
     nvidia-smi -mig 0
     ```
 
-4. Label the target node to disable MIG.
+4. Relabel the target node to disable MIG:
 
     ``` bash
     kubectl label node <NODE_NAME> nvidia.com/device-plugin.config=all-disabled --overwrite

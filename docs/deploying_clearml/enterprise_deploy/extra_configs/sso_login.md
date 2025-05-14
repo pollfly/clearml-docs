@@ -1,12 +1,21 @@
-# SSO (Identity Provider) Setup
+---
+title: SSO (Identity Provider) Setup
+---
 
-ClearML Enterprise Server supports various SSO options, values configurations can be set in `clearml-values.override.yaml`.
+ClearML Enterprise Server supports various Single Sign-On (SSO) identity providers.
+SSO configuration is managed via environment variables in your `clearml-values.override.yaml` file and applied to the `apiserver` component.
 
-The following are a few examples. Some other supported providers are Auth0, Keycloak, Okta, Azure, Google, Cognito.
+The following are configuration examples for commonly used providers. Other supported systems include: 
+* Auth0
+* Keycloak
+* Okta
+* Azure AD
+* Google
+* and AWS Cognito
 
 ## Auth0
 
-``` yaml
+```yaml
 apiserver:
   extraEnvs:
     - name: CLEARML__secure__login__sso__oauth_client__auth0__client_id
@@ -25,7 +34,7 @@ apiserver:
 
 ## Keycloak
 
-``` yaml
+```yaml
 apiserver:
   extraEnvs:
     - name: CLEARML__secure__login__sso__oauth_client__keycloak__client_id
@@ -42,19 +51,22 @@ apiserver:
       value: "true"
 ```
 
-### Note if using Groups Mapping
+## Group Membership Mapping in Keycloak
 
-When configuring the OpenID client for ClearML:
+To map Keycloak groups into the ClearML user's SSO token:
 
-- Navigate to the Client Scopes tab.
-- Click on the first row <clearml client>-dedicated.
-- Click "Add Mapper" â†’ "By configuration" and then select the "Group membership" option.
-- In the opened dialog, enter the name "groups" and the Token claim name "groups".
-- Uncheck the "Full group path" option and save the mapper.
+1. Go to the **Client Scopes** tab.
+1. Click on the first row `<clearml client>-dedicated`.
+1. Click **Add Mapper > By configuration > Group membership** 
+1. In the dialog:
+   * select the **Name** "groups" 
+   * Set **Token Claim Name** "groups"
+   * Uncheck the **Full group path**
+   * Save the mapper.
 
-To validate yourself:
+To verify:
 
-- Return to the Client Details â†’ Client scope tab.
-- Go to the Evaluate sub-tab and select a user who has any group memberships.
-- On the right side, navigate to the Generated ID token and then to Generated User Info.
-- Inspect that in both cases, you can see the group's claim in the displayed user data.
+1. Return to **Client Details > Client scope** tab.
+1. Go to the Evaluate sub-tab and select a user who has any group memberships.
+1. Go to **Generated ID token** and then to **Generated User Info**. 
+1Inspect that in both cases you can see the group's claim in the displayed user data.

@@ -1,10 +1,12 @@
-ðŸŸ¢ Ready
 ---
-# Multi-Node Training
+title: Multi-Node Training
+--- 
 
-The ClearML Enterprise Agent supports horizontal multi-node training executions. Here is a configuration example (in `clearml-agent-values.override.yaml`):
+The ClearML Enterprise Agent supports horizontal multi-node training--running a single Task across multiple Pods on different nodes.
 
-``` yaml
+Below is a configuration example using `clearml-agent-values.override.yaml`:
+
+```yaml
 agentk8sglue:
   # Cluster access is required to run multi-node Tasks
   serviceAccountClusterAccess: true

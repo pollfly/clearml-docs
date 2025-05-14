@@ -1,33 +1,42 @@
-# ClearML Presign Service
+---
+title: ClearML Presign Service
+---
 
-The ClearML Presign Service is a secure component for generating and redirecting pre-signed storage URLs for authenticated users.
+The ClearML Presign Service is a secure service that generates and redirects pre-signed storage URLs for authenticated 
+users, enabling direct access to cloud-hosted data (e.g., S3) without exposing credentials.
 
-# Prerequisites
+## Prerequisites
 
 - The ClearML Enterprise server is up and running.
-- Create a set of `<ACCESS_KEY>` and `<SECRET_KEY>` credentials in the ClearML Server. The easiest way to do so is from the ClearML UI (Settings â†’ Workspace â†’ App Credentials â†’ Create new credentials).
-Note: Make sure that the generated keys belong to an admin user or a service user with admin privileges.
-- The worker environment should be able to communicate to the ClearML Server over the same network.
+- Generate `<ACCESS_KEY>` and `<SECRET_KEY>` credentials in the ClearML Server. The easiest way is via the ClearML UI 
+  (**Settings > Workspace > App Credentials > Create new credentials**).
 
-# Installation
+  :::note
+  Make sure these credentials belong to an admin user or a service user with admin privileges.
+  :::
+ 
+- The worker environment must be able to access the ClearML Server over the same network.
 
-## Add the Helm Repo Locally
+
+## Installation
+
+### Add the Helm Repo Locally
 
 Add the ClearML Helm repository:
-``` bash
+```bash
 helm repo add clearml-enterprise https://raw.githubusercontent.com/clearml/clearml-enterprise-helm-charts/gh-pages --username <HELM_REPO_TOKEN> --password <HELM_REPO_TOKEN>
 ```
 
 Update the repository locally:
-``` bash
+```bash
 helm repo update
 ```
 
-## Prepare Values
+### Prepare Configuration
 
-Create a `presign-service.override.yaml` override file, replacing placeholders.
+Create a `presign-service.override.yaml` file (make sure to replace the placeholders):
 
-``` yaml
+```yaml
 imageCredentials:
   password: "<CLEARML_DOCKERHUB_TOKEN>"
 clearml:
@@ -39,21 +48,25 @@ ingress:
   hostName: "<PRESIGN_SERVICE_URL>"
 ```
 
-## Install
+### Deploy the Helm Chart
 
-Install the clearml-presign-service helm chart in the same namespace as the ClearML Enterprise server:
+Install the `clearml-presign-service` helm chart in the same namespace as the ClearML Enterprise server:
 
-``` bash
+```bash
 helm install -n clearml clearml-presign-service clearml-enterprise/clearml-presign-service -f presign-service.override.yaml
 ```
 
-## Configure ClearML Enterprise Server
+### Update ClearML Enterprise Server Configuration
 
-After installing, edit the ClearML Enterprise `clearml-values.override.yaml` file adding an extra environment variable to the apiserver component as follows, making sure to replace the `<PRESIGN_SERVICE_URL>` placeholder, then perform a helm upgrade.
+Enable the ClearML Server to use the Presign Service by editing your `clearml-values.override.yaml` file. 
+Add the following to the `apiserver.extraEnvs` section (make sure to replace `<PRESIGN_SERVICE_URL>`). 
 
-``` yaml
+```yaml
 apiserver:
   extraEnvs:
     - name: CLEARML__SERVICES__SYSTEM__COMPANY__DEFAULT__SERVICES
       value: "[{\"type\":\"presign\",\"url\":\"https://<PRESIGN_SERVICE_URL>\",\"use_fallback\":\"false\",\"match_sets\":[{\"rules\":[{\"field\":\"\",\"obj_type\":\"\",\"regex\":\"^s3://\"}]}]}]"
 ```
+
+Apply the changes with a Helm upgrade.
+

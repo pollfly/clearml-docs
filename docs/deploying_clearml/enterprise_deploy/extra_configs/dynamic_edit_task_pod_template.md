@@ -1,40 +1,38 @@
-ðŸŸ¢ Ready
-TODO in future:
-- Add NFS Example - https://allegroai.atlassian.net/wiki/x/AoCUiQ?atlOrigin=eyJpIjoiMjNiNTcxYTJiMzUxNDVhMThiODlhMTcwYzE1YWE3ZTUiLCJwIjoiYyJ9
-
+---
+title: Dynamically Edit Task Pod Template
 ---
 
-# Dynamically Edit Task Pod Template
+The ClearML Enterprise Agent supports defining custom Python code  to modify a task's Pod template before it is applied 
+to Kubernetes.
 
-The ClearML Enterprise Agent supports defining custom Python code for interacting with a Task's Pod template before it gets applied to Kubernetes.
+This enables dynamic customization of Task Pod manifests in the context of a ClearML Enterprise Agent, which is useful 
+for injecting values or changing configurations based on runtime context.
 
-This allows to dynamically edit a Task Pod manifest in the context of a ClearML Enterprise Agent and can be useful in a variety of scenarios such as customizing fields based on variables.
+## Agent Configuration
 
-# Agent Configuration
+The `CLEARML_K8S_GLUE_TEMPLATE_MODULE` environment variable defines the Python module and function inside that 
+module that the ClearML Enterprise Agent should invoke before applying a Task Pod template. 
 
-The `CLEARML_K8S_GLUE_TEMPLATE_MODULE` environment variable is used to indicate a Python module and function inside that module for the ClearML Enterprise Agent to run before applying a Task Pod template. The Agent will run this code from its own context, pass some arguments (including the actual template) to the function and use the returned template to create the final Task Pod in Kubernetes.
+The Agent will run this code in its own context, pass arguments (including the actual template) to the function, and use 
+the returned template to create the final Task Pod in Kubernetes.
 
 Arguments passed to the function include:
 
-`queue` - ID of the queue (string) from which the task was pulled.
+* `queue` (string) - ID of the queue from which the task was pulled.
+* `queue_name` (string) - Name of the queue from which the task was pulled.
+* `template` (Python dictionary) - Base Pod template created from the agent's configuration and any queue-specific overrides.
+* `task_data` (object) - Task data object (as returned by the `tasks.get_by_id` API call). For example, use `task_data.project` to get the task's project ID.
+* `providers_info` (dictionary) - Provider info containing optional information collected for the user running this task 
+  when the user logged into the system (requires additional server configuration).
+* `task_config` (`clearml_agent.backend_config.Config` object) - Task configuration containing configuration vaults applicable 
+  for the user running this task, and other configuration. Use `task_config.get("...")` to get specific configuration values.
+* `worker` - The agent Python object in case custom calls might be required.
 
-`queue_name` - Name of the queue (string) from which the task was pulled.
+### Usage
 
-`template` - Base template (python dictionary) created from the agentâ€™s values, with any specific overrides for the queue from which the task was pulled.
+Update `clearml-agent-values.override.yaml` to include:
 
-`task_data` - Task data structure (object) containing the taskâ€™s information (as returned by the tasks.get_by_id API call). For example, use task_data.project to get the taskâ€™s project ID.
-
-`providers_info` - Providers info (dictionary) containing optional information collected for the user running this task when the user logged into the system (requires additional server configuration).
-
-`task_config` - Task configuration (clearml_agent.backend_config.Config object) containing the configuration used to run this task. This includes any overrides added in Vaults applicable for the user running this task. Use task_config.get("...") to get specific configuration values.
-
-`worker` - the agent Python object, in case custom calls might be required.
-
-## Usage
-
-Edit the `clearml-agent-values.override.yaml` file adding the following:
-
-``` yaml
+```yaml
 agentk8sglue:
   extraEnvs:
    - name: CLEARML_K8S_GLUE_TEMPLATE_MODULE
@@ -61,24 +59,28 @@ agentk8sglue:
           return {"template": template}
 ```
 
-## Notes
+:::note notes
+* Make sure to include `*args, **kwargs` at the end of the function's argument list and to only use keyword arguments. 
+  This is needed to maintain backward compatibility.
 
-**Note**: Make sure to include `*args, **kwargs` at the end of the functionâ€™s argument list and to only use keyword arguments. This is needed to maintain backward compatibility and make sure any added named arguments or changes in the arguments order in new agent versions wonâ€™t affect your implementation.
+* Custom code modules can be included as a file in the pod's container, and the environment variable can be used to
+  point to the file and entry point.
 
-**Note**: Custom code modules can be included as a file in the Pod's container and the environment variable can be used to simply point to the file and entry point.
+* When defining a custom code module, by default the Agent will start watching pods in all namespaces 
+  across the cluster. If you do not intend to give a `ClusterRole` permission, make sure to set the 
+  `CLEARML_K8S_GLUE_MONITOR_ALL_NAMESPACES` env to `"0"` to prevent the Agent to try listing pods in all namespaces. 
+  Instead, set it to `"1"` if namespace-related changes are needed in the code.
 
-**Note**: When defining a custom code module, by default the ClearML Etnerprise Agent will start watching Pods in all namespaces across the Cluster. If you do not intend to give a ClusterRole permission, make sure to set the `CLEARML_K8S_GLUE_MONITOR_ALL_NAMESPACES` env to `"0"` to prevent the ClearML Enterprise Agent to try listing Pods in all namespaces. Instead, set it to `"1"` if namespace-related changes are needed in the code.
+  ```yaml
+  agentk8sglue:
+    extraEnvs:
+      - name: CLEARML_K8S_GLUE_MONITOR_ALL_NAMESPACES
+        value: "0"
+  ```
 
-``` yaml
-agentk8sglue:
-  extraEnvs:
-    - name: CLEARML_K8S_GLUE_MONITOR_ALL_NAMESPACES
-      value: "0"
-```
+  To customize the bash startup scripts instead of the pod spec, use:
 
-**Note**: If you want instead to modify the Bash script used to start the Task Pod or the Agent, see here instead:
-
-``` yaml
+```yaml
 agentk8sglue:
   # -- Custom Bash script for the Agent pod ran by Glue Agent
   customBashScript: ""
@@ -86,11 +88,11 @@ agentk8sglue:
   containerCustomBashScript: ""
 ```
 
-# Examples
+## Examples
 
-## Example â€“ Edit Template based on ENV var
+### Example: Edit Template Based on ENV Var
 
-``` yaml
+```yaml
 agentk8sglue:
   extraEnvs:
    - name: CLEARML_K8S_GLUE_TEMPLATE_MODULE
@@ -131,9 +133,9 @@ agentk8sglue:
         emptyDir: {}
 ```
 
-## Example â€“ NFS Mount Path
+### Example: Inject NFS Mount Path
 
-``` yaml
+```yaml
 agentk8sglue:
   extraEnvs:
    - name: CLEARML_K8S_GLUE_TEMPLATE_MODULE
@@ -163,23 +165,25 @@ agentk8sglue:
             return {"template": template}
 ```
 
-# Bind Additional Resources to Task Pod (PVC Example)
+### Example: Bind PVC Resource to Task Pod
 
-In this example, a dedicated PVC is dynamically created and attached to every Pod created from a dedicated queue, then deleted after the Pod deletion.
+In this example, a PVC is created and attached to every Pod created from a dedicated queue, then deleted afterwards.
 
-The following code block is commented to explain the context.
+Key points:
 
-The key points are:
+- `CLEARML_K8S_GLUE_POD_PRE_APPLY_CMD` and `CLEARML_K8S_GLUE_POD_POST_DELETE_CMD` env vars let you define custom bash 
+  code hooks to be executed around the main apply command by the Agent, such as creating and deleting a PVC object.
 
-- `CLEARML_K8S_GLUE_POD_PRE_APPLY_CMD` and `CLEARML_K8S_GLUE_POD_POST_DELETE_CMD` env vars let you define custom bash code hooks to be executed around the main apply command by the Agent, such as creating and deleting a PVC object.
+- `CLEARML_K8S_GLUE_TEMPLATE_MODULE` env var and a file mount let you define custom Python code in a specific context, 
+  useful to dynamically update the main Pod template before the Agent applies it.
 
-- `CLEARML_K8S_GLUE_TEMPLATE_MODULE` env var and a file mount let you define custom Python code in a specific context, useful to dynamically update the main Pod template before the Agent applies it.
+:::note notes
+* This example uses a queue named `pvc-test`, make sure to replace all occurrences of it.
 
-**Note**: This example uses a queue named `pvc-test`, make sure to replace all occurrences of it.
+* `CLEARML_K8S_GLUE_POD_PRE_APPLY_CMD` can reference templated vars as `{queue_name}, {pod_name}, {namespace}` that will 
+  get replaced with the actual value by the Agent at execution time.
 
-**Note**: `CLEARML_K8S_GLUE_POD_PRE_APPLY_CMD` can reference templated vars as `{queue_name}, {pod_name}, {namespace}` that will get replaced with the actual value by the Agent at execution time.
-
-``` yaml
+```yaml
 agentk8sglue:
   # Bind a pre-defined custom 'custom-agent-role' Role with the ability to handle 'persistentvolumeclaims'
   additionalRoleBindings:
@@ -246,9 +250,11 @@ agentk8sglue:
             name: task-pvc
 ```
 
-Example of `custom-agent-role` Role with permissions to handle `persistentvolumeclaims`:
+### Example: Required Role 
 
-``` yaml
+The following is an example of `custom-agent-role` Role with permissions to handle `persistentvolumeclaims`:
+
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
