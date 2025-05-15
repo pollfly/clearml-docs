@@ -2,18 +2,15 @@
 title: Dynamically Edit Task Pod Template
 ---
 
-The ClearML Enterprise Agent supports defining custom Python code  to modify a task's Pod template before it is applied 
-to Kubernetes.
+ClearML Agent allows you to inject custom Python code to dynamically modify the Kubernetes Pod template before applying it. 
 
-This enables dynamic customization of Task Pod manifests in the context of a ClearML Enterprise Agent, which is useful 
-for injecting values or changing configurations based on runtime context.
 
 ## Agent Configuration
 
 The `CLEARML_K8S_GLUE_TEMPLATE_MODULE` environment variable defines the Python module and function inside that 
-module that the ClearML Enterprise Agent should invoke before applying a Task Pod template. 
+module to be invoked by the agent before applying a task pod template. 
 
-The Agent will run this code in its own context, pass arguments (including the actual template) to the function, and use 
+The agent will run this code in its own context, pass arguments (including the actual template) to the function, and use 
 the returned template to create the final Task Pod in Kubernetes.
 
 Arguments passed to the function include:
@@ -60,13 +57,13 @@ agentk8sglue:
 ```
 
 :::note notes
-* Make sure to include `*args, **kwargs` at the end of the function's argument list and to only use keyword arguments. 
+* Always include `*args, **kwargs` at the end of the function's argument list and only use keyword arguments. 
   This is needed to maintain backward compatibility.
 
 * Custom code modules can be included as a file in the pod's container, and the environment variable can be used to
   point to the file and entry point.
 
-* When defining a custom code module, by default the Agent will start watching pods in all namespaces 
+* When defining a custom code module, by default the agent will start watching pods in all namespaces 
   across the cluster. If you do not intend to give a `ClusterRole` permission, make sure to set the 
   `CLEARML_K8S_GLUE_MONITOR_ALL_NAMESPACES` env to `"0"` to prevent the Agent to try listing pods in all namespaces. 
   Instead, set it to `"1"` if namespace-related changes are needed in the code.
@@ -80,13 +77,13 @@ agentk8sglue:
 
   To customize the bash startup scripts instead of the pod spec, use:
 
-```yaml
-agentk8sglue:
-  # -- Custom Bash script for the Agent pod ran by Glue Agent
-  customBashScript: ""
-  # -- Custom Bash script for the Task Pods ran by Glue Agent
-  containerCustomBashScript: ""
-```
+  ```yaml
+  agentk8sglue:
+    # -- Custom Bash script for the Agent pod ran by Glue Agent
+    customBashScript: ""
+    # -- Custom Bash script for the Task Pods ran by Glue Agent
+    containerCustomBashScript: ""
+  ```
 
 ## Examples
 
@@ -167,7 +164,7 @@ agentk8sglue:
 
 ### Example: Bind PVC Resource to Task Pod
 
-In this example, a PVC is created and attached to every Pod created from a dedicated queue, then deleted afterwards.
+In this example, a PVC is created and attached to every pod created from a dedicated queue, then it is deleted.
 
 Key points:
 

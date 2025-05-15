@@ -2,7 +2,8 @@
 title: Multi-Node Training
 --- 
 
-The ClearML Enterprise Agent supports horizontal multi-node training--running a single Task across multiple Pods on different nodes.
+The ClearML Enterprise Agent supports horizontal multi-node training, allowing a single Task to run across multiple pods 
+on different nodes.
 
 Below is a configuration example using `clearml-agent-values.override.yaml`:
 

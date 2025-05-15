@@ -2,34 +2,36 @@
 title: ClearML Fractional GPU Injector (CFGI)
 ---
 
-The **ClearML Enterprise Fractional GPU Injector** (CFGI) allows AI workloads to run on Kubernetes using non-MIG GPU 
-fractions, optimizing both hardware utilization and performance.
+The **ClearML Enterprise Fractional GPU Injector** (CFGI) allows AI workloads to utilize fractional (non-MIG) GPU slices 
+on Kubernetes clusters, maximizing hardware efficiency and performance.
 
 ## Installation
 
 ### Add the Local ClearML Helm Repository
 
-``` bash
+```bash
 helm repo add clearml-enterprise https://raw.githubusercontent.com/clearml/clearml-enterprise-helm-charts/gh-pages --username <GITHUB_TOKEN> --password <GITHUB_TOKEN>
 helm repo update
 ```
 
 ### Requirements
 
-* Install the official NVIDIA `gpu-operator` using Helm with one of the following configurations.
-* The number of slices must be 8.
+* Install the NVIDIA `gpu-operator` using Helm
+* Set the number of GPU slices to 8
 * Add and update the Nvidia Helm repo:
 
-  ``` bash
+  ```bash
   helm repo add nvidia https://nvidia.github.io/gpu-operator
   helm repo update
   ```
+  
+* Credentials for the ClearML Enterprise DockerHub repository
 
-#### GPU Operator Configuration
+### GPU Operator Configuration
 
-##### For CFGI Version >= 1.3.0
+#### For CFGI Version >= 1.3.0
 
-1. Create a docker-registry secret named `clearml-dockerhub-access` in the `gpu-operator` Namespace, making sure to replace your `<CLEARML_DOCKERHUB_TOKEN>`:
+1. Create a Docker Registry secret named `clearml-dockerhub-access` in the `gpu-operator` namespace. Make sure to replace `<CLEARML_DOCKERHUB_TOKEN>` with your token.
 
   ```bash
   kubectl create secret -n gpu-operator docker-registry clearml-dockerhub-access \
@@ -101,11 +103,11 @@ devicePlugin:
               replicas: 8
 ```
 
-##### For CFGI version < 1.3.0 (Legacy GPU Operator)
+#### For CFGI version < 1.3.0 (Legacy)
 
 Create a `gpu-operator.override.yaml` file:
 
-``` yaml
+```yaml
 toolkit:
   env:
     - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_ENVVAR_WHEN_UNPRIVILEGED
@@ -144,26 +146,26 @@ devicePlugin:
                 replicas: 8
 ```
 
-### Install
+### Install GPU Operator and CFGI 
 
-Install the nvidia `gpu-operator` using the previously created `gpu-operator.override.yaml` override file:
+1. Install the NVIDIA `gpu-operator` using the previously created `gpu-operator.override.yaml` file:
 
-```bash
-helm install -n gpu-operator gpu-operator nvidia/gpu-operator --create-namespace -f gpu-operator.override.yaml
-```
+  ```bash
+  helm install -n gpu-operator gpu-operator nvidia/gpu-operator --create-namespace -f gpu-operator.override.yaml
+  ```
 
-Create a `cfgi-values.override.yaml` file with the following content:
+1. Create a `cfgi-values.override.yaml` file with the following content:
 
-```yaml
-imageCredentials:
-  password: "<CLEARML_DOCKERHUB_TOKEN>"
-```
+  ```yaml
+  imageCredentials:
+    password: "<CLEARML_DOCKERHUB_TOKEN>"
+  ```
 
-Install the CFGI Helm Chart using the previous override file:
+1. Install the CFGI Helm Chart using the previous override file:
 
-```bash
-helm install -n cfgi cfgi clearml-enterprise/clearml-fractional-gpu-injector --create-namespace -f cfgi-values.override.yaml
-```
+  ```bash
+  helm install -n cfgi cfgi clearml-enterprise/clearml-fractional-gpu-injector --create-namespace -f cfgi-values.override.yaml
+  ```
 
 ## Usage
 
@@ -187,9 +189,9 @@ Valid values for `"<GPU_FRACTION_VALUE>"` include:
   * "0.875"
 * Integer representation of GPUs such as `1.000`, `2`, `2.0`, etc.
 
-### ClearML Enterprise Agent Configuration
+### ClearML Agent Configuration
 
-To run ClearML jobs that request specific GPU fractions, configure the queues in your `clearml-agent-values.override.yaml` file.
+To run ClearML jobs with fractional GPU allocation, configure your queues in accordingly in your `clearml-agent-values.override.yaml` file.
 
 Each queue should include a `templateOverride` that sets the `clearml-injector/fraction` label, which determines the 
 fraction of a GPU to allocate (e.g., "0.500" for half a GPU).
@@ -259,16 +261,16 @@ agentk8sglue:
             nvidia.com/gpu: 1
 ```
 
-## Upgrading Chart
+## Upgrading CFGI Chart
 
-To upgrade to the latest version of this chart:
+To upgrade to the latest chart version:
 
 ```bash
 helm repo update
 helm upgrade -n cfgi cfgi clearml-enterprise/clearml-fractional-gpu-injector
 ```
 
-To apply changes to values on an existing installation:
+To apply new values to an existing installation:
 
 ```bash
 helm upgrade -n cfgi cfgi clearml-enterprise/clearml-fractional-gpu-injector -f cfgi-values.override.yaml

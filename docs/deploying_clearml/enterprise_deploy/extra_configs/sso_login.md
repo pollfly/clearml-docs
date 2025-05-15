@@ -3,7 +3,8 @@ title: SSO (Identity Provider) Setup
 ---
 
 ClearML Enterprise Server supports various Single Sign-On (SSO) identity providers.
-SSO configuration is managed via environment variables in your `clearml-values.override.yaml` file and applied to the `apiserver` component.
+SSO configuration is managed via environment variables in your `clearml-values.override.yaml` file and is applied to the 
+`apiserver` component.
 
 The following are configuration examples for commonly used providers. Other supported systems include: 
 * Auth0
@@ -11,7 +12,7 @@ The following are configuration examples for commonly used providers. Other supp
 * Okta
 * Azure AD
 * Google
-* and AWS Cognito
+* AWS Cognito
 
 ## Auth0
 
@@ -56,17 +57,17 @@ apiserver:
 To map Keycloak groups into the ClearML user's SSO token:
 
 1. Go to the **Client Scopes** tab.
-1. Click on the first row `<clearml client>-dedicated`.
-1. Click **Add Mapper > By configuration > Group membership** 
-1. In the dialog:
-   * select the **Name** "groups" 
+1. Click on the `<clearml client>-dedicated` scope.
+1. Click **Add Mapper > By Configuration > Group Membership** 
+1. Configure the mapper:
+   * Select the **Name** "groups" 
    * Set **Token Claim Name** "groups"
    * Uncheck the **Full group path**
    * Save the mapper.
 
 To verify:
 
-1. Return to **Client Details > Client scope** tab.
-1. Go to the Evaluate sub-tab and select a user who has any group memberships.
-1. Go to **Generated ID token** and then to **Generated User Info**. 
-1Inspect that in both cases you can see the group's claim in the displayed user data.
+1. Go to the **Client Details > Client scope** tab.
+1. Go to the **Evaluate** sub-tab and select a user with any group memberships.
+1. Go to **Generated ID Token** and then to **Generated User Info**. 
+1. Inspect that in both cases you can see the group's claim in the displayed user data.

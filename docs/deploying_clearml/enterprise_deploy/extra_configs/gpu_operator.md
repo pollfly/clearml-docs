@@ -2,10 +2,12 @@
 title: Basic Deployment - Suggested GPU Operator Values
 ---
 
+This guide provides recommended configuration values for deploying the NVIDIA GPU Operator alongside ClearML Enterprise. 
 
 ## Add the Helm Repo Locally
 
 Add the NVIDIA GPU Operator Helm repository:
+
 ```bash
 helm repo add nvidia https://nvidia.github.io/gpu-operator
 ```
@@ -17,10 +19,8 @@ helm repo update
 
 ## Installation
 
-To prevent unprivileged containers from bypassing the Kubernetes Device Plugin API, configure the GPU operator with the 
-following override values.
-
-Create a `gpu-operator.override.yaml` file with the following content:
+To prevent unprivileged containers from bypassing the Kubernetes Device Plugin API, configure the GPU operator 
+using the following `gpu-operator.override.yaml` file:
 
 ```yaml
 toolkit:
@@ -53,7 +53,7 @@ helm install -n gpu-operator gpu-operator nvidia/gpu-operator --create-namespace
 
 ## Fractional GPU Support
 
-For support with fractional GPUs, refer to the dedicated guides:
+To enable fractional GPU allocation or manage mixed GPU configurations, refer to the following guides:
 * [ClearML Dynamic MIG Operator](../fractional_gpus/cdmo.md) (CDMO) – Dynamically configures MIG GPUs on supported devices.
 * [ClearML Enterprise Fractional GPU Injector](../fractional_gpus/cfgi.md) (CFGI) – Enables fractional (non-MIG) GPU 
   allocation for better hardware utilization and workload distribution in Kubernetes.

@@ -2,13 +2,11 @@
 title: ClearML Dynamic MIG Operator (CDMO)
 ---
 
-The  ClearML Dynamic MIG Operator (CDMO) enables dynamic MIG GPU configurations.
+The  ClearML Dynamic MIG Operator (CDMO) enables dynamic MIG (Multi-Instance GPU) configurations.
 
 ## Installation
 
 ### Requirements
-
-* Install the official NVIDIA `gpu-operator` using Helm with one of the following configurations.
 
 * Add and update the Nvidia Helm repo:
 
@@ -46,7 +44,7 @@ The  ClearML Dynamic MIG Operator (CDMO) enables dynamic MIG GPU configurations.
         value: all
   ```
 
-* Install the official NVIDIA `gpu-operator` using Helm with the previous configuration:
+* Install the NVIDIA `gpu-operator` using Helm with the previous configuration:
 
   ```bash
   helm install -n gpu-operator gpu-operator nvidia/gpu-operator --create-namespace -f gpu-operator.override.yaml
@@ -54,33 +52,33 @@ The  ClearML Dynamic MIG Operator (CDMO) enables dynamic MIG GPU configurations.
 
 ### Installing CDMO 
 
-* Create a `cdmo-values.override.yaml` file with the following content:
+1. Create a `cdmo-values.override.yaml` file with the following content:
 
   ```yaml
   imageCredentials:
     password: "<CLEARML_DOCKERHUB_TOKEN>"
   ```
 
-* Install the CDMO Helm Chart using the previous override file:
+1. Install the CDMO Helm Chart using the previous override file:
 
   ```bash
   helm install -n cdmo cdmo clearml-enterprise/clearml-dynamic-mig-operator --create-namespace -f cdmo-values.override.yaml
   ```
 
-* Enable the NVIDIA MIG support on your cluster by running the following command on all nodes with a MIG-supported GPU 
+1. Enable the NVIDIA MIG support on your cluster by running the following command on all nodes with a MIG-supported GPU 
   (run it for each GPU `<GPU_ID>` on the host):
 
   ```bash
   nvidia-smi -mig 1
   ```
 
-:::note notes
-* The node reboot may be required if the command output indicates so.
+  :::note notes
+  * A node reboot may be required if the command output indicates so.
+  
+  * For convenience, this command can be run from within the `nvidia-device-plugin-daemonset` pod running on the related node.
+  :::
 
-* For convenience, this command can be issued from inside the `nvidia-device-plugin-daemonset` pod running on the related node.
-:::
-
-* Any MIG-enabled GPU node `<NODE_NAME>` from the last point must be labeled accordingly as follows:
+1. Label all MIG-enabled GPU node `<NODE_NAME>` from the previous step:
 
   ```bash
   kubectl label nodes <NODE_NAME> "cdmo.clear.ml/gpu-partitioning=mig"
@@ -88,7 +86,7 @@ The  ClearML Dynamic MIG Operator (CDMO) enables dynamic MIG GPU configurations.
 
 ## Disabling MIGs
 
-To disable MIG, follow these steps:
+To disable MIG mode and restore standard full-GPU access:
 
 1. Ensure no running workflows are using GPUs on the target node(s).
 
@@ -108,7 +106,7 @@ To disable MIG, follow these steps:
     nvidia-smi -mig 0
     ```
 
-4. Edit the `gpu-operator.override.yaml` file to have a standard configuration for full GPUs, and upgrade the `gpu-operator`:
+4. Edit the `gpu-operator.override.yaml` file to restore full-GPU access, and upgrade the `gpu-operator`:
 
     ```yaml
     toolkit:
