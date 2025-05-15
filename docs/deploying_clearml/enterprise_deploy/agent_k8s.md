@@ -6,15 +6,16 @@ The ClearML Agent enables scheduling and executing distributed experiments on a 
 
 ## Prerequisites
 
-- The ClearML Enterprise server is up and running.
+- A ClearML Enterprise server is up and running.
 - Generate a set of `<ACCESS_KEY>` and `<SECRET_KEY>` credentials in the ClearML Server. The easiest way is via 
-  the ClearML UI (**Settings > Workspace > App Credentials > Create new credentials**).
+  the ClearML UI (**Settings > Workspace > API Credentials > Create new credentials**). For more information, see [ClearML API Credentials](../../webapp/settings/webapp_settings_profile.md#clearml-api-credentials). 
 
   :::note
   Make sure these credentials belong to an admin user or a service user with admin privileges.
   :::
  
 - The worker environment must be able to access the ClearML Server over the same network.
+- * Helm token to access `clearml-enterprise` helm-chart repo
 
 ## Installation
 
@@ -37,7 +38,7 @@ Create a `clearml-agent-values.override.yaml` file with the following content:
 :::note
 Replace the `<ACCESS_KEY>` and `<SECRET_KEY>` with the admin credentials 
 you created earlier. Set `<api|file|web>ServerUrlReference` to the relevant URLs of your ClearML 
-control-plane installation.
+Server installation.
 :::
 
 ```yaml
@@ -75,9 +76,9 @@ helm show readme clearml-enterprise/clearml-enterprise-agent
 helm show values clearml-enterprise/clearml-enterprise-agent
 ```
 
-### Report GPUs to the Dashboard
+### Set GPU Availability in Orchestration Dashboard
 
-To show GPU availability in the dashboard, explicitly set the number of GPUs:
+To show GPU availability in the [Orchestration Dashboard](../../webapp/webapp_orchestration_dash.md), explicitly set the number of GPUs:
 
 ```yaml
 agentk8sglue:
@@ -87,7 +88,7 @@ agentk8sglue:
 
 ### Queues
 
-The ClearML Agent on Kubernetes monitors ClearML queues and pulls tasks that are scheduled for execution.
+The ClearML Agent monitors ClearML queues and pulls tasks that are scheduled for execution.
 
 A single agent can monitor multiple queues. By default, the queues share a base pod template (`agentk8sglue.basePodTemplate`) 
 used when submitting a task to Kubernetes after it has been extracted from the queue.

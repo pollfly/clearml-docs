@@ -7,7 +7,7 @@ users, enabling direct access to cloud-hosted data (e.g., S3) without exposing c
 
 ## Prerequisites
 
-- The ClearML Enterprise server is up and running.
+- A ClearML Enterprise server is up and running.
 - Generate `<ACCESS_KEY>` and `<SECRET_KEY>` credentials in the ClearML Server. The easiest way is via the ClearML UI 
   (**Settings > Workspace > App Credentials > Create new credentials**).
 
