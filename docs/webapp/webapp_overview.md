@@ -81,7 +81,7 @@ The ClearML UI provides two search options on most pages:
   on the top banner of every page searches the whole WebApp for objects that match the queries as specified above and 
   returns results grouped by object (projects, tasks, models, etc.).
 
-To use regular expressions, click the .* icon in the search bar.
+To use regular expressions, click the `.*` icon in the search bar.
 
 ![WebApp Search options](../img/webapp_search_options.png#light-mode-only)
 ![WebApp Search options](../img/webapp_search_options_dark.png#dark-mode-only)
