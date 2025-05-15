@@ -20,7 +20,7 @@ To deploy a ClearML Server, ensure the following components and configurations a
   range of ports for TCP traffic based on your configuration (see [AI App Gateway installation](appgw_install_k8s.md)).
 - DNS Configuration: A domain with subdomain support is required, ideally with trusted TLS certificates. All entries must 
   be resolvable by the Ingress controller. Example subdomains:
-  - Control Plane:
+  - Server:
     - `api.<BASE_DOMAIN>`
     - `app.<BASE_DOMAIN>`
     - `files.<BASE_DOMAIN>`
@@ -165,5 +165,5 @@ apiserver:
 
 ## Next Steps
 
-Once the ClearML Enterprise control-plane is up and running, proceed with installing the ClearML Enterprise Agent and 
+Once the ClearML Enterprise Server is up and running, proceed with installing the ClearML Enterprise Agent and 
 [AI App Gateway](appgw_install_k8s.md).
