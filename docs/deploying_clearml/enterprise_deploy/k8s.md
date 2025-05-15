@@ -2,17 +2,17 @@
 title: Kubernetes
 ---
 
-This guide provides step-by-step instructions for installing the ClearML Enterprise control-plane setup in a Kubernetes cluster.
+This guide provides step-by-step instructions for installing the ClearML Enterprise Server (control-plane) in a Kubernetes cluster.
 
-ClearML Enterprise is the main ClearML Server, comprising the ClearML `apiserver`, `fileserver`, and `webserver` components. 
+The ClearML Enterprise Server includes the ClearML `apiserver`, `fileserver`, and `webserver` components. 
 The package also includes MongoDB, ElasticSearch, and Redis as Helm dependencies.
 
 
 ## Prerequisites
 
-To deploy ClearML Enterprise, ensure the following components and configurations are in place:
+To deploy a ClearML Server, ensure the following components and configurations are in place:
 
-- Kubernetes Cluster: A vanilla Kubernetes cluster is preferred for optimal GPU support.
+- Kubernetes Cluster: A standard Kubernetes cluster is preferred for optimal GPU support.
 - CLI Tools: `kubectl` and `helm` must be installed and configured.
 - Ingress Controller: An Ingress controller (e.g., `nginx-ingress`) is required. If exposing services externally, a 
   LoadBalancer-capable solution (e.g. `MetalLB`) should also be configured.

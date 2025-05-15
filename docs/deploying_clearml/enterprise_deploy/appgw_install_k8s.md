@@ -67,7 +67,7 @@ tcpSession:
 **Configuration options:**
 
 * `imageCredentials.password`: ClearML DockerHub Access Token.
-* `clearml.apiKey` and `clearml.apiSecret`: API credentials created in the ClearML web UI by an Admin user or Service 
+* `clearml.apiKey` and `clearml.apiSecret`: [API credentials](../../webapp/settings/webapp_settings_profile.md#clearml-api-credentials) created in the ClearML web UI by an Admin user or Service 
   Account with admin privileges. Make sure to label these credentials clearly, so that they will not be revoked by mistake.
 * `clearml.apiServerUrlReference`: ClearML API server URL starting with `https://api.`.  
 * `clearml.authCookieName`: Cookie used by the ClearML server to store the ClearML authentication cookie.
@@ -95,7 +95,7 @@ helm upgrade --install <RELEASE_NAME> -n <WORKLOAD_NAMESPACE> clearml-enterprise
 Replace the placeholders with the following values:
 
 * `<RELEASE_NAME>` - Unique name for the App Gateway within the K8s namespace. This is a required parameter in 
-  Helm, which identifies a specific installation of the chart. The release name also defines the App Gatewayâ€™s name and 
+  Helm, which identifies a specific installation of the chart. The release name also defines the App Gateway's name and 
   appears in the UI within AI workload application URLs (e.g. Remote IDE URLs). This can be customized to support multiple installations within the same 
   namespace by assigning different release names.
 * `<WORKLOAD_NAMESPACE>` - [Kubernetes Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 
