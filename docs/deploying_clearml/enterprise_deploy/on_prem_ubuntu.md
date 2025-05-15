@@ -154,7 +154,7 @@ should be reviewed and modified prior to the server installation
      fixed_users {
        enabled: true,
        users: [
-         {username: "support", password: "<enter password here>", admin: true, name: "allegro.ai Support User"},
+         {username: "support", password: "<enter password here>", admin: true, name: "ClearML Support User"},
        ]
      } 
    }
