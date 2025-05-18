@@ -105,3 +105,11 @@ Replace the placeholders with the following values:
   namespace-limited scope, meaning it can only detect and manage tasks within its 
   assigned namespace.
 * `<CHART_VERSION>` - Version recommended by the ClearML Support Team.
+
+## Monitoring and Testing the Gateway
+
+Once your gateway is deployed, you can monitor its status, view routed tasks, and run connectivity tests in 
+ClearML WebApp, under **Settings > Application Gateway**.
+
+![App Gateway Test](../../img/settings_app_gateway_test.png#light-mode-only)
+![App Gateway Test](../../img/settings_app_gateway_test_dark.png#dark-mode-only)

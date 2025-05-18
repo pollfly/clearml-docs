@@ -164,3 +164,11 @@ to `false` in the `runtime.env` file.
    ```
    
  Make sure `LISTEN_QUEUE_NAME` is set in the  [`docker-compose` environment variables](#docker-compose-file) for each router instance.
+ 
+## Monitoring and Testing the Gateway
+
+Once your gateway is deployed, you can monitor its status, view routed tasks, and run connectivity tests in 
+ClearML WebApp, under **Settings > Application Gateway**.
+
+![App Gateway Test](../../img/settings_app_gateway_test.png#light-mode-only)
+![App Gateway Test](../../img/settings_app_gateway_test_dark.png#dark-mode-only)
