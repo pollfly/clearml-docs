@@ -22,6 +22,18 @@ and frame metadata, as well as view frame masks of your dataset version frames.
 ![Frame viewer](../../img/hyperdatasets/dataset_example_frame_editor.png#light-mode-only)
 ![Frame viewer](../../img/hyperdatasets/dataset_example_frame_editor_dark.png#dark-mode-only)
 
+### Viewing FrameGroup Data
+
+FrameGroup information is organized across several panels in the Frame Viewer: 
+* **FrameGroup Details** – Displays all FrameGroup details except metadata. The details include: general fields (e.g. 
+  `context_id`, dataset ID and version, timestamp, etc.) as well as annotation (e.g. `rois`, their `labels`, `confidence`, etc.) 
+  * Click <img src="/docs/latest/icons/ico-metadata.svg" alt="edit metadata" className="icon size-md space-sm" /> to view the details in a larger window. 
+  * Click <img src="/docs/latest/icons/ico-code-file.svg" alt="view schema" className="icon size-md space-sm" /> to view the dataset's frame document schema. This covers all possible fields in the dataset
+* **FrameGroup Metadata** – Displays FrameGroup-level metadata. Displays only the contents of the `frame.meta` field—typically used for structured metadata or custom key-value data.
+  * Click <img src="/docs/latest/icons/ico-metadata.svg" alt="edit metadata" className="icon size-md space-sm" /> to modify the metadata field.
+* **Annotations** - Review and modify frame annotations. For more information, see [Masks](#masks) and [Annotations](#annotations).
+
+
 ### Frame Viewer Controls
 
 Use frame viewer controls to navigate between frames in a Hyper-Dataset Version, and control frame changes and viewing.
@@ -113,7 +125,7 @@ If an annotation applies to all frames in a FrameGroup, it is displayed with a `
 
 </div>
 
-## Masks 
+## Masks
 
 Use the **MASKS** panel to select which masks to apply over the frame. 
 
