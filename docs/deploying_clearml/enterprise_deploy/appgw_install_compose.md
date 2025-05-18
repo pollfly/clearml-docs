@@ -8,7 +8,7 @@ The Application Gateway is available under the ClearML Enterprise plan.
 
 The AI Application Gateway enables external HTTP(S) or direct TCP access to ClearML tasks and applications running on 
 nodes. The gateway is configured with an endpoint or external address, making these services accessible from the user's 
-machine, outside the workload’ network.
+machine, outside the workload's network.
 
 This guide describes how to install and run the ClearML AI Application Gateway using docker-compose for environments 
 where you manage both the ClearML Server and the workload nodes.

@@ -29,7 +29,7 @@ You have two configuration options:
 - [**Append**](#append-extra-certificates-to-the-existing-ca-certificatescrt) extra certificates to the existing `ca-certificates.crt`
 
 
-### Replace Entire `ca-certificates.crt` File
+### Replace Entire ca-certificates.crt File
 
 To replace the whole ca-bundle, provide a concatenated list of all trusted CA certificates in `pem` format as 
 they are stored in a standard `ca-certificates.crt`.
@@ -51,7 +51,7 @@ customCertificates:
    ...
 ```
 
-### Append Extra Certificates to the Existing `ca-certificates.crt`
+### Append Extra Certificates to the Existing ca-certificates.crt
 
 You can add certificates to the existing CA bundle. Each certificate must have a unique `alias`.
 
@@ -104,7 +104,7 @@ You have two configuration options:
 - [**Append**](#append-extra-certificates-to-the-existing-ca-certificatescrt-1) extra certificates to the existing `ca-certificates.crt`
 
 
-### Replace Entire `ca-certificates.crt` File
+### Replace Entire ca-certificates.crt File
 
 To replace the whole ca-bundle, provide a concatenated list of all trusted CA certificates in `pem` format as 
 they are stored in a standard `ca-certificates.crt`.
@@ -127,7 +127,7 @@ customCertificates:
    ...
 ```
 
-### Append Extra Certificates to the Existing `ca-certificates.crt`
+### Append Extra Certificates to the Existing ca-certificates.crt
 
 You can add certificates to the existing CA bundle. Each certificate must have a unique `alias`.
 

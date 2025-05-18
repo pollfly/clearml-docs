@@ -33,75 +33,75 @@ helm repo update
 
 1. Create a Docker Registry secret named `clearml-dockerhub-access` in the `gpu-operator` namespace. Make sure to replace `<CLEARML_DOCKERHUB_TOKEN>` with your token.
 
-  ```bash
-  kubectl create secret -n gpu-operator docker-registry clearml-dockerhub-access \
-    --docker-server=docker.io \
-    --docker-username=allegroaienterprise \
-    --docker-password="<CLEARML_DOCKERHUB_TOKEN>" \
-    --docker-email=""
-  ```
+   ```bash
+   kubectl create secret -n gpu-operator docker-registry clearml-dockerhub-access \
+     --docker-server=docker.io \
+     --docker-username=allegroaienterprise \
+     --docker-password="<CLEARML_DOCKERHUB_TOKEN>" \
+     --docker-email=""
+   ```
 
 1. Create a `gpu-operator.override.yaml` file as follows:
-  * Set `devicePlugin.repository` to `docker.io/clearml` 
-  * Configure `devicePlugin.config.data.renamed-resources.sharing.timeSlicing.resources` for each GPU index on the host
-  * Use `nvidia.com/gpu-<INDEX>` format for the `rename` field, and set `replicas` to `8`.
+   * Set `devicePlugin.repository` to `docker.io/clearml` 
+   * Configure `devicePlugin.config.data.renamed-resources.sharing.timeSlicing.resources` for each GPU index on the host
+   * Use `nvidia.com/gpu-<INDEX>` format for the `rename` field, and set `replicas` to `8`.
 
-```yaml
-gfd:
-  imagePullSecrets:
-    - "clearml-dockerhub-access"
-toolkit:
-  env:
-    - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_ENVVAR_WHEN_UNPRIVILEGED
-      value: "false"
-    - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_AS_VOLUME_MOUNTS
-      value: "true"
-devicePlugin:
-  repository: docker.io/clearml
-  image: k8s-device-plugin
-  version: v0.17.1-gpu-card-selection
-  imagePullPolicy: Always
-  imagePullSecrets:
-    - "clearml-dockerhub-access"
-  env:
-    - name: PASS_DEVICE_SPECS
-      value: "true"
-    - name: FAIL_ON_INIT_ERROR
-      value: "true"
-    - name: DEVICE_LIST_STRATEGY # Use volume-mounts
-      value: volume-mounts
-    - name: DEVICE_ID_STRATEGY
-      value: uuid
-    - name: NVIDIA_VISIBLE_DEVICES
-      value: all
-    - name: NVIDIA_DRIVER_CAPABILITIES
-      value: all
-  config:
-    name: device-plugin-config
-    create: true
-    default: "renamed-resources"
-    data:
-      renamed-resources: |-
-        version: v1
-        flags:
-          migStrategy: none
-        sharing:
-          timeSlicing:
-            renameByDefault: false
-            failRequestsGreaterThanOne: false
-            # Edit the following configuration as needed, adding as many GPU indices as many cards are installed on the Host.
-            resources:
-            - name: nvidia.com/gpu
-              rename: nvidia.com/gpu-0
-              devices:
-              - "0"
-              replicas: 8
-            - name: nvidia.com/gpu
-              rename: nvidia.com/gpu-1
-              devices:
-              - "1"
-              replicas: 8
-```
+   ```yaml
+   gfd:
+     imagePullSecrets:
+       - "clearml-dockerhub-access"
+   toolkit:
+     env:
+       - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_ENVVAR_WHEN_UNPRIVILEGED
+         value: "false"
+       - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_AS_VOLUME_MOUNTS
+         value: "true"
+   devicePlugin:
+     repository: docker.io/clearml
+     image: k8s-device-plugin
+     version: v0.17.1-gpu-card-selection
+     imagePullPolicy: Always
+     imagePullSecrets:
+       - "clearml-dockerhub-access"
+     env:
+       - name: PASS_DEVICE_SPECS
+         value: "true"
+       - name: FAIL_ON_INIT_ERROR
+         value: "true"
+       - name: DEVICE_LIST_STRATEGY # Use volume-mounts
+         value: volume-mounts
+       - name: DEVICE_ID_STRATEGY
+         value: uuid
+       - name: NVIDIA_VISIBLE_DEVICES
+         value: all
+       - name: NVIDIA_DRIVER_CAPABILITIES
+         value: all
+     config:
+       name: device-plugin-config
+       create: true
+       default: "renamed-resources"
+       data:
+         renamed-resources: |-
+           version: v1
+           flags:
+             migStrategy: none
+           sharing:
+             timeSlicing:
+               renameByDefault: false
+               failRequestsGreaterThanOne: false
+               # Edit the following configuration as needed, adding as many GPU indices as many cards are installed on the Host.
+               resources:
+               - name: nvidia.com/gpu
+                 rename: nvidia.com/gpu-0
+                 devices:
+                 - "0"
+                 replicas: 8
+               - name: nvidia.com/gpu
+                 rename: nvidia.com/gpu-1
+                 devices:
+                 - "1"
+                 replicas: 8
+   ```
 
 #### For CFGI version < 1.3.0 (Legacy)
 
@@ -150,22 +150,22 @@ devicePlugin:
 
 1. Install the NVIDIA `gpu-operator` using the previously created `gpu-operator.override.yaml` file:
 
-  ```bash
-  helm install -n gpu-operator gpu-operator nvidia/gpu-operator --create-namespace -f gpu-operator.override.yaml
-  ```
+   ```bash
+   helm install -n gpu-operator gpu-operator nvidia/gpu-operator --create-namespace -f gpu-operator.override.yaml
+   ```
 
 1. Create a `cfgi-values.override.yaml` file with the following content:
 
-  ```yaml
-  imageCredentials:
-    password: "<CLEARML_DOCKERHUB_TOKEN>"
-  ```
+   ```yaml
+   imageCredentials:
+     password: "<CLEARML_DOCKERHUB_TOKEN>"
+   ```
 
 1. Install the CFGI Helm Chart using the previous override file:
 
-  ```bash
-  helm install -n cfgi cfgi clearml-enterprise/clearml-fractional-gpu-injector --create-namespace -f cfgi-values.override.yaml
-  ```
+   ```bash
+   helm install -n cfgi cfgi clearml-enterprise/clearml-fractional-gpu-injector --create-namespace -f cfgi-values.override.yaml
+   ```
 
 ## Usage
 

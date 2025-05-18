@@ -52,37 +52,37 @@ The  ClearML Dynamic MIG Operator (CDMO) enables dynamic MIG (Multi-Instance GPU
 
 ### Installing CDMO 
 
-1. Create a `cdmo-values.override.yaml` file with the following content:
-
-  ```yaml
-  imageCredentials:
-    password: "<CLEARML_DOCKERHUB_TOKEN>"
-  ```
+1. Create a `cdmo-values.override.yaml` file with the following content: 
+ 
+   ```yaml
+   imageCredentials:
+     password: "<CLEARML_DOCKERHUB_TOKEN>"
+   ```
 
 1. Install the CDMO Helm Chart using the previous override file:
 
-  ```bash
-  helm install -n cdmo cdmo clearml-enterprise/clearml-dynamic-mig-operator --create-namespace -f cdmo-values.override.yaml
-  ```
+   ```bash
+   helm install -n cdmo cdmo clearml-enterprise/clearml-dynamic-mig-operator --create-namespace -f cdmo-values.override.yaml
+   ```
 
 1. Enable the NVIDIA MIG support on your cluster by running the following command on all nodes with a MIG-supported GPU 
   (run it for each GPU `<GPU_ID>` on the host):
 
-  ```bash
-  nvidia-smi -mig 1
-  ```
+   ```bash
+   nvidia-smi -mig 1
+   ```
 
-  :::note notes
-  * A node reboot may be required if the command output indicates so.
-  
-  * For convenience, this command can be run from within the `nvidia-device-plugin-daemonset` pod running on the related node.
-  :::
+   :::note notes
+   * A node reboot may be required if the command output indicates so.
+   
+   * For convenience, this command can be run from within the `nvidia-device-plugin-daemonset` pod running on the related node.
+   :::
 
 1. Label all MIG-enabled GPU node `<NODE_NAME>` from the previous step:
 
-  ```bash
-  kubectl label nodes <NODE_NAME> "cdmo.clear.ml/gpu-partitioning=mig"
-  ```
+   ```bash
+   kubectl label nodes <NODE_NAME> "cdmo.clear.ml/gpu-partitioning=mig"
+   ```
 
 ## Disabling MIGs
 
