@@ -106,35 +106,15 @@ The dataset version's frames can be filtered by multiple criteria. The resulting
 
 To view the details of a specific frame, click on its preview, which will open the [Frame Viewer](webapp_datasets_frames.md#frame-viewer).
 
-### Simple Frame Filtering
-Simple frame filtering returns frames containing at least one annotation with a specified label.
+### Frame Filtering
 
-**To apply a simple frame filter,** select a label from the **LABEL FILTER** list.
-
-<Collapsible type="screenshot" title="Simple filter example">
-
-* The **FRAMES** tab in the image below contains 101 frames.
-
-
-![Unfiltered version browser](../../img/hyperdatasets/frame_filtering_01.png#light-mode-only)
-![Unfiltered version browser](../../img/hyperdatasets/frame_filtering_01_dark.png#dark-mode-only)
-
-* A simple label filter for `teddy bear` shows three frames, each containing at least one ROI labeled `teddy bear`.
-
-![Filtered version browser](../../img/hyperdatasets/frame_filtering_02.png#light-mode-only)
-![Filtered version browser](../../img/hyperdatasets/frame_filtering_02_dark.png#dark-mode-only)
-
-</Collapsible>
-
-### Advanced Frame Filtering
-
-Alternatively, a combination of ROI, frame, and source rules can be specified to apply more elaborate and specific 
+A combination of ROI, frame, and source rules can be specified to apply more elaborate and specific 
 filters.
 
-**To apply advanced filters:**
-1. In the **FRAMES** tab, click <img src="/docs/latest/icons/ico-advanced-filters.svg" alt="Advanced filters" className="icon size-md space-sm" /> (**Advanced filters**).
+**To apply filters:**
+1. In the **FRAMES** tab, click <img src="/docs/latest/icons/ico-advanced-filters.svg" alt="Advanced filters" className="icon size-md space-sm" /> (**Filters**).
 1. In a **FRAME FILTER**, create one of the following rules:
-   * ROI rule - Use "Include" and "Exclude" conditions to match frames according to ROI label. If the "Include" 
+   * ROI rule - Use "Include" and "Exclude" conditions to match frames according to an ROI label. If the "Include" 
    condition is used, frames match the rule if they contain at least one annotation object (ROI) with ALL labels in the 
    rule. If the "Exclude" condition is used, frames match the rule if NONE of their ROIs contain the label. Multiple ROI 
    rules in the same filter are evaluated independently against all frame ROIs. Meaning, a frame will match the filter 
@@ -166,12 +146,48 @@ described in the example above. "Frame Filter 2" specifies an ROI rule for the f
 
 To clear all filters click <img src="/docs/latest/icons/ico-filter-reset.svg" alt="Clear filters" className="icon size-md" />. 
 
+### Vector Search
+
+**Vector search** finds the most similar frames to a specific reference vector. Frames are evaluated based on vector 
+embeddings that have been registered to them through the SDK.
+
+To find the frames most similar to one of the frames in the version: 
+1. Hover over the desired frame
+1. Click <img src="/docs/latest/icons/ico-dots-v-menu.svg" alt="Dot menu" className="icon size-md space-sm" />
+1. Select `Find Nearest Frames By`
+1. Choose the frame’s vector field  that will be compared against the reference vector
+1. Input the [search configuration](#search-configuration)
+
+To find the frames  most similar to an arbitrary vector:
+1. In the **FRAMES** tab, click  <img src="/docs/latest/icons/ico-filter-off.svg" alt="Filter" className="icon size-md" /> (filters)
+1. Under **Vector search**, enter the vector values under **Reference vector**.
+1. Input the [search configuration](#search-configuration)
+
+#### Search Configuration
+* **Vector field** - Select the FrameGroup's vector field that will be compared against the reference vector.
+* **Number of neighbors** - Choose how many nearest neighbors to show.
+* **Search strategy** - Either of:
+  * `KNN` (K-nearest neighbors) 
+  * `HNSW` (Hierarchical Navigable Small World) - Available with cosine similarity only.
+* **Similarity function** - Select `Cosine similarity`, `Euclidean distance`, or `Dot product`. 
+
+After entering the search configuration, click **Apply**.
+
+The frames are returned in order of their similarity to the reference vector. The calculated similarity is displayed on 
+each frame preview:
+
+![Vector Search](../../img/hyperdatasets/vector_search.png#light-mode-only)
+![Vector Search](../../img/hyperdatasets/vector_search_dark.png#dark-mode-only)
+
+Vector search results adhere to configured frame filters. For example, if you filter for frames containing the ROI label
+`cat`, the search will return only the nearest neighbors among frames with that ROI.
 
 ### Filtering Examples
 
 <Collapsible type="screenshot" title="ROI Rules"> 
 
-* Create one ROI rule for the `teddy bear` label, which shows the same three frames as the simple frame filter (above).
+* Create one ROI rule for the `teddy bear` label. Only frame containing at least one ROL labeled `teddy bear` match the 
+  filter
 
 ![Adding an ROI rule](../../img/hyperdatasets/frame_filtering_03.png#light-mode-only)
 ![Adding an ROI rule](../../img/hyperdatasets/frame_filtering_03_dark.png#dark-mode-only)

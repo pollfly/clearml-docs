@@ -92,7 +92,7 @@ Service accounts are members of the `Users` group, meaning they can access the r
 impersonation is enabled, a task run by the service account (i.e. by an agent or autoscaler using the service accounts' 
 credentials) is executed as if by the owner of the task, meaning it will have access to the task owner's configuration 
 vaults and to the resources that the task owner has access to. Impersonating an admin user does not mean the task's code 
-will have admin privileges.
+will have admin privileges (see [Setting a Service Account as Administrator](#setting-a-service-account-as-administrator)).
 
 In case impersonation is not enabled: 
 * If you run an agent with `--use_owner_token` then the agent will fail. 
@@ -102,6 +102,25 @@ In case impersonation is not enabled:
 
 When a service account is created, an initial set of credentials is automatically generated. The dialog displays new 
 credentials, formatted as a ready-to-copy configuration file section.
+
+### Setting a Service Account as Administrator
+
+You can grant a service account administrator privileges, giving it the same access and capabilities as an admin user.
+
+#### Prerequisite: Enable Admin Privileges for Service Accounts
+
+To allow admin roles to be assigned to service accounts, you must enable support for admin service accounts on the server 
+in one of the following ways:
+* **Set as an environment variable**: Set `CLEARML__services__organization__allow_service_user_admins=true` in the `apiserver` service environment
+* **Edit the services/organization.conf file**: Set `allow_service_user_admins: true`
+
+#### Assigning Admin Role to a Service Account
+
+To assign an admin role to a service account: 
+1. Go to the **Service Accounts** table.
+1. Click the service account you want to modify to open its details panel.
+1. Select **Admin** toggle to grant administrator access.
+
 
 ### Service Account Credentials 
 

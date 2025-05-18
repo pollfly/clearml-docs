@@ -84,6 +84,8 @@ of a dataset card to open its context menu and access dataset actions:
 
 </div>
 
+* **Copy Dataset ID**
+* **View Dataset Schema** - View the dataset's frame document schema. This shows the frames’ fields and their types.
 * **Rename** - Change the dataset's name
 * **Add Tag** - Add label to the dataset to help easily classify groups of datasets.
 * **Edit Metadata** - Modify dataset-level metadata. This will open the metadata edit window, where you can edit the section

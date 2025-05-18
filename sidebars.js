@@ -581,6 +581,7 @@ module.exports = {
                         'webapp/settings/webapp_settings_access_rules',
                         'webapp/settings/webapp_settings_id_providers',
                         'webapp/settings/webapp_settings_resource_configs',
+                        'webapp/settings/webapp_settings_app_gw',
                         'webapp/settings/webapp_settings_usage_billing',
                         'webapp/settings/webapp_settings_storage_credentials'
                     ]

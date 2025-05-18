@@ -6,6 +6,14 @@ title: Docker-Compose Deployment
 The Application Gateway is available under the ClearML Enterprise plan.
 :::
 
+The AI Application Gateway enables external HTTP(S) or direct TCP access to ClearML tasks and applications running on 
+nodes. The gateway is configured with an endpoint or external address, making these services accessible from the user's 
+machine, outside the workload’ network.
+
+This guide describes how to install and run the ClearML AI Application Gateway using docker-compose for environments 
+where you manage both the ClearML Server and the workload nodes.
+
+
 ## Requirements
 
 * Linux OS (x86) machine  
@@ -155,3 +163,11 @@ Each router's `runtime.env` file should include:
   ```
   
 Make sure `LISTEN_QUEUE_NAME` is set in the  [`docker-compose` environment variables](#docker-compose-file) for each router instance.
+
+## Monitoring and Testing the Gateway
+
+Once your gateway is deployed, you can monitor its status, view routed tasks, and run connectivity tests in 
+ClearML WebApp, under **Settings > Application Gateway**.
+
+![App Gateway Test](../../img/settings_app_gateway_test.png#light-mode-only)
+![App Gateway Test](../../img/settings_app_gateway_test_dark.png#dark-mode-only)
