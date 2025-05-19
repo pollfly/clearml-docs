@@ -49,9 +49,9 @@ The script will:
 * Update the application zip files to point to the new registry
 * Output the list of images that need to be copied to the local registry. For example:
 
-  ```
-  > make sure `allegroai/clearml-apps:hpo-1.10.0-1062` was added to `local_registry/clearml-apps`
-  ```
+   ```
+   > make sure `allegroai/clearml-apps:hpo-1.10.0-1062` was added to `local_registry/clearml-apps`
+   ```
 
 ### Upload Applications to ClearML Server
 
