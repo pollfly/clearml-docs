@@ -12,7 +12,7 @@ Add the NVIDIA GPU Operator Helm repository:
 helm repo add nvidia https://nvidia.github.io/gpu-operator
 ```
 
-Update the repository locally:
+Update the local repository:
 ```bash
 helm repo update
 ```

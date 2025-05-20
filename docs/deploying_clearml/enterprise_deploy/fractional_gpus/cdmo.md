@@ -1,54 +1,20 @@
 ---
-title: ClearML Dynamic MIG Operator (CDMO)
+title: Managing GPU Fragments with ClearML Dynamic MIG Operator (CDMO)
 ---
 
-The  ClearML Dynamic MIG Operator (CDMO) enables dynamic MIG (Multi-Instance GPU) configurations.
+This guide covers using GPU fragments in Kubernetes clusters using NVIDIA MIGs and
+ClearML's Dynamic MIG Operator (CDMO). CDMO enables dynamic MIG (Multi-Instance GPU) configurations. 
+
+This guide covers:
+* Installing CDMO
+* Enabling MIG mode on your cluster
+* Managing GPU partitioning dynamically 
 
 ## Installation
 
 ### Requirements
 
-* Add and update the Nvidia Helm repo:
-
-  ```bash
-  helm repo add nvidia https://nvidia.github.io/gpu-operator
-  helm repo update
-  ```
-
-* Create a `gpu-operator.override.yaml` file with the following content:
-
-  ```yaml
-  migManager:
-    enabled: false
-  mig:
-    strategy: mixed
-  toolkit:
-    env:
-      - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_ENVVAR_WHEN_UNPRIVILEGED
-        value: "false"
-      - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_AS_VOLUME_MOUNTS
-        value: "true"
-  devicePlugin:
-    env:
-      - name: PASS_DEVICE_SPECS
-        value: "true"
-      - name: FAIL_ON_INIT_ERROR
-        value: "true"
-      - name: DEVICE_LIST_STRATEGY # Use volume-mounts
-        value: volume-mounts
-      - name: DEVICE_ID_STRATEGY
-        value: uuid
-      - name: NVIDIA_VISIBLE_DEVICES
-        value: all
-      - name: NVIDIA_DRIVER_CAPABILITIES
-        value: all
-  ```
-
-* Install the NVIDIA `gpu-operator` using Helm with the previous configuration:
-
-  ```bash
-  helm install -n gpu-operator gpu-operator nvidia/gpu-operator --create-namespace -f gpu-operator.override.yaml
-  ```
+* Install the NVIDIA `gpu-operator` using Helm. For instructions, see [Basic Deployment](../extra_configs/gpu_operator.md).
 
 ### Installing CDMO 
 
@@ -78,7 +44,7 @@ The  ClearML Dynamic MIG Operator (CDMO) enables dynamic MIG (Multi-Instance GPU
    * For convenience, this command can be run from within the `nvidia-device-plugin-daemonset` pod running on the related node.
    :::
 
-1. Label all MIG-enabled GPU node `<NODE_NAME>` from the previous step:
+1. Label all MIG-enabled GPU nodes `<NODE_NAME>` from the previous step:
 
    ```bash
    kubectl label nodes <NODE_NAME> "cdmo.clear.ml/gpu-partitioning=mig"
@@ -106,7 +72,7 @@ To disable MIG mode and restore standard full-GPU access:
     nvidia-smi -mig 0
     ```
 
-4. Edit the `gpu-operator.override.yaml` file to restore full-GPU access, and upgrade the `gpu-operator`:
+4. Edit the `gpu-operator.override.yaml` file to restore full-GPU access: 
 
     ```yaml
     toolkit:
@@ -130,3 +96,9 @@ To disable MIG mode and restore standard full-GPU access:
         - name: NVIDIA_DRIVER_CAPABILITIES
           value: all
     ```
+   
+5. Upgrade the `gpu-operator`:
+
+   ```bash
+   helm upgrade -n gpu-operator gpu-operator nvidia/gpu-operator -f gpu-operator.override.yaml
+   ```

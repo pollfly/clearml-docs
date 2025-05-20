@@ -50,7 +50,7 @@ Add the ClearML Helm repository:
 helm repo add clearml-enterprise https://raw.githubusercontent.com/clearml/clearml-enterprise-helm-charts/gh-pages --username <HELM_REPO_TOKEN> --password <HELM_REPO_TOKEN>
 ```
 
-Update the repository locally:
+Update the local repository:
 ``` bash
 helm repo update
 ```

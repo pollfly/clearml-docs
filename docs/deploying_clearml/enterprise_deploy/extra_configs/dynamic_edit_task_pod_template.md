@@ -18,8 +18,8 @@ Arguments passed to the function include:
 * `queue` (string) - ID of the queue from which the task was pulled.
 * `queue_name` (string) - Name of the queue from which the task was pulled.
 * `template` (Python dictionary) - Base Pod template created from the agent's configuration and any queue-specific overrides.
-* `task_data` (object) - Task data object (as returned by the `tasks.get_by_id` API call). For example, use `task_data.project` to get the task's project ID.
-* `providers_info` (dictionary) - Provider info containing optional information collected for the user running this task 
+* `task_data` (object) - [Task object](../../../references/sdk/task.md) (as returned by the `tasks.get_by_id` API call). For example, use `task_data.project` to get the task's project ID.
+* `providers_info` (dictionary) - [Identity provider](sso_login.md) info containing optional information collected for the user running this task 
   when the user logged into the system (requires additional server configuration).
 * `task_config` (`clearml_agent.backend_config.Config` object) - Task configuration containing configuration vaults applicable 
   for the user running this task, and other configuration. Use `task_config.get("...")` to get specific configuration values.
@@ -248,11 +248,8 @@ agentk8sglue:
           - mountPath: "/tmp/task/"
             name: task-pvc
 ```
-:::
 
-### Example: Required Role 
-
-The following is an example of `custom-agent-role` Role with permissions to handle `persistentvolumeclaims`:
+* The following is an example of `custom-agent-role` Role with permissions to handle `persistentvolumeclaims`:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -272,3 +269,5 @@ rules:
   - patch
   - delete
 ```
+
+:::

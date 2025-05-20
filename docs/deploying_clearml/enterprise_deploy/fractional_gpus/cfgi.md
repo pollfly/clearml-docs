@@ -16,7 +16,7 @@ helm repo update
 
 ### Requirements
 
-* Install the NVIDIA `gpu-operator` using Helm
+* Install the NVIDIA `gpu-operator` using Helm. For instructions, see [Basic Deployment](../extra_configs/gpu_operator.md).
 * Set the number of GPU slices to 8
 * Add and update the Nvidia Helm repo:
 
@@ -191,7 +191,7 @@ Valid values for `"<GPU_FRACTION_VALUE>"` include:
 
 ### ClearML Agent Configuration
 
-To run ClearML jobs with fractional GPU allocation, configure your queues in accordingly in your `clearml-agent-values.override.yaml` file.
+To run ClearML jobs with fractional GPU allocation, configure your queues in your `clearml-agent-values.override.yaml` file.
 
 Each queue should include a `templateOverride` that sets the `clearml-injector/fraction` label, which determines the 
 fraction of a GPU to allocate (e.g., "0.500" for half a GPU).

@@ -1,13 +1,15 @@
 ---
-title: ClearML Tenant with Self Signed Certificates
+title: Self-Signed Certificates for ClearML Agent and AI App Gateway
 ---
 
-This guide covers how to configure the [AI Application Gateway](#ai-application-gateway) and [ClearML Agent](#clearml-agent) 
+This guide covers how to configure the [AI Application Gateway](../appgw.md) and [ClearML Agent](../agent_k8s.md) 
 to use self-signed or custom SSL certificates. 
 
-## AI Application Gateway
+## Certificate Configuration
 
-To configure certificates for the Application Gateway, update your `clearml-app-gateway-values.override.yaml` file:
+To configure certificates, update the following files:
+* For AI Application Gateway: `clearml-app-gateway-values.override.yaml` file
+* For ClearML Agent: `clearml-agent-values.override.yaml`
 
 ```yaml
 # -- Custom certificates
@@ -72,83 +74,7 @@ customCertificates:
          -----END CERTIFICATE-----
 ```
 
-### Apply Changes
-
-To apply the changes, run the update command:
-
-```bash
-helm upgrade -i <RELEASE_NAME> -n <WORKLOAD_NAMESPACE> clearml-enterprise/clearml-enterprise-app-gateway --version <CHART_VERSION> -f clearml-app-gateway-values.override.yaml
-```
-
-## ClearML Agent
-
-For the ClearML Agent, configure certificates in the `clearml-agent-values.override.yaml` file:
-
-```yaml
-# -- Custom certificates
-customCertificates:
-  # -- Override system crt certificate bundle. Mutual exclusive with extraCerts.
-  overrideCaCertificatesCrt:
-  # -- Extra certs usable in case of needs of adding more certificates to the standard bundle, Requires root permissions to run update-ca-certificates. Mutual exclusive with overrideCaCertificatesCrt.
-  extraCerts:
-     - alias: certificateName
-       pem: |
-         -----BEGIN CERTIFICATE-----
-         ###
-         -----END CERTIFICATE-----
-```
-
-You have two configuration options:
-
-- [**Replace**](#replace-entire-ca-certificatescrt-file-1) the entire `ca-certificates.crt` file
-- [**Append**](#append-extra-certificates-to-the-existing-ca-certificatescrt-1) extra certificates to the existing `ca-certificates.crt`
-
-
-### Replace Entire ca-certificates.crt File
-
-To replace the whole ca-bundle, provide a concatenated list of all trusted CA certificates in `pem` format as 
-they are stored in a standard `ca-certificates.crt`.
-
-
-```yaml
-# -- Custom certificates
-customCertificates:
-  # -- Override system crt certificate bundle. Mutual exclusive with extraCerts.
-  overrideCaCertificatesCrt: |
-    -----BEGIN CERTIFICATE-----
-    ### CERT 1
-    -----END CERTIFICATE-----
-    -----BEGIN CERTIFICATE-----
-    ### CERT 2
-    -----END CERTIFICATE-----
-    -----BEGIN CERTIFICATE-----
-    ### CERT 3
-    -----END CERTIFICATE-----
-   ...
-```
-
-### Append Extra Certificates to the Existing ca-certificates.crt
-
-You can add certificates to the existing CA bundle. Each certificate must have a unique `alias`.
-
-```yaml
-# -- Custom certificates
-customCertificates:
-  # -- Extra certs usable in case of needs of adding more certificates to the standard bundle, Requires root permissions to run update-ca-certificates. Mutual exclusive with overrideCaCertificatesCrt.
-  extraCerts:
-     - alias: certificate-name-1
-       pem: |
-         -----BEGIN CERTIFICATE-----
-         ###
-         -----END CERTIFICATE-----
-     - alias: certificate-name-2
-       pem: |
-         -----BEGIN CERTIFICATE-----
-         ###
-         -----END CERTIFICATE-----
-```
-
-### Add Certificates to Task Pods
+### ClearML Agent: Add Certificates to Task Pods
 
 If your workloads need access to these certificates (e.g., for HTTPS requests), configure the agent to inject them into pods:
 
@@ -194,8 +120,15 @@ Their names are usually prefixed with the Helm release name, so adjust according
 
 ### Apply Changes
 
-Apply the changes by running the update command:
+To apply the changes, run the update command:
+* For AI Application Gateway:
 
-``` bash
-helm upgrade -i -n <WORKER_NAMESPACE> clearml-agent clearml-enterprise/clearml-enterprise-agent --create-namespace -f clearml-agent-values.override.yaml
-```
+   ```bash
+   helm upgrade -i <RELEASE_NAME> -n <WORKLOAD_NAMESPACE> clearml-enterprise/clearml-enterprise-app-gateway --version <CHART_VERSION> -f clearml-app-gateway-values.override.yaml
+   ```
+
+* For ClearML Agent: 
+
+   ```bash
+   helm upgrade -i -n <WORKER_NAMESPACE> clearml-agent clearml-enterprise/clearml-enterprise-agent --create-namespace -f clearml-agent-values.override.yaml
+   ```
