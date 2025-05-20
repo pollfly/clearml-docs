@@ -359,7 +359,9 @@ pip install -U clearml
 
 Your firewall may be preventing the connection. Try one of the following solutions:
 
-* Direct Python "requests" to use the enterprise certificate file by setting the OS environment variables `CURL_CA_BUNDLE` or `REQUESTS_CA_BUNDLE`. For a detailed discussion of this topic, see [https://stackoverflow.com/questions/48391750/disable-python-requests-ssl-validation-for-an-imported-module](https://stackoverflow.com/questions/48391750/disable-python-requests-ssl-validation-for-an-imported-module).
+* Direct Python "requests" to use the enterprise certificate file by setting the OS environment variables `CURL_CA_BUNDLE` 
+  or `REQUESTS_CA_BUNDLE`. For a detailed discussion of this topic, see the [Requests documentation](https://requests.readthedocs.io/en/latest/user/advanced/#ssl-cert-verification) 
+  and this [Stack Overflow discussion](https://stackoverflow.com/questions/48391750/disable-python-requests-ssl-validation-for-an-imported-module).
 * Disable certificate verification   
   
   :::warning
