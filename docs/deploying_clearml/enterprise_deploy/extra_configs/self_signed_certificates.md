@@ -1,5 +1,5 @@
 ---
-title: Self-Signed Certificates for ClearML Agent and AI App Gateway
+title: Kubernetes Deployment with Self-Signed Certificates
 ---
 
 This guide covers how to configure the [AI Application Gateway](../appgw.md) and [ClearML Agent](../agent_k8s.md) 
@@ -7,9 +7,9 @@ to use self-signed or custom SSL certificates.
 
 ## Certificate Configuration
 
-To configure certificates, update the following files:
+To configure certificates, update the applicable overrides file:
 * For AI Application Gateway: `clearml-app-gateway-values.override.yaml` file
-* For ClearML Agent: `clearml-agent-values.override.yaml`
+* For ClearML Agent: `clearml-agent-values.override.yaml` file
 
 ```yaml
 # -- Custom certificates

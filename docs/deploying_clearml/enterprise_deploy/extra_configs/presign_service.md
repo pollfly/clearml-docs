@@ -8,7 +8,7 @@ users, enabling direct access to S3 data without exposing credentials.
 When configured, the ClearML WebApp automatically redirects requests for matching storage URLs (like `s3://...`) to the 
 Presign Service. The service:
 
-* Verifies the user's ClearML authentication.
+* Authenticates the use with ClearML.
 * Generates a temporary, secure (pre-signed) S3 URL.
 * Redirects the user's browser to the URL for direct access.
 
