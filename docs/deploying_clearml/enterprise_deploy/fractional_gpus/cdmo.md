@@ -49,6 +49,7 @@ This guide covers:
       - name: NVIDIA_DRIVER_CAPABILITIES
         value: all
   ```
+
 * Install the NVIDIA `gpu-operator` using Helm with the previous configuration:
 
   ```bash
