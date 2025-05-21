@@ -1,8 +1,8 @@
 ---
-title: Managing GPU Fragments with ClearML Dynamic MIG Operator (CDMO)
+title: Managing GPU Fractions with ClearML Dynamic MIG Operator (CDMO)
 ---
 
-This guide covers using GPU fragments in Kubernetes clusters using NVIDIA MIGs and
+This guide covers using GPU fractions in Kubernetes clusters using NVIDIA MIGs and
 ClearML's Dynamic MIG Operator (CDMO). CDMO enables dynamic MIG (Multi-Instance GPU) configurations. 
 
 This guide covers:
@@ -14,7 +14,46 @@ This guide covers:
 
 ### Requirements
 
-* Install the NVIDIA `gpu-operator` using Helm. For instructions, see [Basic Deployment](../extra_configs/gpu_operator.md).
+* Add and update the Nvidia Helm repo:
+
+  ```bash
+  helm repo add nvidia https://nvidia.github.io/gpu-operator
+  helm repo update
+  ```
+
+* Create a `gpu-operator.override.yaml` file with the following content:
+
+  ```yaml
+  migManager:
+    enabled: false
+  mig:
+    strategy: mixed
+  toolkit:
+    env:
+      - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_ENVVAR_WHEN_UNPRIVILEGED
+        value: "false"
+      - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_AS_VOLUME_MOUNTS
+        value: "true"
+  devicePlugin:
+    env:
+      - name: PASS_DEVICE_SPECS
+        value: "true"
+      - name: FAIL_ON_INIT_ERROR
+        value: "true"
+      - name: DEVICE_LIST_STRATEGY # Use volume-mounts
+        value: volume-mounts
+      - name: DEVICE_ID_STRATEGY
+        value: uuid
+      - name: NVIDIA_VISIBLE_DEVICES
+        value: all
+      - name: NVIDIA_DRIVER_CAPABILITIES
+        value: all
+  ```
+* Install the NVIDIA `gpu-operator` using Helm with the previous configuration:
+
+  ```bash
+  helm install -n gpu-operator gpu-operator nvidia/gpu-operator --create-namespace -f gpu-operator.override.yaml
+  ```
 
 ### Installing CDMO 
 
