@@ -1,8 +1,14 @@
 ---
-title: ClearML Dynamic MIG Operator (CDMO)
+title: Managing GPU Fractions with ClearML Dynamic MIG Operator (CDMO)
 ---
 
-The  ClearML Dynamic MIG Operator (CDMO) enables dynamic MIG (Multi-Instance GPU) configurations.
+This guide covers using GPU fractions in Kubernetes clusters using NVIDIA MIGs and
+ClearML's Dynamic MIG Operator (CDMO). CDMO enables dynamic MIG (Multi-Instance GPU) configurations. 
+
+This guide covers:
+* Installing CDMO
+* Enabling MIG mode on your cluster
+* Managing GPU partitioning dynamically 
 
 ## Installation
 
@@ -78,7 +84,7 @@ The  ClearML Dynamic MIG Operator (CDMO) enables dynamic MIG (Multi-Instance GPU
    * For convenience, this command can be run from within the `nvidia-device-plugin-daemonset` pod running on the related node.
    :::
 
-1. Label all MIG-enabled GPU node `<NODE_NAME>` from the previous step:
+1. Label all MIG-enabled GPU nodes `<NODE_NAME>` from the previous step:
 
    ```bash
    kubectl label nodes <NODE_NAME> "cdmo.clear.ml/gpu-partitioning=mig"
@@ -106,7 +112,7 @@ To disable MIG mode and restore standard full-GPU access:
     nvidia-smi -mig 0
     ```
 
-4. Edit the `gpu-operator.override.yaml` file to restore full-GPU access, and upgrade the `gpu-operator`:
+4. Edit the `gpu-operator.override.yaml` file to restore full-GPU access: 
 
     ```yaml
     toolkit:
@@ -130,3 +136,9 @@ To disable MIG mode and restore standard full-GPU access:
         - name: NVIDIA_DRIVER_CAPABILITIES
           value: all
     ```
+   
+5. Upgrade the `gpu-operator`:
+
+   ```bash
+   helm upgrade -n gpu-operator gpu-operator nvidia/gpu-operator -f gpu-operator.override.yaml
+   ```

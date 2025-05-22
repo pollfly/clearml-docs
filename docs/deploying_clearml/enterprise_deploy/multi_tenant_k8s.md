@@ -709,7 +709,7 @@ The following features can be assigned to groups via the `features` configuratio
 | `reports` | Enables access to Reports. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `resource_dashboard` | Enables access to the compute resource dashboard feature. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `sso_management` | Enables the SSO (Single Sign-On) configuration wizard. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
-| `service_users` | Enables support for creating and managing service users (API keys). | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
+| `service_users` | Enables support for creating and managing service accounts (API keys). | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `resource_policy` | Enables the resource policy feature. | May default to a trial feature if not explicitly enabled. |
 | `model_serving` | Enables access to the model serving endpoints feature. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `show_dashboard` | Makes the "Dashboard" menu item visible in the UI sidebar. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |

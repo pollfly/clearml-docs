@@ -6,13 +6,8 @@ ClearML Enterprise Server supports various Single Sign-On (SSO) identity provide
 SSO configuration is managed via environment variables in your `clearml-values.override.yaml` file and is applied to the 
 `apiserver` component.
 
-The following are configuration examples for commonly used providers. Other supported systems include: 
-* Auth0
-* Keycloak
-* Okta
-* Azure AD
-* Google
-* AWS Cognito
+The following are configuration examples for commonly used identity providers. See [full list of supported identity providers](../../../webapp/settings/webapp_settings_id_providers.md).
+
 
 ## Auth0
 
@@ -52,7 +47,7 @@ apiserver:
       value: "true"
 ```
 
-## Group Membership Mapping in Keycloak
+### Group Membership Mapping in Keycloak
 
 To map Keycloak groups into the ClearML user's SSO token:
 
