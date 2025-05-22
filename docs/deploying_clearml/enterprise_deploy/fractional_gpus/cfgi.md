@@ -59,7 +59,7 @@ helm repo update
    devicePlugin:
      repository: docker.io/clearml
      image: k8s-device-plugin
-     version: v0.17.1-gpu-card-selection
+     version: "v0.17.2-gpu-card-selection"
      imagePullPolicy: Always
      imagePullSecrets:
        - "clearml-dockerhub-access"
