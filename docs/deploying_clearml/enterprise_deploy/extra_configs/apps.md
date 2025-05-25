@@ -11,14 +11,14 @@ Applications are installed on top of the ClearML Server and are provided by the 
 
 ## Requirements
 
-- Python 3 installed on your local machine to run the provided installation scripts)
+- Python 3 installed on your local machine to run the provided installation scripts
 - A ClearML Enterprise Server is up and running with `clearmlApplications.enabled` set to `"true"` in the server's `overrides.yaml` file.
 - Applications package provided by ClearML, including the following scripts:
   - `convert_image_registry.py`
   - `upload_apps.py`
 - API credentials (`<ACCESS_KEY>` and `<SECRET_KEY>`) generated via 
   the ClearML UI (**Settings > Workspace > API Credentials > Create new credentials**). Make sure these credentials 
-  belong to an admin user or a service user with admin privilegesFor more information, see [ClearML API Credentials](../../webapp/settings/webapp_settings_profile.md#clearml-api-credentials). 
+  belong to an admin user or a service user with admin privilegesFor more information, see [ClearML API Credentials](../../../webapp/settings/webapp_settings_profile.md#clearml-api-credentials). 
 
 ## Installation
 
