@@ -1,9 +1,18 @@
 ---
-title: ClearML Presign Service
+title: ClearML S3 Presign Service
 ---
 
 The ClearML Presign Service is a secure service that generates and redirects pre-signed storage URLs for authenticated 
-users, enabling direct access to cloud-hosted data (e.g., S3) without exposing credentials.
+users, enabling direct access to S3 data without exposing credentials.
+
+When configured, the ClearML WebApp automatically redirects requests for matching storage URLs (like `s3://...`) to the 
+Presign Service. The service:
+
+* Authenticates the user with ClearML.
+* Generates a temporary, secure (pre-signed) S3 URL.
+* Redirects the user's browser to the URL for direct access.
+
+This setup ensures secure access to S3-hosted data.
 
 ## Prerequisites
 
@@ -12,7 +21,7 @@ users, enabling direct access to cloud-hosted data (e.g., S3) without exposing c
   the ClearML UI (**Settings > Workspace > API Credentials > Create new credentials**). For more information, see [ClearML API Credentials](../../../webapp/settings/webapp_settings_profile.md#clearml-api-credentials).
 
   :::note
-  Make sure these credentials belong to an admin user or a service user with admin privileges.
+  Make sure these credentials belong to an admin user or a service account with admin privileges.
   :::
  
 - The worker environment must be able to access the ClearML Server over the same network.
@@ -27,7 +36,7 @@ Add the ClearML Helm repository:
 helm repo add clearml-enterprise https://raw.githubusercontent.com/clearml/clearml-enterprise-helm-charts/gh-pages --username <HELM_REPO_TOKEN> --password <HELM_REPO_TOKEN>
 ```
 
-Update the repository locally:
+Update the local repository:
 ```bash
 helm repo update
 ```

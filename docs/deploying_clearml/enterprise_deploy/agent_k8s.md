@@ -11,7 +11,7 @@ The ClearML Agent enables scheduling and executing distributed experiments on a 
   the ClearML UI (**Settings > Workspace > API Credentials > Create new credentials**). For more information, see [ClearML API Credentials](../../webapp/settings/webapp_settings_profile.md#clearml-api-credentials). 
 
   :::note
-  Make sure these credentials belong to an admin user or a service user with admin privileges.
+  Make sure these credentials belong to an admin user or a service account with admin privileges.
   :::
  
 - The worker environment must be able to access the ClearML Server over the same network.
@@ -26,7 +26,7 @@ Add the ClearML Helm repository:
 helm repo add clearml-enterprise https://raw.githubusercontent.com/clearml/clearml-enterprise-helm-charts/gh-pages --username <HELM_REPO_TOKEN> --password <HELM_REPO_TOKEN>
 ```
 
-Update the repository locally:
+Update the local repository:
 ```bash
 helm repo update
 ```
