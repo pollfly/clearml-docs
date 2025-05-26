@@ -248,14 +248,14 @@ The following monitoring is recommended:
 
 #### CPU
 
-CPU usage varies depending on system usage. We recommend to monitor CPU usage and to alert when the usage is higher 
+CPU usage varies depending on system usage. We recommend monitoring CPU usage and alerting when the usage is higher 
 than normal. Recommended starting alerts would be 5-minute CPU load 
 level of 5 and 10, and adjusting according to performance.
 
 #### RAM
 
 Available memory usage also varies depending on system usage. Due to spikes in usage when performing certain tasks, 6-8 GB 
-of available RAM is recommended as the standard baseline. Some use cases may require more. Thus, we recommend to have 8 GB 
+of available RAM is recommended as the standard baseline. Some use cases may require more. Thus, we recommend having 8 GB 
 of available memory on top of the regular system usage. Alert levels should alert if the available memory is below normal.
 
 ##### Disk Usage
