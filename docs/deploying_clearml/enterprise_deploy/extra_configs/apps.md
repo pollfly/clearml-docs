@@ -18,7 +18,7 @@ Applications are installed on top of the ClearML Server and are provided by the 
   - `upload_apps.py`
 - API credentials (`<ACCESS_KEY>` and `<SECRET_KEY>`) generated via 
   the ClearML UI (**Settings > Workspace > API Credentials > Create new credentials**). Make sure these credentials 
-  belong to an admin user or a service user with admin privilegesFor more information, see [ClearML API Credentials](../../../webapp/settings/webapp_settings_profile.md#clearml-api-credentials). 
+  belong to an admin user or a service user with admin privileges. For more information, see [ClearML API Credentials](../../../webapp/settings/webapp_settings_profile.md#clearml-api-credentials). 
 
 ## Installation
 
