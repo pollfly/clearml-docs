@@ -20,7 +20,7 @@ apiserver:
     - name: CLEARML__services__auth__ui_features_per_role__user__show_orchestration
       value: "false"
     - name: CLEARML__services__workers__resource_usages__supervisor_company
-      value: "d1bd92a3b039400cbafc60a7a5b1e52b" # Default company
+      value: "<SUPERVISOR_COMPANY_ID>" 
     - name: CLEARML__secure__credentials__supervisor__role
       value: "system"
     - name: CLEARML__secure__credentials__supervisor__allow_login
@@ -36,6 +36,9 @@ apiserver:
     - name: CLEARML__apiserver__company__unique_names
       value: "true"
 ```
+
+These settings configure the **supervisor**, an administrative user belonging to a designated supervisor company. 
+Admins in the supervisor company can view the resource usage dashboards across all tenants.
 
 The `<SUPERVISOR_USER_KEY>` and `<SUPERVISOR_USER_SECRET>` can be used to log in as the 
 supervisor user from the ClearML Web UI via `app.<BASE_DOMAIN>`.
@@ -128,7 +131,7 @@ following methods:
      -d '{"domains":["<USERS_EMAIL_DOMAIN>"]}'
    ```
 
-   * `<USERS_EMAIL_DOMAIN>` is the email domain set up for users to access through SSO.
+   * `<USERS_EMAIL_DOMAIN>` is the email domain set up for users to access through SSO (e.g. `"acme.io"`, `"clear.ml"`).
    * All new users with matching domains will be routed to the associated tenant.
 
 * **Route specific email(s) to a tenant:**
@@ -246,7 +249,7 @@ For the complete list of available features, see [Available Features](#available
 ### Configuring Groups
 
 ClearML groups are used to control user permissions and access to platform. 
-This section described the types of groups available and how to configure them--especially cross-tenant groups.
+This section describes the types of groups available and how to configure them--especially cross-tenant groups.
 
 #### Group Types
 
@@ -411,8 +414,11 @@ significantly. You might also need to enable certain features organization-wide.
 ```
 
 By combining configuration-defined groups, careful management of the default users group features, and organization-level 
-settings, you can create a flexible and secure permission model tailored to your ClearML deployment. Remember to 
-restart the relevant ClearML services after applying configuration changes.
+settings, you can create a flexible and secure permission model tailored to your ClearML deployment. 
+
+:::important
+Remember to restart the relevant ClearML services after applying configuration changes.
+:::
 
 ### Per-Tenant Applications Settings
 
@@ -453,7 +459,7 @@ The following features can be assigned to groups via the `features` configuratio
 
 | Feature Name | Description | Notes |
 | :---- | :---- | :---- |
-| `user_management` | Allows viewing company users and groups, and editing group memberships. | Only effective if the group is `assignable`. |
+| `user_management` | Allows viewing tenant users and groups, and editing group memberships. | Only effective if the group is `assignable`. |
 | `user_management_advanced` | Allows direct creation of users (bypassing invites) by admins and system users. | Often also requires enabling at the organization level. |
 | `permissions` | Enables editing of Role-Based Access Control (RBAC) rules. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `applications` | Allows users to work with [ClearML Applications](../../webapp/applications/apps_overview.md) (viewing, running). | Excludes management operations (upload/delete). |
@@ -467,7 +473,7 @@ The following features can be assigned to groups via the `features` configuratio
 | `reports` | Enables access to [Reports](../../webapp/webapp_reports.md). | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `resource_dashboard` | Enables access to the [orchestration dashboard](../../webapp/webapp_orchestration_dash.md) feature. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `sso_management` | Enables the SSO (Single Sign-On) configuration wizard. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
-| `service_users` | Enables support for creating and managing service users (API keys). | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
+| `service_users` | Enables support for creating and managing service accounts (API keys). | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `resource_policy` | Enables the [Resource Policies](../../webapp/resource_policies.md) feature. | May default to a trial feature if not explicitly enabled. |
 | `model_serving` | Enables access to the [Model Endpoints](../../webapp/webapp_model_endoints.md) feature. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `show_dashboard` | Makes the "Dashboard" menu item visible in the UI sidebar. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
