@@ -37,8 +37,8 @@ apiserver:
       value: "true"
 ```
 
-These settings configure the **supervisor**, an administrative user belonging to a designated supervisor company. 
-Admins in the supervisor company can view the resource usage dashboards across all tenants.
+These values configure a **supervisor** user, an administrator in a designated supervisor tenant. These users can access cross-tenant information, and 
+specifically view an aggregate resource dashboard for all tenants.
 
 The `<SUPERVISOR_USER_KEY>` and `<SUPERVISOR_USER_SECRET>` can be used to log in as the 
 supervisor user from the ClearML Web UI via `app.<BASE_DOMAIN>`.
