@@ -95,9 +95,17 @@ clearmlApplications:
 
 Install the ClearML Enterprise Helm chart using the previous values override file.
 
-``` bash
+```bash
 helm upgrade -i -n clearml clearml clearml-enterprise/clearml-enterprise --create-namespace -f clearml-values.override.yaml 
 ```
+
+### Applications Installation
+ClearML Applications are plugins that extend the functionality of the ClearML Enterprise Server. They enable users 
+to manage ML workloads and automate recurring workflows--no code required
+
+Applications are installed on top of the ClearML Server and are provided by the ClearML team.
+
+For more information, see [ClearML Applications](extra_configs/apps.md).
 
 ## Additional Configuration Options
 
