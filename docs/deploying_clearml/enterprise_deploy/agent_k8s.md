@@ -16,6 +16,7 @@ The ClearML Agent enables scheduling and executing distributed experiments on a 
  
 - The worker environment must be able to access the ClearML Server over the same network.
 - Helm token to access `clearml-enterprise` Helm chart repo
+- The **GPU** queues configuration and usage from the ClearML Enterprise Agent requires deploying the **Nvidia GPU Operator** on your Kubernetes cluster. For more information, refer to the [GPU Operator](extra_configs/gpu_operator.md) page.
 
 ## Installation
 
