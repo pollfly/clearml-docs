@@ -203,7 +203,7 @@ This label is used by the CFGI to assign the correct portion of GPU resources to
 Starting from version 1.3.0, there is no need to specify the resources field. You only need to set the labels:
 
 
-``` yaml
+```yaml
 agentk8sglue:
   createQueues: true
   queues:

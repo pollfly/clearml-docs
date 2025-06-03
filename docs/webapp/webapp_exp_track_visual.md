@@ -309,7 +309,7 @@ Scalar graph view (<img src="/docs/latest/icons/ico-charts-view.svg" alt="Graph 
 shows scalar series plotted as a time series line chart. By default, a single plot is shown for each scalar metric, 
 with all variants overlaid within.
 
-The series are sub-sampled for 
+The series are subsampled for 
 display efficiency. For high resolution, view a series in full screen mode by hovering over the graph and clicking <img src="/docs/latest/icons/ico-maximize.svg" alt="Maximize plot icon" className="icon size-md space-sm" />.
 
 :::info Full Screen Refresh
