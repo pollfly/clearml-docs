@@ -287,7 +287,7 @@ For each group you define in the configuration, you need to specify the followin
 | `name`       | Display name for the group (should match `<GroupName>` used in the variable path) | `CLEARML__services__auth__default_groups__<GroupName>__name` | `"My Group Name"`, `"MLOps Team"`  |
 | `features`   | JSON list of features to enable for this group . For the complete list of available features, see [Available Features](#available-features). Note that the features must be defined for the tenant or for the entire server in order to affect the group. By default, all the features of the tenant are available to all users. | `CLEARML__services__auth__default_groups__<GroupName>__features` | `'["applications", "experiments", "pipelines", "reports", "show_dashboard", "show_projects"]'` (Note the single quotes wrapping the JSON string if setting via YAML/environment variables). |
 | `assignable` | Whether admins can assign users to this group from the ClearML Web UI (`true`/`false`). If `false`, group membership is managed externally or implicitly. | `CLEARML__services__auth__default_groups__<GroupName>__assignable` | `"false"`                       |
-| `system`     | Always set to `"false"` for custom groups | ``CLEARML__services__auth__default_groups__<GroupName>__system` | `"false"`                       |
+| `system`     | Always set to `"false"` for custom groups | `CLEARML__services__auth__default_groups__<GroupName>__system` | `"false"`                       |
 
 
 ##### Example Configuration
@@ -475,7 +475,7 @@ The following features can be assigned to groups via the `features` configuratio
 | `sso_management` | Enables the SSO (Single Sign-On) configuration wizard. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `service_users` | Enables support for creating and managing service accounts (API keys). | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `resource_policy` | Enables the [Resource Policies](../../webapp/resource_policies.md) feature. | May default to a trial feature if not explicitly enabled. |
-| `model_serving` | Enables access to the [Model Endpoints](../../webapp/webapp_model_endoints.md) feature. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
+| `model_serving` | Enables access to the [Model Endpoints](../../webapp/webapp_model_endpoints.md) feature. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `show_dashboard` | Makes the "Dashboard" menu item visible in the UI sidebar. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `show_model_view` | Makes the "Models" menu item visible in the UI sidebar. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `show_projects` | Makes the "Projects" menu item visible in the UI sidebar. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
