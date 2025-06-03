@@ -287,7 +287,7 @@ For each group you define in the configuration, you need to specify the followin
 | `name`       | Display name for the group (should match `<GroupName>` used in the variable path) | `CLEARML__services__auth__default_groups__<GroupName>__name` | `"My Group Name"`, `"MLOps Team"`  |
 | `features`   | JSON list of features to enable for this group . For the complete list of available features, see [Available Features](#available-features). Note that the features must be defined for the tenant or for the entire server in order to affect the group. By default, all the features of the tenant are available to all users. | `CLEARML__services__auth__default_groups__<GroupName>__features` | `'["applications", "experiments", "pipelines", "reports", "show_dashboard", "show_projects"]'` (Note the single quotes wrapping the JSON string if setting via YAML/environment variables). |
 | `assignable` | Whether admins can assign users to this group from the ClearML Web UI (`true`/`false`). If `false`, group membership is managed externally or implicitly. | `CLEARML__services__auth__default_groups__<GroupName>__assignable` | `"false"`                       |
-| `system`     | Always set to `"false"` for custom groups | ``CLEARML__services__auth__default_groups__<GroupName>__system` | `"false"`                       |
+| `system`     | Always set to `"false"` for custom groups | `CLEARML__services__auth__default_groups__<GroupName>__system` | `"false"`                       |
 
 
 ##### Example Configuration
