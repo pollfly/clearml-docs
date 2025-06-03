@@ -2,20 +2,17 @@
 title: Custom Events
 ---
 
-:::important Enterprise Feature
-Sending custom events is available under the ClearML Enterprise plan.
-:::
+ClearML Enterprise supports sending custom events to selected Kafka topics. These events are triggered by API calls 
+and are only available to tenants with the `custom_events` feature configured.
 
-ClearML supports sending custom events to selected Kafka topics. Event sending is triggered by API calls and 
-is available only to tenants with the `custom_events` feature configured.
 
-## Enabling Custom Events in ClearML Server 
+## Prerequisites
 
-:::important Prerequisite
-**Precondition**: Customer Kafka for custom events is installed and reachable from the `apiserver`.
-:::
+* A Kafka instance must be deployed and reachable from the ClearML `apiserver`
 
-Modify the server's `clearml-values.override.yaml` file, then upgrade the chart:
+## Enabling Custom Events on the Server
+
+To enable custom evens, edit ClearML Server' `clearml-values.override.yaml` file adding the following:
 
 ```yaml
 apiserver:
@@ -45,9 +42,13 @@ apiserver:
       value: "inventory"
 ```
 
-### Configure Per-Tenant Custom Event Fields
+After editing the configuration, upgrade the Helm chart to apply the changes.
 
-For each tenant, configure the values required by the message templates using the following API call:
+## Enabling Custom Events for Tenants
+
+
+Each tenant must be explicitly configured to use custom events. Use the following API call to set up the custom events 
+properties required by the event message templates:
 
 ```bash
 curl $APISERVER_URL/system.update_company_custom_events_config -H "Content-Type: application/json" -u $APISERVER_KEY:$APISERVER_SECRET -d'{
@@ -62,32 +63,24 @@ curl $APISERVER_URL/system.update_company_custom_events_config -H "Content-Type:
 }}'  
 ```
 
+## Event Emitters
 
-## Sending Custom Events to the API Server
+ClearML services that send custom events include:
 
-:::important Prerequisite
-**Precondition:** Dedicated custom-events Redis instance installed and reachable from all the custom events deployments.
-:::
+* `apiserver` — Sends environment lifecycle events.
+* `clearml-pods-monitor-exporter` - Monitors running Pods (Tasks) and sends lifecycle events. Should run one per cluster 
+  with a unique identifier (an explicit UUID is required for the installation).
+* `clearml-pods-inventory` - Sends periodic inventory events about active Pods.
+* `clearml-company-inventory` - Monitors ClearML tenants and emits environment-level inventory events.
 
-Environment lifecycle events are sent directly by the ClearML `apiserver`. Other event types are emitted by the following 
-services (Helm charts in Kubernetes):
+## Install custom-events
 
+The `clearml-custom-events` Helm chart bundles all custom event services and their dependencies (e.g., Redis). It serves 
+as the umbrella chart for custom event functionality.
 
-* `clearml-pods-monitor-exporter` - Monitors running pods (tasks) and sends lifecycle events.  Should run one per cluster 
-  with a unique identifier (a UUID is required for the installation):  
+### Prepare Values
 
-* `clearml-pods-inventory` - Periodically sends inventory events about running pods.
-
-* `clearml-company-inventory` - Monitors ClearML companies and sends environment inventory events.  
-
-### Install custom-events
-
-The `clearml-custom-events` is the Kubernetes "Custom Events" umbrella Helm chart for ClearML. It includes custom-events 
-components and dependencies (Redis) to kick-start the installation.
-
-#### Prepare Values
-
-Create a `clearml-custom-events-values.override.yaml` file with the following content (make sure to replace the `<PLACEHOLDERS>`):
+Create a `clearml-custom-events-values.override.yaml` file with the following content (make sure to replace `<PLACEHOLDERS>`):
 
 ```yaml
 global:
@@ -113,9 +106,9 @@ clearml-company-inventory:
     schedule: "@daily"
 ```
 
-#### Install
+### Install
 
-Install the Custom Events umbrella chart:
+Install the Custom Events chart:
 
 ```bash
 helm install clearml-custom-events clearml-enterprise/clearml-custom-events -f clearml-custom-events-values.override.yaml
