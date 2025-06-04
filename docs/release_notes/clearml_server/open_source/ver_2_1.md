@@ -21,7 +21,7 @@ title: Version 2.1
 * Fix EMA smoothing in UI scalars is incorrect in first data point ([ClearML Web GitHub issue #101](https://github.com/clearml/clearml-web/issues/101))
 * Improve UI scalar smoothing algorithms (ClearML Web GitHub issues [#101](https://github.com/clearml/clearml-web/issues/101), 
   [#102](https://github.com/clearml/clearml-web/issues/102), [#103](https://github.com/clearml/clearml-web/issues/103))
-* Fix UI Plots does not respect plotly aspectmode ([ClearML GitHub issue #1389](https://github.com/clearml/clearml/issues/1389))
+* Fix UI Plots does not respect plotly `aspectmode` ([ClearML GitHub issue #1389](https://github.com/clearml/clearml/issues/1389))
 * Fix ctrl-f does not open a search bar in UI editor modals ([ClearML Web GitHub issue #99](https://github.com/clearml/clearml-web/issues/99))
 * Fix UI original series of smoothed plots barely visible in dark mode ([ClearML Server GitHub issue #270](https://github.com/clearml/clearml-server/issues/270))
 * Fix webserver configuration environment variables don't load with single-quoted strings ([ClearML Server GitHub issue #271](https://github.com/clearml/clearml-server/issues/271))
