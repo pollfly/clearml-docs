@@ -128,6 +128,7 @@ The following section contains a list of AMI Image IDs per-region for the latest
 * **ap-southeast-3** : ami-02c2510f93e9103c2
 * **ap-southeast-4** : ami-043cc0463fd0d5f65
 * **ap-southeast-5** : ami-0a89c5a9c39fd05a7
+* **ap-southeast-7** : ami-09e12423659d893dd
 * **ca-central-1** : ami-0c902f35c96b30c39
 * **ca-west-1** : ami-0f5ec5964e548adfd
 * **eu-central-1** : ami-0879367e77eb2f09f
@@ -141,6 +142,7 @@ The following section contains a list of AMI Image IDs per-region for the latest
 * **il-central-1** : ami-0282774a5d6f5bbef
 * **me-central-1** : ami-0245376f5c1690b9d
 * **me-south-1** : ami-0df5d9605c6bcbd87
+* **mx-central-1** : ami-0a39df8700027a475
 * **sa-east-1** : ami-07e28e8e282e8fc34
 * **us-east-1** : ami-066f2e1182971cd2e
 * **us-east-2** : ami-007206d639ecc9430
