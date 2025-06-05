@@ -290,6 +290,9 @@ html[data-theme="light"] .hero .button.button--primary{
 .header-ico--slack {
   background-image: url('/img/ico-slack.svg');
 }
+.header-ico--linkedin {
+  background-image: url('/img/ico-linkedin.svg');
+}
 .header-ico {
   width:24px;
   height:24px;
@@ -443,6 +446,9 @@ html[data-theme="dark"] .navbar-sidebar .menu__link.header-ico--slack:before {
 }
 .navbar-sidebar .menu__link.header-ico--youtube:hover {
   background: url('/img/ico-youtube.svg') no-repeat center;
+}
+.navbar-sidebar .menu__link.header-ico--linkedin:hover {
+  background: url('/img/ico-linkedin.svg') no-repeat center;
 }
 
 .menu__link.header-ico {
