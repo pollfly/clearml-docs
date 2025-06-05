@@ -179,7 +179,6 @@ module.exports = {
           className: 'header-ico header-ico--github',
           'aria-label': 'GitHub repository',
         },
-
       ],
     },
     footer: {
