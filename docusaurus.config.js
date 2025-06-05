@@ -168,6 +168,12 @@ module.exports = {
           'aria-label': 'Twitter',
         },
         {
+          href: 'https://www.linkedin.com/company/clearml',
+          position: 'right',
+          className: 'header-ico header-ico--linkedin',
+          'aria-label': 'LinkedIn',
+        },
+        {
           href: 'https://github.com/clearml/clearml',
           position: 'right',
           className: 'header-ico header-ico--github',
@@ -196,6 +202,10 @@ module.exports = {
             {
               label: 'Stack Overflow',
               href: 'https://stackoverflow.com/questions/tagged/clearml',
+            },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/clearml',
             },
             // {
             //   html: `
