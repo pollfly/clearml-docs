@@ -204,6 +204,10 @@ module.exports = {
               label: 'Stack Overflow',
               href: 'https://stackoverflow.com/questions/tagged/clearml',
             },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/clearml',
+            },
             // {
             //   html: `
             //       <a href="https://twitter.com/clearmlapp" target="_blank" rel="noreferrer noopener" aria-label="Twitter">
