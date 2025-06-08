@@ -82,8 +82,8 @@ services (Helm charts in Kubernetes):
 
 ### Install custom-events
 
-The `clearml-custom-events` is the Kubernetes "Custom Events" umbrella Helm chart for ClearML. It includes custom-events 
-components and dependencies (Redis) to kick-start the installation.
+The `clearml-custom-events` is the Kubernetes "Custom Events" umbrella Helm chart for ClearML. 
+It bundles all necessary services and sets up a dedicated Redis instance.
 
 #### Prepare Values
 
