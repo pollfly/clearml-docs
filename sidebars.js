@@ -668,7 +668,6 @@ module.exports = {
                 'deploying_clearml/enterprise_deploy/appgw_install_k8s',
                     ]
                 },
-                'deploying_clearml/enterprise_deploy/custom_billing',
                 {'UI Applications': [
                    'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
                    'deploying_clearml/enterprise_deploy/app_install_ex_server',
