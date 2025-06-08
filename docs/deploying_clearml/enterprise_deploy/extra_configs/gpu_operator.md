@@ -47,7 +47,7 @@ devicePlugin:
 
 Install the `gpu-operator`:
 
-``` bash
+```bash
 helm install -n gpu-operator gpu-operator nvidia/gpu-operator --create-namespace -f gpu-operator.override.yaml
 ```
 

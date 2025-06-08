@@ -290,9 +290,10 @@ module.exports = {
             {
                 'Open Source':
                         [
-                           'release_notes/clearml_server/open_source/ver_2_0',
+                           'release_notes/clearml_server/open_source/ver_2_1',
                            {
                                'Older Versions': [
+                                   'release_notes/clearml_server/open_source/ver_2_0',
                                    'release_notes/clearml_server/open_source/ver_1_17', 'release_notes/clearml_server/open_source/ver_1_16',
                                    'release_notes/clearml_server/open_source/ver_1_15', 'release_notes/clearml_server/open_source/ver_1_14',
                                    'release_notes/clearml_server/open_source/ver_1_13', 'release_notes/clearml_server/open_source/ver_1_12',

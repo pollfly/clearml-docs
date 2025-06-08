@@ -34,7 +34,7 @@ It can only configure access for ClearML Tasks within its own namespace.
 
 ### Login
 
-``` bash
+```bash
 helm repo add clearml-enterprise https://raw.githubusercontent.com/clearml/clearml-enterprise-helm-charts/gh-pages --username <GITHUB_TOKEN> --password <GITHUB_TOKEN>
 ```
 
@@ -80,7 +80,7 @@ tcpSession:
 
 The full list of supported configuration is available with the command:
 
-``` bash
+```bash
 helm show readme clearml-enterprise/clearml-enterprise-app-gateway
 ```
 
@@ -88,7 +88,7 @@ helm show readme clearml-enterprise/clearml-enterprise-app-gateway
 
 To install the App Gateway component via Helm use the following command:
 
-``` bash
+```bash
 helm upgrade --install <RELEASE_NAME> -n <WORKLOAD_NAMESPACE> clearml-enterprise/clearml-enterprise-app-gateway --version <CHART_VERSION> -f clearml-app-gateway-values.override.yaml
 ```
 

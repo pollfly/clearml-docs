@@ -37,8 +37,8 @@ apiserver:
       value: "true"
 ```
 
-These settings configure the **supervisor**, an administrative user belonging to a designated supervisor company. 
-Admins in the supervisor company can view the resource usage dashboards across all tenants.
+These values configure a **supervisor** user, an administrator in a designated supervisor tenant. These users can access cross-tenant information, and 
+specifically view an aggregate resource dashboard for all tenants.
 
 The `<SUPERVISOR_USER_KEY>` and `<SUPERVISOR_USER_SECRET>` can be used to log in as the 
 supervisor user from the ClearML Web UI via `app.<BASE_DOMAIN>`.
@@ -475,7 +475,7 @@ The following features can be assigned to groups via the `features` configuratio
 | `sso_management` | Enables the SSO (Single Sign-On) configuration wizard. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `service_users` | Enables support for creating and managing service accounts (API keys). | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `resource_policy` | Enables the [Resource Policies](../../webapp/resource_policies.md) feature. | May default to a trial feature if not explicitly enabled. |
-| `model_serving` | Enables access to the [Model Endpoints](../../webapp/webapp_model_endoints.md) feature. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
+| `model_serving` | Enables access to the [Model Endpoints](../../webapp/webapp_model_endpoints.md) feature. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `show_dashboard` | Makes the "Dashboard" menu item visible in the UI sidebar. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `show_model_view` | Makes the "Models" menu item visible in the UI sidebar. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 | `show_projects` | Makes the "Projects" menu item visible in the UI sidebar. | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |

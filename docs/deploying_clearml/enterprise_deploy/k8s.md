@@ -46,12 +46,12 @@ For optimal performance, a Kubernetes cluster with at least 3 nodes is recommend
 
 Add the ClearML Helm repository:
 
-``` bash
+```bash
 helm repo add clearml-enterprise https://raw.githubusercontent.com/clearml/clearml-enterprise-helm-charts/gh-pages --username <HELM_REPO_TOKEN> --password <HELM_REPO_TOKEN>
 ```
 
 Update the local repository:
-``` bash
+```bash
 helm repo update
 ```
 
@@ -64,7 +64,7 @@ In the following configuration, replace the `<BASE_DOMAIN>` placeholders with a 
 pointing to the cluster's Ingress Controller. This will be the base domain for reaching your ClearML installation.
 :::
 
-``` yaml
+```yaml
 imageCredentials:
   password: "<CLEARML_DOCKERHUB_TOKEN>"
 clearml:
@@ -95,9 +95,17 @@ clearmlApplications:
 
 Install the ClearML Enterprise Helm chart using the previous values override file.
 
-``` bash
+```bash
 helm upgrade -i -n clearml clearml clearml-enterprise/clearml-enterprise --create-namespace -f clearml-values.override.yaml 
 ```
+
+### Applications Installation
+ClearML Applications are plugins that extend the functionality of the ClearML Enterprise Server. They enable users 
+to manage ML workloads and automate recurring workflows--no code required
+
+Applications are installed on top of the ClearML Server and are provided by the ClearML team.
+
+For more information, see [ClearML Applications](extra_configs/apps.md).
 
 ## Additional Configuration Options
 
@@ -118,7 +126,7 @@ Kubernetes.
 
 If you need to define your own credentials to be used instead, replace the default key and secret values in `clearml-values.override.yaml`.
 
-``` yaml
+```yaml
 clearml:
   # Replace the following values to use custom internal credentials.
   apiserverKey: ""
@@ -132,7 +140,7 @@ clearml:
 
 In a shell, if `openssl` is installed, you can use this simple command to generate random strings suitable as keys and secrets:
 
-``` bash
+```bash
 openssl rand -hex 16
 ```
 
@@ -143,7 +151,7 @@ installations. This is an optional step in case the SSO (Identity provider) conf
 
 Please note that this setup is not ideal for multi-tenant setups as fixed users will only be associated with the default tenant.
 
-``` yaml
+```yaml
 apiserver:
   additionalConfigs:
     apiserver.conf: |

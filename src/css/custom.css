@@ -290,6 +290,9 @@ html[data-theme="light"] .hero .button.button--primary{
 .header-ico--slack {
   background-image: url('/img/ico-slack.svg');
 }
+.header-ico--linkedin {
+  background-image: url('/img/ico-linkedin.svg');
+}
 .header-ico {
   width:24px;
   height:24px;
@@ -444,6 +447,9 @@ html[data-theme="dark"] .navbar-sidebar .menu__link.header-ico--slack:before {
 .navbar-sidebar .menu__link.header-ico--youtube:hover {
   background: url('/img/ico-youtube.svg') no-repeat center;
 }
+.navbar-sidebar .menu__link.header-ico--linkedin:hover {
+  background: url('/img/ico-linkedin.svg') no-repeat center;
+}
 
 .menu__link.header-ico {
   margin: 1rem 0 0 0.5rem;
@@ -569,10 +575,16 @@ html[data-theme="dark"] input[class^="searchQueryInput"] {
   background: url('/img/ico-stackoverflow.svg') no-repeat left center;
   background-size: 1rem;
 }
+.footer__link-item[href*="linkedin"] {
+  padding-left: 1.4rem;
+  background: url('/img/ico-linkedin.svg') no-repeat left center;
+  background-size: 1rem;
+}
 
 html[data-theme="light"] .footer__link-item[href*="slack"],
 html[data-theme="light"] .footer__link-item[href*="youtube"],
 html[data-theme="light"] .footer__link-item[href*="twitter"],
+html[data-theme="light"] .footer__link-item[href*="linkedin"],
 html[data-theme="light"] .footer__link-item[href*="stackoverflow"] {
   filter: brightness(0.5);
 }
