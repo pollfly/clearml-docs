@@ -9,6 +9,8 @@ Sending custom events is available under the ClearML Enterprise plan.
 ClearML supports sending custom events to selected Kafka topics. Event sending is triggered by API calls and 
 is available only to tenants with the `custom_events` feature configured.
 
+This feature can be used to implement custom billing.
+
 ## Enabling Custom Events in ClearML Server 
 
 :::important Prerequisite
