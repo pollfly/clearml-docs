@@ -1,22 +1,23 @@
 ---
-title: Complete ClearML Enterprise K8s Installation and Configuration
+title: ClearML Enterprise K8s Installation and Configuration
 ---
 
-This guides walks you through installing and configuring ClearML Enterprise on Kubernetes, from basic installation 
-to advanced configuration options.
+This guides walks you through the complete installation and configuration of ClearML Enterprise Server on Kubernetes
+from initial setup to advanced configuration options.
 
 Follow the steps in the order presented for a smooth setup process.
 
 ## Prerequisites
 
-Before installing ClearML Enterprise, verify that the following components are in place:
+Before you begin, ensure the following requirements are met:
 
-- Kubernetes Cluster: A vanilla Kubernetes cluster is recommended for optimal GPU support.
+- Kubernetes Cluster: A standard Kubernetes (vanilla) cluster is recommended, especially for optimal GPU support.
 - CLI Tools: `kubectl` and `helm` must be installed and configured.
-- Ingress Controller:  Required to expose services via HTTP/S (e.g., `nginx-ingress`). If you need external access, also 
+- Ingress Controller:  Required to expose services via HTTP/S (e.g., `nginx-ingress`). For external access,
   configure a LoadBalancer (e.g., `MetalLB`).
-- Server and workers communicating on HTTP/S (ports 80 and 443). Additionally, the TCP session feature requires a range 
-  of ports for TCP traffic based on your configuration (see [AI App Gateway installation](appgw_install_k8s.md)).
+- Network Ports:
+  - HTTP/S communication (ports 80 and 443) must be available between the server and agents.
+   - TCP session support (for interactive apps) requires an additional port range (see the [AI App Gateway installation](appgw_install_k8s.md)).
 - DNS Configuration: A domain with subdomain support is required, ideally with trusted TLS certificates. All entries must 
   be resolvable by the Ingress controller. Example subdomains:
   - Server:
@@ -50,54 +51,50 @@ See the [ClearML Server on Kubernetes installation guide](k8s.md).
 
 ### ClearML Applications
 
-ClearML Applications are like plugins that allow you to manage ML workloads and automatically run recurring workflows 
+ClearML Applications are plugin services that automate ML workloads 
 without any coding. Applications are installed on top of the ClearML Server and are provided by the ClearML team.
 
 See the [Application Installation guide](extra_configs/apps.md).
 
 ### ClearML Enterprise Agent
 
-The ClearML Enterprise Agent Enables scheduling and execution of distributed workloads (Tasks) on your Kubernetes cluster.
+The ClearML Enterprise Agent enables scheduling and execution of distributed workloads (Tasks) on your Kubernetes cluster.
 
 See the [ClearML Agent installation guide](agent_k8s.md).
 
 ### AI Application Gateway
 
-The ClearML AI Application Gateway provides secure and authenticated routing of HTTPS connections from a 
-user's browser running the ClearML WebApp to pods running interactive ClearML applications.
-
-Some ClearML applications (e.g., JupyterLab, Streamlit)  may require users to access running ClearML tasks in a secure 
-and authenticated manner, based on ClearML user permissions. To provide access to these tasks running inside pods, an AI 
-App Gateway service must run on the same network as the agents and pods running the tasks.
+The AI App Gateway enables secure, authenticated access to interactive ClearML applications (e.g., JupyterLab, Streamlit) 
+based on ClearML user permissions. It routes HTTPS traffic from users to running pods on the cluster.
 
 See the [AI Application Gateway installation guide](appgw_install_k8s.md).
 
-## Additional Configurations
+## Additional Configuration Options
 
-### Setup GPUs
+### GPU Operator
 
-#### GPU Operator
+Deploy the NVIDIA GPU Operator in order to use Nvidia GPUs in ClearML.
 
-
-$$$$$$$$$$$$$$$$$$$$In order to use Nvidia GPUs in ClearML.
-
-See the [guide for deploying the NVIDIA GPU Operator alongside ClearML Enterprise](extra_configs/gpu_operator.md)
+See the [GPU Operator Basic Deployment guide](extra_configs/gpu_operator.md)
 
 ### Fractional GPU Support
 
-Enable allocating a fraction of the available GPU cores and memory for better utilization of shared GPU nodes.
+To optimize GPU utilization:
 
-$$$$$$TODO link
+* ClearML Dynamic MIG Orchestrator (CDMO): Manage GPU fractions using NVIDIA MIGs. See the [CDMO guide](fractional_gpus/cdmo.md)
+* ClearML Fractional GPU Injector (CFGI): Use fractional (non-MIG) GPU slices for efficient resource sharing. See the [CFGI guide](fractional_gpus/cfgi.md)
+* Mixed Deployments: Deploy both CDMO and CFGI in clusters with diverse GPU types. Use the NVIDIA GPU Operator to handle 
+  mixed hardware setups. See the [CDMO and CFGI guide](fractional_gpus/cdmo_cfgi_same_cluster.md).
 
 ### Multi-Tenant Setup
 
-Enable isolated tenants within the same ClearML Server, each with separate configuration, users, and project namespaces.
+Run multiple isolated tenants on a single ClearML Server instance, each with its own configuration and user namespaces.
 
-See the [multi-tenant service installation guide](multi_tenant_k8s.md).
+See the [Multi-Tenant Service guide](multi_tenant_k8s.md).
 
 ### SSO (Identity Provider) Setup
 
-Configure Single sign-on identity providers on ClearML Enterprise.
+Integrate identity providers to enable SSO login for ClearML Enterprise users.
 
 See the [SSO Setup guide](extra_configs/sso_login.md).
 
@@ -109,12 +106,11 @@ See the [Custom Event guide](extra_configs/custom_events.md).
 
 ### ClearML Presign Service
 
-The ClearML Presign Service is a secure component for generating and redirecting pre-signed storage URLs for
-authenticated users.
+The ClearML Presign Service securely generates pre-signed storage URLs for authenticated users.
 
 See the [ClearML Presign Service guide](extra_configs/presign_service.md).
 
-### Install with a non-root user
+## Install with a Non-Root User
 
 In some Helm charts, you will find a values file called `values-enterprise-non-root-privileged.yaml` to be used for a 
 non-root installation.

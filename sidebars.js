@@ -664,7 +664,7 @@ module.exports = {
                 {'ClearML Application Gateway': [
                     'deploying_clearml/enterprise_deploy/appgw_install_compose',
                     'deploying_clearml/enterprise_deploy/appgw_install_compose_hosted',
-                'deploying_clearml/enterprise_deploy/appgw_install_k8s',
+                    'deploying_clearml/enterprise_deploy/appgw_install_k8s',
                     ]
                 },
                 'deploying_clearml/enterprise_deploy/custom_billing',
@@ -719,5 +719,74 @@ module.exports = {
                 },
             ],
         },
+    ],
+    enterpriseDeploy: [
+       {
+          type: 'category',
+          collapsible: true,
+          label: 'ClearML Enterprise K8s Installation and Configuration',
+          link: {type: 'doc', id: 'deploying_clearml/enterprise_deploy/k8s_overview'},
+          items: [
+            'deploying_clearml/enterprise_deploy/agent_k8s',
+            'deploying_clearml/enterprise_deploy/extra_configs/apps',
+            {
+                type: 'category',
+                collapsible: true,
+                label: 'Extra Configuration',
+                items: [
+                    {
+                        type: 'doc',
+                        label: 'GPU Operator Basic Deployment',
+                        id: 'deploying_clearml/enterprise_deploy/extra_configs/gpu_operator'
+                    },                    {
+                        type: 'doc',
+                        id: 'deploying_clearml/enterprise_deploy/extra_configs/custom_events'
+                    },
+                    {
+                        type: 'doc',
+                        id: 'deploying_clearml/enterprise_deploy/extra_configs/presign_service'
+                    },
+                    {
+                        type: 'doc',
+                        id: 'deploying_clearml/enterprise_deploy/extra_configs/dynamic_edit_task_pod_template'
+                    },
+                    {
+                        type: 'doc',
+                        id: 'deploying_clearml/enterprise_deploy/extra_configs/multi_node_training'
+                    },
+
+                    {
+                        type: 'doc',
+                        label: 'K8s Deployment with Self-Signed Certificates',
+                        id: 'deploying_clearml/enterprise_deploy/extra_configs/self_signed_certificates'
+                    },
+                    {
+                        type: 'doc',
+                        id: 'deploying_clearml/enterprise_deploy/extra_configs/sso_login'
+                    },
+                ],
+            },
+            {
+                type: 'category',
+                collapsible: true,
+                label: 'Fractional GPUs',
+                items: [
+                    {
+                        type: 'doc',
+                        label: 'ClearML Dynamic MIG Operator (CDMO)',
+                        id: 'deploying_clearml/enterprise_deploy/fractional_gpus/cdmo'
+                    },
+                    {
+                        type: 'doc',
+                        id: 'deploying_clearml/enterprise_deploy/fractional_gpus/cfgi'
+                    },
+                    {
+                        type: 'doc',
+                        id: 'deploying_clearml/enterprise_deploy/fractional_gpus/cdmo_cfgi_same_cluster'
+                    },
+                ],
+            },
+          ]
+       }
     ]
 };
