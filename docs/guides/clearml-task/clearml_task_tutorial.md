@@ -12,7 +12,7 @@ on a remote or local machine, from a remote repository and your local machine.
 
 ### Executing Code from a Remote Repository 
 
-``` bash
+```bash
 clearml-task --project keras_examples --name remote_test --repo https://github.com/clearml/events.git --branch master --script /webinar-0620/keras_mnist.py --args batch_size=64 epochs=1 --queue default
 ```
 

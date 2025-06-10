@@ -290,9 +290,10 @@ module.exports = {
             {
                 'Open Source':
                         [
-                           'release_notes/clearml_server/open_source/ver_2_0',
+                           'release_notes/clearml_server/open_source/ver_2_1',
                            {
                                'Older Versions': [
+                                   'release_notes/clearml_server/open_source/ver_2_0',
                                    'release_notes/clearml_server/open_source/ver_1_17', 'release_notes/clearml_server/open_source/ver_1_16',
                                    'release_notes/clearml_server/open_source/ver_1_15', 'release_notes/clearml_server/open_source/ver_1_14',
                                    'release_notes/clearml_server/open_source/ver_1_13', 'release_notes/clearml_server/open_source/ver_1_12',
@@ -667,7 +668,6 @@ module.exports = {
                     'deploying_clearml/enterprise_deploy/appgw_install_k8s',
                     ]
                 },
-                'deploying_clearml/enterprise_deploy/custom_billing',
                 {'UI Applications': [
                    'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
                    'deploying_clearml/enterprise_deploy/app_install_ex_server',
