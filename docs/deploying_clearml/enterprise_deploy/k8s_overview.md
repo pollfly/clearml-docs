@@ -102,7 +102,7 @@ See the [SSO Setup guide](extra_configs/sso_login.md).
 
 ClearML Enterprise supports sending custom events to selected Kafka topics. 
 
-See the [Custom Event guide](extra_configs/custom_events.md).
+See the [Custom Event guide](extra_configs/custom_billing.md).
 
 ### ClearML Presign Service
 

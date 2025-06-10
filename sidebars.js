@@ -740,7 +740,7 @@ module.exports = {
                         id: 'deploying_clearml/enterprise_deploy/extra_configs/gpu_operator'
                     },                    {
                         type: 'doc',
-                        id: 'deploying_clearml/enterprise_deploy/extra_configs/custom_events'
+                        id: 'deploying_clearml/enterprise_deploy/extra_configs/custom_billing'
                     },
                     {
                         type: 'doc',
