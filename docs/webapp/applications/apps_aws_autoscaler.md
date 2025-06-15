@@ -147,7 +147,7 @@ and [AWS API Reference: RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/
 
 ![Autoscaler instance launch form](../../img/app_aws_autoscaler_wizard.png)
 
-### Configuration Vault 
+### Configuration Vault
 
 :::important Enterprise Feature
 The Configuration Vault is available under the ClearML Enterprise plan.

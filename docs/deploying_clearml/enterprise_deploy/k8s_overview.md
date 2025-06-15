@@ -75,7 +75,7 @@ See the [AI Application Gateway installation guide](appgw_install_k8s.md).
 
 Deploy the NVIDIA GPU Operator in order to use Nvidia GPUs in ClearML.
 
-See the [GPU Operator Basic Deployment guide](extra_configs/gpu_operator.md)
+See the [GPU Operator Basic Deployment guide](extra_configs/gpu_operator.md).
 
 ### Fractional GPU Support
 
