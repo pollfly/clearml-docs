@@ -87,7 +87,7 @@ Use frame viewer controls to navigate between frames in a Hyper-Dataset Version,
 
 **To view / edit a frame in the frame editor**
 
-1. Locate your frame by applying [filters](webapp_datasets_versioning.md#frame-filtering).
+1. Locate your frame by applying [frame filters](webapp_datasets_versioning.md#frame-filtering).
 1. Click the frame thumbnail. The frame editor appears.
 1. Do any of the following:
     * View frame details, including:
