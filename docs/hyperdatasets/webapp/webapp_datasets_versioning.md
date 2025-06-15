@@ -386,9 +386,8 @@ If a FrameGroup doesn't have the selected preview source, the preview displays t
 ## Statistics
 
 The **Statistics** tab allows exploring frame and ROI property distribution across a Hyper-Dataset version:
-1. Query the frames to include in the statistics calculations under **Filter by label**. Use [simple](#simple-frame-filtering) 
-or [advanced](#advanced-frame-filtering) frame filters. If no filter is applied, all frames in the dataset version will 
-be included in the calculation. 
+1. Query the frames to include in the statistics calculations under **Filter by label**. Use [frame filters](#frame-filtering). 
+   If no filter is applied, all frames in the dataset version will be included in the calculation. 
 1. Select the property whose distribution should be calculated 
    * Select the property **Type**:
       * **ROI** - Frame ROI properties (e.g. ROI label, ID, confidence, etc.). This will calculate the distribution of 
