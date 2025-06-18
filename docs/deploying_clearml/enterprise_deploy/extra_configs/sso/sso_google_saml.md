@@ -1,31 +1,34 @@
-Google SAML
-On the client side
+---
+title: Google SAML
+---
 
-Register ClearML app with the callback url: <clearml_webapp_address>/callback_google_saml
+On the client side:
 
-Make sure that sso binding is set to HTTP-Redirect
+1. Register ClearML app with the callback url: `<clearml_webapp_address>/callback_google_saml`
 
-Make sure that the following user claims are returned to ClearML app: “objectidentifier" (user ID), “displayname" (Full user name), “emailaddress" (User’s email address)
+1. Make sure that sso binding is set to HTTP-Redirect
 
-Generate the idp metadate file and send us back the file and entity ID
+1. Make sure that the following user claims are returned to ClearML app: `“objectidentifier"` (user ID), `“displayname"` 
+   (Full username), `“emailaddress"` (user's email address)
 
-On ClearML side
+1. Generate the idp metadate file and send us back the file and entity ID
 
-Prepare the deployment with the user idp metadatafile mapped into the apiserver
+On the ClearML side:
 
-Define the following environment vars
+1. Prepare the deployment with the user idp metadatafile mapped into the apiserver
 
-CLEARML__secure__login__sso__saml_client__google_saml__entity_id=<app_entity_id>
+1. Define the following environment vars
 
-CLEARML__secure__login__sso__saml_client__google_saml__idp_metadata_file=<path to the metadata file>
+   * `CLEARML__secure__login__sso__saml_client__google_saml__entity_id=<app_entity_id>`
 
-CLEARML__secure__login__sso__saml_client__google_saml__default_company="<company_id>"
+   * `CLEARML__secure__login__sso__saml_client__google_saml__idp_metadata_file=<path to the metadata file>`
+
+    `CLEARML__secure__login__sso__saml_client__google_saml__default_company="<company_id>"`
 
 On ClearML server side - K8s
 Add following stuff on override file:
 
-
-
+```
 apiserver:
   additionalConfigs:
     metadata.xml: |
@@ -42,4 +45,4 @@ apiserver:
       value: "/opt/clearml/config/default/metadata.xml"
     - name: "CLEARML__secure__login__sso__saml_client__google_saml__default_company"
       value: "<company_id>"
- 
+```
