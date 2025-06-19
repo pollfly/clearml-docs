@@ -22,6 +22,7 @@ title: FAQ
 * [I noticed I keep getting the message "warning: uncommitted code". What does it mean?](#uncommitted-code-warning)
 * [I do not use argparse for hyperparameters. Do you have a solution?](#dont-want-argparser)
 * [I noticed that all of my tasks appear as "Training". Are there other options?](#other-task-types)
+* [How can I query tasks by a time range?](#time-range-query)
 * [Sometimes I see tasks as running when in fact they are not. What's going on?](#task-running-but-stopped)
 * [My code throws an exception, but my task status is not "Failed". What happened?](#exception-not-failed)
 * [CERTIFICATE_VERIFY_FAILED - When I run my task, I get an SSL Connection error. Do you have a solution?](#ssl-connection-error)
@@ -333,7 +334,48 @@ calling [`Task.init()`](references/sdk/task.md#taskinit), you can provide a task
 ```python
 task = Task.init(project_name, task_name, Task.TaskTypes.testing)
 ```
-    
+
+<br/>
+
+
+#### How can I query tasks by a time range? <a id="time-range-query"></a>
+
+You can use [`Task.get_tasks()`](references/sdk/task.md#taskget_tasks) and [`Task.query_tasks()`](references/sdk/task.md#taskquery_tasks) 
+to filter tasks by time-based fields, such as `status_changed` and `started`.
+
+Use comparison operators ( `>`, `<`, `>=`, `<=`, `=`) for specifying a desired time range. For example, to return all 
+tasks whose status changed after March 17, 2025, 22:00: 
+
+```python
+Task.get_tasks(
+    project_name='vLLM Model Deployment',
+    task_filter={
+        'status_changed': ">2025-03-17T22:00:00"
+    }
+)
+```
+
+If the SDK task object schema (`backend_api.service.v?.tasks.GetAllRequest._schema`, replace `?` with the relevant 
+version, e.g. [v2.23](https://github.com/clearml/clearml/blob/master/clearml/backend_api/services/v2_23/tasks.py#L7756C1-L7756C16)) 
+is missing a field that is supported by the server, use the `_allow_extra_fields_` flag to bypass SDK schema validation 
+and add the query directly to the API request. API query time range specification adheres to a different syntax:
+* The array `[start_time, end_time]` specifies the time range.
+* Use `None` to indicate an open-ended range.
+
+For example, assume the SDK schema is missing the `Task.started` parameter: to return all tasks started after 
+March 17, 2023, 22:00:
+
+```python
+Task.get_tasks(
+    project_name='vLLM Model Deployment',
+    task_filter={
+        '_allow_extra_fields_': True,
+        'started': ["2023-03-17T22:00:00", None]
+    }
+)
+```
+
+See all backend-supported fields in the [Task API definition](references/api/definitions.md#taskstask).
 
 <br/>
 
