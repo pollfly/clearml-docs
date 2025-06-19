@@ -356,7 +356,7 @@ Task.get_tasks(
 ```
 
 If the SDK task object schema (`backend_api.service.v?.tasks.GetAllRequest._schema`, replace `?` with the relevant 
-version, e.g. [v2.23](https://github.com/clearml/clearml/blob/master/clearml/backend_api/services/v2_23/tasks.py#L7756C1-L7756C16)) 
+version, e.g. [v2.23](https://github.com/clearml/clearml/blob/4a0755634bd1a1388366e66707826f122cfd5dd4/clearml/backend_api/services/v2_23/tasks.py#L7756C1-L7756C16)) 
 is missing a field that is supported by the server, use the `_allow_extra_fields_` flag to bypass SDK schema validation 
 and add the query directly to the API request. API query time range specification adheres to a different syntax:
 * The array `[start_time, end_time]` specifies the time range.
