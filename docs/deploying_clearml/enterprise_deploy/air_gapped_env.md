@@ -35,7 +35,7 @@ clearml-agent
 ```
 
 If hosting the previous Python packages locally, make sure to set `PIP_EXTRA_INDEX_URL=<LOCAL_REPO_URL>` for containers 
-running ClearML tasks. The is an example in Kubernetes using the ClearML Agent helm values override:
+running ClearML tasks. The following is an example in Kubernetes using the ClearML Agent helm values override:
 
 ```yaml
 agentk8sglue:
@@ -51,7 +51,6 @@ agentk8sglue:
 Application environment variables (see [below](#app-specific-offline-resources)) can be set using any of the following:
 
 - [ClearML Administrator Vault](../../webapp/settings/webapp_settings_admin_vaults.md) configuration: Set `agent.extra_docker_arguments`
-
 - Agent config on VMs or bare-metal: Set `agent.extra_docker_arguments`
 - Kubernetes ClearML Agent deployments: Set the `basePodTemplate`
 
@@ -92,7 +91,7 @@ agentk8sglue:
 
 For air-gapped SSH applications using the DropBear server (required for non-privileged containers):
 * Download and host the [DropBear executable](https://github.com/allegroai/dropbear/releases/download/DROPBEAR_CLEARML_2023.02/dropbearmulti). 
-* - Set `CLEARML_DROPBEAR_EXEC=<PATH_TO_EXECUTABLE>` in all containers started by the ClearML Agent running GPU workloads
+* Set `CLEARML_DROPBEAR_EXEC=<PATH_TO_EXECUTABLE>` in all containers started by the ClearML Agent running GPU workloads
 
 
 ### Convert Image Registry
@@ -110,7 +109,7 @@ To ensure Kubernetes workloads (ClearML Agents, Server, and App Gateway) use you
 in the appropriate Helm override files.
 
 * To use a custom defined `imagePullSecret` for a **ClearML Agent** and the tasks Pods it creates, configure the following 
-  in your `clearml-agent-values.override.yaml` file.
+  in your `clearml-agent-values.override.yaml` file:
 
   ```yaml
   imageCredentials:
@@ -118,7 +117,7 @@ in the appropriate Helm override files.
       - name: "<IMAGE_PULL_SECRET_NAME>"
   ```
 
-* To use a custom defined `imagePullSecret` for the **ClearML Server**, configure the following in your `clearml-values.override.yaml` file.
+* To use a custom defined `imagePullSecret` for the **ClearML Server**, configure the following in your `clearml-values.override.yaml` file:
 
   ```yaml
   imageCredentials:
@@ -126,7 +125,7 @@ in the appropriate Helm override files.
       - name: "<IMAGE_PULL_SECRET_NAME>"
   ```
 
-* To use a custom defined `imagePullSecret` for the **ClearML App Gateway**, configure the following in your `clearml-app-gateway-values.override.yaml` file.
+* To use a custom defined `imagePullSecret` for the **ClearML App Gateway**, configure the following in your `clearml-app-gateway-values.override.yaml` file:
 
   ```yaml
   imageCredentials:
@@ -154,7 +153,8 @@ To see all container images used by a ClearML Helm chart:
 helm template <CHART_NAME> | yq '..|.image? | select(.)' | sort -u
 ```
 
-:::
+
+:::note
 This requires the `helm` and `yq` commands to be installed.
 :::
 
