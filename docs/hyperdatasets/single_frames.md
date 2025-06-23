@@ -42,8 +42,8 @@ For more information, see [Masks](masks.md).
 
 
 ### Previews 
-`previews` is a dictionary containing metadata for optional thumbnail images that can be used in the ClearML Enterprise WebApp (UI) 
-to view selected images in a Hyper-Dataset. `previews` includes the `uri` of the thumbnail image.
+Previews are optional images or videos that can be used in the ClearML Enterprise WebApp (UI) 
+to view images in a Hyper-Dataset. 
 
 For more information, see [Previews](previews.md).
 
