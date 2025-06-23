@@ -45,7 +45,7 @@ Use frame viewer controls to navigate between frames in a Hyper-Dataset Version,
 |<img src="/docs/latest/icons/ico-arrow-right.svg" alt="Next frame icon" className="icon size-md space-sm" />|Go to the next frame | Right arrow |
 |<img src="/docs/latest/icons/ico-skip-next.svg" alt="Jump to next unfiltered annotation" className="icon size-md space-sm" />|Go to the next frame containing a non-filtered annotation (same filter as <img src="/docs/latest/icons/ico-skip-previous.svg" alt="Jump to previous unfiltered annotation" className="icon size-md space-sm" />).| <img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> |
 |<img src="/docs/latest/icons/ico-skip-forward.svg" alt="Jump forwards icon" className="icon size-md space-sm" />|Jump forwards ten frames | CTRL + Right arrow |
-|`Use Source Data`|Show the frame’s `source` rather than its `preview_uri`| <img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> |
+|`Use Source Data`|Show the frame's `source` rather than its `preview`| <img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> |
 |<img src="/docs/latest/icons/ico-revert.svg" alt="Reload frame icon" className="icon size-md space-sm" />|Reload the frame.| <img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> |
 |<img src="/docs/latest/icons/ico-undo.svg" alt="Undo icon" className="icon size-md space-sm" />|Undo changes.|Ctrl + Z| 
 |<img src="/docs/latest/icons/ico-redo.svg" alt="Redo icon" className="icon size-md space-sm" />|Redo changes.|Ctrl + Y| 
