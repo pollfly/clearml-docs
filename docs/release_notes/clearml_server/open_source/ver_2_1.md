@@ -46,7 +46,7 @@ title: Version 2.1
 * Fix deleting a parameter in the UI task creation modal incorrectly removes another parameter
 * Add support for comparing tasks from specific project in UI Reports customized embed queries 
 * Fix clicking "Details" view causes UI Model data to disappear
-* Fix UI scalars hide/unhide function sometimes doesn't work for single-variant metrics
+* Fix UI scalars hide/show function sometimes doesn't work for single-variant metrics
 * Fix maximizing UI scalar plot raises an error
 * Fix clicking on task in UI Model lineage navigates to incorrect page
 * Fix UI breadcrumbs sometimes does not display project name
