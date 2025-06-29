@@ -123,7 +123,7 @@ executing. Essentially, it will send a `ctrl c`, so a quit command or a terminat
 remote machine. So the remote machine will say okay, I'm done here. I will just quit it right here. If, for example, 
 your model is not performing very well, or you see like oh, something is definitely wrong here, you can always just 
 abort it. And the cool thing is if we go back to the **Workers and Queues**, we'll see that the `Beast 0` has given up working 
-on task 0 and has now picked task 18 instead. Which is the task that we put in there in terms of priority. So this has the 
+on task 0 and has now picked task 18 instead. Which is the task that we put there in terms of priority. So this has the 
 next priority. Work has already started on task 18. So this is really, really cool. 
 
 But we can see that in the CPU queue, the amount of tasks is still very, very high. Even though we just aborted one, 

@@ -60,7 +60,7 @@ List your ClearML Agent configuration.
 clearml-agent config [-h]
 ```
 
-## daemon 
+## daemon
 
 Use the `daemon` command to spin up an agent on any machine: on-prem and/or cloud instance. When spinning up an agent, 
 assign it a queue(s) to service, and when tasks are added to its queues, the agent will pull and execute them. 

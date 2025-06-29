@@ -71,8 +71,8 @@ Task.current_task().connect(param)
 
 Command line options appear in **CONFIGURATION** **>** **HYPERPARAMETERS** **>** **Args**.
 
-![Hyperparamter Args](../../../img/examples_pytorch_distributed_example_01.png#light-mode-only)
-![Hyperparamter Args](../../../img/examples_pytorch_distributed_example_01_dark.png#dark-mode-only)
+![Hyperparameter Args](../../../img/examples_pytorch_distributed_example_01.png#light-mode-only)
+![Hyperparameter Args](../../../img/examples_pytorch_distributed_example_01_dark.png#dark-mode-only)
 
 Parameter dictionaries appear in the **General** section of **HYPERPARAMETERS**.
 
