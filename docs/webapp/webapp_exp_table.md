@@ -59,7 +59,7 @@ To create a task through the UI interface:
      * Entry Point - The code to run
        * Working Directory
        * Script type - Python/Shell 
-       * Binary - The binary executing the script (e.g. python3, bash etc).
+       * Binary - The binary executing the script (e.g. python3, bash etc.).
        * Type – How the code is provided
          * Script - The name of the file to run using the above specified binary
          * Module - The name of a Python module to run (Python only, see [Python module specification](https://docs.python.org/3/using/cmdline.html#cmdoption-m))
@@ -67,7 +67,7 @@ To create a task through the UI interface:
            * File name - The script in which your code is stored. Click `Upload` to upload an existing file.
            * Content - The actual code. Click `Edit` to modify the script’s contents.
        * Add `Task.init` call (Python only) - If selected, a [`Task.init()`](../references/sdk/task.md#taskinit) call is automatically added to 
-       your script (Use if if you script does not yet make use of ClearML)
+       your script (Use if your script does not make use of ClearML yet).
    * **Arguments** (*optional*) - Add [hyperparameter](../fundamentals/hyperparameters.md) values.
    * **Environment** (*optional*) - Set up the task’s execution environment
      * Python - Python environment settings

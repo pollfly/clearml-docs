@@ -41,7 +41,7 @@ detected are marked with colors or different opacity levels in the masks.
 For more information, see [Masks](masks.md).
 
 
-### Previews 
+### Previews
 Previews are optional images or videos that can be used in the ClearML Enterprise WebApp (UI) 
 to view images in a Hyper-Dataset. 
 

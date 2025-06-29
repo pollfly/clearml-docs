@@ -34,7 +34,7 @@ Previews appear in the following WebApp pages:
 
 ### Register Frames with a Preview 
 
-To register frames with a preview,set the `preview_uri` when creating the frame:
+To register a frame with a preview, set the `preview_uri` when creating the frame:
 
 ```python
 # create dataset version
