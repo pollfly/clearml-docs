@@ -5,7 +5,7 @@ title: Version 2.0
 ### ClearML 2.0.1
 
 **New Features and Improvements**
-* Add a `stage` field to pipeline steps
+* Add support for grouping pipeline steps by stage
 * Add warning when calling `Task.force_requirements_env_freeze()` / `Task.force_store_standalone_script()` after `Task.init()` ([ClearML GitHub issue #1425](https://github.com/clearml/clearml/issues/1425))
 
 **Bug Fixes**
