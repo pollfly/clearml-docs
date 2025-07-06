@@ -2,14 +2,10 @@
 title: Manual Deployment
 ---
 
-The following page covers how to install and deploy a ClearML Agent bare-metal. 
+This page explains how to install and deploy ClearML Agent on bare-metal servers.
 
 ## Installation
 
-:::note
-If ClearML was previously configured, follow [this](#adding-clearml-agent-to-a-configuration-file) to add 
-ClearML Agent specific configurations
-:::
 
 To install [ClearML Agent](../clearml_agent.md), execute
 ```bash
@@ -23,6 +19,11 @@ it can't do that when running from a virtual environment.
 :::
 
 ## Configuration
+
+:::note
+If ClearML was previously configured, follow [this](#adding-clearml-agent-to-a-configuration-file) to add 
+ClearML Agent specific configurations
+:::
 
 1. In a terminal session, execute
    ```bash

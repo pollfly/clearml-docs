@@ -3,7 +3,7 @@ title: ClearML Fractional GPU Injector (CFGI)
 ---
 
 :::important Enterprise Feature
-CFGI requires the agent to use a ClearML Enterprise Server
+CFGI is only supported by a ClearML Enterprise Server.
 :::
 
 The **ClearML Enterprise Fractional GPU Injector** (CFGI) allows AI workloads to utilize fractional (non-MIG) GPU slices 

@@ -1,9 +1,9 @@
 ---
-title: Dynamically Edit Task Pod Template
+title: Dynamic Task Pod Templates
 ---
 
 :::important Enterprise Feature
-Dynamic editing of task Pod templates requires the agent to use a ClearML Enterprise Server.
+Dynamic task Pod templates is only supported by a ClearML Enterprise Server.
 :::
 
 ClearML Agent allows you to inject custom Python code to dynamically modify the Kubernetes Pod template before applying it. 
