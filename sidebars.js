@@ -391,7 +391,29 @@ module.exports = {
                     ]
                 }
             ]
-        }
+        },
+        {'Applications':
+            [
+                {'Deploy':
+                    [
+                        'release_notes/apps/llm_ui', 'release_notes/apps/vllm_model_deployment',
+                        'release_notes/apps/llama_model_deployment', 'release_notes/apps/containerized_app'
+                    ]
+                },
+                {'AI Dev':
+                    [
+                        'release_notes/apps/ssh_session', 'release_notes/apps/jupyterlab',
+                        'release_notes/apps/vs_code'
+                    ]
+                },
+                {'Databases':
+                    [
+                        'release_notes/apps/qdrant', 'release_notes/apps/milvus'
+                    ]
+                }
+            ]
+        },
+        {'Autoscalers': ['release_notes/autoscalers/gcp_autoscaler']}
     ],
     referenceSidebar: [
         {'SDK': [
