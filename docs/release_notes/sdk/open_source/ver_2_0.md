@@ -2,6 +2,14 @@
 title: Version 2.0
 ---
 
+### ClearML 2.0.2
+
+**New Features and Bug Fixes**
+* Add `py.typed` to support PEP 561 type checking ([ClearML GitHub PR #1411](https://github.com/clearml/clearml/pull/1411))
+* Handle unsafe links inside `safe_extract()`
+* Update task models list when reloading a model
+* Add static routes support
+
 ### ClearML 2.0.1
 
 **New Features and Improvements**
