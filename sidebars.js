@@ -796,14 +796,7 @@ module.exports = {
         },
     ],
     enterpriseDeploy: [
-       {
-          type: 'category',
-          collapsible: true,
-          label: 'ClearML Enterprise K8s Installation and Configuration',
-          link: {type: 'doc', id: 'deploying_clearml/enterprise_deploy/k8s_overview'},
-          items: [
-            'deploying_clearml/enterprise_deploy/agent_k8s',
-          ]
-       }
+       'deploying_clearml/enterprise_deploy/agent_k8s',
     ]
+
 };
