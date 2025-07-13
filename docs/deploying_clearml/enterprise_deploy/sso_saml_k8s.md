@@ -40,11 +40,11 @@ apiserver:
         </rule>
       </test>
   extraEnvs:
-     - name: "ALLEGRO__secure__login__sso__saml_client__microsoft_ad__entity_id"
+     - name: "CLEARML__secure__login__sso__saml_client__microsoft_ad__entity_id"
        value: "<app_entity_id>"
-     - name: "ALLEGRO__secure__login__sso__saml_client__microsoft_ad__idp_metadata_file"
+     - name: "CLEARML__secure__login__sso__saml_client__microsoft_ad__idp_metadata_file"
        value: "/opt/clearml/config/default/metadata.xml"
-     - name: "ALLEGRO__secure__login__sso__saml_client__microsoft_ad__default_company"
+     - name: "CLEARML__secure__login__sso__saml_client__microsoft_ad__default_company"
        value: "<company_id>"
      - name: "CLEARML__services__login__sso__saml_client__microsoft_ad__claims__object_id"
        value: "http://schemas.microsoft.com/identity/claims/objectidentifier"
