@@ -37,7 +37,7 @@ helm repo update
 Create a `clearml-agent-values.override.yaml` file with the following content:
 
 :::note
-Replace the `<ACCESS_KEY>` and `<SECRET_KEY>`with the API credentials you generated earlier. 
+Replace the `<ACCESS_KEY>` and `<SECRET_KEY>` with the API credentials you generated earlier. 
 Set the `<api|file|web>ServerUrlReference` fields to match your ClearML 
 Server URLs.
 :::
