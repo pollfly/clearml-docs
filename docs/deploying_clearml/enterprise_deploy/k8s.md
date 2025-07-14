@@ -184,7 +184,7 @@ See the [ClearML Agent installation guide](agent_k8s.md).
 
 ### AI Application Gateway
 
-The AI App Gateway enables secure, authenticated access to interactive ClearML applications (e.g., JupyterLab, Streamlit) 
+The AI App Gateway enables secure, authenticated access to ClearML application endpoints such as model serving or IDE workloads
 based on ClearML user permissions. It routes HTTPS traffic from users to running pods on the cluster.
 
 See the [AI Application Gateway installation guide](appgw_install_k8s.md).
@@ -198,7 +198,7 @@ See the [GPU Operator Basic Deployment guide](../../clearml_agent/fractional_gpu
 
 ### Fractional GPU Support
 
-To optimize GPU utilization:
+Available GPU fractioning methods:
 
 * ClearML Dynamic MIG Orchestrator (CDMO): Manage GPU fractions using NVIDIA MIGs. See the [CDMO guide](../../clearml_agent/fractional_gpus/cdmo.md)
 * ClearML Fractional GPU Injector (CFGI): Use fractional (non-MIG) GPU slices for efficient resource sharing. See the [CFGI guide](../../clearml_agent/fractional_gpus/cfgi.md)
@@ -207,7 +207,7 @@ To optimize GPU utilization:
 
 ### Multi-Tenant Setup
 
-Run multiple isolated tenants on a single ClearML Server instance, each with its own configuration and user namespaces.
+Run multiple isolated tenants on a single ClearML Server deployment, each with its own configuration and user namespaces.
 
 See the [Multi-Tenant Service guide](multi_tenant_k8s.md).
 
@@ -217,7 +217,7 @@ Integrate identity providers to enable SSO login for ClearML Enterprise users.
 
 See the [SSO Setup guide](extra_configs/sso_login.md).
 
-### ClearML Custom Events
+### ClearML Custom Event Monitoring
 
 ClearML Enterprise supports sending custom events to selected Kafka topics. 
 
