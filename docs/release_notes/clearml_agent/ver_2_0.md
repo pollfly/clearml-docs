@@ -5,7 +5,7 @@ title: Version 2.0
 ### ClearML Agent 2.0.0
 
 **New Features**
-* Add command line arguments for `k8s_glue_example.py` ([ClearML GitHub PR #196](https://github.com/clearml/clearml-agent/pull/196))
+* Add command line arguments for `k8s_glue_example.py` ([#196](https://github.com/clearml/clearml-agent/pull/196))
 * Add initial support for `--break-system-packages` version detection, and make sure to use `rm /usr/lib/python3.*/EXTERNALLY-MANAGED`
 * Integrate docker port mapping to control non `network=host` port mapping, including port reassigning for multiple agents running on the same machine
 * Add support for container rulebook overrides (`force_container_rules: true`) and container rulebook task update 
