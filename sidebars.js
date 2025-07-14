@@ -366,10 +366,10 @@ module.exports = {
         ]},
         {'ClearML Agent':
             [
-                'release_notes/clearml_agent/ver_1_9',
+                'release_notes/clearml_agent/ver_2_0',
                 {
                     'Older Versions': [
-                        'release_notes/clearml_agent/ver_1_8',
+                        'release_notes/clearml_agent/ver_1_9', 'release_notes/clearml_agent/ver_1_8',
                         'release_notes/clearml_agent/ver_1_7', 'release_notes/clearml_agent/ver_1_6',
                         'release_notes/clearml_agent/ver_1_5', 'release_notes/clearml_agent/ver_1_4',
                         'release_notes/clearml_agent/ver_1_3', 'release_notes/clearml_agent/ver_1_2',
