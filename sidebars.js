@@ -795,8 +795,5 @@ module.exports = {
             ],
         },
     ],
-    enterpriseDeploy: [
-       'deploying_clearml/enterprise_deploy/agent_k8s',
-    ]
 
 };
