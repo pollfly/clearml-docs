@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Deployment with Self-Signed Certificates
+title: Deployment with Self-Signed Certificates
 ---
 
 This guide covers how to configure the [AI Application Gateway](../appgw.md) and [ClearML Agent](../../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server) 
