@@ -2,6 +2,11 @@
 title: Version 2.0
 ---
 
+### ClearML Agent 2.0.1
+
+**Bug Fix**
+* Fix regression issue `AttributeError: 'NoneType' object has no attribute 'pending'` caused by accessing a non-existing report ([#241](https://github.com/clearml/clearml-agent/issues/241))
+
 ### ClearML Agent 2.0.0
 
 **New Features**
