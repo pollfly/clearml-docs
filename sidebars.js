@@ -717,7 +717,6 @@ module.exports = {
                           },
                           {
                              type: 'doc',
-                             label: 'K8s Deployment with Self-Signed Certificates',
                              id: 'deploying_clearml/enterprise_deploy/extra_configs/self_signed_certificates'
                           },
                        ]
