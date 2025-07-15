@@ -29,6 +29,7 @@ their instances:
   * [vLLM Deployment](../../webapp/applications/apps_model_deployment.md)  
   * [Embedding Model Deployment](../../webapp/applications/apps_embed_model_deployment.md)  
   * [Llama.cpp Model Deployment](../../webapp/applications/apps_llama_deployment.md)
+  * [LLM UI](../../webapp/applications/apps_llm_ui.md)
 
 The AI Application Gateway requires an additional component to the ClearML Server deployment: the **ClearML App Gateway Router**.
 If your ClearML Deployment does not have the App Gateway Router properly installed, these application instances may not be accessible. 

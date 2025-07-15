@@ -94,6 +94,7 @@ module.exports = {
         {"Building Interactive Model Demos": [
             {type: 'ref', id: 'webapp/applications/apps_gradio'},
             {type: 'ref', id: 'webapp/applications/apps_streamlit'},
+            {type: 'ref', id: 'webapp/applications/apps_llm_ui'},
         ]},
         'getting_started/task_trigger_schedule',
         'getting_started/project_progress',
@@ -523,7 +524,8 @@ module.exports = {
                         {"Deploy": [
                             'webapp/applications/apps_embed_model_deployment',
                             'webapp/applications/apps_model_deployment',
-                            'webapp/applications/apps_llama_deployment'
+                            'webapp/applications/apps_llama_deployment',
+                            'webapp/applications/apps_llm_ui',
                         ]},
                     ]
                 },
