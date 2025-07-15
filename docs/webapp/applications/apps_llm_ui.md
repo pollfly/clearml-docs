@@ -8,6 +8,13 @@ The LLM UI application is available under the ClearML Enterprise plan.
 
 Use the ClearML LLM UI application to launch a visual chat interface to a deployed model.
 
+The app instance uses endpoints of models deployed through the ClearML [Model Deployment](apps_model_deployment.md), 
+[Llama.cpp Model Deployment](apps_llama_deployment.md), and SGLang Model Deployment apps. In the interface, you must 
+first select the model to query. The interface provides controls for adjusting generation parameters such as temperature, 
+max tokens, and stop sequences. For detailed usage and customization options, see the
+[Open WebUI documentation ](https://docs.openwebui.com/). 
+
+ 
 :::info AI Application Gateway
 The LLM UI app makes use of the App Gateway Router which implements a secure, authenticated network endpoint for the 
 model. If the ClearML AI application Gateway is not available, the model endpoint might not be accessible. For more 
@@ -23,8 +30,9 @@ After launching an LLM UI instance, its dashboard displays the following:
 * Idle time – Time since the last user activity
 * Restored workspace -  If the session was restored, the previous session's ID is shown
 * Current session ID
-* App – Publicly accessible URL to access the model’s chat interface (available only when the instance is running)
-* Chat window (available only when the instance is running)
+* Sharable Link – Publicly accessible URL to access the model’s chat interface (available only when the instance is running)
+* Chat window (available only when the instance is running) - For detailed usage and customization options, see the
+[Open WebUI documentation ](https://docs.openwebui.com/).  
 * Console log – Displays setup progress, status changes, error messages, etc.
 
 ![LLM UI dashboard](../../img/apps_llm_ui.png#light-mode-only)
