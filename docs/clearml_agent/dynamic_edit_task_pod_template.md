@@ -79,7 +79,7 @@ agentk8sglue:
         value: "0"
   ```
 
-  To customize the bash startup scripts instead of the pod spec, use:
+* To customize the bash startup scripts instead of the pod spec, use:
 
   ```yaml
   agentk8sglue:
