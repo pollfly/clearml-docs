@@ -23,13 +23,13 @@ but can be overridden by command-line arguments.
 |**CLEARML_DISABLE_VAULT_SUPPORT** | When set to `0`, disable vault support. The SDK will not attempt to load [configuration vaults](../webapp/settings/webapp_settings_profile.md#configuration-vault). Configuration vaults are available under the ClearML Enterprise plan.|
 |**CLEARML_DOCKER_IMAGE** | Sets the default docker image to use when running an agent in [Docker mode](../clearml_agent/clearml_agent_execution_env.md#docker-mode).  |
 |**CLEARML_ENABLE_ENV_CONFIG_SECTION** | When set to `1`, applies the [`environment`](clearml_conf.md#environment-section) section from the `clearml.conf`, which defines key-value pairs that will be set as environment variables at runtime. |
-|**CLEARML_ENABLE_FILES_CONFIG_SECTION** | hen set to `1`, applies the [`files`](clearml_conf.md#files-section) section from the `clearml.conf`, which defines files that will be auto-generated with specified content and target paths. |
+|**CLEARML_ENABLE_FILES_CONFIG_SECTION** | When set to `1`, applies the [`files`](clearml_conf.md#files-section) section from the `clearml.conf`, which defines files that will be auto-generated with specified content and target paths. |
 |**CLEARML_IGNORE_MISSING_CONFIG** | When set to `1`, suppresses errors if a configuration file is not found|
 |**CLEARML_LOG_ENVIRONMENT** | List of Environment variable names. These environment variables will be logged in the ClearML task's configuration hyperparameters `Environment` section. When executed by a ClearML agent, these values will be set in the task's execution environment. The list should be specified in the following format: `CLEARML_LOG_ENVIRONMENT=VAR_1,VAR_2`.  |
 |**CLEARML_LOG_LEVEL** | Sets the ClearML package's log verbosity. Log levels adhere to [Python log levels](https://docs.python.org/3/library/logging.config.html#configuration-file-format): CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET |
 |**CLEARML_SET_ITERATION_OFFSET** | Set initial iteration value for the executed task. The task will report its iterations starting with the specified value +1. Specify `0` to force resetting the iteration count.|
 |**CLEARML_SUPPRESS_UPDATE_MESSAGE** | Boolean. <br/> When set to `1`, suppresses new ClearML package version availability message. |
-|**CLEARML_TASK_NO_REUSE** | Boolean. <br/> When set to `1`, a new task is created for every execution (see Task [reuse](../clearml_sdk/task_sdk.md#task-reuse)).                                                              |
+|**CLEARML_TASK_NO_REUSE** | Boolean. <br/> When set to `1`, a new task is created for every execution (see Task [reuse](../clearml_sdk/task_sdk.md#task-reuse)).  |
 
 ### VCS
 Overrides Repository Auto-logging
