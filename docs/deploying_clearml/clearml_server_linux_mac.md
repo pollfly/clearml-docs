@@ -4,7 +4,7 @@ title: Linux and macOS
 
 Deploy the ClearML Server in Linux or macOS using the pre-built Docker image.
 
-For ClearML docker images, including previous versions, see [https://hub.docker.com/r/allegroai/clearml](https://hub.docker.com/r/allegroai/clearml). 
+For ClearML docker images, including previous versions, see [https://hub.docker.com/r/clearml/server](https://hub.docker.com/r/clearml/server ). 
 However, pulling the ClearML Docker image directly is not required. ClearML provides a `docker-compose` YAML file that does this. 
 The `docker-compose` file is included in the instructions on this page.
 

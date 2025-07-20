@@ -2,6 +2,24 @@
 title: Version 2.0
 ---
 
+### ClearML 2.0.2
+
+**New Features and Bug Fixes**
+* Add `py.typed` to support PEP 561 type checking ([ClearML GitHub PR #1411](https://github.com/clearml/clearml/pull/1411))
+* Handle unsafe links inside `safe_extract()`
+* Update task models list when reloading a model
+* Add static routes support
+
+### ClearML 2.0.1
+
+**New Features and Improvements**
+* Add support for grouping pipeline steps by stage
+* Add warning when calling `Task.force_requirements_env_freeze()` / `Task.force_store_standalone_script()` after `Task.init()` ([ClearML GitHub issue #1425](https://github.com/clearml/clearml/issues/1425))
+
+**Bug Fixes**
+* Fix access to default output destination when project can't be loaded. Add warning message but do not fail
+* Fix inaccessible or unavailable project causes task startup to fail. Add warning
+
 ### ClearML 2.0.0
 
 **New Features**

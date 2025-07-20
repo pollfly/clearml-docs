@@ -2,6 +2,10 @@
 title: Managing GPU Fractions with ClearML Dynamic MIG Operator (CDMO)
 ---
 
+:::important Enterprise Feature
+GPU fraction management is only supported by a ClearML Enterprise Server.
+:::
+
 This guide covers using GPU fractions in Kubernetes clusters using NVIDIA MIGs and
 ClearML's Dynamic MIG Operator (CDMO). CDMO enables dynamic MIG (Multi-Instance GPU) configurations. 
 
@@ -116,13 +120,13 @@ To disable MIG mode and restore standard full-GPU access:
 
     ```yaml
     toolkit:
-    env:
+      env:
         - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_ENVVAR_WHEN_UNPRIVILEGED
           value: "false"
         - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_AS_VOLUME_MOUNTS
           value: "true"
     devicePlugin:
-    env:
+      env:
         - name: PASS_DEVICE_SPECS
           value: "true"
         - name: FAIL_ON_INIT_ERROR

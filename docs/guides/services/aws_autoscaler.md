@@ -65,7 +65,7 @@ When the script runs, a configuration wizard prompts for instance details and bu
       ```console
       GIT credentials:
       Enter GIT username for repository cloning (leave blank for SSH key authentication): []
-      Enter password for user '&lt;username>':
+      Enter password for user '<username>':
       ```
    
    The wizard reports the Git credentials it will use.

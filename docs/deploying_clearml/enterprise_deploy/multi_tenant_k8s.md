@@ -107,7 +107,8 @@ on your installation values.
    The result returns a set of key and secret credentials associated with the new Admin User.
 
    :::note 
-   You can use this set of credentials to set up a [ClearML Agent](agent_k8s.md) or [App Gateway](appgw.md) for the new Tenant.
+   You can use this set of credentials to set up a [ClearML Agent](../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server) 
+   or [App Gateway](appgw.md) for the new Tenant.
    :::
 
 #### Create IDP/SSO Sign-in Rules
@@ -195,7 +196,7 @@ See a list of available features under [Available Features](#available-features)
 ## Workers
 
 To install and configure the ClearML components that run user workloads, refer to:
-* [ClearML Enterprise Agent](agent_k8s.md)
+* [ClearML Enterprise Agent](../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server)
 * [App Gateway](appgw.md).
 
 :::note
