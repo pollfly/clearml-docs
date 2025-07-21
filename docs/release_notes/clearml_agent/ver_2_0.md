@@ -2,6 +2,11 @@
 title: Version 2.0
 ---
 
+### ClearML Agent 2.0.2
+
+**Bug Fix**
+* Fix YAML dump failure causes agent to abort task execution (error log includes expected `SCALAR`, `SEQUENCE-START`, `MAPPING-START`, or `ALIAS`)
+
 ### ClearML Agent 2.0.1
 
 **Bug Fix**
