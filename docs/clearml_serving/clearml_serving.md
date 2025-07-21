@@ -10,7 +10,7 @@ solution.
 ## Features
 
 * Easy to deploy and configure
-    * Support Machine Learning Models (Scikit Learn, XGBoost, LightGBM)
+    * Support Machine Learning Models (Scikit-Learn, XGBoost, LightGBM)
     * Support Deep Learning Models (TensorFlow, PyTorch, ONNX)
     * Customizable RestAPI for serving (i.e. allow per model pre/post-processing for easy integration)
 * Flexible

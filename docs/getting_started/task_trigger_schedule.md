@@ -23,7 +23,7 @@ ClearML's offers the following scheduling solutions:
   
 ## Task Execution Triggering  
 
-ClearML's trigger manager enables you to automate task execution based on event occurence in the ClearML system, such as:
+ClearML's trigger manager enables you to automate task execution based on event occurrence in the ClearML system, such as:
 * Changes in task status (e.g. running, completed, etc.)
 * Publication, archiving, or tagging of tasks, models, or datasets
 * Task metrics crossing predefined thresholds

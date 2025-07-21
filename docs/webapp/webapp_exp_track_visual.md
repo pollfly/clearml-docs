@@ -48,7 +48,7 @@ table is not visible when the full screen details view is open. Perform task act
 ![Full screen view](../img/webapp_tracking_33.png#light-mode-only) 
 ![Full screen view](../img/webapp_tracking_33_dark.png#dark-mode-only)
 
-## Execution 
+## Execution
 A task's **EXECUTION** tab of lists the following:
 * Source code
 * Uncommitted changes

@@ -30,7 +30,7 @@ The first thing to do is to install the `clearml` Python package in our virtual 
 
 If you paid attention in the first video of this series, you’d remember that we need to connect to a ClearML Server to save all our tracked data. The server is where we saw the list of experiments earlier. This connection is what `clearml-init` will set up for us. When running the command it’ll ask for your server API credentials.
 
-To get those, go to your ClearML server webpage. If you’re using our hosted service, this will be at [app.clear.ml](https://app.clear.ml). if you’re hosting your own, browse to your server's address at port 8080. Go to your settings on the top right and, under workspace, create new credentials. This will pop up a window with your API info, and you can just copy paste it into the `clearml-init` prompt.
+To get those, go to your ClearML server webpage. If you’re using our hosted service, this will be at [app.clear.ml](https://app.clear.ml). if you’re hosting your own, browse to your server's address at port 8080. Go to your settings on the top right and, under workspace, create new credentials. This will open a window with your API info, and you can just copy and paste it into the `clearml-init` prompt.
 
 The prompt will suggest the server URLs that were in your copied snippet. If they are correct just press Enter, otherwise you can change them here.
 

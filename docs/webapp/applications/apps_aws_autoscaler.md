@@ -19,6 +19,40 @@ each instance is spun up.
 
 For more information about how autoscalers work, see [Autoscalers Overview](../../cloud_autoscaling/autoscaling_overview.md#autoscaler-applications).
 
+:::info AWS NVIDIA GPU Support   
+* Recent NVIDIA AMIs only install the required drivers on initial user login. To make use of such AMIs, the autoscaler 
+  needs to mimic an initial user login. This can be accomplished by, adding the following script to the `Init script`
+  field in the app instance launch form:
+    
+  ```
+  apt-get update
+  DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
+  su -l ubuntu -c '/usr/bin/bash /home/ubuntu/.profile'
+  ```
+
+* Sometimes training jobs may fail to detect GPUs after autoscaler provisioning, due to Nvidia drivers loading slowly.
+  To ensure GPU detection, add the following to the `Init script` field in the application instance launch form:
+
+  ```bash
+  cat /etc/docker/daemon.json 
+
+  sed -i 's|"runtimes": {|"exec-opts": ["native.cgroupdriver=cgroupfs"], "runtimes": {|g' /etc/docker/daemon.json
+
+  cat /etc/docker/daemon.json 
+
+  sed -i 's|#no-cgroups = false|no-cgroups = false|g' /etc/nvidia-container-runtime/config.toml
+
+  cat /etc/nvidia-container-runtime/config.toml
+
+  systemctl daemon-reload
+  systemctl restart docker
+
+  echo "try nvidia"
+  docker run -t --rm --ipc=host --gpus all bitnami/minideb:bullseye bash -c "nvidia-smi && apt update && nvidia-smi" 
+  ```
+
+:::
+
 ## Autoscaler Instance Configuration
 
 When configuring a new AWS Autoscaler instance, you can fill in the required parameters or reuse the configuration of 
@@ -69,19 +103,11 @@ to open the app's instance launch form.
     * Availability Zone - The [EC2 availability zone](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html#Concepts.RegionsAndAvailabilityZones.AvailabilityZones) 
       to launch this resource in
     * AMI ID - The AWS AMI to launch
-    :::note AMI prerequisites
-    The AMI used for the autoscaler must include docker runtime and virtualenv.
-    
-    Recent NVIDIA AMIs only install the required drivers on initial user login. To make use of such AMIs, the autoscaler 
-    needs to mimic an initial user login. This can be accomplished by, adding the following script to the `Init script`
-    field:
-    
-    ```
-    apt-get update
-    DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
-    su -l ubuntu -c '/usr/bin/bash /home/ubuntu/.profile'
-    ```
-    :::
+     
+      :::note AMI prerequisites
+      The AMI used for the autoscaler must include docker runtime and virtualenv.
+      :::
+  
     * Max Number of Instances - Maximum number of concurrent running instances of this type allowed
     * Monitored Queue - Queue associated with this instance type. The tasks enqueued to this queue will be executed on 
       instances of this type
@@ -121,7 +147,7 @@ and [AWS API Reference: RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/
 
 ![Autoscaler instance launch form](../../img/app_aws_autoscaler_wizard.png)
 
-### Configuration Vault 
+### Configuration Vault
 
 :::important Enterprise Feature
 The Configuration Vault is available under the ClearML Enterprise plan.

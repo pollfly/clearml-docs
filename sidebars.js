@@ -94,6 +94,7 @@ module.exports = {
         {"Building Interactive Model Demos": [
             {type: 'ref', id: 'webapp/applications/apps_gradio'},
             {type: 'ref', id: 'webapp/applications/apps_streamlit'},
+            {type: 'ref', id: 'webapp/applications/apps_llm_ui'},
         ]},
         'getting_started/task_trigger_schedule',
         'getting_started/project_progress',
@@ -290,9 +291,10 @@ module.exports = {
             {
                 'Open Source':
                         [
-                           'release_notes/clearml_server/open_source/ver_2_0',
+                           'release_notes/clearml_server/open_source/ver_2_1',
                            {
                                'Older Versions': [
+                                   'release_notes/clearml_server/open_source/ver_2_0',
                                    'release_notes/clearml_server/open_source/ver_1_17', 'release_notes/clearml_server/open_source/ver_1_16',
                                    'release_notes/clearml_server/open_source/ver_1_15', 'release_notes/clearml_server/open_source/ver_1_14',
                                    'release_notes/clearml_server/open_source/ver_1_13', 'release_notes/clearml_server/open_source/ver_1_12',
@@ -365,10 +367,10 @@ module.exports = {
         ]},
         {'ClearML Agent':
             [
-                'release_notes/clearml_agent/ver_1_9',
+                'release_notes/clearml_agent/ver_2_0',
                 {
                     'Older Versions': [
-                        'release_notes/clearml_agent/ver_1_8',
+                        'release_notes/clearml_agent/ver_1_9', 'release_notes/clearml_agent/ver_1_8',
                         'release_notes/clearml_agent/ver_1_7', 'release_notes/clearml_agent/ver_1_6',
                         'release_notes/clearml_agent/ver_1_5', 'release_notes/clearml_agent/ver_1_4',
                         'release_notes/clearml_agent/ver_1_3', 'release_notes/clearml_agent/ver_1_2',
@@ -390,7 +392,29 @@ module.exports = {
                     ]
                 }
             ]
-        }
+        },
+        {'Applications':
+            [
+                {'Deploy':
+                    [
+                        'release_notes/apps/llm_ui', 'release_notes/apps/vllm_model_deployment',
+                        'release_notes/apps/llama_model_deployment', 'release_notes/apps/containerized_app'
+                    ]
+                },
+                {'AI Dev':
+                    [
+                        'release_notes/apps/ssh_session', 'release_notes/apps/jupyterlab',
+                        'release_notes/apps/vs_code'
+                    ]
+                },
+                {'Databases':
+                    [
+                        'release_notes/apps/qdrant', 'release_notes/apps/milvus'
+                    ]
+                }
+            ]
+        },
+        {'Autoscalers': ['release_notes/autoscalers/gcp_autoscaler']}
     ],
     referenceSidebar: [
         {'SDK': [
@@ -500,7 +524,8 @@ module.exports = {
                         {"Deploy": [
                             'webapp/applications/apps_embed_model_deployment',
                             'webapp/applications/apps_model_deployment',
-                            'webapp/applications/apps_llama_deployment'
+                            'webapp/applications/apps_llama_deployment',
+                            'webapp/applications/apps_llm_ui',
                         ]},
                     ]
                 },
@@ -597,7 +622,6 @@ module.exports = {
             collapsed: true,
             label: 'ClearML Agent',
             items: [
-                'clearml_agent/clearml_agent_setup',
                 {
                     'Deployment': [
                         'clearml_agent/clearml_agent_deployment_bare_metal',
@@ -608,6 +632,33 @@ module.exports = {
                 'clearml_agent/clearml_agent_execution_env',
                 'clearml_agent/clearml_agent_env_caching',
                 'clearml_agent/clearml_agent_services_mode',
+                'clearml_agent/dynamic_edit_task_pod_template',
+                'clearml_agent/multi_node_training',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Fractional GPUs',
+                    items: [
+                        {
+                            type: 'doc',
+                            label: 'ClearML Dynamic MIG Operator (CDMO)',
+                            id: 'clearml_agent/fractional_gpus/cdmo'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'clearml_agent/fractional_gpus/cfgi'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'clearml_agent/fractional_gpus/cdmo_cfgi_same_cluster'
+                        },
+                        {
+                            type: 'doc',
+                            label: 'GPU Operator Basic Deployment',
+                            id: 'clearml_agent/fractional_gpus/gpu_operator'
+                        },
+                    ],
+                },
             ]
         },
         {
@@ -649,10 +700,31 @@ module.exports = {
             label: 'Enterprise Server',
             items: [
                 {'Deployment Options': [
-                    'deploying_clearml/enterprise_deploy/k8s',
-                   'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
+                    {
+                       type: 'category',
+                       collapsible: true,
+                       collapsed: true,
+                       label: 'Kubernetes',
+                       link: {type: 'doc', id: 'deploying_clearml/enterprise_deploy/k8s'},
+                       items: [
+                          {
+                             type: 'doc',
+                             id: 'deploying_clearml/enterprise_deploy/extra_configs/custom_billing'
+                          },
+                          {
+                             type: 'doc',
+                             id: 'deploying_clearml/enterprise_deploy/extra_configs/presign_service'
+                          },
+                          {
+                             type: 'doc',
+                             id: 'deploying_clearml/enterprise_deploy/extra_configs/self_signed_certificates'
+                          },
+                       ]
+                    },
+                    'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
                     'deploying_clearml/enterprise_deploy/vpc_aws',
                     'deploying_clearml/enterprise_deploy/on_prem_ubuntu',
+                    'deploying_clearml/enterprise_deploy/air_gapped_env',
                     ]
                 },
                 {'Maintenance and Migration': [
@@ -661,39 +733,43 @@ module.exports = {
                     'deploying_clearml/enterprise_deploy/delete_tenant',
                     ]
                 },
-                {'ClearML Application Gateway': [
-                    'deploying_clearml/enterprise_deploy/appgw_install_compose',
-                    'deploying_clearml/enterprise_deploy/appgw_install_compose_hosted',
-                'deploying_clearml/enterprise_deploy/appgw_install_k8s',
-                    ]
-                },
-                'deploying_clearml/enterprise_deploy/custom_billing',
-                {'UI Applications': [
-                   'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
-                   'deploying_clearml/enterprise_deploy/app_install_ex_server',
-                   'deploying_clearml/enterprise_deploy/app_custom',
-                   ]
-                },
                 {'Configuration and Access Controls': [
                    'user_management/user_groups',
                    'user_management/access_rules',
                    'user_management/admin_vaults',
-                   {
-                        type: 'category',
-                        collapsible: true,
-                        collapsed: true,
-                        label: 'Identity Provider Integration',
-                        link: {type: 'doc', id: 'user_management/identity_providers'},
-                        items: [
-                            'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
-                            'deploying_clearml/enterprise_deploy/sso_saml_k8s',
-                            'deploying_clearml/enterprise_deploy/sso_keycloak',
-                            'deploying_clearml/enterprise_deploy/sso_active_directory'
-                        ]
-                   },
                    ]
                 },
+            ],
+        },
+        {'ClearML Application Gateway': [
+            'deploying_clearml/enterprise_deploy/appgw_install_compose',
+            'deploying_clearml/enterprise_deploy/appgw_install_compose_hosted',
+            'deploying_clearml/enterprise_deploy/appgw_install_k8s',
             ]
+        },
+        {'UI Applications': [
+            'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
+            'deploying_clearml/enterprise_deploy/apps_k8s',
+            'deploying_clearml/enterprise_deploy/app_install_ex_server',
+            'deploying_clearml/enterprise_deploy/app_custom',
+            ]
+        },
+        {
+           type: 'category',
+           collapsible: true,
+           collapsed: true,
+           label: 'Identity Provider Integration',
+           link: {type: 'doc', id: 'user_management/identity_providers'},
+           items: [
+              'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
+              'deploying_clearml/enterprise_deploy/sso_saml_k8s',
+              'deploying_clearml/enterprise_deploy/sso_keycloak',
+              'deploying_clearml/enterprise_deploy/sso_active_directory',
+//              {
+//                 type: 'doc',
+//                 id: 'deploying_clearml/enterprise_deploy/extra_configs/sso_login'
+//              },
+           ]
         },
     ],
     bestPracticesSidebar: [
@@ -719,5 +795,6 @@ module.exports = {
                 },
             ],
         },
-    ]
+    ],
+
 };

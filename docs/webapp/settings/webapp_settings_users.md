@@ -95,8 +95,8 @@ vaults and to the resources that the task owner has access to. Impersonating an 
 will have admin privileges (see [Setting a Service Account as Administrator](#setting-a-service-account-as-administrator)).
 
 In case impersonation is not enabled: 
-* If you run an agent with `--use_owner_token` then the agent will fail. 
-* If you run an agent without `--use_owner_token`, the task will run with the service account's access rules, so make 
+* If you run an agent with `--use-owner-token` then the agent will fail. 
+* If you run an agent without `--use-owner-token`, the task will run with the service account's access rules, so make 
   sure the account uses resources it has access to
 :::
 
