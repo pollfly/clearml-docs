@@ -325,19 +325,6 @@ optional shell script executes inside the Docker on startup, before the task sta
   * The PAT is retrieved from the configured Git password (set via `agent.git_pass` or the `CLEARML_AGENT_GIT_PASS` environment variable).
   * For more information, see the [Azure DevOps authentication guide](https://learn.microsoft.com/en-us/azure/devops/repos/git/auth-overview?view=azure-devops&tabs=Linux#personal-access-tokens-alternative-option).
 
-
- # Support Azure DevOps repositories authentication.
-    # See 
-    # Both Azure PATs (personal access tokens) and MS Entra Tokens are supported, using two different options.
-    # NOTE:
-    #  - Only one of these options can be set to true
-    #  - When using Azure PAT or MS Entra Token, the PAT or Token will be taken from the preconfigured Git Password
-    #    (i.e. using the agent.git_pass configuration setting or the CLEARML_AGENT_GIT_USER environment variable)
-    # git_use_ms_entra_token: false
-    # git_use_azure_pat: false
-
-
-
 ---
 
 <a id="hide_docker"/> 
