@@ -38,7 +38,7 @@ those matching these filters to be used when running containers
 ### ClearML Agent 1.9.0
 
 **New Features and Improvements**
-* Add `NO_DOCKER` flag to `clearml-agent-services` entrypoint ([ClearML Agent GitHub PR #206](https://github.com/clearml/clearml-agent/pull/206))
+* Add `NO_DOCKER` flag to `clearml-agent-services` entrypoint ([#206](https://github.com/clearml/clearml-agent/pull/206))
 * Use `venv` module if `virtualenv` is not supported
 * Find the correct Python version when using a pre-installed python environment
 * Add `/bin/bash` support in the task's `script.binary` property
