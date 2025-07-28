@@ -58,7 +58,8 @@ to open the app's configuration form.
 
 * Instance Name – Name for the LLM UI app instance. This will appear in the instance list
 * Service Project (Access Control) – The ClearML project where the app instance is created. Access is determined by 
-  project-level permissions (i.e. users with read access can use the app).* Queue: The queue serviced by the ClearML 
+  project-level permissions (i.e. users with read access can use the app).
+* Queue: The queue serviced by the ClearML 
   Agent which will execute the application instance.
 * RAG Embedding Model: The embedding model is used by the application to create embeddings to facilitate RAG for documents 
   you add to your workspace (See [Knowledge Bases](#using-knowledge-bases-for-rag)). These entries can be edited in the running instance UI.
