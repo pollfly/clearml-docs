@@ -8,8 +8,7 @@ Hyper-Datasets are available under the ClearML Enterprise plan.
 
 View and edit SingleFrames in the Dataset page. After selecting a Hyper-Dataset version, the **Version Browser** shows a sample 
 of frames and enables viewing SingleFrames and FramesGroups, and editing SingleFrames, in the [frame viewer](#frame-viewer). 
-Before opening the frame viewer, you can filter the frames by applying [simple](webapp_datasets_versioning.md#simple-frame-filtering) or [advanced](webapp_datasets_versioning.md#advanced-frame-filtering) 
-filtering logic. 
+Before opening the frame viewer, you can apply [frame filters](webapp_datasets_versioning.md#frame-filtering). 
 
 ![Dataset page](../../img/hyperdatasets/dataset_versions.png#light-mode-only)
 ![Dataset page](../../img/hyperdatasets/dataset_versions_dark.png#dark-mode-only)
@@ -46,7 +45,7 @@ Use frame viewer controls to navigate between frames in a Hyper-Dataset Version,
 |<img src="/docs/latest/icons/ico-arrow-right.svg" alt="Next frame icon" className="icon size-md space-sm" />|Go to the next frame | Right arrow |
 |<img src="/docs/latest/icons/ico-skip-next.svg" alt="Jump to next unfiltered annotation" className="icon size-md space-sm" />|Go to the next frame containing a non-filtered annotation (same filter as <img src="/docs/latest/icons/ico-skip-previous.svg" alt="Jump to previous unfiltered annotation" className="icon size-md space-sm" />).| <img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> |
 |<img src="/docs/latest/icons/ico-skip-forward.svg" alt="Jump forwards icon" className="icon size-md space-sm" />|Jump forwards ten frames | CTRL + Right arrow |
-|`Use Source Data`|Show the frame’s `source` rather than its `preview_uri`| <img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> |
+|`Use Source Data`|Show the frame's `source` rather than its `preview`| <img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> |
 |<img src="/docs/latest/icons/ico-revert.svg" alt="Reload frame icon" className="icon size-md space-sm" />|Reload the frame.| <img src="/docs/latest/icons/ico-optional-no.svg" alt="Not applicable" className="icon size-md center-md" /> |
 |<img src="/docs/latest/icons/ico-undo.svg" alt="Undo icon" className="icon size-md space-sm" />|Undo changes.|Ctrl + Z| 
 |<img src="/docs/latest/icons/ico-redo.svg" alt="Redo icon" className="icon size-md space-sm" />|Redo changes.|Ctrl + Y| 
@@ -74,6 +73,7 @@ Use frame viewer controls to navigate between frames in a Hyper-Dataset Version,
 | Delete | Remove annotation |
 | Alt + ] / [ | Choose a default ROI label by navigating between previous / next labels  |
 | Shift + M | Edit metadata | 
+|Shift + N| Add a new [frame label](../annotations.md#frame-labels) |
 | Shift + Tab | Previous annotation (use after clicking an annotation) |
 
 **Mode-specific annotation controls**
@@ -88,7 +88,7 @@ Use frame viewer controls to navigate between frames in a Hyper-Dataset Version,
 
 **To view / edit a frame in the frame editor**
 
-1. Locate your frame by applying a [simple frame filter](webapp_datasets_versioning.md#simple-frame-filtering) or [advanced frame filter](webapp_datasets_versioning.md#advanced-frame-filtering), and clicking **LOAD MORE**, if required.
+1. Locate your frame by applying [frame filters](webapp_datasets_versioning.md#frame-filtering).
 1. Click the frame thumbnail. The frame editor appears.
 1. Do any of the following:
     * View frame details, including:

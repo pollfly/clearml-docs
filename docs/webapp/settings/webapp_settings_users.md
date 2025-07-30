@@ -12,18 +12,33 @@ Inviting new teammates is only available on the ClearML Hosted Service.
 :::
 
 ## Users
-The **USERS** table lists workspace members and shows whether the maximum number of members has been reached. 
-Each row of the table includes: 
-* Username 
-* User status (`Active` or `Pending`) 
-* If the user's invitation is pending, the date the user was added
-* [User groups](#user-groups) (ClearML Enterprise feature)
+The **USERS** table lists workspace members and details, and shows whether the maximum number of members has been reached. 
 
 Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-md" />
 to find a specific user by their name, email, or user ID. 
 
+### Free/Pro Service 
+
+The Free/Pro service's **USERS** table includes the following information: 
+* Username 
+* User status (`Active` or `Pending`) 
+* If the user's invitation is pending, the date the user was added
+
 ![Users table](../../img/settings_user_table.png#light-mode-only)
 ![Users table](../../img/settings_user_table_dark.png#dark-mode-only)
+
+### Enterprise Offering
+
+The ClearML Enterprise **USERS** table includes the following information:
+
+* Email 
+* Username
+* Groups: The [user groups](#user-groups) the user belongs to
+* User ID
+* Login: Last time a user logged in to the system, and the sign on provider that was used
+* API Cred. Used: Last time a user’s API credentials were used to generate an authorization token
+* UI Activity: Last time a user accessed the ClearML UI
+
 
 ### Inviting New Teammates
 
@@ -95,8 +110,8 @@ vaults and to the resources that the task owner has access to. Impersonating an 
 will have admin privileges (see [Setting a Service Account as Administrator](#setting-a-service-account-as-administrator)).
 
 In case impersonation is not enabled: 
-* If you run an agent with `--use_owner_token` then the agent will fail. 
-* If you run an agent without `--use_owner_token`, the task will run with the service account's access rules, so make 
+* If you run an agent with `--use-owner-token` then the agent will fail. 
+* If you run an agent without `--use-owner-token`, the task will run with the service account's access rules, so make 
   sure the account uses resources it has access to
 :::
 

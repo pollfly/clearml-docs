@@ -87,7 +87,7 @@ errors in identifying the correct default branch.
 ## Usage
 These commands demonstrate a few useful use cases for `clearml-task`.
 
-### Executing Code from a Remote Repository 
+### Executing Code from a Remote Repository
 
 ```bash
 clearml-task --project examples --name remote_test --repo https://github.com/clearml/events.git --branch master --script /webinar-0620/keras_mnist.py --args batch_size=64 epochs=1 --queue default

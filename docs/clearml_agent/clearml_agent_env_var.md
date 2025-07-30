@@ -6,7 +6,7 @@ This page lists the available environment variables for configuring ClearML Agen
 
 In addition to the environment variables listed below, ClearML also supports **dynamic environment variables** to override 
 any configuration option that appears in the [`agent`](../configs/clearml_conf.md#agent-section) section of the `clearml.conf`. 
-For more information, see [Dynamic Environment Variables](../clearml_agent/clearml_agent_setup.md#dynamic-environment-variables).
+For more information, see [Dynamic Environment Variables](../clearml_agent/clearml_agent_deployment_bare_metal.md#dynamic-environment-variables).
 
 :::info
 ClearML's environment variables override the [clearml.conf file](../configs/clearml_conf.md), SDK, and 
@@ -35,6 +35,8 @@ but can be overridden by command-line arguments.
 |**CLEARML_AGENT_GIT_USER** | Sets the Git user for ClearML Agent                                                                                                                                                                                                             |
 |**CLEARML_AGENT_GIT_PASS** | Sets the Git password for ClearML Agent                                                                                                                                                                                                         |
 |**CLEARML_AGENT_GIT_HOST** | Sets Git host (only sending login to this host)                                                                                                                                                                                                 |
+|**CLEARML_AGENT_GIT_USE_MS_ENTRA_TOKEN** | If set to `1`, enables authentication to Azure DevOps repositories using a Microsoft Entra token. The Azure token will be taken from the git password setting (`CLEARML_AGENT_GIT_PASS` or `agent.git_host`). `CLEARML_AGENT_GIT_USE_MS_ENTRA_TOKEN` and `CLEARML_AGENT_GIT_USE_AZURE_PAT` are mutually exclusive, only one can be set to `1`. For more information, see the [Azure DevOps authentication guide](https://learn.microsoft.com/en-us/azure/devops/repos/git/auth-overview?view=azure-devops&tabs=Linux#microsoft-entra-oauth-tokens-recommended). |
+|**CLEARML_AGENT_GIT_USE_AZURE_PAT** | If set to `1`, enables authentication to Azure DevOps repositories using a Personal Access Token (PAT). The PAT will be taken from the git password setting (`CLEARML_AGENT_GIT_PASS` or `agent.git_host`). `CLEARML_AGENT_GIT_USE_MS_ENTRA_TOKEN` and `CLEARML_AGENT_GIT_USE_AZURE_PAT` are mutually exclusive, only one can be set to `1`. For more information, see the [Azure DevOps authentication guide](https://learn.microsoft.com/en-us/azure/devops/repos/git/auth-overview?view=azure-devops&tabs=Linux#personal-access-tokens-alternative-option)|
 |**CLEARML_AGENT_EXEC_USER** | User for Agent executing tasks (root by default)                                                                                                                                                                                                |
 |**CLEARML_AGENT_EXTRA_DOCKER_ARGS** | Overrides extra docker args configuration                                                                                                                                                                                                       |
 |**CLEARML_AGENT_EXTRA_DOCKER_LABELS** | List of labels to add to docker container. See [Docker documentation](https://docs.docker.com/config/labels-custom-metadata/). |
