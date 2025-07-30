@@ -164,6 +164,25 @@ Use the `sdk.aws.s3.credentials.verify` configuration option to control SSL cert
 * By default, verify is set to `true`, meaning certificate verification is enabled
 * You can provide a path or a URL to a CA bundle for custom certificate verification
 
+##### Dell PowerScale with S3
+When using Dell PowerScale as your S3-compatible storage backend, set `sdk.aws.boto3.signature_version` to `"s3"`  in your clearml.conf:
+
+```
+sdk {
+    aws {
+        boto3 {
+            signature_version: "s3"
+        }
+    }
+}
+```
+This ensures Boto3 uses the correct signature version required by PowerScale's S3 interface.
+
+:::note
+You still need to configure access credentials and endpoint information under `sdk.aws.s3` and `sdk.aws.s3.credentials` as 
+described [above](#non-aws-endpoints).
+:::
+
 ### Configuring Azure
 To configure Azure blob storage specify the account name and key.
 
