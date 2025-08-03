@@ -2,7 +2,7 @@
 title: Okta OAuth 
 ---
 
-On the client side:
+## Configure Okta
 
 1. Register the ClearML Okta app with the callback url: `<clearml_webapp_address>/callback_okta`
 
@@ -13,7 +13,7 @@ On the client side:
 1. Send the "client_id", "client_secret", "authorize_url" and "access_token_url". These can be obtained by navigating to 
   `https://${OktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration` and retrieving “authorization_endpoint” and “token_endpoint”
 
-On ClearML side:
+## Configure ClearML Server 
 
 * Make sure to use the fixed version: v3.11 build 754 or later
 

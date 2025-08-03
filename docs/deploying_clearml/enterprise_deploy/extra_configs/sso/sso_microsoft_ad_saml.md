@@ -2,22 +2,29 @@
 title: Microsoft AD SAML (Including Azure SAML)
 ---
 
+This guide explains the configuration required for connecting a ClearML Server to allow authenticating users with Microsoft 
+Active Directory (AD) using SAML.
 
-On the Active Directory:
-* Register the ClearML app with the callback url: <clearml_webapp_address>/callback_microsoft_ad
+Configuration requires two steps:
+1. Register and Configure the ClearML application in AD
+1. Configuration in the ClearML Server side (using [`docker-compose`](#docker-compose) or [Kubernetes](#kubernetes))
 
-* Make sure that SSO binding is set to HTTP-Redirect
+## Configure AD
+1. Register the ClearML app with the callback url: `<clearml_webapp_address>/callback_microsoft_ad`
+1. Make sure that SSO binding is set to HTTP-Redirect
+1. Make sure that the following user claims are returned to ClearML app:
+   ```
+   emailaddress   - user.mail
+   displayname    - user.displayname
+   Unique user identifier - user.principalname
+   ```
+1. Generate the IdP metadate file and save the file and entity ID, which you will use when configuring ClearML Server
 
-* Make sure that the following user claims are returned to ClearML app: 
-  * emailaddress   - user.mail
-  * displayname    - user.displayname
-  * Unique user identifier - user.principalname
+## Configure ClearML Server 
 
-Generate the idp metadate file and save the file and entity ID
-
-On ClearML server side (docker-compose):
-* Prepare the deployment with the user idp metadatafile mapped into the apiserver
-* Define the following environment vars
+### docker-compose
+* Prepare the deployment with the user IdP metadata file mapped into the `apiserver`
+* Define the following environment variables:
 
   * `CLEARML__secure__login__sso__saml_client__microsoft_ad__entity_id=<app_entity_id>`
   * `CLEARML__secure__login__sso__saml_client__microsoft_ad__idp_metadata_file=<path to the metadata file>`
@@ -28,9 +35,9 @@ On ClearML server side (docker-compose):
   * `CLEARML__services__login__sso__saml_client__microsoft_ad__claims__given_name="givenName"`
   * `CLEARML__services__login__sso__saml_client__microsoft_ad__claims__surname="surname"`
 
-Customization:
+#### Customization
 It is possible to sync the user admin role and user assignment to groups from Microsoft AD into ClearML. 
-For this define the following env var:
+For this define the following env variables:
 
 * `CLEARML__services__login__sso__saml_client__microsoft_ad__groups__enabled=true`
 
@@ -46,11 +53,12 @@ group name 'test'. The group name comparison between Microsoft AD and ClearML is
 In order to prohibit the users who do not belong to any of the AD groups created in the ClearML from signing up set the following env var:
 `CLEARML__services__login__sso__saml_client__microsoft_ad__groups__prohibit_user_signup_if_not_in_group=true`
 
-On ClearML server side (K8s)
-Add following stuff on override file:
+### Kubernetes
+
+The following should be configured in the override file:
 
 
-```
+```yaml
 apiserver:
   additionalConfigs:
     metadata.xml: |

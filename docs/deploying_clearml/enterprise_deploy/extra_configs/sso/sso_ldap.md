@@ -1,0 +1,38 @@
+---
+title: LDAP
+---
+
+This document explains how to connect ClearML to authenticate a user using existing customer’s LDAP.
+
+1. ClearML is configured with the customer’s LDAP server address and admin credentials.
+1. When a user attempts to log in through the ClearML login screen, they enter their LDAP username and password in the ClearML login screen.
+1. ClearML then connects to the LDAP system using the admin credentials to verify the user's credentials. If authentication is successful, it retrieves the user’s details  such as name, email, and any additional attributes specified in the ClearML configuration.
+
+## Configure ClearML Server
+1. Set the following environment variables for the `apiserver` container:
+   * `CLEARML__apiserver__auth__fixed_users__enabled=true`
+   * `CLEARML__apiserver__auth__fixed_users__provider=ldap` 
+   * `CLEARML__apiserver__auth__fixed_user_providers__ldap__server="<ldap server address. For example: ipa.demo1.freeipa.org>"`
+   * `CLEARML__apiserver__auth__fixed_user_providers__ldap__base_dn="<base dn searching users under. For example: dc=demo1,dc=freeipa,dc=org>"`
+   * `CLEARML__apiserver__auth__fixed_user_providers__ldap__default_company=<clearml company id>`
+   * `CLEARML__secure__fixed_user_providers__ldap__dn="<admin dn>"`
+   * `CLEARML__secure__fixed_user_providers__ldap__password="<admin pwd>"`
+
+To locate a user record in LDAP by user ID, ClearML uses a search filter. The default configuration shipped with the
+product is designed to work with open-source LDAP implementations.
+
+If you're using Microsoft LDAP (Active Directory), you'll need to override this by adding the following configuration:
+`CLEARML__apiserver__auth__fixed_user_providers__ldap__search_filter: "(&(objectclass=user)(sAMAccountName={0}))"`
+
+### Retrieving Email and Display Name
+The user’s email and name are pulled from the LDAP “email” and “displayName” attributes by default.
+If needed, you can configure the system to use different attributes, like this:
+```
+CLEARML__apiserver__auth__fixed_user_providers__ldap__attributes__name=<user name attribute>
+CLEARML__apiserver__auth__fixed_user_providers__ldap__mail=<user email attribute>
+CLEARML__apiserver__auth__fixed_user_providers__ldap__<some_custom_attrib>=<custom attribute name in ldap>
+```
+
+### Configuring a User as a ClearML Admin
+To set certain users as ClearML admins provide their LDAP IDs like this:
+`CLEARML__apiserver__auth__fixed_user_providers__ldap__admin_users=["user1_id","user2_id"]`

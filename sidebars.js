@@ -761,10 +761,30 @@ module.exports = {
            label: 'Identity Provider Integration',
            link: {type: 'doc', id: 'user_management/identity_providers'},
            items: [
-              'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
-              'deploying_clearml/enterprise_deploy/sso_saml_k8s',
-              'deploying_clearml/enterprise_deploy/sso_keycloak',
-              'deploying_clearml/enterprise_deploy/sso_active_directory',
+                { "OAuth":
+                    [
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_amazon_cognito_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_azure_ad_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_google_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_keycloak_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_microsoft_ad_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_ping_id_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_okta_oauth',
+                    ]
+                },
+                {"SAML":
+                    [
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_duo_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_google_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_microsoft_ad_saml',
+
+                    ]
+                },
+                'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_ldap',
+//              'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
+//              'deploying_clearml/enterprise_deploy/sso_saml_k8s',
+//              'deploying_clearml/enterprise_deploy/sso_keycloak',
+//              'deploying_clearml/enterprise_deploy/sso_active_directory',
 //              {
 //                 type: 'doc',
 //                 id: 'deploying_clearml/enterprise_deploy/extra_configs/sso_login'
