@@ -97,6 +97,8 @@ agentk8sglue:
     env:
       - name: REQUESTS_CA_BUNDLE
         value: /etc/ssl/certs/ca-certificates.crt
+      - name: SSL_CERT_FILE
+        value: /etc/ssl/certs/ca-certificates.crt
     volumeMounts:
       - name: etc-ssl-certs
         mountPath: "/etc/ssl/certs"
