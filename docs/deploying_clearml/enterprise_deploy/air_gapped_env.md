@@ -17,8 +17,8 @@ Various application dependencies that are auto-downloaded from the internet can 
 
 ### Hosting Required Python Packages
 
-Ensure the following Python packages are locally hosted in your PyPI proxy or Python packages artifactory, and 
-available using a local URL. Or, if you are going to use custom images, make sure they are installed.
+Ensure the following Python packages are locally hosted in your PyPI proxy or Python packages artifactory, and are
+accessible using a local URL. Alternatively, if you are going to use custom images, make sure they are installed.
 
 ```requirements
 jupyter
@@ -34,8 +34,14 @@ pylint
 clearml-agent
 ```
 
-If hosting the previous Python packages locally, make sure to set `PIP_EXTRA_INDEX_URL=<LOCAL_REPO_URL>` for containers 
-running ClearML tasks. The following is an example in Kubernetes using the ClearML Agent helm values override:
+
+### Setting PIP Indexes
+
+Configure the Python package index for pip using one of the following environment variables:
+* `PIP_EXTRA_INDEX_URL` - Adds a custom index in addition to the default
+* `PIP_INDEX_URL` - Replaces the default index with a custom one (only a single index will be used)
+
+The following is an example in Kubernetes using the ClearML Agent helm values override:
 
 ```yaml
 agentk8sglue:
@@ -46,6 +52,44 @@ agentk8sglue:
           - name: PIP_EXTRA_INDEX_URL
             value: "<LOCAL_REPO_URL>"
 ```
+
+For further pip configuration options, see the [pip documentation](https://pip.pypa.io/en/latest/cli/pip_install/#options). 
+
+#### Trusting Pip Index
+To configure pip to trust your local PyPI repository (for example, if it uses a self-signed certificate), use one of the 
+following methods:
+
+* Use `PIP_TRUSTED_HOST` environment variable:
+
+  ```yaml
+  agentk8sglue:
+    queues:
+      myQueue:
+        templateOverrides:
+          env:
+            - name: PIP_EXTRA_INDEX_URL
+              value: "<LOCAL_REPO_URL>"
+            - name: PIP_TRUSTED_HOST
+              value: "<LOCAL_REPO_HOST_NAME>"
+  ```
+
+* Mount a custom `pip.conf` file
+
+  ```yaml
+  agentk8sglue:
+    queues:
+      myQueue:
+        templateOverrides:
+          fileMounts:
+            - name: "pip.conf"
+              folderPath: "/root/.pip"
+              fileContent: |-
+                [global]
+                index-url = <LOCAL_REPO_URL>
+                trusted-host = <LOCAL_REPO_HOST_NAME>
+  ```
+
+### Setting App Environment Variables
 
 
 Application environment variables (see [below](#app-specific-offline-resources)) can be set using any of the following:
