@@ -73,7 +73,7 @@ following methods:
               value: "<LOCAL_REPO_HOST_NAME>"
   ```
 
-* Mount a custom `pip.conf` file
+* Mount a custom `pip.conf` file:
 
   ```yaml
   agentk8sglue:
