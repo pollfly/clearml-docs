@@ -782,13 +782,8 @@ module.exports = {
                 },
                 'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_ldap',
 //              'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
-//              'deploying_clearml/enterprise_deploy/sso_saml_k8s',
-//              'deploying_clearml/enterprise_deploy/sso_keycloak',
-//              'deploying_clearml/enterprise_deploy/sso_active_directory',
-//              {
-//                 type: 'doc',
-//                 id: 'deploying_clearml/enterprise_deploy/extra_configs/sso_login'
-//              },
+
+
            ]
         },
     ],

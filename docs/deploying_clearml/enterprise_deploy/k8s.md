@@ -215,7 +215,7 @@ See the [Multi-Tenant Service guide](multi_tenant_k8s.md).
 
 Integrate identity providers to enable SSO login for ClearML Enterprise users.
 
-See the [SSO Setup guide](extra_configs/sso_login.md).
+See the [SSO Setup guide](../../user_management/identity_providers.md).
 
 ### ClearML Custom Event Monitoring
 

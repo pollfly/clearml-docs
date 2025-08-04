@@ -2,42 +2,38 @@
 title: Google OAuth
 ---
 
-This guide explains how to configure Google as an OAuth 2.0 provider for ClearML Single Sign-On (SSO):
+This guide explains how to configure Google as an OAuth provider for ClearML Single Sign-On (SSO).
 
-1. Register a web application in the Google Cloud Console.
-1. Configure authorized redirect URIs.
-1. Supply the OAuth credentials to the ClearML server using environment variables.
-1. Optionally, enable automatic user creation in trusted environments.
+Configuration requires two steps:
+
+1. Register and Configure the ClearML application in Google  
+1. Identity service configuration in the ClearML Server
 
 ## Configure Google as IdP
 
-1. Go to [Google Cloud Console](https://console.cloud.google.com)
-
-1. Go to the **APIs & Services** > **Credentials section** (`https://console.cloud.google.com/apis/credentials?project=<project-id>`)
+1. In the [Google Cloud Console](https://console.cloud.google.com/), go to the **APIs & Services** **>** **Credentials section** (`https://console.cloud.google.com/apis/credentials?project=\<project-id\>`)  
 
 1. Click **Create credentials** > **OAuth Client ID**
 
    * Application type: Web application
-   * Authorized redirect URIs: Add https://app.clearml.xxx.com/callback_google (and https://clearml.xxx.com/callback_google)
+   * Authorized redirect URIs: Add `<clearml_webapp_address>/callback_google`
    * Note the Client ID and Client Secret, they will be used when configuring the ClearML Server.
 
 ## Configure ClearML Server
 
-1. Define the following variables in the `runtime_created.env` file:
+1. Define the following environment variables in your secret manager or runtime environment:  
 
    * `GOOGLE_AUTH_CLIENT_ID`
    * `GOOGLE_AUTH_CLIENT_SECRET`
 
-1. Define the following environment variables in the environment section of the `apiserver` service in the `docker_compose.override.yml` file:
+1. Set the following environment variables for the `apiserver`:
 
    * `CLEARML__secure__login__sso__oauth_client__google__client_id="${GOOGLE_AUTH_CLIENT_ID}"`
    * `CLEARML__secure__login__sso__oauth_client__google__client_secret="${GOOGLE_AUTH_CLIENT_SECRET}"`
 
-1. For automatic user creation in trusted environment (without consulting whitelists), set the following environment variable:
-`CLEARML__secure__login__sso__oauth_client__google__default_company="<company_id>"`
-
-1. Restart the `apiserver` to apply the changes: 
+1. To allow the identity provider to automatically create new users in ClearML without requiring them to be whitelisted 
+   in advance, set the following environment variable:  
 
    ```
-   running sudo docker-compose --env-file runtime_created.env up -d
+   CLEARML__secure__login__sso__oauth_client__google__default_company="<company_id>"
    ```
