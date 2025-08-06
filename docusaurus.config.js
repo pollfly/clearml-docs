@@ -88,10 +88,23 @@ module.exports = {
           activeBaseRegex: '^/docs/latest/docs/(fundamentals/agents_and_queues|hyper_datasets|clearml_agent(/(clearml_agent_dynamic_gpus|clearml_agent_fractional_gpus)?|)?|cloud_autoscaling/autoscaling_overview|remote_session|model_registry|deploying_clearml/enterprise_deploy/appgw|build_interactive_models|deploying_models|custom_apps)?$',
         },
         {
-          to: '/docs/clearml_sdk/clearml_sdk_setup',
           label: 'Setup',
-          position: 'left',
+          position: 'left', // or 'right'
+          to: '/docs/clearml_sdk/clearml_sdk_setup',
           activeBaseRegex: '^/docs/latest/docs/(deploying_clearml(?!/enterprise_deploy/appgw(/.*)?$)(/.*)?$|clearml_sdk/clearml_sdk_setup|user_management(/.*)?|clearml_agent/(clearml_agent_setup|clearml_agent_deployment_bare_metal|clearml_agent_deployment_k8s|clearml_agent_deployment_slurm|clearml_agent_execution_env|clearml_agent_env_caching|clearml_agent_services_mode)|integrations/storage)/?$',
+          activeClassName: 'navbar__link--active',
+          items: [
+            {
+              label: 'Free/Open Source',
+              to: 'docs/clearml_sdk/clearml_sdk_setup',
+              activeBaseRegex: '^/docs/latest/docs/(deploying_clearml(?!/enterprise_deploy/appgw(/.*)?$)(/.*)?$|clearml_sdk/clearml_sdk_setup|user_management(/.*)?|clearml_agent/(clearml_agent_setup|clearml_agent_deployment_bare_metal|clearml_agent_deployment_k8s|clearml_agent_deployment_slurm|clearml_agent_execution_env|clearml_agent_env_caching|clearml_agent_services_mode)|integrations/storage)/?$',
+            },
+            {
+              label: 'Enterprise',
+              to: '/docs/deploying_clearml/enterprise_deploy/k8s',
+              activeBaseRegex: '^/docs/latest/docs/(deploying_clearml(?!/enterprise_deploy/appgw(/.*)?$)(/.*)?$|clearml_sdk/clearml_sdk_setup|user_management(/.*)?|clearml_agent/(clearml_agent_setup|clearml_agent_deployment_bare_metal|clearml_agent_deployment_k8s|clearml_agent_deployment_slurm|clearml_agent_execution_env|clearml_agent_env_caching|clearml_agent_services_mode)|integrations/storage)/?$',
+            },
+          ],
         },
         {
           to: '/docs/getting_started/auto_log_exp',
