@@ -5,7 +5,7 @@ title: Version 1.8
 ### ClearML Agent 1.8.1
 
 **New Features**
-* Add option to set daemon polling interval ([ClearML Agent GitHub PR #197](https://github.com/clearml/clearml-agent/pull/197))
+* Add option to set daemon polling interval ([#197](https://github.com/clearml/clearml-agent/pull/197))
 * Add Python 3.12 support
 
 **Bug Fixes**
