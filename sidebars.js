@@ -615,7 +615,20 @@ module.exports = {
         },
     ],
     installationSidebar: [
-        'clearml_sdk/clearml_sdk_setup',
+        {
+            type: 'category',
+            collapsible: true,
+            collapsed: true,
+            link: {type: 'doc', id: 'clearml_sdk/clearml_sdk_setup'},
+            label: 'ClearML Python Package',
+            items: [
+                {
+                   type: 'doc',
+                   label: 'Configuring Client Storage Access',
+                   id: 'integrations/storage',
+                },
+            ]
+        },
         {
             type: 'category',
             collapsible: true,
@@ -625,46 +638,12 @@ module.exports = {
                 {
                     'Deployment': [
                         'clearml_agent/clearml_agent_deployment_bare_metal',
-                        'clearml_agent/clearml_agent_deployment_k8s',
-                        'clearml_agent/clearml_agent_deployment_slurm',
+                        'clearml_agent/clearml_agent_deployment_k8s_os',
                     ]
                 },
                 'clearml_agent/clearml_agent_execution_env',
                 'clearml_agent/clearml_agent_env_caching',
-                'clearml_agent/clearml_agent_services_mode',
-                'clearml_agent/dynamic_edit_task_pod_template',
-                'clearml_agent/multi_node_training',
-                {
-                    type: 'category',
-                    collapsible: true,
-                    label: 'Fractional GPUs',
-                    items: [
-                        {
-                            type: 'doc',
-                            label: 'ClearML Dynamic MIG Operator (CDMO)',
-                            id: 'clearml_agent/fractional_gpus/cdmo'
-                        },
-                        {
-                            type: 'doc',
-                            id: 'clearml_agent/fractional_gpus/cfgi'
-                        },
-                        {
-                            type: 'doc',
-                            id: 'clearml_agent/fractional_gpus/cdmo_cfgi_same_cluster'
-                        },
-                        {
-                            type: 'doc',
-                            label: 'GPU Operator Basic Deployment',
-                            id: 'clearml_agent/fractional_gpus/gpu_operator'
-                        },
-                    ],
-                },
             ]
-        },
-        {
-            type: 'doc',
-            label: 'Configuring Client Storage Access',
-            id: 'integrations/storage',
         },
         {
             type: 'category',
@@ -740,6 +719,51 @@ module.exports = {
                    'user_management/access_rules',
                    'user_management/admin_vaults',
                    ]
+                },
+            ],
+        },
+        {'ClearML Agent':
+            [
+               {'Deployment':
+                  [
+                     'clearml_agent/clearml_agent_deployment_bare_metal_ent',
+                     'clearml_agent/clearml_agent_deployment_k8s_ent',
+                     'clearml_agent/clearml_agent_deployment_slurm',
+                  ]
+               },
+               'clearml_agent/clearml_agent_execution_env',
+               'clearml_agent/clearml_agent_env_caching',
+               {'Extra Configurations on K8s':
+                  [
+                     'clearml_agent/dynamic_edit_task_pod_template',
+                     'clearml_agent/multi_node_training',
+                  ]
+               },
+
+            ]
+        },
+        {
+            type: 'category',
+            collapsible: true,
+            label: 'Fractional GPUs on Kubernetes',
+            items: [
+                {
+                    type: 'doc',
+                    label: 'ClearML Dynamic MIG Operator (CDMO)',
+                    id: 'clearml_agent/fractional_gpus/cdmo'
+                },
+                {
+                    type: 'doc',
+                    id: 'clearml_agent/fractional_gpus/cfgi'
+                },
+                {
+                    type: 'doc',
+                    id: 'clearml_agent/fractional_gpus/cdmo_cfgi_same_cluster'
+                },
+                {
+                    type: 'doc',
+                    label: 'GPU Operator Basic Deployment',
+                    id: 'clearml_agent/fractional_gpus/gpu_operator'
                 },
             ],
         },

@@ -197,7 +197,7 @@ object, setting the following optimization parameters:
 ## Running as a Service
 
 To run the optimization as a service, set the `run_as_service` argument to `true`. For more information about 
-running as a service, see [Services Mode](../../../clearml_agent/clearml_agent_services_mode.md).
+running as a service, see [Services Mode](../../../clearml_agent/clearml_agent_deployment_bare_metal.md#services-mode).
 
 ```python
 # if we are running as a service, just enqueue ourselves into the services queue and let it run the optimization

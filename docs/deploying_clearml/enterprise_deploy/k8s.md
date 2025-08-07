@@ -180,7 +180,7 @@ For more information, see the [Application Installation guide](apps_k8s.md).
 
 The ClearML Enterprise Agent enables scheduling and execution of distributed workloads (Tasks) on your Kubernetes cluster.
 
-See the [ClearML Agent installation guide](../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server).
+See the [ClearML Agent installation guide](../../clearml_agent/clearml_agent_deployment_k8s_ent.md).
 
 ### AI Application Gateway
 

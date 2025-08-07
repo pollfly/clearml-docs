@@ -1,5 +1,6 @@
 ---
 title: Execution Environments
+displayed_sidebar: installationSidebar
 ---
 ClearML Agent has two primary execution modes: [Virtual Environment Mode](#virtual-environment-mode) and [Docker Mode](#docker-mode). 
 

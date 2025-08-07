@@ -1,5 +1,6 @@
 ---
 title: Environment Caching
+displayed_sidebar: installationSidebar
 ---
 
 ClearML Agent caches virtual environments so when running tasks multiple times, there's no need to spend time reinstalling 

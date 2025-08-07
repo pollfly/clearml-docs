@@ -45,7 +45,7 @@ to your needs and enqueue for execution directly from the ClearML UI.
 
 Run the monitoring service in one of these ways:
 * Run locally
-* Run in ClearML Agent [services mode](../../clearml_agent/clearml_agent_services_mode.md)
+* Run in ClearML Agent [services mode](../../clearml_agent/clearml_agent_deployment_bare_metal.md#services-mode)
 
 To run the monitoring service:
 
@@ -86,7 +86,7 @@ page under **HYPERPARAMETERS > Args**.
 ![Monitoring configuration](../../img/examples_slack_config.png)
 
 The task can be reused to launch another monitor instance: clone the task, edit its parameters, and enqueue the task for 
-execution (you'll typically want to use a ClearML Agent running in [services mode](../../clearml_agent/clearml_agent_services_mode.md) 
+execution (you'll typically want to use a ClearML Agent running in [services mode](../../clearml_agent/clearml_agent_deployment_bare_metal.md#services-mode) 
 for such service tasks).
 
 ## Console

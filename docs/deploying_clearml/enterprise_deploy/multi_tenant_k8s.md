@@ -107,7 +107,7 @@ on your installation values.
    The result returns a set of key and secret credentials associated with the new Admin User.
 
    :::note 
-   You can use this set of credentials to set up a [ClearML Agent](../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server) 
+   You can use this set of credentials to set up a [ClearML Agent](../../clearml_agent/clearml_agent_deployment_k8s_ent.md) 
    or [App Gateway](appgw.md) for the new Tenant.
    :::
 
@@ -196,7 +196,7 @@ See a list of available features under [Available Features](#available-features)
 ## Workers
 
 To install and configure the ClearML components that run user workloads, refer to:
-* [ClearML Enterprise Agent](../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server)
+* [ClearML Enterprise Agent](../../clearml_agent/clearml_agent_deployment_k8s_ent.md)
 * [App Gateway](appgw.md).
 
 :::note

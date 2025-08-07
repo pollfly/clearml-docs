@@ -62,7 +62,7 @@ during execution:
 
 ClearML Agent can be deployed in various setups to suit different workflows and infrastructure needs:
 * [Bare Metal](clearml_agent/clearml_agent_deployment_bare_metal.md#spinning-up-an-agent)
-* [Kubernetes](clearml_agent/clearml_agent_deployment_k8s.md)
+* [Kubernetes](clearml_agent/clearml_agent_deployment_k8s_os)
 * [Slurm](clearml_agent/clearml_agent_deployment_slurm.md)
 * [Google Colab](guides/ide/google_colab.md)
 
