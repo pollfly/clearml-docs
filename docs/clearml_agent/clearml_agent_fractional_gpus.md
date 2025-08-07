@@ -35,8 +35,14 @@ both MIG-enabled and non-MIG devices.
 1. Install the required packages:
 
    ```bash
-   pip install clearml-agent clearml-agent-fractional-gpu
+   pip install -U --extra-index-url https://shared:******@packages.allegro.ai/repository/clearml_agent_fractional_gpu/simple clearml-agent-fractional-gpu
    ```
+   
+   :::tip Python repository credentials
+   The credentials for `--extra-index-url` is available in the WebApp under the **Help** menu  <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> **>** 
+   **ClearML Python Package setup** **>** **Install** step.
+   :::
+
 1. Start the ClearML agent with dynamic GPU allocation. Use `--gpus` to specify the active GPUs, and use the `--queue` 
    flag to specify the queue name(s) and number (or fraction) of GPUs to allocate to them. 
 
