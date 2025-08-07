@@ -38,8 +38,8 @@ both MIG-enabled and non-MIG devices.
    pip install -U --extra-index-url https://shared:******@packages.allegro.ai/repository/clearml_agent_fractional_gpu/simple clearml-agent-fractional-gpu
    ```
    
-   :::tip Password
-   The password for the `--extra-index-url` is available in the WebApp under the **Help** menu  <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> **>** 
+   :::tip Python repository credentials
+   The credentials for `--extra-index-url` is available in the WebApp under the **Help** menu  <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> **>** 
    **ClearML Python Package setup** **>** **Install** step.
    :::
 
