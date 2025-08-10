@@ -74,6 +74,7 @@ values from the file, which can be modified before launching the app instance
 * **Task name** - Name of [ClearML Task](../../fundamentals/task.md) for your llama.cpp Model Deployment app instance
 * **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the 
   llama.cpp Model Deployment app instance task will be enqueued (make sure an agent is assigned to it)  
+**AI Gateway Route** - Select an available, admin-preconfigured route to use as the service endpoint. If none is selected, an ephemeral endpoint will be created.
 * **Model** - A ClearML Model ID or a Hugging Face model. The model must be in GGUF format. If you are using a 
   HuggingFace model, make sure to pass the path to the GGUF file. For example: `provider/repo/path/to/model.gguf`
 * **General**
