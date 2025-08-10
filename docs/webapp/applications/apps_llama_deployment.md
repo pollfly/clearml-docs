@@ -32,7 +32,8 @@ After starting a llama.cpp Model Deployment instance, you can view the following
 * API base - The base URL for the model endpoint
 * API key - The authentication key for the model endpoint
 * Test Command - An example command line to test the deployed model
-* Requests - Number of requests over time
+* Total Number of Requests - Number of requests over time
+* Tokens per Second - Number of tokens processed over time
 * Latency - Request response time (ms) over time
 * Endpoint resource monitoring metrics over time
   * CPU usage
