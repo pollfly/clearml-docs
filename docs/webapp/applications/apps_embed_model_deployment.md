@@ -78,6 +78,7 @@ values from the file, which can be modified before launching the app instance
 * **Task name** - Name of ClearML Task for your Embedding Model Deployment app instance
 * **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the Embedding Model 
 Deployment app instance task will be enqueued (make sure an agent is assigned to it)
+* **AI Gateway Route** - Select an available, admin-preconfigured route to use as the service endpoint. If none is selected, an ephemeral endpoint will be created.
 * **Model Configuration**
   * Model - A ClearML Model ID or a Hugging Face model name (e.g. `openai-community/gpt2`)
   * Revision - The specific Hugging Face version of the model you want to use. You can use a specific commit ID or a 
