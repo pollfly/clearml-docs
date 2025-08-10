@@ -24,7 +24,7 @@ For cloud storage, install the ClearML package for your cloud storage type:
 * Azure - `pip install clearml[azure]`
 * Google Storage - `pip install clearml[gs]`
 
-## Network Storage Configuration
+## Configuring Storage
 
 Configuration for storage is done by editing the [clearml.conf](../configs/clearml_conf.md).
 
@@ -266,7 +266,7 @@ From v1.13.2, `clearml` supports directly decoding JSON from the `credentials_js
 fails to load the credentials as a file, it will attempt to decode the JSON directly. 
 :::
 
-## Client Configuration $$$$$$$$$$ How Client Works with Storage Services
+## Storage Manager
 
 ClearML provides the [StorageManager](../references/sdk/storage.md) class to manage downloading, uploading, and caching of 
 content directly from code.
@@ -300,7 +300,7 @@ sdk {
 }
 ```
 
-### Caching
+## Caching
 ClearML also manages a cache of all downloaded content so nothing is duplicated, and code won't need to download the same
 piece twice!
 
