@@ -1,5 +1,5 @@
 ---
-title: Llama.cpp Model Deployment 
+title: Embedding Model Deployment
 ---
 
 ### 1.15.0
