@@ -20,7 +20,7 @@ Creates a new dataset.
 
 ```bash
 clearml-data create [-h] [--parents [PARENTS [PARENTS ...]]] [--project PROJECT] 
-                    --name NAME [--version VERSION] [--output-uri OUTPUT_URI] 
+                    --name NAME [--version VERSION] [--storage STORAGE] 
                     [--tags [TAGS [TAGS ...]]]
 ```
 
@@ -34,7 +34,7 @@ clearml-data create [-h] [--parents [PARENTS [PARENTS ...]]] [--project PROJECT]
 |`--project`|Dataset's project| <img src="/docs/latest/icons/ico-optional-yes.svg" alt="Yes" className="icon size-md center-md" /> |
 |`--version` |Dataset version. Use the [semantic versioning](https://semver.org) scheme. If not specified a version will automatically be assigned | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 |`--parents`|IDs of the dataset's parents. The dataset inherits all of its parents' content. Multiple parents can be entered, but they are merged in the order they were entered| <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
-|`--output-uri`| Sets where dataset and its previews are uploaded to| <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
+|`--storage`| Remote storage to use for the dataset files. Default: files_server | <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" /> |
 |`--tags` |Dataset user tags. The dataset can be labeled, which can be useful for organizing datasets| <img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 
 </div>
@@ -171,7 +171,7 @@ This command also uploads the data and finalizes the dataset automatically.
 ```bash
 clearml-data sync [-h] [--id ID] [--dataset-folder DATASET_FOLDER] --folder FOLDER
                   [--parents [PARENTS [PARENTS ...]]] [--project PROJECT] [--name NAME]
-                  [--version VERSION] [--output-uri OUTPUT_URI] [--tags [TAGS [TAGS ...]]]
+                  [--version VERSION] [--storage STORAGE] [--tags [TAGS [TAGS ...]]]
                   [--storage STORAGE] [--skip-close] [--chunk-size CHUNK_SIZE] [--verbose]
 ```
 
