@@ -33,7 +33,8 @@ Once you start a vLLM Model Deployment instance, you can view the following info
 * API base - The base URL for the model endpoint 
 * API key - The authentication key for the model endpoint
 * Test Command - An example command line to test the deployed model
-* Requests - Number of requests over time
+* Total Number of Requests - Number of requests over time
+* Tokens per Second - Number of tokens processed over time
 * Latency - Request response time (ms) over time
 * Endpoint resource monitoring metrics over time
 * CPU usage
@@ -79,6 +80,7 @@ values from the file, which can be modified before launching the app instance
 * **Task name** - Name of ClearML Task for your vLLM Model Deployment app instance
 * **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the vLLM Model Deployment app 
 instance task will be enqueued (make sure an agent is assigned to that queue)
+* * **AI Gateway Route** - Select an available, admin-preconfigured route to use as the service endpoint. If none is selected, an ephemeral endpoint will be created.
 * **Model** - A ClearML Model ID or a HuggingFace model name (e.g. `openai-community/gpt2`)
 * **Model Configuration**
   * Trust Remote Code - Select to set Hugging Face [`trust_remote_code`](https://huggingface.co/docs/text-generation-inference/main/en/reference/launcher#trustremotecode) 
