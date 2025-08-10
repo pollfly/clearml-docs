@@ -39,7 +39,7 @@ both MIG-enabled and non-MIG devices.
    ```
    
    :::tip Python repository credentials
-   The credentials for `--extra-index-url` is available in the WebApp under the **Help** menu  <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> **>** 
+   The credentials for `--extra-index-url` are available in the WebApp under the **Help** menu  <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> **>** 
    **ClearML Python Package setup** **>** **Install** step.
    :::
 
