@@ -399,9 +399,14 @@ module.exports = {
                     [
                         'release_notes/apps/llm_ui', 'release_notes/apps/vllm_model_deployment',
                         'release_notes/apps/embedding_model_deployment',
-                        'release_notes/apps/llama_model_deployment', 'release_notes/apps/nvidia_nim',
+                        'release_notes/apps/llama_model_deployment',
                         'release_notes/apps/sglang',
                         'release_notes/apps/containerized_app'
+                    ]
+                },
+                {'NVAIE':
+                    [
+                        'release_notes/apps/nvidia_nim'
                     ]
                 },
                 {'AI Dev':
