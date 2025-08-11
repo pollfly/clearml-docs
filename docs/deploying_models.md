@@ -17,6 +17,7 @@ while ensuring scalability and security. The solutions include:
   * [vLLM Deployment](webapp/applications/apps_model_deployment.md) 
   * [Embedding Model Deployment](webapp/applications/apps_embed_model_deployment.md) 
   * [Llama.cpp Model Deployment](webapp/applications/apps_llama_deployment.md)
+  * [NVIDIA NIM](webapp/applications/apps_nvidia_nim.md)
 * **Command-line Interface** - `clearml-serving` is a CLI for model deployment and orchestration. 
   It supports integration with Kubernetes clusters or custom container-based 
   solutions, offering flexibility for diverse infrastructure setups. 
