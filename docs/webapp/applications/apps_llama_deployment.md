@@ -32,7 +32,8 @@ After starting a llama.cpp Model Deployment instance, you can view the following
 * API base - The base URL for the model endpoint
 * API key - The authentication key for the model endpoint
 * Test Command - An example command line to test the deployed model
-* Requests - Number of requests over time
+* Total Number of Requests - Number of requests over time
+* Tokens per Second - Number of tokens processed over time
 * Latency - Request response time (ms) over time
 * Endpoint resource monitoring metrics over time
   * CPU usage
@@ -74,6 +75,7 @@ values from the file, which can be modified before launching the app instance
 * **Task name** - Name of [ClearML Task](../../fundamentals/task.md) for your llama.cpp Model Deployment app instance
 * **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the 
   llama.cpp Model Deployment app instance task will be enqueued (make sure an agent is assigned to it)  
+**AI Gateway Route** - Select an available, admin-preconfigured route to use as the service endpoint. If none is selected, an ephemeral endpoint will be created.
 * **Model** - A ClearML Model ID or a Hugging Face model. The model must be in GGUF format. If you are using a 
   HuggingFace model, make sure to pass the path to the GGUF file. For example: `provider/repo/path/to/model.gguf`
 * **General**

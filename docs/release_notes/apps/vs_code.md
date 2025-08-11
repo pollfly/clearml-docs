@@ -2,6 +2,11 @@
 title: VS Code
 ---
 
+### 1.15.0
+
+**Bug Fix**
+* Fix input Git repository being left in detached HEAD state
+
 ### 1.14.3
 **New Feature**
 * Add debug logging to app instance

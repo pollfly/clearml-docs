@@ -70,6 +70,7 @@ to open the app's instance launch form.
 * **Streamlit Script Name** - Name of Streamlit script to be executed
 * **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the Streamlit launcher 
   app instance task will be enqueued (make sure an agent is assigned to that queue)
+* **AI Gateway Route** - Select an available, admin-preconfigured route to use as the service endpoint. If none is selected, an ephemeral endpoint will be created.
 * **Docker Image** - Docker image the ClearML Agent will use for running the Streamlit app
 * **Arguments** - Arguments to be passed to the script
 * **Idle Time Limit** (Hours) - Maximum idle time (period in which no requests are received by the Streamlit app) after 

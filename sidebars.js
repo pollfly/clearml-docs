@@ -398,7 +398,15 @@ module.exports = {
                 {'Deploy':
                     [
                         'release_notes/apps/llm_ui', 'release_notes/apps/vllm_model_deployment',
-                        'release_notes/apps/llama_model_deployment', 'release_notes/apps/containerized_app'
+                        'release_notes/apps/embedding_model_deployment',
+                        'release_notes/apps/llama_model_deployment',
+                        'release_notes/apps/sglang',
+                        'release_notes/apps/containerized_app'
+                    ]
+                },
+                {'NVAIE':
+                    [
+                        'release_notes/apps/nvidia_nim'
                     ]
                 },
                 {'AI Dev':
@@ -414,7 +422,7 @@ module.exports = {
                 }
             ]
         },
-        {'Autoscalers': ['release_notes/autoscalers/gcp_autoscaler']}
+        {'Autoscalers': ['release_notes/autoscalers/aws_autoscaler', 'release_notes/autoscalers/gcp_autoscaler']}
     ],
     referenceSidebar: [
         {'SDK': [
