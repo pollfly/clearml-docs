@@ -3,6 +3,11 @@ title: Containerized Application Launcher
 ---
 
 
+### 1.15.0
+
+**New Feature**
+* Add application gateway static routes support
+
 ### 1.14.3
 
 **Bug Fix**
