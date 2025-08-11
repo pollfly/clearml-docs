@@ -2,6 +2,12 @@
 title: Version 2.0
 ---
 
+### ClearML Agent 2.0.4
+
+**New Features and Bug Fixes**
+* Fix Python 3.6 compatibility
+* Update psutil requirement
+
 ### ClearML Agent 2.0.3
 
 **New Feature**
