@@ -45,7 +45,7 @@ Applications for deploying machine learning models as scalable, secure services:
 ### NVAIE
 
 Applications utilizing NVIDIA AI Enterprise's (NVAIE) suite of software tools:
-* [**NIM**](apps_nvidia_nim.md) - Launch [NVIDIA NIM](hhttps://developer.nvidia.com/nim) models through their specific containers (available under ClearML Enterprise Plan)
+* [**NIM**](apps_nvidia_nim.md) - Launch [NVIDIA NIM](https://developer.nvidia.com/nim) models through their specific containers (available under ClearML Enterprise Plan)
 
 
 :::info Autoscalers

@@ -6,7 +6,7 @@ title: NVIDIA NIM
 The NIM App is available under the ClearML Enterprise plan.
 :::
 
-The NIM application enables users to launch [NVIDIA NIM](hhttps://developer.nvidia.com/nim) models through their specific containers. The NIM application 
+The NIM application enables users to launch [NVIDIA NIM](https://developer.nvidia.com/nim) models through their specific containers. The NIM application 
 serves your model on a machine of your choice. Once an app instance is running, it serves your model through a secure, 
 publicly accessible network endpoint. The app monitors endpoint activity and shuts down if the model remains inactive 
 for a specified maximum idle time.
