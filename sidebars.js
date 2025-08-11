@@ -535,6 +535,9 @@ module.exports = {
                             'webapp/applications/apps_llama_deployment',
                             'webapp/applications/apps_llm_ui',
                         ]},
+                        {"NVAIE":[
+                            'webapp/applications/apps_nvidia_nim',
+                        ]}
                     ]
                 },
                 {

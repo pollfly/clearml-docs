@@ -42,6 +42,12 @@ Applications for deploying machine learning models as scalable, secure services:
 * [**Llama.cpp**](apps_llama_deployment.md) - Deploy LLM models in GGUF format using [`llama.cpp`](https://github.com/ggerganov/llama.cpp) as networking services over a secure endpoint (available under ClearML Enterprise Plan)
 * [**LLM UI**](apps_llm_ui.md) - Launch a visual chat interface to a deployed model (available under ClearML Enterprise Plan)
 
+### NVAIE
+
+Applications utilizing NVIDIA AI Enterprise's (NVAIE) suite of software tools:
+* [**NIM**](apps_nvidia_nim.md) - Launch [NVIDIA NIM](hhttps://developer.nvidia.com/nim) models through their specific containers (available under ClearML Enterprise Plan)
+
+
 :::info Autoscalers
 Autoscaling ([AWS Autoscaler](apps_aws_autoscaler.md) and [GCP Autoscaler](apps_gcp_autoscaler.md))
 was previously available through the Applications page. The autoscaler functionality has been moved to the [Orchestration page](https://app.clear.ml/workers-and-queues/autoscalers) 
