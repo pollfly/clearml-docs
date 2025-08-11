@@ -2,7 +2,7 @@
 title: ClearML Serving Setup
 ---
 
-The following page goes over how to set up and upgrade [ClearML Serving](clearml_serving.md), a tool for model deployment 
+This page goes over how to set up and upgrade [ClearML Serving](clearml_serving.md), a tool for model deployment 
 and orchestration.
 
 ## Prerequisites
