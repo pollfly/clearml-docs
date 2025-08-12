@@ -652,6 +652,7 @@ module.exports = {
                     collapsible: true,
                     label: 'Fractional GPUs',
                     items: [
+                        'clearml_agent/fractional_gpus/bare_metal_dynamic_fractional_gpus',
                         {
                             type: 'doc',
                             label: 'ClearML Dynamic MIG Operator (CDMO)',
