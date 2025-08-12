@@ -2,7 +2,7 @@
 title: Tuning Tasks
 ---
 
-Tune task parameters and edit their execution details, and then execute the tuned tasks on local or remote machines.
+Tune task parameters and edit their execution details, then execute the tuned tasks on local or remote machines.
 
 ## To Tune a Task and Execute it Remotely:
 
