@@ -2,27 +2,29 @@
 title: Tuning Tasks
 ---
 
-Tune tasks and edit their execution details, then execute the tuned tasks on local or remote machines.
+Tune task parameters and edit their execution details, then execute the tuned tasks on local or remote machines.
 
 ## To Tune a Task and Execute it Remotely:
 
-1. Locate the task. Open the task's Project page from the Project Dashboard or the main Projects page.
+1. Locate the task.
 
-    * On the Project Dashboard,
-      * Click on a task from RECENT TASKS
+    * On the Project Dashboard:
+      * Click on a task in **RECENT TASKS**
       * In RECENT PROJECTS **>** click on a project card **>** click task
-      * In RECENT PROJECTS **>** click **VIEW ALL** **>** click the project card **>** click task
-    * On the Projects page, click project card, or the **All projects** card **>** click task
+      * In RECENT PROJECTS **> VIEW ALL** **>** click the project card **>** click task
+      * In RECENT PROJECTS **>** click **VIEW ALL** **>** click project card or **All Tasks** card **>** click task
 
 1. Clone the task. In the task table:
 
-    1. Click **Clone**, and a **Clone task** box will pop up.
-    1. In the **Project** textbox, select or create a project. To search for another project, start typing the project name.
-       To create a new project, type new task name and click **Create New**.
-    1. Enter an optional description.
+    1. Click **Clone**, which opens the **Clone task** modal.
+    1. Provide new task's details:  
+       * Project: Select the ClearML project in which the new task will be created, or create a new one. To search for a 
+         project, start typing the project name. To create a new project, type a new name and click **Create New**.
+       * Name: New task's name
+       * Description (Optional): Brief description of the task.
     1. Click **CLONE**.
 
-    The cloned task's status is now *Draft*.
+    The new task is created and has a *Draft* status.
 
 1. Edit the task. See [modifying tasks](#modifying-tasks).
 
