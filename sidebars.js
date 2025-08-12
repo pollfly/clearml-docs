@@ -71,7 +71,7 @@ module.exports = {
                 collapsed: true,
                 label: 'ClearML Serving',
                 link: {type: 'doc', id: 'clearml_serving/clearml_serving'},
-                items: ['clearml_serving/clearml_serving_setup', 'clearml_serving/clearml_serving_cli', 'clearml_serving/clearml_serving_tutorial']
+                items: ['clearml_serving/clearml_serving_tutorial', 'clearml_serving/clearml_serving_extra']
             },
             {
                 type: 'category',
@@ -470,7 +470,8 @@ module.exports = {
             'apps/clearml_param_search',
             {type: 'ref', id: 'apps/clearml_session'},
             {type: 'ref', id: 'clearml_serving/clearml_serving_cli'},
-            ]        },
+            ]
+        },
         {'ClearML Agent': [
             'clearml_agent/clearml_agent_ref', 'clearml_agent/clearml_agent_env_var'
         ]},
@@ -533,8 +534,12 @@ module.exports = {
                             'webapp/applications/apps_embed_model_deployment',
                             'webapp/applications/apps_model_deployment',
                             'webapp/applications/apps_llama_deployment',
+                            'webapp/applications/apps_sglang',
                             'webapp/applications/apps_llm_ui',
                         ]},
+                        {"NVAIE":[
+                            'webapp/applications/apps_nvidia_nim',
+                        ]}
                     ]
                 },
                 {
@@ -778,6 +783,11 @@ module.exports = {
 //                 id: 'deploying_clearml/enterprise_deploy/extra_configs/sso_login'
 //              },
            ]
+        },
+        {
+            type: 'doc',
+            label: 'ClearML Serving',
+            id: 'clearml_serving/clearml_serving_setup'
         },
     ],
     bestPracticesSidebar: [

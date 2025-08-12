@@ -1,8 +1,9 @@
 ---
-title: Setup
+title: ClearML Serving Setup
 ---
 
-The following page goes over how to set up and upgrade `clearml-serving`.
+This page goes over how to set up and upgrade [ClearML Serving](clearml_serving.md), a tool for model deployment 
+and orchestration.
 
 ## Prerequisites
 
@@ -111,6 +112,6 @@ For further details, see [Configuring Storage](../integrations/storage.md#config
 1. Re-spin serving containers (`docker-compose` or k8s)
 
 
-## Tutorial
+## Next Steps
 
-For further details, see the ClearML Serving [Tutorial](clearml_serving_tutorial.md).
+For further details, see the ClearML Serving [Quick Start Tutorial](clearml_serving_tutorial.md) and [Additional Features](clearml_serving_extra.md).
