@@ -535,6 +535,7 @@ module.exports = {
                             'webapp/applications/apps_model_deployment',
                             'webapp/applications/apps_llama_deployment',
                             'webapp/applications/apps_sglang',
+                            'webapp/applications/apps_container_launcher',
                             'webapp/applications/apps_llm_ui',
                         ]},
                         {"NVAIE":[
