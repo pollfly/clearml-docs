@@ -15,7 +15,7 @@ The app supports multi-model hosting and Universal Memory technology, enabling i
 * CPU RAM – via `Automatic CPU Offloading`, `CPU Offload GiB`, and configurable `Max CUDA Memory` limits.
 * Disk storage – via `Swap Space` and `Disk Swapping` (when `Automatic CPU Offloading` is disabled).
 
-The app monitors endpoint activity and shuts down if the model remains inactive for a specified maximum idle time.
+The app monitors endpoint activity and shuts down if the model remains inactive over a specified maximum idle time.
 
 :::info AI Application Gateway
 The vLLM Model Deployment app makes use of the App Gateway Router which implements a secure, authenticated 
