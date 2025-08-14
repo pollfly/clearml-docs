@@ -71,7 +71,7 @@ module.exports = {
                 collapsed: true,
                 label: 'ClearML Serving',
                 link: {type: 'doc', id: 'clearml_serving/clearml_serving'},
-                items: ['clearml_serving/clearml_serving_setup', 'clearml_serving/clearml_serving_cli', 'clearml_serving/clearml_serving_tutorial']
+                items: ['clearml_serving/clearml_serving_tutorial', 'clearml_serving/clearml_serving_extra']
             },
             {
                 type: 'category',
@@ -315,10 +315,10 @@ module.exports = {
             {
                 'Enterprise':
                         [
-                           'release_notes/clearml_server/enterprise/ver_3_25',
+                           'release_notes/clearml_server/enterprise/ver_3_26',
                            {
                                 'Older Versions': [
-                                     'release_notes/clearml_server/enterprise/ver_3_24',
+                                     'release_notes/clearml_server/enterprise/ver_3_25', 'release_notes/clearml_server/enterprise/ver_3_24',
                                      'release_notes/clearml_server/enterprise/ver_3_23', 'release_notes/clearml_server/enterprise/ver_3_22',
                                      'release_notes/clearml_server/enterprise/ver_3_21', 'release_notes/clearml_server/enterprise/ver_3_20'
                                 ]
@@ -398,7 +398,15 @@ module.exports = {
                 {'Deploy':
                     [
                         'release_notes/apps/llm_ui', 'release_notes/apps/vllm_model_deployment',
-                        'release_notes/apps/llama_model_deployment', 'release_notes/apps/containerized_app'
+                        'release_notes/apps/embedding_model_deployment',
+                        'release_notes/apps/llama_model_deployment',
+                        'release_notes/apps/sglang',
+                        'release_notes/apps/containerized_app'
+                    ]
+                },
+                {'NVAIE':
+                    [
+                        'release_notes/apps/nvidia_nim'
                     ]
                 },
                 {'AI Dev':
@@ -414,7 +422,7 @@ module.exports = {
                 }
             ]
         },
-        {'Autoscalers': ['release_notes/autoscalers/gcp_autoscaler']}
+        {'Autoscalers': ['release_notes/autoscalers/aws_autoscaler', 'release_notes/autoscalers/gcp_autoscaler']}
     ],
     referenceSidebar: [
         {'SDK': [
@@ -462,7 +470,8 @@ module.exports = {
             'apps/clearml_param_search',
             {type: 'ref', id: 'apps/clearml_session'},
             {type: 'ref', id: 'clearml_serving/clearml_serving_cli'},
-            ]        },
+            ]
+        },
         {'ClearML Agent': [
             'clearml_agent/clearml_agent_ref', 'clearml_agent/clearml_agent_env_var'
         ]},
@@ -525,8 +534,13 @@ module.exports = {
                             'webapp/applications/apps_embed_model_deployment',
                             'webapp/applications/apps_model_deployment',
                             'webapp/applications/apps_llama_deployment',
+                            'webapp/applications/apps_sglang',
+                            'webapp/applications/apps_container_launcher',
                             'webapp/applications/apps_llm_ui',
                         ]},
+                        {"NVAIE":[
+                            'webapp/applications/apps_nvidia_nim',
+                        ]}
                     ]
                 },
                 {
@@ -639,6 +653,7 @@ module.exports = {
                     collapsible: true,
                     label: 'Fractional GPUs',
                     items: [
+                        'clearml_agent/fractional_gpus/bare_metal_dynamic_fractional_gpus',
                         {
                             type: 'doc',
                             label: 'ClearML Dynamic MIG Operator (CDMO)',
@@ -785,6 +800,11 @@ module.exports = {
 
 
            ]
+        },
+        {
+            type: 'doc',
+            label: 'ClearML Serving',
+            id: 'clearml_serving/clearml_serving_setup'
         },
     ],
     bestPracticesSidebar: [

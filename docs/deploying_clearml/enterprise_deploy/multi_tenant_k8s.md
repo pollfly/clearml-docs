@@ -15,10 +15,6 @@ apiserver:
   extraEnvs:
     - name: CLEARML__services__organization__features__user_management_advanced
       value: "true"
-    - name: CLEARML__services__auth__ui_features_per_role__user__show_datasets
-      value: "false"
-    - name: CLEARML__services__auth__ui_features_per_role__user__show_orchestration
-      value: "false"
     - name: CLEARML__services__workers__resource_usages__supervisor_company
       value: "<SUPERVISOR_COMPANY_ID>" 
     - name: CLEARML__secure__credentials__supervisor__role

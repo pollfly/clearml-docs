@@ -23,8 +23,8 @@ title: Version 2.1
   [#102](https://github.com/clearml/clearml-web/issues/102), [#103](https://github.com/clearml/clearml-web/issues/103))
 * Fix UI Plots does not respect plotly `aspectmode` ([ClearML #1389](https://github.com/clearml/clearml/issues/1389))
 * Fix ctrl-f does not open a search bar in UI editor modals ([ClearML Web #99](https://github.com/clearml/clearml-web/issues/99))
-* Fix UI original series of smoothed plots barely visible in dark mode ([ClearML Server #270](https://github.com/clearml/clearml-server/issues/270))
-* Fix webserver configuration environment variables don't load with single-quoted strings ([ClearML Server #271](https://github.com/clearml/clearml-server/issues/271))
+* Fix UI original series of smoothed plots barely visible in dark mode ([#270](https://github.com/clearml/clearml-server/issues/270))
+* Fix webserver configuration environment variables don't load with single-quoted strings ([#271](https://github.com/clearml/clearml-server/issues/271))
 * Fix next/previous function not working in UI model plots in full-screen
 * Fix UI pipeline "Preview" tab sometimes displays "Failed to get plot charts" error
 * Fix image plots sometimes not rendered in UI

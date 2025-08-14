@@ -42,7 +42,7 @@ In the collapsed view, each stage displays:
 * Stage name 
 * Number of steps in stage 
 
-Click <img src="/docs/latest/icons/ico-zoom-to-fit.svg" alt="Expand" className="icon size-md space-md" /> to view the 
+Click <img src="/docs/latest/icons/ico-zoom-to-fit.svg" alt="Expand" className="icon size-md space-sm" /> to view the 
 steps that comprise the stage. Select a step to view its [Step Info](#run-and-step-info).
 
 Click on a stage to view its **STAGE INFO**:

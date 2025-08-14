@@ -6,7 +6,7 @@ title: Version 2.2
 
 **New Features and Improvements**
 
-* New UI global search including quick filters ([ClearML Server #1041](https://github.com/allegroai/clearml/issues/1041))
+* New UI global search including quick filters ([#1041](https://github.com/clearml/clearml/issues/1041))
 * Add persistent UI plot properties: Plot settings (e.g. logarithmic/linear scale, hover mode) are retained across project tasks
 * Add option to hide original graph when smoothing is enabled in UI plot ([ClearML #1400](https://github.com/clearml/clearml/issues/1400))
 * Add persistent UI table details view ([ClearML Web #105](https://github.com/clearml/clearml-web/issues/105)) 
