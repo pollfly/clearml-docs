@@ -752,9 +752,9 @@ module.exports = {
                    'user_management/user_groups',
                    'user_management/access_rules',
                    'user_management/admin_vaults',
-                   'deploying_clearml/enterprise_deploy/extra_configs/customizing_ui'
                    ]
                 },
+                'deploying_clearml/enterprise_deploy/extra_configs/customizing_ui'
             ],
         },
         {'ClearML Application Gateway': [
