@@ -133,7 +133,7 @@ Deployment app instance task will be enqueued (make sure an agent is assigned to
 * **Environment Variables** - Additional environment variable to set inside the container before launching the application
 * **Advanced Options**
   * Idle Time Limit (Hours) - Maximum idle time after which the app instance will shut down
-  Last Action Report Interval (Seconds): Frequency at which last activity is reported. Prevents idle shutdown while still active.
+  * Last Action Report Interval (Seconds): Frequency at which last activity is reported. Prevents idle shutdown while still active.
 * **Export Configuration** - Export the app instance configuration as a JSON file, which you can later import to create a 
 new instance with the same configuration
 
