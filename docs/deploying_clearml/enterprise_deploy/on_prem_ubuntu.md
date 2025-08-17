@@ -80,11 +80,11 @@ should be reviewed and modified prior to the server installation
 1. Increase `vm.max_map_count` for Elasticsearch in Docker: 
 
    ```
-   echo "vm.max_map_count=262144" > /tmp/99-allegro.conf
+   echo "vm.max_map_count=524288" > /tmp/99-allegro.conf
    echo "vm.overcommit_memory=1" >> /tmp/99-allegro.conf
    echo "fs.inotify.max_user_instances=256" >> /tmp/99-allegro.conf
    sudo mv /tmp/99-allegro.conf /etc/sysctl.d/99-allegro.conf
-   sudo sysctl -w vm.max_map_count=262144
+   sudo sysctl -w vm.max_map_count=524288
    sudo service docker restart
    ```
 

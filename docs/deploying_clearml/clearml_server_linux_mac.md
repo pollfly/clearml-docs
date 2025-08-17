@@ -81,16 +81,16 @@ Deploying the server requires a minimum of 8 GB of memory, 16 GB is recommended.
 
     * Linux:
        ```  
-       echo "vm.max_map_count=262144" > /tmp/99-clearml.conf
+       echo "vm.max_map_count=524288" > /tmp/99-clearml.conf
        sudo mv /tmp/99-clearml.conf /etc/sysctl.d/99-clearml.conf
-       sudo sysctl -w vm.max_map_count=262144
+       sudo sysctl -w vm.max_map_count=524288
        sudo service docker restart
        ```
       
     * macOS:
        ```      
        docker run --net=host --ipc=host --uts=host --pid=host --privileged --security-opt=seccomp=unconfined -it --rm -v /:/host alpine chroot /host
-       sysctl -w vm.max_map_count=262144
+       sysctl -w vm.max_map_count=524288
        ```
 1. Remove any previous installation of ClearML Server.
 

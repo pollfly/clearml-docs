@@ -42,7 +42,7 @@ supervisor user from the ClearML Web UI via `app.<BASE_DOMAIN>`.
 Note that the `<SUPERVISOR_USER_EMAIL>` value must be explicitly quoted. To do so, put `\"` around the quoted value. 
 Example `"\"email@example.com\""`.
 
-For configuring SSO, see the [SSO (Identity Provider) Setup guide](extra_configs/sso_login.md).
+For configuring SSO, see the [SSO (Identity Provider) Setup guide](../../user_management/identity_providers.md).
 
 ### Create a Tenant
 

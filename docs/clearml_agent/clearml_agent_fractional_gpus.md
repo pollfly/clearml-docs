@@ -8,8 +8,6 @@ fraction of GPU memory allocated to them.
 
 ClearML provides several GPU slicing options to optimize compute resource utilization:
 * [Dynamic GPU Slicing](#dynamic-gpu-fractions): On-demand GPU slicing per task for both MIG and non-MIG devices (**Available under the ClearML Enterprise plan**):
-  * [Bare Metal deployment](#bare-metal-deployment) 
-  * [Kubernetes deployment](#kubernetes-deployment)
 * [Container-based Memory Limits](#container-based-memory-limits): Use pre-packaged containers with built-in memory 
 limits to run multiple containers on the same GPU (**Available as part of the ClearML open source offering**)
 * [Kubernetes-based Static MIG Slicing](#kubernetes-static-mig-fractions): Set up Kubernetes support for NVIDIA MIG 
@@ -26,198 +24,14 @@ pre-configure tasks with memory limits. Specify a GPU fraction for a queue in th
 agent pulls from the queue will run on a container with the specified limit. This way you can safely run multiple tasks 
 simultaneously without worrying that one task will use all of the GPU's memory. 
 
-You can dynamically slice GPUs on [bare metal](#bare-metal-deployment) or on [Kubernetes](#kubernetes-deployment), for 
-both MIG-enabled and non-MIG devices.
+You can dynamically slice GPUs on:
+* [Bare metal](clearml_agent_deployment_bare_metal.md)
+* Kubernetes: 
+  * [ClearML Dynamic MIG Operator (CDMO)](fractional_gpus/cdmo.md) chart for MIG devices
+  * [ClearML Fractional GPU Injector (CFGI)](fractional_gpus/cfgi.md) chart for non-MIG devices
+  * [CDMO and CFGI on a shared cluster](fractional_gpus/cdmo_cfgi_same_cluster.md) for both MIG and non-MIG devices
 
 ![Fractional GPU diagram](../img/fractional_gpu_diagram.png)
-
-### Bare Metal Deployment
-1. Install the required packages:
-
-   ```bash
-   pip install -U --extra-index-url https://shared:******@packages.allegro.ai/repository/clearml_agent_fractional_gpu/simple clearml-agent-fractional-gpu
-   ```
-   
-   :::tip Python repository credentials
-   The credentials for `--extra-index-url` is available in the WebApp under the **Help** menu  <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> **>** 
-   **ClearML Python Package setup** **>** **Install** step.
-   :::
-
-1. Start the ClearML agent with dynamic GPU allocation. Use `--gpus` to specify the active GPUs, and use the `--queue` 
-   flag to specify the queue name(s) and number (or fraction) of GPUs to allocate to them. 
-
-   ```
-   clearml-agent daemon --dynamic-gpus --gpus 0, 1 --queue half_gpu=0.5 --docker
-   ```
-
-The agent can utilize 2 GPUs (GPUs 0 and 1). Every task enqueued to the `half_gpu` queue will be run by the agent and 
-only allocated 50% GPU memory (i.e. 4 tasks can run concurrently). 
-
-:::note
-You can allocate GPUs for a queue’s tasks by specifying either a fraction of a single GPU in increments as small as 0.125 
-(e.g. 0.125, 0.25, 0.50, etc.) or whole GPUs (e.g. 1, 2, 4, etc.). However, you cannot specify fractions greater than 
-one GPU (e.g. 1.25).
-::: 
-
-You can set up multiple queues, each allocated a different number of GPUs per task. Note that the order that the queues 
-are listed is their order of priority, so the agent will service tasks from the first listed queue before servicing 
-subsequent queues:
-```
-clearml-agent daemon --dynamic-gpus --gpus 0-2 --queue dual_gpus=2 quarter_gpu=0.25 half_gpu=0.5 single_gpu=1 --docker
-```
-
-This agent will utilize 3 GPUs (GPUs 0, 1, and 2). The agent can spin multiple jobs from the different queues based on 
-the number of GPUs configured to the queue. 
-
-#### Example Workflow
-Let’s say that four tasks are enqueued, one task for each of the above queues (`dual_gpus`, `quarter_gpu`, `half_gpu`, 
-`single_gpu`). The agent will first pull the task from the `dual_gpus` queue since it is listed first, and will run it 
-using 2 GPUs. It will next run the tasks from `quarter_gpu` and `half_gpu`--both will run on the remaining available 
-GPU. This leaves the task in the `single_gpu` queue. Currently, 2.75 GPUs out of the 3 are in use so the task will only 
-be pulled and run when enough GPUs become available. 
-
-### Kubernetes Deployment
-
-ClearML supports fractional GPUs on Kubernetes through custom Enterprise Helm Charts for both MIG and non-MIG devices: 
-* `clearml-dynamic-mig-operator` for [MIG devices](#mig-enabled-gpus)
-* `clearml-fractional-gpu-injector` for [non-MIG devices](#non-mig-devices) 
-
-For either setup, you can set up in your Enterprise ClearML Agent Helm chart the resources requirements of tasks sent to 
-each queue. When a task is enqueued in ClearML, it translates into a Kubernetes pod running on the designated device 
-with the specified fractional resource as defined in the Agent Helm chart. 
-
-#### MIG-enabled GPUs
-The **ClearML Dynamic MIG Operator** (CDMO) chart enables running AI workloads on K8s with optimized hardware utilization 
-and workload performance by facilitating MIG GPU partitioning. Make sure you have a [MIG capable GPU](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/index.html#supported-gpus).
-
-##### Prepare Cluster 
-* Install the [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator):
-
-   ```
-   helm repo add nvidia https://helm.ngc.nvidia.com
-   helm repo update
-   
-   helm install -n gpu-operator \
-        gpu-operator \
-        nvidia/gpu-operator \
-        --create-namespace \
-        --set migManager.enabled=false \
-        --set mig.strategy=mixed
-   ```
-* Enable MIG support:
-    1. Enable dynamic MIG support on your cluster by running following command on all nodes used for training (run for each GPU ID in your cluster):
-  
-       ```
-       nvidia-smi -i <gpu_id> -mig 1
-       ```
-    1. Reboot node if required.
-    1. Add following label to all nodes that will be used for training:
-  
-       ```
-       kubectl label nodes <node-name> "cdmo.clear.ml/gpu-partitioning=mig"
-       ```  
-
-##### Configure ClearML Queues
-The ClearML Enterprise plan supports K8S servicing multiple ClearML queues, as well as providing a pod template for each 
-queue for describing the resources for each pod to use.
-
-In the `values.yaml` file, set the resource requirements of each ClearML queue. For example, the following configures 
-what resources to use for the `default025` and the `default050` queues: 
-```
-agentk8sglue:
-  queues:
-default025:
-      templateOverrides:
-        labels:
-          required-resources: "0.25"
-        resources:
-          limits:
-            nvidia.com/mig-1g.10gb: 1
-default050:
-      templateOverrides:
-        labels:
-          required-resources: "0.50"
-        resources:
-          limits:
-            nvidia.com/mig-1g.10gb: 1
-```
-
-#### Non-MIG Devices
-The **Fractional GPU Injector** chart enables running AI workloads on k8s in an optimized way, allowing you to use 
-fractional GPUs on non-MIG devices.
-
-##### Requirements
-Install the [Nvidia GPU Operator](https://github.com/NVIDIA/gpu-operator) through the Helm chart. Make sure `timeSlicing` 
-is enabled.
-
-For example:
-```
-devicePlugin:
-  config:
-    name: device-plugin-config
-    create: true
-    default: "any"
-    data:
-      any: |-
-        version: v1
-        flags:
-          migStrategy: none
-        sharing:
-          timeSlicing:
-            renameByDefault: false
-            failRequestsGreaterThanOne: false
-            resources:
-              - name: nvidia.com/gpu
-                replicas: 4
-```
-
-The number of replicas is the maximum number of slices on a GPU.
-
-##### Configure ClearML Queues
-In the `values.yaml` file, set the resource requirements of each ClearML queue. When a task is enqueued to the queue, 
-it translates into a Kubernetes pod running on the designated device with the specified resource slice. The queues must 
-be configured with specific labels and annotations. For example, the following configures the `default0500` queue to use 
-50% of a GPU and the `default0250` queue to use 25% of a GPU:
-```
-agentk8sglue:
-  queues:
-    default0500:
-      templateOverrides:
-        labels:
-          required-resources: "0.5"
-          clearml-injector/fraction: "0.500"
-        resources:
-          limits:
-            nvidia.com/gpu: 1
-            clear.ml/fraction-1: "0.5"
-      queueSettings:
-        maxPods: 10
-    default0250:
-      templateOverrides:
-        labels:
-          required-resources: "0.25"
-          clearml-injector/fraction: "0.250"
-        resources:
-          limits:
-            nvidia.com/gpu: 1
-            clear.ml/fraction-1: "0.25"
-      queueSettings:
-        maxPods: 10
-```
-If a pod has a label matching the pattern `clearml-injector/fraction: "<gpu_fraction_value>"`, the injector will 
-configure that pod to utilize the specified fraction of the GPU:
-```
-labels:
-  clearml-injector/fraction: "<gpu_fraction_value>"
-```
-Where `<gpu_fraction_value>` must be set to one of the following values:
-* "0.125"
-* "0.250"
-* "0.375"
-* "0.500"
-* "0.625"
-* "0.750"
-* "0.875"
 
 ## Container-based Memory Limits
 Use [`clearml-fractional-gpu`](https://github.com/clearml/clearml-fractional-gpu)'s pre-packaged containers with 

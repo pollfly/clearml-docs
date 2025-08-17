@@ -535,6 +535,7 @@ module.exports = {
                             'webapp/applications/apps_model_deployment',
                             'webapp/applications/apps_llama_deployment',
                             'webapp/applications/apps_sglang',
+                            'webapp/applications/apps_container_launcher',
                             'webapp/applications/apps_llm_ui',
                         ]},
                         {"NVAIE":[
@@ -652,6 +653,7 @@ module.exports = {
                     collapsible: true,
                     label: 'Fractional GPUs',
                     items: [
+                        'clearml_agent/fractional_gpus/bare_metal_dynamic_fractional_gpus',
                         {
                             type: 'doc',
                             label: 'ClearML Dynamic MIG Operator (CDMO)',
@@ -752,6 +754,7 @@ module.exports = {
                    'user_management/admin_vaults',
                    ]
                 },
+                'deploying_clearml/enterprise_deploy/extra_configs/customizing_ui'
             ],
         },
         {'ClearML Application Gateway': [
@@ -774,14 +777,29 @@ module.exports = {
            label: 'Identity Provider Integration',
            link: {type: 'doc', id: 'user_management/identity_providers'},
            items: [
-              'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
-              'deploying_clearml/enterprise_deploy/sso_saml_k8s',
-              'deploying_clearml/enterprise_deploy/sso_keycloak',
-              'deploying_clearml/enterprise_deploy/sso_active_directory',
-//              {
-//                 type: 'doc',
-//                 id: 'deploying_clearml/enterprise_deploy/extra_configs/sso_login'
-//              },
+                { "OAuth":
+                    [
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_amazon_cognito_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_azure_ad_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_google_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_keycloak_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_microsoft_ad_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_ping_id_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_okta_oauth',
+                    ]
+                },
+                {"SAML":
+                    [
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_duo_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_google_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_microsoft_ad_saml',
+
+                    ]
+                },
+                'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_ldap',
+//              'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
+
+
            ]
         },
         {
