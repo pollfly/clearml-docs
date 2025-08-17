@@ -202,6 +202,37 @@ helm template <CHART_NAME> | yq '..|.image? | select(.)' | sort -u
 This requires the `helm` and `yq` commands to be installed.
 :::
 
+
+## Customize Agent Containers Start Script
+
+You can customize the ClearML Tasks Pod initial Bash script. This is useful in air-gapped environments, where you may 
+want to skip the default `apt-get` installations, and rely on prebuilt container images.
+
+The startup script (`agentk8sglue.containerCustomBashScript`) must always end with the `clearml_agent execute` command. Otherwise,
+ClearML Tasks will not run. 
+
+### Configuration Example
+
+Edit the ClearML Agent values override file with the following content. Make sure to replace the `<YOUR_IMAGE_WITH_PYTHON_3.9>` 
+with the name of an image that has Python 3.9 or higher pre-installed.
+
+```yaml
+agentk8sglue:
+  # -- Support for air-gapped systems. Skip container APT installations.
+  airGappedSupport: true
+  # -- Default container image for ClearML Task pod
+  defaultContainerImage: "<YOUR_IMAGE_WITH_PYTHON_3.9>"
+  # -- Custom Bash script for the Task Pods run by the Agent
+  containerCustomBashScript: |
+    export HOME=/tmp
+    export LOCAL_PYTHON=python3
+    {extra_bash_init_cmd}
+    [ ! -z $CLEARML_AGENT_NO_UPDATE ] || $LOCAL_PYTHON -m pip install clearml-agent{agent_install_args}
+    {extra_docker_bash_script}
+    $LOCAL_PYTHON -m clearml_agent execute {default_execution_agent_args} --id {task_id}
+```
+
+
 ## Webserver
 
 When using a private registry, this configuration will make the Webserver reference the correct extra index URL for 
