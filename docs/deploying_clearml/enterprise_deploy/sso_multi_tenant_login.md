@@ -40,8 +40,8 @@ Set the following environment variables in the ClearML enterprise helm chart und
 Enable `onlyPasswordLogin` by setting the following environment variable in the helm chart under the `webserver` section:
 
 ``` 
-- name: WEBSERVER__onlyPasswordLogin
-  value: “true”
+- name: WEBSERVER__onlyPasswordLogin`  
+  value: “true”`
 ```
 
 ## Setup IdP for a ClearML Tenant

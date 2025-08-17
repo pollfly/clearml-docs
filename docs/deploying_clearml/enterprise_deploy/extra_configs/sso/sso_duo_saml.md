@@ -1,5 +1,5 @@
 ---
-title: Duo SAML
+title: Duo Saml
 ---
 
 This guide explains how to configure Duo as a SAML identity provider for ClearML Single Sign-On (SSO):
