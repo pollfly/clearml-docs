@@ -25,7 +25,7 @@ agent pulls from the queue will run on a container with the specified limit. Thi
 simultaneously without worrying that one task will use all of the GPU's memory. 
 
 You can dynamically slice GPUs on:
-* [Bare metal](clearml_agent_deployment_bare_metal.md)
+* [Bare metal](fractional_gpus/bare_metal_dynamic_fractional_gpus.md)
 * Kubernetes: 
   * [ClearML Dynamic MIG Operator (CDMO)](fractional_gpus/cdmo.md) chart for MIG devices
   * [ClearML Fractional GPU Injector (CFGI)](fractional_gpus/cfgi.md) chart for non-MIG devices

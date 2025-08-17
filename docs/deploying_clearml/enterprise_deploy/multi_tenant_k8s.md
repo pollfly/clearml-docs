@@ -354,7 +354,7 @@ To assign a feature to a group, that feature must first be enabled globally (ser
 To enable a feature for the entire deployment, use: 
 
 ```
-CLEARML__services__organization__features__<FeatureName>`
+CLEARML__services__organization__features__<FeatureName>
 ```
 
 Setting one of these variables to `"true"` enables the feature globally.
