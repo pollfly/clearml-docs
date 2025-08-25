@@ -54,7 +54,7 @@ To allow only specific users or domains to register to the system, admins need t
 
 Each user that should be allowed to login into clearml has to have their e-mail address added by an admin.
 This can be done through the [Users management](../../../../webapp/settings/webapp_settings_users) admin UI page, using "Add User" and specifying the user's email address.  
-Alternatively, adminis can run the following API call (which supports adding multiple users):
+Alternatively, admins can run the following API call (which supports adding multiple users):
 
 ```bash
 curl $APISERVER_URL/login.add_whitelist_entries \
