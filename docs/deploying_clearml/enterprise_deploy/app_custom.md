@@ -469,15 +469,15 @@ zip -r simple-app.zip simple-app.app.conf assets/
 Run the `upload_apps.py` script to upload the applications. You will need to provide credentials for an admin user in the system
 
 ```
-upload_apps.py --host <apiserver url> --user <admin_user_key> --password <admin_user_secret> --files simple-app.zip
+upload_apps.py --host <apiserver url> --key <admin_user_key> --secret <admin_user_secret> --command upload --files simple-app.zip
 ```
 
 * `<apiserver url>` can be something like `https://api.my-server.allegro.ai` or `http://localhost:8008` if running on the server.
-* `--user` and `--password` are key/secret credentials of any ClearML admin user. These can be generated in the ClearML web UI.
+* `--key` and `--secret` are key/secret credentials of any ClearML admin user. These can be generated in the ClearML web UI.
 
 #### Removing an App
-Applications can be uninstalled by running the `manage_apps.py` script as follows:
+Applications can be uninstalled by running the `upload_apps.py` script as follows:
 
 ```
-manage_apps.py delete --host <apiserver url> --user <admin_user_key> --password <admin_user_secret>  -app <application id>
+upload_apps.py --host <apiserver url> --key <admin_user_key> --secret <admin_user_secret> --command delete --app <application id>
 ```
