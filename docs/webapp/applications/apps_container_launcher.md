@@ -61,7 +61,7 @@ To configure a new app instance, click `Launch New` Add new to open the app's in
 * **Container Image** - Containerized application image to use  
 * **Application execution command line** - Command line to start the application inside the container, notice the container original entrypoint is ignored  
 * **Application execution directory** (*optional*) - Starting working directory for command-line inside the container.  
-* **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues#what-is-a-queue) to which the containerized app launcher instance task will be enqueued (make sure an agent is assigned to that queue).  
+* **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the containerized app launcher instance task will be enqueued (make sure an agent is assigned to that queue).  
 * **Network routing to the container** - Select one of the following:  
   * None  
   * TCP (raw)  
