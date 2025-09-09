@@ -11,9 +11,7 @@ ClearML system objects and runtime configuration values, using the following for
 
 For example, `"${CLEARML_TASK.project}"` will be replaced with the Task's project ID.
 
-## Supported Variables
-
-### Single-value Variables
+## Single-value Variables
 
 These variable resolve to a single value. You can use them directly in a template, without specifying any path.
 
@@ -24,7 +22,7 @@ Available single-value variables:
 - `QUEUE_ID` - ID of the queue from which the task is pulled
 - `WORKER_ID` - ID of the agent running the task
 
-### Compound Variables (Path-Based)
+## Compound Variables (Path-Based)
 
 These variables represent compound objects (mappings) for which you must specify a property path. Variable specifier is 
 in the format `VARIABLE.path.to.property`. 
@@ -46,7 +44,7 @@ The following compound variables are supported:
   from vaults applied for the user who’s the task owner.
 - `PROVIDERS_INFO` - Contains user data retrieved from the identity provider (SSO), if configured on the ClearML Server.
 
-#### Examples
+## Examples
 
 ```
 ${CLEARML_TASK.name}
@@ -55,7 +53,7 @@ ${CLEARML_TASK.project}
 ${CLEARML_TASK.hyperparams.properties.user_key.value}
 ```
 
-### Default Fallback
+## Default Fallback
 
 Use a colon (`:`) to define a default fallback string for when the variable does not have a value.
 
@@ -68,7 +66,7 @@ ${CLEARML_TASK.hyperparams.properties.user_key.value:myDefault}
 If `user_key` is not set, the string will resolve to `myDefault`.
 
 
-### Filter Operators
+## Filter Operators
 
 Templates also support filter operators that can modify the resulting value strings.
 
@@ -91,7 +89,7 @@ When no filter operators are specified, `remove_newlines` operator is applied by
 String templates customization is supported under the `basePodTemplate` and `templateOverrides` properties of the ClearML 
 Agent values.
 
-### Example
+For example:
 
 ```yaml
 agentk8sglue:
