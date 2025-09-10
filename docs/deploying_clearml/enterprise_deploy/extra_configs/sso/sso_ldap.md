@@ -52,7 +52,7 @@ To allow only specific users or domains to register to the system, admins need t
 
 `CLEARML__apiserver__auth__fixed_user_providers__ldap__default_company`
 
-Each user that should be allowed to login into clearml has to have their e-mail address added by an admin.
+Each user that should be allowed to log into ClearML must have their e-mail address added by an admin.
 This can be done through the [User management](../../../../webapp/settings/webapp_settings_users.md) admin UI page, using "Add User" and specifying the user's email address.  
 Alternatively, admins can run the following API call (which supports adding multiple users):
 
