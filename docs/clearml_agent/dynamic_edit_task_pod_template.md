@@ -23,6 +23,7 @@ Arguments passed to the function include:
 * `queue_name` (string) - Name of the queue from which the task was pulled.
 * `template` (Python dictionary) - Base Pod template created from the agent's configuration and any queue-specific overrides.
 * `task_data` (object) - [Task object](../references/sdk/task.md) (as returned by the `tasks.get_by_id` API call). For example, use `task_data.project` to get the task's project ID.
+* `task_dict` (dictionary) - Dictionary representation of a [Task object](../references/sdk/task.md). Access fields with dictionary keys. For example: `task_dict['id']`
 * `providers_info` (dictionary) - [Identity provider](../user_management/identity_providers.md) info containing optional information collected for the user running this task 
   when the user logged into the system (requires additional server configuration).
 * `task_config` (`clearml_agent.backend_config.Config` object) - Task configuration containing configuration vaults applicable 
@@ -45,7 +46,7 @@ agentk8sglue:
         import json
         from pprint import pformat 
         
-        def update_template(queue, task_data, providers_info, template, task_config, worker, queue_name, *args, **kwargs):
+        def update_template(queue, task_data, task_dict, providers_info, template, task_config, worker, queue_name, *args, **kwargs):
           print(pformat(template))
           
           my_var_name = "foo"
@@ -106,7 +107,7 @@ agentk8sglue:
       fileContent: |-
         import json
         from pprint import pformat 
-        def update_template(queue, task_data, providers_info, template, task_config, worker, queue_name, *args, **kwargs):
+        def update_template(queue, task_data, task_dict, providers_info, template, task_config, worker, queue_name, *args, **kwargs):
           print(pformat(template))
           
           my_var = "some_var"
@@ -149,7 +150,7 @@ agentk8sglue:
       fileContent: |-
         import json
         from pprint import pformat
-        def update_template(queue, task_data, providers_info, template, task_config, worker, queue_name, *args, **kwargs):
+        def update_template(queue, task_data, task_dict, providers_info, template, task_config, worker, queue_name, *args, **kwargs):
             nfs = task_config.get("nfs")
             # ad_role = providers_info.get("ad-role")
             if nfs: # and ad_role == "some-value"
@@ -227,7 +228,7 @@ agentk8sglue:
       fileContent: |-
         import json
         from pprint import pformat 
-        def update_template(queue, task_data, providers_info, template, task_config, worker, queue_name, *args, **kwargs):
+        def update_template(queue, task_data, task_dict, providers_info, template, task_config, worker, queue_name, *args, **kwargs):
           if queue_name == "pvc-test":
             # Set PVC_NAME as the name of the Pod
             PVC_NAME = f"clearml-id-{task_data.id}"
