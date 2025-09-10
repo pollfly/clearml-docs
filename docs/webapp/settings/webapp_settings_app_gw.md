@@ -108,17 +108,17 @@ The **Static Routes** table lets you monitor all defined routes. The table shows
 To create a static route: 
 1. Click **+ Add Route**
 1. In the **Add New Route** modal, input the following information 
-  * Name – Route label
-  * Input a Route URL path or Subdomain name. Note that a path must begin with a slash (`/`) 
-  * Load Balanced - Whether the route can serve multiple internal endpoints (load balancing) or just one. 
-  * Authenticated Route -Whether the route is accessible to specific users (default) or is publicly accessible.
-    * Endpoint Access -  When authentication is required, add the ClearML groups whose members can access this endpoint.
+   * Name – Route label
+   * Input a Route URL path or Subdomain name. Note that a path must begin with a slash (`/`) 
+   * Load Balanced - Whether the route can serve multiple internal endpoints (load balancing) or just one. 
+   * Authenticated Route -Whether the route is accessible to specific users (default) or is publicly accessible.
+     * Endpoint Access -  When authentication is required, add the ClearML groups whose members can access this endpoint.
 
 ### Editing Routes
 A static route can be modified only when it is disabled. To edit route details, hover and click **Edit** <img src="/docs/latest/icons/ico-edit.svg" alt="Edit Pencil" className="icon size-md" /> 
 in the **Static Routes** table.
 
-An enabled route is view-only. To view its details, hover and click **View route** configuration <img src="/docs/latest/icons/ico-info.svg" alt="Info" className="icon size-md space-sm" /> 
+An enabled route is view-only. To view its details, hover and click **View route configuration** <img src="/docs/latest/icons/ico-info.svg" alt="Info" className="icon size-md space-sm" /> 
 in the **Static Routes** table.
 
 ### Deleting Routes

@@ -14,7 +14,7 @@ Inviting new teammates is only available on the ClearML Hosted Service.
 ## Users
 The **USERS** table lists workspace members and details, and shows whether the maximum number of members has been reached. 
 
-Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-md" />
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" />
 to find a specific user by their name, email, or user ID. 
 
 ### Free/Pro Service 
@@ -86,7 +86,7 @@ Each row of the table includes:
 * Credentials - Number of credentials currently available to the account
 * Last active time
 
-Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-md" /> 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
 to find a specific service account by its name or ID.
 
 Hover over a service account in the table to **Edit** or **Delete** it.
@@ -203,7 +203,7 @@ The system includes three pre-configured groups that can't be removed:
 * `Queue admins` - Can create / delete / rename queues
 
 The user group table lists all the active user groups. Each row includes a group's name, description, member list, and ID. 
-Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-md" /> 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
 to find a specific user group by its name, description, or ID.
 
 ![User Management Page](../../img/settings_user_management_table.png#light-mode-only)

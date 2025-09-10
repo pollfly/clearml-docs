@@ -66,11 +66,11 @@ To see available options, run `python3 upload_apps.py --help`.
 **Upload a Single application:**
 
 ```bash
-python3 upload_apps.py --host <APISERVER_URL> --user <ACCESS_KEY> --password <SECRET_KEY> --files "YOUR_APP.zip"
+python3 upload_apps.py --host <APISERVER_URL> --key <ACCESS_KEY> --secret <SECRET_KEY> --command upload --files "YOUR_APP.zip"
 ```
 
 **Upload Multiple applications:**
 
 ```bash
-python3 upload_apps.py --host <APISERVER_URL> --user <ACCESS_KEY> --password <SECRET_KEY> --dir "<PATH_TO_APPS_DIR>" -ml
+python3 upload_apps.py --host <APISERVER_URL> --key <ACCESS_KEY> --secret <SECRET_KEY> --command upload --dir "<PATH_TO_APPS_DIR>" -ml
 ```

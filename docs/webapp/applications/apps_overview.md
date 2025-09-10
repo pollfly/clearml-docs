@@ -40,7 +40,15 @@ Applications for deploying machine learning models as scalable, secure services:
 * [**Embedding Model Deployment**](apps_embed_model_deployment.md) - Deploy embedding models as networking services over a secure endpoint (available under ClearML Enterprise Plan)
 * [**vLLM Model Deployment**](apps_model_deployment.md) - Deploy LLM models as networking services over a secure endpoint (available under ClearML Enterprise Plan)
 * [**Llama.cpp**](apps_llama_deployment.md) - Deploy LLM models in GGUF format using [`llama.cpp`](https://github.com/ggerganov/llama.cpp) as networking services over a secure endpoint (available under ClearML Enterprise Plan)
+* [**SGLang Model Deployment**](apps_sglang.md) - Deploy LLM models using [SGLang](https://docs.sglang.ai/) as networking services over a secure endpoint (available under ClearML Enterprise Plan)
+* [**Containerized Application Launcher**](apps_container_launcher.md) - Launch and application containers with persistent workspaces and flexible networking (available under ClearML Enterprise Plan)
 * [**LLM UI**](apps_llm_ui.md) - Launch a visual chat interface to a deployed model (available under ClearML Enterprise Plan)
+
+### NVAIE
+
+Applications utilizing NVIDIA AI Enterprise's (NVAIE) suite of software tools:
+* [**NIM**](apps_nvidia_nim.md) - Launch [NVIDIA NIM](https://developer.nvidia.com/nim) models through their specific containers (available under ClearML Enterprise Plan)
+
 
 :::info Autoscalers
 Autoscaling ([AWS Autoscaler](apps_aws_autoscaler.md) and [GCP Autoscaler](apps_gcp_autoscaler.md))

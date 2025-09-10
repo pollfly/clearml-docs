@@ -63,5 +63,7 @@ solution.
 
 ## Next Steps
 
-See ClearML Serving setup instructions [here](clearml_serving_setup.md). For further details, see the ClearML Serving 
-[Tutorial](clearml_serving_tutorial.md).
+For more details, see: 
+* [Setup instructions](clearml_serving_setup.md)
+* [Quick Start Tutorial](clearml_serving_tutorial.md) 
+* [Additional Features](clearml_serving_extra.md)

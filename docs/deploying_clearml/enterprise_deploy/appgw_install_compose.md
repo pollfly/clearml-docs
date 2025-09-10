@@ -81,8 +81,8 @@ services:
 Create a `runtime.env` file containing the following entries:
 
 ```
-PROXY_TAG=1.5.1
-ROUTER_TAG=2.6.2
+PROXY_TAG=1.6.0
+ROUTER_TAG=2.9.2
 ROUTER_NAME=main-router
 ROUTER__WEBSERVER__SERVER_PORT=8010
 ROUTER_URL=

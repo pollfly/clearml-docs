@@ -325,7 +325,7 @@ a `Summary` table.
 
 #### Scalar Plot Tools
 
-Use the scalar tools to improve analysis of scalar metrics. In the info panel, click <img src="/docs/latest/icons/ico-settings.svg" alt="Settings gear" className="icon size-md space-sm" /> to use the tools. In the full screen details view, the tools
+Use the scalar tools to improve analysis of scalar metrics. In the info panel, click <img src="/docs/latest/icons/ico-tune.svg" alt="Tuning" className="icon size-md" /> to access the tools. In the full-screen details view, the tools
 are on the left side of the window. The tools include:
 
 <a id="group_by"/>

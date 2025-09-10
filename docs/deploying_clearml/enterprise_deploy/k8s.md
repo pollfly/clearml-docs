@@ -163,6 +163,37 @@ apiserver:
       }
 ```
 
+### Using External Databases with ClearML
+
+The ClearML Enterprise Server can be configured to use external services for the ElasticSearch, MongoDB, and Redis databases, 
+instead of those included in the server bundle. Note that if you use external database instances, ClearML will not manage 
+the database's lifecycle or version. For MongoDB specifically, ClearML disables internal version checks (`CLEARML__apiserver__mongo__ensure_db_version_on_startup=false`).
+
+As a result, you are fully responsible for:
+
+* Provisioning and maintaining the database instance
+* Applying security updates and version upgrades
+* Ensuring availability, backups, and disaster recovery
+
+Before upgrading ClearML, always consult the ClearML release notes and documentation to verify which DB versions 
+are supported. Running unsupported versions may cause ClearML to fail or behave unexpectedly.
+
+To connect external databases, configure the `externalServices` section in the `clearml-values.override.yaml` file:
+
+```
+externalServices:
+  # Existing ElasticSearch connectionstring if elasticsearch.enabled is false
+  elasticsearchConnectionString: "[{\"host\":\"es_hostname1\",\"port\":9200},{\"host\":\"es_hostname2\",\"port\":9200},{\"host\":\"es_hostname3\",\"port\":9200}]"
+  # Existing MongoDB connection string for BACKEND to use if mongodb.enabled is false
+  mongodbConnectionStringAuth: "mongodb://mongodb_hostname:27017/auth"
+  # Existing MongoDB connection string for AUTH to use if mongodb.enabled is false
+  mongodbConnectionStringBackend: "mongodb://mongodb_hostnamehostname:27017/backend"
+  # Existing Redis Hostname to use if redis.enabled is false
+  redisHost: "redis_hostname"
+  # Existing Redis Port to use if redis.enabled is false
+  redisPort: 6379
+```
+
 ## Next Steps
 
 After installing the ClearML Enterprise Server, you can enhance your deployment by enabling optional services that 
@@ -215,7 +246,7 @@ See the [Multi-Tenant Service guide](multi_tenant_k8s.md).
 
 Integrate identity providers to enable SSO login for ClearML Enterprise users.
 
-See the [SSO Setup guide](extra_configs/sso_login.md).
+See the [SSO Setup guide](../../user_management/identity_providers.md).
 
 ### ClearML Custom Event Monitoring
 

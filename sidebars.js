@@ -71,7 +71,7 @@ module.exports = {
                 collapsed: true,
                 label: 'ClearML Serving',
                 link: {type: 'doc', id: 'clearml_serving/clearml_serving'},
-                items: ['clearml_serving/clearml_serving_setup', 'clearml_serving/clearml_serving_cli', 'clearml_serving/clearml_serving_tutorial']
+                items: ['clearml_serving/clearml_serving_tutorial', 'clearml_serving/clearml_serving_extra']
             },
             {
                 type: 'category',
@@ -398,7 +398,15 @@ module.exports = {
                 {'Deploy':
                     [
                         'release_notes/apps/llm_ui', 'release_notes/apps/vllm_model_deployment',
-                        'release_notes/apps/llama_model_deployment', 'release_notes/apps/containerized_app'
+                        'release_notes/apps/embedding_model_deployment',
+                        'release_notes/apps/llama_model_deployment',
+                        'release_notes/apps/sglang',
+                        'release_notes/apps/containerized_app'
+                    ]
+                },
+                {'NVAIE':
+                    [
+                        'release_notes/apps/nvidia_nim'
                     ]
                 },
                 {'AI Dev':
@@ -414,7 +422,7 @@ module.exports = {
                 }
             ]
         },
-        {'Autoscalers': ['release_notes/autoscalers/gcp_autoscaler']}
+        {'Autoscalers': ['release_notes/autoscalers/aws_autoscaler', 'release_notes/autoscalers/gcp_autoscaler']}
     ],
     referenceSidebar: [
         {'SDK': [
@@ -462,7 +470,8 @@ module.exports = {
             'apps/clearml_param_search',
             {type: 'ref', id: 'apps/clearml_session'},
             {type: 'ref', id: 'clearml_serving/clearml_serving_cli'},
-            ]        },
+            ]
+        },
         {'ClearML Agent': [
             'clearml_agent/clearml_agent_ref', 'clearml_agent/clearml_agent_env_var'
         ]},
@@ -525,8 +534,13 @@ module.exports = {
                             'webapp/applications/apps_embed_model_deployment',
                             'webapp/applications/apps_model_deployment',
                             'webapp/applications/apps_llama_deployment',
+                            'webapp/applications/apps_sglang',
+                            'webapp/applications/apps_container_launcher',
                             'webapp/applications/apps_llm_ui',
                         ]},
+                        {"NVAIE":[
+                            'webapp/applications/apps_nvidia_nim',
+                        ]}
                     ]
                 },
                 {
@@ -720,6 +734,7 @@ module.exports = {
                    'user_management/admin_vaults',
                    ]
                 },
+                'deploying_clearml/enterprise_deploy/extra_configs/customizing_ui'
             ],
         },
         {'ClearML Agent':
@@ -787,11 +802,35 @@ module.exports = {
            label: 'Identity Provider Integration',
            link: {type: 'doc', id: 'user_management/identity_providers'},
            items: [
-              'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
-              'deploying_clearml/enterprise_deploy/sso_saml_k8s',
-              'deploying_clearml/enterprise_deploy/sso_keycloak',
-              'deploying_clearml/enterprise_deploy/sso_active_directory',
+                { "OAuth":
+                    [
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_amazon_cognito_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_azure_ad_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_google_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_keycloak_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_microsoft_ad_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_ping_id_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_okta_oauth',
+                    ]
+                },
+                {"SAML":
+                    [
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_duo_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_google_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_microsoft_ad_saml',
+
+                    ]
+                },
+                'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_ldap',
+//              'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
+
+
            ]
+        },
+        {
+            type: 'doc',
+            label: 'ClearML Serving',
+            id: 'clearml_serving/clearml_serving_setup'
         },
 
     ],

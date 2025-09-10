@@ -86,7 +86,7 @@ agentk8sglue:
         - /bin/sh
         - -c
         - update-ca-certificates
-        image: allegroai/clearml-enterprise-agent-k8s-base:<AGENT-VERSION-AVAIABLE-ON-REPO>
+        image: allegroai/clearml-enterprise-agent-k8s-base:<AGENT-VERSION-AVAILABLE-ON-REPO>
         imagePullPolicy: IfNotPresent
         name: init-task
         volumeMounts:
