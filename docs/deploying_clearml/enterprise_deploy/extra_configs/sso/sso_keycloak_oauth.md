@@ -41,7 +41,7 @@ CLEARML__secure__login__sso__oauth_client__keycloak__default_company="<company_i
 
 ## User Group Integration
 ClearML can sync group membership from Keycloak. For each Keycloak group you want to sync user membership with, manually 
-create a [user group](../../../../webapp/settings/webapp_settings_users#user-groups) with the same name in ClearML.
+create a [user group](../../../../webapp/settings/webapp_settings_users.md#user-groups) with the same name in ClearML.
 
 ### In Keycloak
 When configuring the Open ID client for ClearML:
