@@ -2,6 +2,11 @@
 title: Jupyter Lab
 ---
 
+### 1.15.2
+
+* Fix Jupyter application failing to launch app instances 
+* Ensure tasks created by SDK from Jupyter sessions by default use the same Docker image as the running environment.
+
 
 ### 1.15.0
 

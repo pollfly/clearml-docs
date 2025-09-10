@@ -2,6 +2,12 @@
 title: SSH Session
 ---
 
+### 1.15.2  
+
+**New features and Improvements**
+* Add support for user-defined SSH password
+* Ensure tasks created by SDK from SSH sessions by default use the same Docker image as the running environment.
+
 ### 1.15.0
 
 **Bug Fix**
