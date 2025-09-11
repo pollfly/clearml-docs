@@ -647,6 +647,7 @@ module.exports = {
                 'clearml_agent/clearml_agent_env_caching',
                 'clearml_agent/clearml_agent_services_mode',
                 'clearml_agent/dynamic_edit_task_pod_template',
+                'clearml_agent/clearml_agent_string_template',
                 'clearml_agent/multi_node_training',
                 {
                     type: 'category',
