@@ -93,8 +93,9 @@ Instance requirements:
 3. Verify the disks were mounted successfully (using: `df -h`) to:  
    1. `/opt/allegro/data`  
    2. `/opt/allegro/data/fileserver`  
-   3. `/var/lib/docker`  
-4. Reboot server.
+   3. `/var/lib/docker`
+4. Verify that an initial admin user was created in: `/opt/allegro/config/onprem_poc/apiserver.conf`. You can use this user/password for initial login before you connect the server to an IDP,
+5. Reboot server.
 
 ### Version Deployment
 
