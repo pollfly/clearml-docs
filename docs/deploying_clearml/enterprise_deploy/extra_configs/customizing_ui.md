@@ -10,7 +10,7 @@ These customizations are implemented through container start-time parameters, pa
 launching the ClearML UI container. For example:
 
 ```
-docker run -e PARAM_NAME=value ... clearml-ui-image` 
+docker run -e PARAM_NAME=value ... clearml-ui-image 
 ```
 
 Customizations can also be configured within Kubernetes deployment manifests or Helm chart values.

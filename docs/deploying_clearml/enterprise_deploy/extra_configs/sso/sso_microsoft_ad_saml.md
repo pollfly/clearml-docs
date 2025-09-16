@@ -92,5 +92,5 @@ CLEARML__services__login__sso__saml_client__microsoft_ad__groups__case_sensitive
 To restrict login only to users whose AD groups exist in ClearML, set the following environment variable:
 
 ```
-`CLEARML__services__login__sso__saml_client__microsoft_ad__groups__prohibit_user_signup_if_not_in_group=true`
+CLEARML__services__login__sso__saml_client__microsoft_ad__groups__prohibit_user_signup_if_not_in_group=true
 ```
