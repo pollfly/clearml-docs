@@ -646,8 +646,24 @@ module.exports = {
                 'clearml_agent/clearml_agent_execution_env',
                 'clearml_agent/clearml_agent_env_caching',
                 'clearml_agent/clearml_agent_services_mode',
-                'clearml_agent/dynamic_edit_task_pod_template',
-                'clearml_agent/clearml_agent_string_template',
+                {'Pod Template Customization': [
+                        {
+                            type: 'doc',
+                            label: 'String Templates',
+                            id: 'clearml_agent/clearml_agent_string_template'
+                        },
+                        {
+                            type: 'doc',
+                            label: 'Conditional Templates',
+                            id: 'clearml_agent/clearml_agent_conditional_template'
+                        },
+                        {
+                            type: 'doc',
+                            label: 'Dynamic Templates',
+                            id: 'clearml_agent/dynamic_edit_task_pod_template'
+                        },
+                    ]
+                },
                 'clearml_agent/multi_node_training',
                 {
                     type: 'category',
