@@ -7,11 +7,9 @@ configuration and security contexts.
 
 ## Installation
 
-Installing ClearML on OpenShift follows the standard Kubernetes installation procedure using Helm. Please follow the 
-official guide for the initial setup in [ClearML Enterprise Kubernetes Deployment](k8s.md). After completing the 
-standard installation, you can refer to the sections below for OpenShift-specific configurations related to networking 
-and security.
-
+To install ClearML on OpenShift, start with the [ClearML Enterprise Kubernetes Deployment guide](k8s.md). 
+After completing the standard installation, extend it with the OpenShift-specific networking and security configurations 
+outlined below. 
 
 ## Networking Configuration
 
