@@ -89,7 +89,8 @@ The console's log level will update in the autoscaler's next iteration.
   which lists the app instance's logs. In a log's `File Path` field, click <img src="/docs/latest/icons/ico-download-json.svg" alt="Download" className="icon size-md space-sm" /> 
   to download the complete log. 
 
-![Autoscaler dashboard](../../img/app_aws_autoscaler.png)
+![Autoscaler dashboard](../../img/apps_aws_autoscaler.png#light-mode-only)
+![Autoscaler dashboard](../../img/apps_aws_autoscaler_dark.png#dark-mode-only)
 
 :::tip EMBEDDING CLEARML VISUALIZATION
 You can embed plots from the app instance dashboard into [ClearML Reports](../webapp_reports.md). These visualizations 
