@@ -622,7 +622,8 @@ module.exports = {
                         'webapp/settings/webapp_settings_resource_configs',
                         'webapp/settings/webapp_settings_app_gw',
                         'webapp/settings/webapp_settings_usage_billing',
-                        'webapp/settings/webapp_settings_storage_credentials'
+                        'webapp/settings/webapp_settings_storage_credentials',
+                        'webapp/settings/webapp_settings_ui_customization'
                     ]
                 },
             ]
