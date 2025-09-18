@@ -7,9 +7,10 @@ Administrator vaults are available under the ClearML Enterprise plan.
 :::
 
 Administrators can define multiple [configuration vaults](webapp_settings_profile.md#configuration-vault) which will each be applied to designated 
-[user groups](webapp_settings_users.md). There are two types of vaults: 
+[user groups](webapp_settings_users.md). There are three types of vaults: 
 * [Client configuration (Agent/SDK/CLI)](#client-configuration-agentsdkcli)
 * [UI storage credentials](#ui-storage-credentials)   
+* [SSH server](#ssh-server)
 
 To apply its contents, a vault should be enabled in the [Administrator Vault Table](#administrator-vault-table). 
 
@@ -54,12 +55,39 @@ UI storage credential vaults configure UI access to cloud storage credentials fo
    1. \+ Add access keys - Enter storage credentials (see [Browser Cloud Storage Access](webapp_settings_profile.md#browser-cloud-storage-access))
 1. Click **Save**
 
+## SSH Server
+SSH Server Vaults configure SSH keys for SSH sessions spun up  through the [SSH Session application](../applications/apps_ssh_session.md) 
+or [ClearML Session](../../apps/clearml_session.md) by users in the user groups assigned to the vaults. 
+
+* The private keys (`ssh_host_*_key`) are stored in the vault.
+* The corresponding public keys (`ssh_host_*_key__pub`) are installed on the SSH server to allow clients to verify the 
+  server’s identity.
+
+**To create a SSH server vault:**
+1. Click + Add Vault
+1. Fill in vault details:
+   * Vault name - Name that appears in the Administrator Vaults table
+   * User Group - Specify the User Group that the vault affects
+   * Target - Vault type. Select `SSH Server`
+   * Add SSH keys. For example: <br/><br/>
+    ```
+    {
+      "ssh_host_ecdsa_key": "-----BEGIN EC PRIVATE KEY----- …. -----END EC PRIVATE KEY-----\n",
+      "ssh_host_ed25519_key": "-----BEGIN OPENSSH PRIVATE KEY----- …. -----END OPENSSH PRIVATE KEY-----\n",
+      "ssh_host_rsa_key": "-----BEGIN RSA PRIVATE KEY----- … -----END RSA PRIVATE KEY-----\n",
+      "ssh_host_rsa_key__pub": "ssh-rsa …",
+      "ssh_host_ecdsa_key__pub": "ecdsa-sha2-nistp256 …",
+      "ssh_host_ed25519_key__pub": "ssh-ed25519 …"
+    }
+    ```
+1. Click Save
+
 ## Administrator Vault Table
 
 The **Administrator Vaults** table lists all currently defined vaults, and the following details:
 * Active - Toggle to enable / disable the vault
 * Name - Vault name
-* Target - Type of vault: `Client (Agent/SDK/CLI)` or `UI storage credentials` 
+* Target - Type of vault: `Client (Agent/SDK/CLI)`, `UI storage credentials`, or `SSH server` 
 * Group - User groups to apply this vault to 
 * ID - Vault ID (click to copy)
 * Vault Content - Vault content summary
