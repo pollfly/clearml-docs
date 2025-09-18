@@ -76,21 +76,32 @@ The ClearML UI provides two search options on most pages:
   * Dataviews:  show dataviews whose name, ID, description, hyper-datasets, or hyper-dataset versions match the searched text.
   * Reports: show reports whose name, ID, tags, project, description, or content match the searched text.
   * Datasets: show datasets whose name, ID, or description match the searched text 
-  * Pipeline Runs:  show reports whose name, ID, or description match the searched text
+  * Pipeline Runs:  show reports whose name, ID, or description match the searched text 
+  <br/>
+
+  :::tip Additional filtering
+  ClearML's object tables (e.g. [tasks](webapp_exp_table.md), [models](webapp_model_table.md), [pipelines](pipelines/webapp_pipeline_table.md), 
+  and [datasets](datasets/webapp_dataset_page.md)) provide column filters to easily focus your search by object properties
+  (e.g. status, creation/update time, metric values, etc.).
+  :::
+
 * **Global search**: The search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
-  on the top banner of every page searches the whole WebApp for objects that match the queries as specified above and 
-  returns results grouped by object (projects, tasks, models, etc.).
+  in the top banner ClearML for any objects that match the queries as specified above and 
+  returns results grouped by object type (projects, tasks, models, etc.).
+
+  Use the Advanced Search (<img src="/docs/latest/icons/ico-code.svg" alt="advanced search" className="icon size-md space-sm" />) 
+  to apply more elaborate and specific filters. Specify explicit API filters (e.g. `task_filter` in [`Task.query_tasks()`](../references/sdk/task.md#taskquery_tasks)) 
+  in JSON format. For example:
+
+  ```
+  {"status": ["stopped"], "order_by": ["-last_update"], "_all_": {"fields": ["script.repository"], "pattern": "github.com/user"}})
+  ```
 
 To use regular expressions, click the `.*` icon in the search bar.
 
 ![WebApp Search options](../img/webapp_search_options.png#light-mode-only)
 ![WebApp Search options](../img/webapp_search_options_dark.png#dark-mode-only)
 
-:::tip Additional filtering
-ClearML's object tables (e.g. [tasks](webapp_exp_table.md), [models](webapp_model_table.md), [pipelines](pipelines/webapp_pipeline_table.md), 
-and [datasets](datasets/webapp_dataset_page.md)) provide column filters to easily focus your search by object properties
-(e.g. status, creation/update time, metric values, etc.).
-:::
 
 ### Helpful Resources 
 Click the help menu button <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> 
