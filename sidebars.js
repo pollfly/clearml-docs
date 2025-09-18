@@ -315,9 +315,10 @@ module.exports = {
             {
                 'Enterprise':
                         [
-                           'release_notes/clearml_server/enterprise/ver_3_26',
+                           'release_notes/clearml_server/enterprise/ver_3_27',
                            {
                                 'Older Versions': [
+                                     'release_notes/clearml_server/enterprise/ver_3_26',
                                      'release_notes/clearml_server/enterprise/ver_3_25', 'release_notes/clearml_server/enterprise/ver_3_24',
                                      'release_notes/clearml_server/enterprise/ver_3_23', 'release_notes/clearml_server/enterprise/ver_3_22',
                                      'release_notes/clearml_server/enterprise/ver_3_21', 'release_notes/clearml_server/enterprise/ver_3_20'
