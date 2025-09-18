@@ -150,14 +150,15 @@ oc apply -f clearml-routes.yaml`
 
 #### Option 1: Using Kubernetes Ingress
 
-Enable the Ingress for the Application Gateway with the following `values.yaml` snippet.
+Enable the Ingress for the Application Gateway with the following `values.yaml` snippet. Make sure to replace the example `hostname`
+with your desired hostname.
 
 ```
 # values.yaml
 ingress:
   enabled: true
   className: ""
-  hostname: "ttr.clearml.<YOUR_DOMAIN>"
+  hostname: "appgw.clearml.<YOUR_DOMAIN>"
   tlsSecretName: "" # Optionally provide a secret for TLS
 ```
 
@@ -178,7 +179,8 @@ ingress:
 ##### Step 2: Create the Route Object
 
 The following Route definition uses a wildcard host, which securely exposes both the primary gateway URL and any
-subdomains it requires. Create a file named `clearml-enterprise-app-gateway-route.yaml`.
+subdomains it requires. Create a file named `clearml-enterprise-app-gateway-route.yaml`. Make sure to replace the example `spec.host`
+with the desired hostname. 
 
 ```
 # clearml-enterprise-app-gateway-route.yaml
@@ -188,7 +190,7 @@ metadata:
   name: clearml-enterprise-app-gateway
   namespace: clearml-tenant-a
 spec:
-  host: '*.ttr.clearml.127-0-0-1.nip.io'
+  host: '*.appgw.clearml.127-0-0-1.nip.io'
   path: /
   to:
     kind: Service
