@@ -110,8 +110,17 @@ endpoint or external address (ingress), accessible from outside ClearML.
 Generate tokens providing API access to the AI Application Gateway endpoints:
 
 1. Click **Generate a Token**
+1. Under `Label`, enter a descriptive name for the token
 1. Under `Expiration`, enter the number of days the token should remain valid 
 1. Click `Generate`, which creates a token and copies it to your clipboard 
+
+The **AI Application Gateway Table** displays all tokens available to the user, and the following details: 
+* Token label
+* Creation time 
+* Expiration time
+
+To revoke a token, hover over the token's row and click <img src="/docs/latest/icons/ico-trash.svg" alt="Trash" className="icon size-md space-sm" />. 
+
 
 ### Changing Your Workspace Name
 To change the name of your own workspace, click **Edit workspace name**  <img src="/docs/latest/icons/ico-edit.svg" alt="Edit Pencil" className="icon size-md" /> 

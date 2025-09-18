@@ -151,6 +151,27 @@ To revoke a set of credentials:
 1. In the editing panel, hover of the relevant credential's row
 2. Click the <img src="/docs/latest/icons/ico-trash.svg" alt="Trash can" className="icon size-md" /> button
 
+### AI Application Gateway Endpoint Access 
+
+The [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md) enables external access to ClearML 
+tasks and applications. The gateway is configured with an 
+endpoint or external address (ingress), accessible from outside ClearML.
+
+Generate tokens providing API access to the AI Application Gateway endpoints:
+
+1. Click **Generate a Token**
+1. Under `Label`, enter a descriptive name for the token
+1. Under `Expiration`, enter the number of days the token should remain valid 
+1. Click `Generate`, which creates a token and copies it to your clipboard 
+
+The **AI Application Gateway Table** displays all tokens available to the service account, and the following details: 
+* Token label
+* Creation time 
+* Expiration time
+
+To revoke a token, hover over the token's row and click <img src="/docs/latest/icons/ico-trash.svg" alt="Trash" className="icon size-md space-sm" />. 
+
+
 ### Service Account Configuration Vault
 Use a service account’s configuration vault to store ClearML configuration entries that can extend the ClearML 
 [configuration file](../../configs/clearml_conf.md) of any ClearML Agents or ClearML SDK running with the service account's 

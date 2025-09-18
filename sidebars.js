@@ -315,9 +315,10 @@ module.exports = {
             {
                 'Enterprise':
                         [
-                           'release_notes/clearml_server/enterprise/ver_3_26',
+                           'release_notes/clearml_server/enterprise/ver_3_27',
                            {
                                 'Older Versions': [
+                                     'release_notes/clearml_server/enterprise/ver_3_26',
                                      'release_notes/clearml_server/enterprise/ver_3_25', 'release_notes/clearml_server/enterprise/ver_3_24',
                                      'release_notes/clearml_server/enterprise/ver_3_23', 'release_notes/clearml_server/enterprise/ver_3_22',
                                      'release_notes/clearml_server/enterprise/ver_3_21', 'release_notes/clearml_server/enterprise/ver_3_20'
@@ -622,7 +623,8 @@ module.exports = {
                         'webapp/settings/webapp_settings_resource_configs',
                         'webapp/settings/webapp_settings_app_gw',
                         'webapp/settings/webapp_settings_usage_billing',
-                        'webapp/settings/webapp_settings_storage_credentials'
+                        'webapp/settings/webapp_settings_storage_credentials',
+                        'webapp/settings/webapp_settings_ui_customization'
                     ]
                 },
             ]
