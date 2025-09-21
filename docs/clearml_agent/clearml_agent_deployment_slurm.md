@@ -18,6 +18,11 @@ template specification attached to the queue.
    ```
    pip3 install -U --extra-index-url https://*****@*****.allegro.ai/repository/clearml_agent_slurm/simple clearml-agent-slurm
    ```
+   
+   :::tip Python repository credentials
+   The credentials for `--extra-index-url` is available in the WebApp under the **Help** menu  <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> **>** 
+   **ClearML Python Package setup** **>** **Install** step.
+   :::
 
 1. Create a batch template. Make sure to set the `SBATCH` variables to the resources you want to attach to the queue. 
    The script below sets up an agent to run bare-metal, creating a virtual environment per job. For example:
