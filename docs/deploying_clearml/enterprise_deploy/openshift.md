@@ -2,12 +2,12 @@
 title: OpenShift
 ---
 
-This guide provides instructions for installing ClearML Enterprise in an OpenShift environment, focusing on network 
+This guide provides instructions for installing ClearML Server in an OpenShift environment, focusing on network 
 configuration and security contexts.
 
 ## Installation
 
-To install ClearML on OpenShift, start with the [ClearML Enterprise Kubernetes Deployment guide](k8s.md). 
+To install ClearML on OpenShift, start with the [ClearML Server Kubernetes Deployment guide](k8s.md). 
 After completing the standard installation, extend it with the OpenShift-specific networking and security configurations 
 outlined below. 
 
@@ -213,9 +213,9 @@ oc apply -f clearml-enterprise-app-gateway-route.yaml
 If your OpenShift cluster enforces a restrictive security context (requiring containers to run as non-root users) with 
 randomized UID, you must add specific security configurations to your `values.yaml`.
 
-### ClearML Enterprise Components
+### ClearML Server Components
 
-This is a comprehensive example configuration for the core ClearML Enterprise services. It includes 
+This is a comprehensive example configuration for the core ClearML Server services. It includes 
 * Disabling the default ingresses
 * Setting the correct external URLs
 * Applying the necessary security contexts for ClearML components, Redis, MongoDB, and Elasticsearch to run in a non-root environment.
