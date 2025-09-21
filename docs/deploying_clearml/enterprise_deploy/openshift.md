@@ -17,7 +17,7 @@ You can expose the ClearML services using one of the following:
 * Standard Kubernetes Ingress objects 
 * OpenShift's native Route resources. 
 
-### ClearML Enterprise
+### ClearML Server
 
 #### Option 1: Using Kubernetes Ingress
 
@@ -140,10 +140,10 @@ spec:
     insecureEdgeTerminationPolicy: Redirect
 ```
 
-Apply the file to your cluster: 
+Apply the configuration to your cluster: 
 
 ```
-oc apply -f clearml-routes.yaml`
+oc apply -f clearml-routes.yaml
 ```
 
 ### ClearML Application Gateway
