@@ -23,7 +23,7 @@ This guide covers how to dynamically slice GPUs on **bare metal**.
    ```
    
    :::tip Python repository credentials
-   The credentials for `--extra-index-url` is available in the WebApp under the **Help** menu  <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> **>** 
+   Your credentials for `--extra-index-url` are available in the WebApp under the **Help** menu  <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> **>** 
    **ClearML Python Package setup** **>** **Install** step.
    :::
 
