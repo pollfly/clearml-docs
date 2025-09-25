@@ -581,6 +581,7 @@ module.exports = {
                     'webapp/webapp_home',
                     'webapp/webapp_projects_page',
                     'webapp/webapp_project_overview',
+                    'webapp/webapp_project_workloads',
                     {'Tasks': [
                         'webapp/webapp_exp_table',
                         'webapp/webapp_exp_track_visual',
