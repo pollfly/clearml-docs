@@ -28,6 +28,7 @@ module.exports = {
   organizationName: 'clearml', // Usually your GitHub org/user name.
   projectName: 'ClearML', // Usually your repo name.
   themeConfig: {
+    image: 'img/clearml_docs_meta.png',
     prism: {
       theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
