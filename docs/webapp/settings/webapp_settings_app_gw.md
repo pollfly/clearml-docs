@@ -97,7 +97,9 @@ The **Static Routes** table lets you monitor all defined routes. The table shows
   * `Not In Use` - Route is configured but not being used by any router.
   * `Pending` - Route is being set up for use by a router
   * `Routing` - Route configured and attached to at least one internal endpoint.
-* Targets: Internal endpoints (Pod/IP:Port)
+* Targets: Internal endpoints (Pod/IP:Port) connected to the route. These are existing endpoints provided by app instances 
+  or services (e.g. Model Deployment app instance) that are exposed through the static route. If the 
+  route is configured for load balancing, it can include multiple targets, with traffic distributed across them.
 * Tasks: Linked tasks or app instances running the internal endpoints using the route
 * Access: User groups with access to the route, or Public if no authentication is configured
 * Created: Creation time
