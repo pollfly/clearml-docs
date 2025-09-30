@@ -1,5 +1,5 @@
 ---
-title: Dynamic GPU Fractions on Bare Metal
+title: Dynamic GPU Fractions on Bare Metal and VMs
 ---
 
 :::important Enterprise Feature
@@ -11,7 +11,7 @@ pre-configure tasks with memory limits. Specify a GPU fraction for a queue in th
 agent pulls from the queue will run on a container with the specified limit. This way you can safely run multiple tasks 
 simultaneously without worrying that one task will use all of the GPU's memory. 
 
-This guide covers how to dynamically slice GPUs on **bare metal**.
+This guide covers how to dynamically slice GPUs on **bare metal**/**VMs** .
 
 ![Fractional GPU diagram](../../img/fractional_gpu_diagram.png)
 

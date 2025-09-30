@@ -61,7 +61,7 @@ during execution:
 * Code-level configuration instrumented with [`Task.connect()`](references/sdk/task.md#connect) will be overridden by modified hyperparameters
 
 ClearML Agent can be deployed in various setups to suit different workflows and infrastructure needs:
-* [Bare Metal](clearml_agent/clearml_agent_deployment_bare_metal.md#spinning-up-an-agent)
+* [Bare Metal / VM](clearml_agent/clearml_agent_deployment_bare_metal.md#spinning-up-an-agent)
 * [Kubernetes](clearml_agent/clearml_agent_deployment_k8s.md)
 * [Slurm](clearml_agent/clearml_agent_deployment_slurm.md)
 * [Google Colab](guides/ide/google_colab.md)
