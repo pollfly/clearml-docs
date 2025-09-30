@@ -60,6 +60,8 @@ helm repo update
          value: "false"
        - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_AS_VOLUME_MOUNTS
          value: "true"
+       - name: NVIDIA_CONTAINER_TOOLKIT_OPT_IN_FEATURES
+         value: "disable-cuda-compat-lib-hook"
    devicePlugin:
      repository: docker.io/clearml
      image: k8s-device-plugin
@@ -118,6 +120,8 @@ toolkit:
       value: "false"
     - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_AS_VOLUME_MOUNTS
       value: "true"
+    - name: NVIDIA_CONTAINER_TOOLKIT_OPT_IN_FEATURES
+      value: "disable-cuda-compat-lib-hook"
 devicePlugin:
   env:
     - name: PASS_DEVICE_SPECS
@@ -292,6 +296,8 @@ toolkit:
       value: "false"
     - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_AS_VOLUME_MOUNTS
       value: "true"
+    - name: NVIDIA_CONTAINER_TOOLKIT_OPT_IN_FEATURES
+      value: "disable-cuda-compat-lib-hook"
 devicePlugin:
   env:
     - name: PASS_DEVICE_SPECS

@@ -27,6 +27,8 @@ toolkit:
       value: "false"
     - name: ACCEPT_NVIDIA_VISIBLE_DEVICES_AS_VOLUME_MOUNTS
       value: "true"
+    - name: NVIDIA_CONTAINER_TOOLKIT_OPT_IN_FEATURES
+      value: "disable-cuda-compat-lib-hook"
 devicePlugin:
   enabled: true
   env:
