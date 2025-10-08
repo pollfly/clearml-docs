@@ -11,10 +11,49 @@ serves your model on a machine of your choice. Once an app instance is running, 
 publicly accessible network endpoint. The app monitors endpoint activity and shuts down if the model remains inactive 
 for a specified maximum idle time.
 
-Note that the `NGC_API_KEY` environment variable needs to be set to a valid NGC API key. You can set the variable in one 
-of the following ways:
-* The NIM app deployment form’s `Environment Variables` field
-* [Configuration vault](../settings/webapp_settings_profile.md#configuration-vault)
+## Prerequisites
+
+* Before running a NIM application, make sure you have access to NVIDIA's container registry (`nvcr.io`).
+Each worker node must log in to the registry to be able to pull NIM model containers.
+  * **Using ClearML Agent Python Package**:
+   
+    Execute the following command on the agent that will run the app instance (replace the password with a valid NGC API key):
+
+    ```
+    docker login nvcr.io --username '$oauthtoken' --password 'nvapi-**'
+    ```
+    Password is provided with your nvcr account.
+
+    Note: The login is required only once per worker node, not every time you run the app.
+
+  * **On Kubernetes**:
+  
+    If you are running ClearML Agents on Kubernetes:
+    * Create an `nvcr-registry` secret in the same namespace where the agent is running. Replace:
+      * `<NAMESPACE>` with the namespace where your ClearML Agent is deployed
+      * `<USERNAME>` with your NVIDIA registry username
+      * `<PASSWORD>` with your valid NGC API key <br/><br/>
+    
+    ```
+    kubectl create secret docker-registry nvcr-registry -n <NAMESPACE> \
+      --docker-server=nvcr.io \
+      --docker-username=<USERNAME> \
+      --docker-password=<PASSWORD> \
+      --docker-email=""
+    ```
+   
+    * Configure image pull secrets for the NVIDIA registry.
+      In your Agent Helm values override, add:
+
+      ```
+      imageCredentials:
+        extraImagePullSecrets:
+          - name: nvcr-registry
+      ```
+
+* The `NGC_API_KEY` environment variable needs to be set to a valid NGC API key. You can set the variable in one of the following ways:
+  * The NIM app deployment form’s `Environment Variables` field
+  * [Configuration vault](../settings/webapp_settings_profile.md#configuration-vault)
 
 :::info AI Application Gateway
 The NIM app makes use of the App Gateway Router which implements a secure, authenticated network endpoint for the model.
