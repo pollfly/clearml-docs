@@ -237,17 +237,21 @@ exact address.
 Once the projects' data has been copied to the target server, and the projects themselves were imported, see 
 [Changing ClearML Artifacts Links](change_artifact_links.md) for information on how to fix the URLs.  
 
-## **Updating embedded links in reports and projects overview**
+## Updating Embedded Links in Reports and Projects Overview
 
-After migrating your ClearML data to a new server, you should update embedded URLs in your projects and reports to reflect the new server address. The following commands connect to your MongoDB instance and perform a find-and-replace operation.
+After migrating your ClearML data to a new server, you should update embedded URLs in your project [overviews](../../webapp/webapp_project_overview.md) 
+and [reports](../../webapp/webapp_reports.md) to reflect the new server address. The following commands connect to your MongoDB instance and perform a find-and-replace operation.
 
-**Note:** this section converts all the embedded links in the projects' overviews and reports. If you have project overviews or reports that should still contain links to objects in the old URL - you will need to update the links manually - using the ClearML web UI.
+:::note
+This section converts all the embedded links in the projects' overviews and reports. If you have project overviews or 
+reports that contain links to objects in the old URL, you will need to update the links manually using the ClearML web UI.
+:::
 
 ### Connect to the MongoDB Shell
 
 First, open a shell session inside your MongoDB container or pod.
 
-For Docker Compose
+For Docker Compose:
 
 ```shell
 sudo docker exec -it \
@@ -255,7 +259,7 @@ sudo docker exec -it \
   mongosh
 ```
 
-For Kubernetes
+For Kubernetes:
 
 ```shell
 kubectl exec -it \
@@ -277,9 +281,9 @@ const OLD_SERVER_URL = "<URL OF OLD SERVER>";
 const NEW_SERVER_URL = "<URL OF NEW SERVER>";
 ```
 
-### Use the backend database
+### Use the Backend Database
 
-Set MongoSh to update the `backend` database.
+Set MongoSh to update the `backend` database:
 
 ```shell
 use backend;
