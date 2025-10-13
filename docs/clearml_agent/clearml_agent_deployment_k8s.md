@@ -251,11 +251,11 @@ allowing you to monitor compute capacity across the cluster. You can report GPU 
 
 You can configure how reports are sent and how often:
 
-* `reportType` - How the agent sends reports to the dashboard. Use on of the followig options:
+* `reportType` - How the agent sends reports to the dashboard. Use on of the following options:
   * `disabled` (or no value) - Do not send any reports. 
   * `global` - Send a single category-level report that summarizes all agents in the same category. Overrides individual 
-  agent reports. 
-  * `aggregate` - Send a report per agent. The dashboard aggregates all reports in the category automatically.
+  agent reports. For more information about agent categorization, see [Resource Categories and Groups](../webapp/webapp_orchestration_dash.md#resource-categories-and-groups). 
+  * `aggregate` - Send a report per agent. The dashboard aggregates all reports in the category automatically. For more information about agent categorization, see [Resource Categories and Groups](../webapp/webapp_orchestration_dash.md#resource-categories-and-groups)
 * `reportSeconds` - Interval in seconds between dashboard updates. Controls how frequently the agent sends GPU availability data.
 
 ```yaml
