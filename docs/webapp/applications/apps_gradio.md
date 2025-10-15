@@ -13,7 +13,7 @@ your Gradio app, where you can make use of your models.
 
 The Gradio launcher monitors the Gradio app activity and shuts down if it is inactive for a specified maximum idle time.
 
-<a id="traffic_router"/>
+<a id="traffic_router"></a>
 
 :::important AI Application Gateway
 The Gradio Launcher relies on the ClearML App Gateway Router which implements user authentication, and redirects requests 

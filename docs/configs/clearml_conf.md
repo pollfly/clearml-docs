@@ -183,7 +183,7 @@ Compatible with Docker versions 0.6.5 and above
 
 ---
 
-<a id="docker_internal_mounts"/> 
+<a id="docker_internal_mounts"></a> 
 
 **`agent.docker_internal_mounts`** (*dict*) 
 
@@ -327,7 +327,7 @@ optional shell script executes inside the Docker on startup, before the task sta
 
 ---
 
-<a id="hide_docker"/> 
+<a id="hide_docker"></a> 
 
 **`agent.hide_docker_command_env_vars`** (*dict*)
 
@@ -647,7 +647,7 @@ ___
 
 ---
 
-<a id="system_site_packages"/>
+<a id="system_site_packages"></a>
 
 **`agent.package_manager.system_site_packages`** (*bool*)
         
@@ -1160,7 +1160,7 @@ URL to a CA bundle, or set this option to `false` to skip SSL certificate verifi
 
 ---
 
-<a id="log_env_var"/>
+<a id="log_env_var"></a>
 
 **`sdk.development.log_os_environments`** (*[string]*)
 
@@ -1203,7 +1203,7 @@ URL to a CA bundle, or set this option to `false` to skip SSL certificate verifi
     
 ---
     
-<a id="task_reuse"/>
+<a id="task_reuse"></a>
 
 **`sdk.development.task_reuse_time_window_in_hours`** (*float*)
     

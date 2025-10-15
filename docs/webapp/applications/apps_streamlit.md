@@ -14,7 +14,7 @@ where you can make use of your models.
 The Streamlit launcher monitors the Streamlit app activity and shuts down if it is inactive for a specified maximum idle 
 time.
 
-<a id="traffic_router"/>
+<a id="traffic_router"></a>
 
 :::important AI Application Gateway
 The Streamlit Launcher relies on the ClearML App Gateway Router which implements user authentication, and redirects requests 
