@@ -93,7 +93,7 @@ For example: to specify a parameter search over uniform ranges of layer_1 and la
 clearml-param-search --script keras_simple.py --params-search '{"type": "UniformIntegerParameterRange", "name": "General/layer_1", "min_value": 128, "max_value": 512, "step_size": 128}' '{"type": "UniformIntegerParameterRange", "name": "General/layer_2", "min_value": 128, "max_value": 512, "step_size": 128}' '{"type": "DiscreteParameterRange", "name": "General/batch_size", "values": [96, 128, 160]}' --params-override '{"name": "epochs", "value": 30}'  --objective-metric-title validation --objective-metric-series epoch_accuracy --objective-metric-sign max --optimizer-class OptimizerOptuna --queue default
 ```
 
-<a id="json_note"/>
+<a id="json_note"></a>
 
 :::important JSON format for Windows Users
 Windows users must add escapes (`\`) when using quotation marks (`"`) in JSON format inputs. For example: 
