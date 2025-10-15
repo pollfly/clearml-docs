@@ -110,8 +110,7 @@ externalURL: "http://<NODE_IP>:<NODE_PORT>"
 
 * `ingress.enabled: false`: Disables ingress creation for the App Gateway.
 * `service.type: NodePort`: Exposes the gateway through a Kubernetes NodePort instead of ingress.
-* `ROUTER__HTTP__AUTHORIZATION__COOKIE__SECURE: false`: Allows the gateway to operate over HTTP rather than HTTPS. Note 
-  that this example uses HTTP (no SSL), but NodePort can also be configured with other protocols.
+* `ROUTER__HTTP__AUTHORIZATION__COOKIE__SECURE: false`: Allows the gateway to operate over HTTP rather than HTTPS.
 * `externalURL`: Should point to the gateway's external address, using the node's IP and the assigned port.
 
 
