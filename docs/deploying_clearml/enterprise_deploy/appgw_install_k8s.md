@@ -45,8 +45,8 @@ Replace `<GITHUB_TOKEN>` with your valid GitHub token that has access to the Cle
 Before installing the App Gateway, create a Helm override `clearml-app-gateway-values.override.yaml` file:
 
 :::note
-The configuration below uses HTTPS and ingress. If you prefer to expose the App Gateway over HTTP without ingress,
-see [Expose App Gateway via NodePort](#expose-app-gateway-via-nodeport-http).
+The configuration below uses ingress for HTTP(S) traffic. If you plan to expose the App Gateway for non-HTTP(S) workloads without using ingress,
+see [Expose App Gateway via NodePort](#expose-app-gateway-via-nodeport).
 :::
 
 ```yaml
@@ -89,10 +89,10 @@ The full list of supported configuration is available with the command:
 helm show readme clearml-enterprise/clearml-enterprise-app-gateway
 ```
 
-### Expose App Gateway via NodePort (HTTP)
+### Expose App Gateway via NodePort
 
-If you prefer to expose the App Gateway over HTTP without using an ingress controller, you can configure it to use 
-a `NodePort` service type.
+If you prefer to expose the App Gateway without using an ingress controller (for example, to support non-HTTP(S) workloads), 
+you can configure it to use a `NodePort` service type.
 
 Add the following configuration overrides to your `clearml-app-gateway-values.override.yaml` file:
 
@@ -110,8 +110,9 @@ externalURL: "http://<NODE_IP>:<NODE_PORT>"
 
 * `ingress.enabled: false`: Disables ingress creation for the App Gateway.
 * `service.type: NodePort`: Exposes the gateway through a Kubernetes NodePort instead of ingress.
-* `ROUTER__HTTP__AUTHORIZATION__COOKIE__SECURE: false`: Allows the gateway to operate over HTTP rather than HTTPS.
-* `externalURL`: Should point to the gateway's external address, using the node's IP and the assigned NodePort.
+* `ROUTER__HTTP__AUTHORIZATION__COOKIE__SECURE: false`: Allows the gateway to operate over HTTP rather than HTTPS. Note 
+  that this example uses HTTP (no SSL), but NodePort can also be configured with other protocols.
+* `externalURL`: Should point to the gateway's external address, using the node's IP and the assigned port.
 
 
 ### Install
