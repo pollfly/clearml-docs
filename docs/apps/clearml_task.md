@@ -106,7 +106,7 @@ clearml-task --project examples --name local_test --script keras_mnist.py --bran
 
 The `keras_mnist.py` script on the user's local machine is imported as a ClearML task named `local_test` in the `examples` project.
 
-Its Python requirements are taken from the local `requiremnts.txt` file, and its `epochs` command line argument value is set.
+Its Python requirements are taken from the local `requirements.txt` file, and its `epochs` command line argument value is set.
 
 The task is enqueued for execution on the `default` queue. 
 
@@ -119,5 +119,5 @@ clearml-task --project examples --name no_execute --script keras_mnist.py --bran
 
 The `keras_mnist.py` script on the user's local machine is imported as a ClearML task named `no_execute` in the `examples` project.
 
-Its Python requirements are taken from the local `requiremnts.txt` file, and its `epochs` command line argument value is set.
+Its Python requirements are taken from the local `requirements.txt` file, and its `epochs` command line argument value is set.
 The task is created in a *draft* status (i.e. can be modified in the [WebApp UI](../webapp/webapp_overview.md) and later be enqueued). 
