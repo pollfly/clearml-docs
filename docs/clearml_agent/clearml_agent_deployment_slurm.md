@@ -93,7 +93,11 @@ If you are running Slurm with Singularity containers support, set the following:
    ```
    singularity exec ${CLEARML_AGENT_EXECUTE}
    ```
-   Additional singularity arguments can be added. Here is a complete example template:
+   You can also add additional Singularity arguments as needed. For example:
+   ```
+   singularity exec --uts ${CLEARML_AGENT_EXECUTE}
+   ```
+   Here is a complete example template:
 
    ```bash
    #!/bin/bash
