@@ -107,6 +107,7 @@ TCP_PORT_END=
 * `ROUTER_URL`: External address to access the router. This can be the IP address or DNS of the node where the router 
   is running, or the address of a load balancer if the router operates behind a proxy/load balancer. This URL is used 
   to access AI workload applications (e.g. remote IDE, model deployment, etc.), so it must be reachable and resolvable for them.
+  The URL should be in the following format: `http://<ADDRESS>:<PORT>`.
 * `CLEARML_API_HOST`: ClearML API server URL starting with `https://api.`
 * `CLEARML_API_ACCESS_KEY`: ClearML server API key.
 * `CLEARML_API_SECRET_KEY`: ClearML server secret key.
