@@ -1,6 +1,6 @@
 ---
 title: Masks
----
+--- 
 
 Masks are source data used in deep learning for image segmentation. Mask URIs are a property of a SingleFrame.
 

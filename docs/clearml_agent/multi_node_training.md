@@ -1,6 +1,6 @@
 ---
 title: Multi-Node Training
----
+--- 
 
 :::important Enterprise Feature
 Multi-note training is only supported by a ClearML Enterprise Server.

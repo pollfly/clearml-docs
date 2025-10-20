@@ -11,9 +11,9 @@ serves your model on a machine of your choice. Once an app instance is running, 
 publicly accessible network endpoint. The app monitors endpoint activity and shuts down if the model remains inactive 
 for a specified maximum idle time.
 
-Note that the `NGC_API_KEY` environment variable needs to be set to a valid NGC API key. You can set the variable in one of the following ways:
-* The NIM app deployment form’s `Environment Variables` field
-* [Configuration vault](../settings/webapp_settings_profile.md#configuration-vault)
+* The `NGC_API_KEY` environment variable needs to be set to a valid NGC API key. You can set the variable in one of the following ways:
+  * The NIM app deployment form’s `Environment Variables` field
+  * [Configuration vault](../settings/webapp_settings_profile.md#configuration-vault)
 
 :::info AI Application Gateway
 The NIM app makes use of the App Gateway Router which implements a secure, authenticated network endpoint for the model.
