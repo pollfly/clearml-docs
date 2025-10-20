@@ -117,7 +117,7 @@ in either case).
 * Set to `true` to allow passing host environments into docker container with Task's docker container arguments. For example: `"-e HOST_NAME=$HOST_NAME"`. 
 
 :::warning
-Use with care! This might introduce security risks by allowing access to keys/secrets on the host machine. 
+Use with care! This might introduce security risks by allowing access to keys/secret on the host machine. 
 :::
 
 ---
@@ -255,8 +255,8 @@ optional shell script executes inside the Docker on startup, before the task sta
 
 **`agent.force_git_root_python_path`** (*bool*)
 
-* Force the root folder of the git repository (instead of the working directory) into the `PYTHONPATH` environment variable.
-`false` by default, so only the working directory will be added to `PYTHONPATH`
+* Force the root folder of the git repository (instead of the working directory) into the `PYHTONPATH` environment variable.
+`false` by default, so only the working directory will be added to `PYHTONPATH`
 
 ---
 
@@ -448,12 +448,12 @@ These settings define which Docker image and arguments should be used unless [ex
     :::
     
     :::note
-    `match_rules` are ignored if `--docker <container>` is passed in the command line. 
+    `match_rules` are ignore if `--docker <container>` is passed in the command line. 
     :::
     
     * The rules can be: 
       * `script.requirements` - Match all script requirements
-      * `script.repository`, `script.branch` - Match based on Git repository or branch where the script is stored
+      * `script.repostiry`, `script.branch` - Match based on Git repository or branch where the script is stored
       * `script.binary` - Match binary executable used to launch the entry point
       * `project` - Match the Task project's name
     * Matching is done via regular expression. For example `"^searchme$"` will match exactly the `"searchme"` string, and `^examples` 
@@ -576,7 +576,7 @@ ___
 
 **`agent.package_manager.extra_pip_install_flags`** (*[string]*)
 
-* A list of additional flags to use when the agent installs packages. For example: `["--use-deprecated=legacy-resolver", ]`
+* A list of additional flags to use when the agent install packages. For example: `["--use-deprecated=legacy-resolver", ]`
 
 ---
         
@@ -1008,7 +1008,7 @@ and limitations on bucket naming.
 * For AWS S3:
 
     * If specifying individual bucket, then this is the access key for the bucket.
-    * If specifying individual buckets by host, then this is the access key for all buckets on the host.
+    * If specifying individual buckets by host, then this is access key for all buckets on the host.
     
 ---
     
@@ -1300,7 +1300,7 @@ reporting is unavailable once time is exceeded, "seconds from start" will be use
 
 **`sdk.google.storage.project`** (*string*)
         
-* For Google Cloud Storage, the name of the project.
+* For Google Cloud Storage, the name of project.
         
 ---
 
@@ -1468,7 +1468,7 @@ This option is deprecated. This plot behavior is now controlled via the UI
         
 **`sdk.network.iteration.retry_backoff_factor_sec`** (*integer*)
         
-* For retries when getting frames from the server, this is the backoff factor for consecutive retry attempts. This is used to 
+* For retries when getting frames from the server, this is backoff factor for consecutive retry attempts. This is used to 
   determine the number of seconds between retries. The retry backoff factor is calculated as `{backoff factor} * (2 ^ ({number of total retries} - 1))`.
         
 <br/>

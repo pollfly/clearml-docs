@@ -15,7 +15,7 @@ To clone a task:
 1. In the task table, right-click the task to reproduce and click **Clone**.
 1. In the `Clone Task` modal, set the following:
    * Project - The project where the task will be saved
-   * Name - The name for the new task. The template for the default value of new task names can be set in **Settings >** [**Task clone name template**](settings/webapp_settings_ui_customization.md#task-clone-name-template)
+   * Name - The name for the new task. The template for the default value of new task names can be set in **Settings >** [**Task clone name template**](settings/webapp_settings_ui_customization#task-clone-name-template)
    * Set `<cloned_task>` as parent - Select to set this task as the new task's parent
    * Description (optional)
 1. Click **Clone**
