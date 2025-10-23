@@ -201,7 +201,7 @@ performance with GPU workloads.
 
 This example:
 * Creates a 32Gi in-memory volume for the `GPUs_with_shared_memory` queue. Note that you should adjust the memory size based on the GPU's VRAM and the specific 
-  model being shared.
+  model size.
 * Mounts the volume at `/dev/shm` inside the container
 * Assigns 2 GPUs to the container
 * Sets the environment variable `VLLM_SKIP_P2P_CHECK="1"`. This disables 
