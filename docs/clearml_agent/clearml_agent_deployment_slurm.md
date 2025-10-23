@@ -85,6 +85,12 @@ template specification attached to the queue.
    ```
    clearml-agent-slurm --template-files slurm.template1 slurm.template2 --queue queue1 queue2
    ```
+   
+   :::tip Debug mode
+   To enable debug logging for the ClearML Agent Slurm Glue, set the `CLEARML_SLURM_GLUE_DEBUG=1` environment variable 
+   before launching.
+   :::
+
 
 ## Slurm with Singularity
 If you are running Slurm with Singularity containers support, set the following:
