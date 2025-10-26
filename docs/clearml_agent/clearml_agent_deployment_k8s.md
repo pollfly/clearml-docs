@@ -240,12 +240,12 @@ helm show readme clearml-enterprise/clearml-enterprise-agent
 helm show values clearml-enterprise/clearml-enterprise-agent
 ```
 
-##### Reporting GPU Availability to Orchestration Dashboard
+##### Reporting GPU Capacity to Orchestration Dashboard
 
-ClearML Agents running on Kubernetes can report GPU availability to the [Orchestration Dashboard](../webapp/webapp_orchestration_dash.md),
-allowing you to monitor compute capacity across the cluster. You can report GPU availability in one of the following ways:
+To show the GPUs available to the agent in ClearML’s [Orchestration Dashboard](../webapp/webapp_orchestration_dash.md),
+configure the agent in one of the following ways:
 
-* **Fixed GPU Reporting**:
+* **Fixed Value**:
 
   Use `reportMaxGpu` to report a fixed number of GPUs. This setting overrides GPU auto-discovery if both are enabled.
     
@@ -262,15 +262,15 @@ allowing you to monitor compute capacity across the cluster. You can report GPU 
   This requires cluster-level access (`agentk8sglue.serviceAccountClusterAccess: true`), since the agent must list and evaluate all cluster nodes.
 
   When GPU discovery is enabled, the Agent identifies which cluster nodes have GPUs and how many GPUs each node provides.
-  These options control how nodes are selected and how GPU counts are determined:
+  These options control how nodes are selected and how GPUs are counted:
 
   * `baseSelector` - The default label selector used to identify GPU nodes.
   * `nodeSelector` - An additional filter applied on top of `baseSelector` to narrow down which nodes are included in discovery. For 
-  example, limit discovery to a specific node pool: `"nodepool=gpu-a100"`.
+  example, to limit discovery to a specific node pool, use `"nodepool=gpu-a100"`.
   * `gpuCountSelector` - Comma-separate list of labels used to count GPUs per node. The first matching label determines the reported GPU count.
 
   With discovery enabled, the agent evaluates nodes matching the provided selectors and reports their GPU 
-  availability to the dashboard at the configured interval.
+  capacity to the dashboard at the configured interval.
 
   ```yaml
   agentk8sglue:
@@ -289,10 +289,10 @@ You can configure how reports are sent and how often:
 
 * `reportType` - How the agent sends reports to the dashboard. Use on of the following options:
   * `disabled` (or no value) - Do not send any reports. 
-  * `global` - Send a single category-level report that summarizes all agents in the same category. Overrides individual 
+  * `global` - Send a single category-level report that sums up all agents into the category total. Overrides individual 
   agent reports. For more information about agent categorization, see [Resource Categories and Groups](../webapp/webapp_orchestration_dash.md#resource-categories-and-groups). 
   * `aggregate` - Send a report per agent. The dashboard aggregates all reports in the category automatically. For more information about agent categorization, see [Resource Categories and Groups](../webapp/webapp_orchestration_dash.md#resource-categories-and-groups)
-* `reportSeconds` - Interval in seconds between dashboard updates. Controls how frequently the agent sends GPU availability data.
+* `reportSeconds` - Interval in seconds between dashboard updates. Controls how frequently the agent sends GPU capacity data.
 
 ```yaml
 agentk8sglue:
