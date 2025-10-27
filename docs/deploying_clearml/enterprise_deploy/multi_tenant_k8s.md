@@ -15,22 +15,10 @@ apiserver:
   extraEnvs:
     - name: CLEARML__services__organization__features__user_management_advanced
       value: "true"
-    - name: CLEARML__services__workers__resource_usages__supervisor_company
-      value: "<SUPERVISOR_COMPANY_ID>" 
-    - name: CLEARML__secure__credentials__supervisor__role
-      value: "system"
-    - name: CLEARML__secure__credentials__supervisor__user_key
-      value: "<SUPERVISOR_USER_KEY>"
-    - name: CLEARML__secure__credentials__supervisor__user_secret
-      value: "<SUPERVISOR_USER_SECRET>"
-    - name: CLEARML__secure__credentials__supervisor__sec_groups
-      value: "[\"users\", \"admins\", \"queue_admins\"]"
     - name: CLEARML__apiserver__company__unique_names
       value: "true"
 ```
 
-These values configure a **supervisor** user, an administrator in a designated supervisor tenant. These users can access cross-tenant information, and 
-specifically view an aggregate resource dashboard for all tenants.
 
 For configuring SSO, see the [SSO (Identity Provider) Setup guide](../../user_management/identity_providers.md).
 
