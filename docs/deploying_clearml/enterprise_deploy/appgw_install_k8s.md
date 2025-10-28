@@ -13,10 +13,8 @@ and making them available for network access.
 
 :::important 
 The App Gateway must be installed in the same K8s namespace as a dedicated ClearML Agent.
-It can only configure access for ClearML Tasks within its own namespace.
-
-Note that a multi-tenant setup requires one App Gateway per tenant. For example, if you have three 
-tenants, you must deploy three App Gateways, one on each tenant.
+It can only configure access for ClearML Tasks within its own namespace. This means that if you have multiple agents running 
+in multiple namespaces, each namespace must have its own App Gateway.
 :::
 
 

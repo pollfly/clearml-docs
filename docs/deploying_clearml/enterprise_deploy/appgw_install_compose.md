@@ -13,9 +13,11 @@ machine, outside the workload's network.
 This guide describes how to install and run the ClearML AI Application Gateway using docker-compose for environments 
 where you manage both the ClearML Server and the workload nodes.
 
-Each worker host that runs workloads and needs to expose applications should have its own 
-App Gateway, and an App Gateway on one host cannot serve workloads running on another host. For example, if you have three 
-workload VMs, you must deploy three App Gateways, one on each VM.
+Each App Gateway serves the workloads that are reachable within its network environment.
+You can use a single App Gateway to serve multiple worker hosts, as long as they are on the same network and can 
+communicate with the gateway. If you have isolated networks (for example, three separate environments that cannot reach 
+each other), deploy one App Gateway per network. For example, if you have three workload on different networks, you must 
+deploy three App Gateways, one per network.
 
 ## Requirements
 
