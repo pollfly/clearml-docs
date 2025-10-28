@@ -34,6 +34,7 @@ html {
 
   --ifm-code-font-size: 95%;
   --search-local-modal-width: 480px;
+  --docsearch-searchbox-background: #242D37;
 
   --ifm-navbar-item-padding-horizontal: 1rem;
   --ifm-hr-margin-vertical: 4rem;
