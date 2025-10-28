@@ -3,7 +3,7 @@ title: Virtual Machine Remote Desktop
 ---
 
 The **Virtual Machine Remote Desktop** application allows you to launch a VM on a remote machine in your cluster complete 
-with an active remote access session: Select eitherRemote Desktop or SSH access.
+with an active remote access session: Select either Remote Desktop or SSH access.
 
 The app offers workspace management features, allowing you to store, sync, and restore interactive workspaces across sessions.
 This ensures that all your work is preserved and can be easily accessed in future sessions.
@@ -55,7 +55,10 @@ To configure a new app instance, click <img src="/docs/latest/icons/ico-add.svg"
 * **Application instance project**: The ClearML project where the app instance is created. Access is determined by 
   project-level permissions (i.e. users with read access can use the app).
 * **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which theVM Remote Desktop 
-  app instance task will be enqueued. Make sure the agent assigned to this queue runs in an environment with Sysbox installed
+  app instance task will be enqueued. <br/><br/> 
+  :::info Agent requirements
+  Make sure the agent assigned to this queue runs in an environment with Sysbox installed
+  :::
 * **Idle Time Limit** (Hours): Maximum time of inactivity, after which the session will shut down. Configure idleness 
   definitions under Advanced Options.
 * **Environment Variables**: Additional environment variable to set inside the container before launching the application
