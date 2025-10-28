@@ -16,7 +16,7 @@ where you manage both the ClearML Server and the workload nodes.
 Each App Gateway serves the workloads that are reachable within its network environment.
 You can use a single App Gateway to serve multiple worker hosts, as long as they are on the same network and can 
 communicate with the gateway. If you have isolated networks (for example, three separate environments that cannot reach 
-each other), deploy one App Gateway per network. For example, if you have three workload on different networks, you must 
+each other), deploy one App Gateway per network. For example, if you have three workloads on different networks, you must 
 deploy three App Gateways, one per network.
 
 ## Requirements
