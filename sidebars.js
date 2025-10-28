@@ -526,6 +526,7 @@ module.exports = {
                             'webapp/applications/apps_ssh_session',
                             'webapp/applications/apps_jupyter_lab',
                             'webapp/applications/apps_vscode',
+                            'webapp/applications/apps_vm_desktop',
                         ]},
                         {"UI Dev": [
                             'webapp/applications/apps_gradio',
