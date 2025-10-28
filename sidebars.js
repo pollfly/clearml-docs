@@ -98,6 +98,24 @@ module.exports = {
         ]},
         'getting_started/task_trigger_schedule',
         'getting_started/project_progress',
+        {'Video Tutorials': [
+            'getting_started/video_tutorials/quick_introduction',
+            'getting_started/video_tutorials/core_component_overview',
+            'getting_started/video_tutorials/experiment_manager_hands-on',
+            'getting_started/video_tutorials/experiment_management_best_practices',
+            'getting_started/video_tutorials/agent_remote_execution_and_automation',
+            'getting_started/video_tutorials/hyperparameter_optimization',
+            'getting_started/video_tutorials/pipelines_from_code',
+            'getting_started/video_tutorials/pipelines_from_tasks',
+            'getting_started/video_tutorials/clearml-data',
+            'getting_started/video_tutorials/the_clearml_autoscaler',
+            'getting_started/video_tutorials/hyperdatasets_data_versioning',
+            {'Hands-on MLOps Tutorials': [
+                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_a_data_scientist',
+                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_an_mlops_engineer',
+                'getting_started/video_tutorials/hands-on_mlops_tutorials/ml_ci_cd_using_github_actions_and_clearml'
+            ]}
+        ]},
     ],
     integrationsSidebar: [
             {
@@ -267,24 +285,7 @@ module.exports = {
                 'hyperdatasets/dataviews',
             ]
         },
-        {'Video Tutorials': [
-            'getting_started/video_tutorials/quick_introduction',
-            'getting_started/video_tutorials/core_component_overview',
-            'getting_started/video_tutorials/experiment_manager_hands-on',
-            'getting_started/video_tutorials/experiment_management_best_practices',
-            'getting_started/video_tutorials/agent_remote_execution_and_automation',
-            'getting_started/video_tutorials/hyperparameter_optimization',
-            'getting_started/video_tutorials/pipelines_from_code',
-            'getting_started/video_tutorials/pipelines_from_tasks',
-            'getting_started/video_tutorials/clearml-data',
-            'getting_started/video_tutorials/the_clearml_autoscaler',
-            'getting_started/video_tutorials/hyperdatasets_data_versioning',
-            {'Hands-on MLOps Tutorials': [
-                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_a_data_scientist',
-                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_an_mlops_engineer',
-                'getting_started/video_tutorials/hands-on_mlops_tutorials/ml_ci_cd_using_github_actions_and_clearml'
-            ]}
-        ]},
+
     ],
     rnSidebar: [
         {'Server': [
