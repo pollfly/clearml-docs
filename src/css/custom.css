@@ -546,6 +546,11 @@ background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/200
   border: 1px solid var(--ifm-color-emphasis-200);
 }
 
+html[data-theme="light"] .navbar .DocSearch-Button {
+  border-color: var(--ifm-color-emphasis-600);
+  background-color: #09173c;
+}
+
 /* GLOBAL SEARCH PAGE */
 html[data-theme="dark"] input[class^="searchQueryInput"] {
     color: #fff;
