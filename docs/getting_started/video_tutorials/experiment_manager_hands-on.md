@@ -7,8 +7,8 @@ keywords: [mlops, components, Experiment Manager]
 
 ## Video Tutorial
 
-<div class="vid" >
-<iframe style={{position: 'absolute', top: '0', left: '0', bottom: '0', right: '0', width: '100%', height: '100%'}} 
+<div class="vid">
+<iframe 
         src="https://www.youtube.com/embed/bjWwZAzDxTY?rel=0" 
         title="YouTube video player" 
         frameborder="0" 
