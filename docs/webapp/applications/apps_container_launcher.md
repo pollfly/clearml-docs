@@ -24,8 +24,11 @@ Once you have launched an app instance, you can view the following information i
 * Restored workspace - If a previous session's workspace was restored, this will display its session ID  
 * Current session ID  
 * Network HTTPS - Links for secure access to the containerized applications over HTTPS  
-* Endpoint - Direct URL to access the containerized application service  
-* Browser Link - URL for accessing the application through a web browser.   
+* Endpoint - A direct URL to the running containerized application service, intended for programmatic access. This endpoint 
+  does not include browser-based authentication, so you must manually provide an [Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md) 
+  access token when sending requests. You can generate a token in the ClearML Web UI under **Settings** > **Workspace** > **AI Application Gateway**. 
+* Browser Link - Opens the containerized application directly in your web browser. This link performs user 
+  authentication automatically through the browser.    
 * Total Number of Requests - Number of requests over time
 * Latency - Request response time (ms) over time
 * Server resources monitoring (CPU / GPU / vMem utilization)  
