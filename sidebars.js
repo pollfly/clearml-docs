@@ -414,7 +414,7 @@ module.exports = {
                 {'AI Dev':
                     [
                         'release_notes/apps/ssh_session', 'release_notes/apps/jupyterlab',
-                        'release_notes/apps/vs_code'
+                        'release_notes/apps/vs_code', 'release_notes/apps/vm_desktop',
                     ]
                 },
                 {'Databases':

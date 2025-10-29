@@ -2,6 +2,17 @@
 title: SSH Session
 ---
 
+
+
+### 1.16.0
+
+**New Feature**
+* Add support for exposing an additional internal HTTP(S) port to enable externally managed HTTPS endpoint
+
+**Bug Fix**
+* Fix application instance continues to run after SSH server setup failure
+
+
 ### 1.15.2  
 
 **New features and Improvements**
