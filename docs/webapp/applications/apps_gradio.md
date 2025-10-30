@@ -19,7 +19,7 @@ The Gradio launcher monitors the Gradio app activity and shuts down if it is ina
 The Gradio Launcher relies on the ClearML App Gateway Router which implements user authentication, and redirects requests 
 to the IP/port served by the Gradio app. 
 
-If the ClearML AI application Gateway is not available, the Gradio app might not be accessible.
+If the ClearML AI Application Gateway is not available, the Gradio app might not be accessible.
 For more information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
 

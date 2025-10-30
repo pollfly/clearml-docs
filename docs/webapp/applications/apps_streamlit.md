@@ -20,7 +20,7 @@ time.
 The Streamlit Launcher relies on the ClearML App Gateway Router which implements user authentication, and redirects requests 
 to the IP/port served by the Streamlit app. 
 
-If the ClearML AI application Gateway is not available, the Streamlit app might not be accessible.
+If the ClearML AI Application Gateway is not available, the Streamlit app might not be accessible.
 For more information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
 

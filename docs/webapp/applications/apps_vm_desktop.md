@@ -19,7 +19,7 @@ select a queue, and the agent servicing that queue will set up the remote enviro
 The Virtual Machine Remote Desktop relies on the ClearML App Gateway Router which implements user authentication and 
 securely routes incoming requests to the remote desktop session. 
 
-If the ClearML AI application Gateway is not available, the remote desktop session might not be accessible.
+If the ClearML AI Application Gateway is not available, the remote desktop session might not be accessible.
 For more information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
 
@@ -36,7 +36,7 @@ Once you have launched an app instance, you can view the following information i
 * Shareable Browser Link - Opens the remote desktop session directly in your web browser. This link performs user 
   authentication automatically through the browser: it verifies your credentials, adds the necessary cookies, and then 
   redirects you to the active session. 
-* Direct Link - A direct endpoint to the running session, intended for programmatic access (e.g connecting from an external 
+* Direct Link - A direct endpoint to the running session, intended for programmatic access (e.g. connecting from an external 
   application or script). This link does not include browser-based authentication, so you must manually provide an [Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md) 
   access token when sending requests. You can generate a token in the ClearML Web UI under **Settings** > **Workspace** > **AI Application Gateway**. 
 * Server's resources monitoring (CPU / GPU / vMem utilization)
