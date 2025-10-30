@@ -21,7 +21,7 @@ The app monitors endpoint activity and shuts down if the model remains inactive 
 The vLLM Model Deployment app makes use of the App Gateway Router which implements a secure, authenticated 
 network endpoint for the model.
 
-If the ClearML AI application Gateway is not available, the model endpoint might not be accessible.
+If the ClearML AI Application Gateway is not available, the model endpoint might not be accessible.
 For more information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
 

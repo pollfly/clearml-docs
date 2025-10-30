@@ -17,7 +17,7 @@ max tokens, and stop sequences. For detailed usage and customization options, se
  
 :::info AI Application Gateway
 The LLM UI app makes use of the App Gateway Router which implements a secure, authenticated network endpoint for the 
-model. If the ClearML AI application Gateway is not available, the model endpoint might not be accessible. For more 
+model. If the ClearML AI Application Gateway is not available, the model endpoint might not be accessible. For more 
 information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
 
