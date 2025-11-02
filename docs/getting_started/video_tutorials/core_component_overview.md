@@ -20,7 +20,6 @@ keywords: [mlops, components]
 
 <Details class="panel info">
 <summary class="panel-title">Video Transcript</summary>
-
 Welcome to ClearML! This video will serve as an overview of the complete ClearML stack. We'll introduce you to the most important concepts and show you how everything fits together, so you can deep dive into the next videos, which will cover the ClearML functionality in more detail.
 
 ClearML is designed to get you up and running in less than 10 minutes and 2 magic lines of code. But if you start digging, you'll quickly find out that it has a lot of functionality to offer. So let's break it down, shall we?

@@ -72,7 +72,6 @@ The panel below describes the details contained within a `frame`:
 <Details class="panel configuration">
 <summary class="panel-title">Frame Structure</summary>
 
-
 * `id` (*string*) - The unique ID of this frame. 
 * `blob` (*string*) - Raw data.
 * `context_id` (*string*) - Source URL.
@@ -148,7 +147,6 @@ object annotations, its metadata, and other details.
 <Details class="panel screenshot">
 <summary class="panel-title">SingleFrame in the WebApp frame viewer</summary>
 
-
 This image shows a SingleFrame in the ClearML Enterprise WebApp (UI) [frame viewer](webapp/webapp_datasets_frames.md#frame-viewer). 
     
 ![SingleFrame in WebApp](../img/hyperdatasets/frame_overview_01.png#light-mode-only)
@@ -159,7 +157,6 @@ This image shows a SingleFrame in the ClearML Enterprise WebApp (UI) [frame view
 
 <Details class="panel configuration">
 <summary class="panel-title">SingleFrame details represented in the WebApp</summary>
-
 
 ```    
 id : "287024"

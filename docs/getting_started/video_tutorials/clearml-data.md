@@ -21,7 +21,6 @@ keywords: [mlops, components, ClearML data]
 
 <Details class="panel info">
 <summary class="panel-title">Video Transcript</summary>
-
 Hello and welcome to ClearML. In this video we'll take a look at both the command line and Python interfaces of our data versioning tool called `clearml-data`. 
 
 In the world of machine learning, you are very likely dealing with large amounts of data that you need to put into a dataset. ClearML Data solves 2 important challenges that occur in this situation:

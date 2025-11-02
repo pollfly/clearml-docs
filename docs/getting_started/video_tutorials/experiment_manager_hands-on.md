@@ -21,7 +21,6 @@ keywords: [mlops, components, Experiment Manager]
 
 <Details class="panel info">
 <summary class="panel-title">Video Transcript</summary>
-
 Welcome to ClearML! In this video, you’ll learn how to quickly get started with the experiment manager by adding 2 simple lines of Python code to your existing project.
 
 This is the experiment manager's UI, and every row you can see here, is a single run of your code. So let’s set everything up in the code first, and then we’ll come back to this UI later in the video.

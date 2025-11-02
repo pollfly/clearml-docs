@@ -21,7 +21,6 @@ keywords: [mlops, components, automation, orchestration, pipeline]
 
 <Details class="panel info">
 <summary class="panel-title">Video Transcript</summary>
-
 Hello and welcome to ClearML. In this video we'll take a look at how pipelines can be created from tasks instead of from code like we saw in the last video.
 
 The tasks themselves are already in the system by using the experiment manager. What's important to note here though is that hyperparameters, scalars, and artifacts should be reported correctly because the pipeline will consider them to be the inputs and outputs of each step. In that way, a step can easily access for example the artifacts from a previous step.

@@ -72,7 +72,6 @@ two sets of data are created in the pipeline.
 <Details class="panel info">
 <summary class="panel-title">ClearML tracks and reports the preprocessing step</summary>
 
-
 In the preprocessing data Task, the parameter values in ``data_task_id``, ``fill_categorical_NA``, and ``fill_numerical_NA`` are overridden.
 ```python
 configuration_dict = {
@@ -143,7 +142,6 @@ pipe.add_step(
 <Details class="panel info">
 <summary class="panel-title">ClearML tracks and reports the training step</summary>
 
-
 In the training Task, the ``data_task_id`` parameter value is overridden. This allows the pipeline controller to pass a 
 different Task ID to each instance of training, where each Task has an artifact containing different data.
   
@@ -195,7 +193,6 @@ The IDs of the training Tasks from the steps named `train_1` and `train_2` are p
 <Details class="panel info">
 <summary class="panel-title">ClearML tracks and reports the best model step</summary>
 
-
 In the best model Task, the `train_tasks_ids` parameter is overridden with the Task IDs of the two training tasks.
 
 ```python
@@ -236,7 +233,6 @@ pipe.stop()
 
 <Details class="panel info">
 <summary class="panel-title">ClearML tracks and reports the pipeline's execution</summary>
-
 
 ClearML reports the pipeline with its steps in **PLOTS**.
    

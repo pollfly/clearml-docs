@@ -21,7 +21,6 @@ keywords: [mlops, components, Autoscaler]
 
 <Details class="panel info">
 <summary class="panel-title">Video Transcript</summary>
-
 Hello and welcome to ClearML. In this video we'll go a little more advanced and introduce autoscalers, the easiest way to build your very own flock of ClearML Agents.
 
 Data science is inherently very inconsistent in its demand for compute resources. One moment you're just researching papers and need no compute at all, another moment you're making 16 GPUs scream and wishing you had more. Especially when running Hyperparameter Optimization or Pipelines, it can be very handy to have some extra hardware for a short time.

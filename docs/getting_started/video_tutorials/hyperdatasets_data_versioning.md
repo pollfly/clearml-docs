@@ -21,7 +21,6 @@ keywords: [mlops, components, hyperdatasets]
 
 <Details class="panel info">
 <summary class="panel-title">Video Transcript</summary>
-
 Hello and welcome to ClearML. In this video, we're taking a closer look at Hyper-Datasets, a supercharged version of ClearML Data.
 
 Hyper-Datasets is a data management system that’s designed for unstructured data like text, audio, or visual data. It is part of the ClearML paid offering, which means it brings along quite a bit of upgrades over the open source `clearml-data`.

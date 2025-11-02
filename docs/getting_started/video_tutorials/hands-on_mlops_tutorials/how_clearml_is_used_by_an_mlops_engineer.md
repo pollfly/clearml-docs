@@ -21,7 +21,6 @@ keywords: [mlops, components, machine learning, mlops engineer]
 
 <Details class="panel info">
 <summary class="panel-title">Video Transcript</summary>
-
 Hello again and welcome to ClearML. In this video we'll be going over a workflow of a potential MLOps Engineer. Now an 
 MLOps Engineer is a vague term. This might be a specific person in your team that is doing only the Ops part of 
 machine learning. So the infrastructure and all of the workers and whatnot. Or it could be you as a data scientist. It 

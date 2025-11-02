@@ -185,8 +185,7 @@ Vector search results adhere to configured frame filters. For example, if you fi
 ### Filtering Examples
 
 <Details class="panel screenshot">
-<summary class="panel-title">ROI Rules</summary>
- 
+<summary class="panel-title">ROI Rules</summary> 
 
 * Create one ROI rule for the `teddy bear` label. Only frame containing at least one ROL labeled `teddy bear` match the 
   filter
@@ -224,7 +223,6 @@ Vector search results adhere to configured frame filters. For example, if you fi
 <Details class="panel screenshot">
 <summary class="panel-title">Frame Rules: Metadata</summary>
 
-
 Filter by metadata using Lucene queries.
 
 * Add a frame rule to filter by the metadata key `dangerous` for the value of `yes`.
@@ -241,7 +239,6 @@ Filter by metadata using Lucene queries.
 
 <Details class="panel screenshot">
 <summary class="panel-title">Frame Rules: Date and Time Fields</summary>
-
 
 If your dataset includes a metadata field that stores date and time information, you can filter 
 based on date ranges or specific time intervals. 
@@ -277,7 +274,6 @@ Filter by date/time metadata fields using Lucene queries.
 
 <Details class="panel screenshot">
 <summary class="panel-title">Source Rules</summary>
-
 
 Filter by sources using Lucene queries.    
 

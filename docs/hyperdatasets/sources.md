@@ -23,7 +23,6 @@ This example demonstrates `sources` for video.
 <Details class="panel info">
 <summary class="panel-title">Example 1</summary>
 
-
 ```json
 /* video from one of four cameras on car */
 "sources": [
@@ -70,8 +69,7 @@ Sources includes a variety of content types. This example shows an mp4 video.
 This example demonstrates `sources` images.
 
 <Details class="panel info">
-<summary class="panel-title">Example 2</summary>
-        
+<summary class="panel-title">Example 2</summary>        
 
 ```json
 /* camera images */
@@ -101,7 +99,6 @@ This example demonstrates `sources` for video, `masks`, and `preview`.
 
 <Details class="panel info">
 <summary class="panel-title">Example 3</summary>
-
 
 ```json
 
