@@ -21,7 +21,8 @@ keywords: [mlops, components, features, ClearML]
 
 
 <Details class="panel info"> 
-<summary class="panel-title">Video Transcript</summary>ClearML is an open source MLOPS platform.
+<summary class="panel-title">Video Transcript</summary>
+ClearML is an open source MLOPS platform.
 
 It's essentially a toolbox stuffed with everything you'll need to go from experimentation to production:
 

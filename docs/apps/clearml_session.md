@@ -18,7 +18,8 @@ VS Code remote sessions use ports 8878 and 8898 respectively.
 <Details class="panel screenshot">
 <summary class="panel-title">VS Code Window</summary>
 
-![VS Code session](../img/session_vs_code.png)</Details>
+![VS Code session](../img/session_vs_code.png)
+</Details>
 
 
 ## Prerequisites
