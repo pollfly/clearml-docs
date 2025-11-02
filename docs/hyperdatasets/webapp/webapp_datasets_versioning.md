@@ -184,7 +184,9 @@ Vector search results adhere to configured frame filters. For example, if you fi
 
 ### Filtering Examples
 
-<Collapsible type="screenshot" title="ROI Rules"> 
+<Details class="panel screenshot">
+<summary class="panel-title">ROI Rules</summary>
+ 
 
 * Create one ROI rule for the `teddy bear` label. Only frame containing at least one ROL labeled `teddy bear` match the 
   filter
@@ -217,9 +219,12 @@ Vector search results adhere to configured frame filters. For example, if you fi
 ![Add Exclude ROI Rule](../../img/hyperdatasets/frame_filtering_07.png#light-mode-only)
 ![Add Exclude ROI Rule](../../img/hyperdatasets/frame_filtering_07_dark.png#dark-mode-only)
 
-</Collapsible>
 
-<Collapsible type="screenshot" title="Frame Rules: Metadata">
+</Details>
+
+<Details class="panel screenshot">
+<summary class="panel-title">Frame Rules: Metadata</summary>
+
 
 Filter by metadata using Lucene queries.
 
@@ -233,9 +238,12 @@ Filter by metadata using Lucene queries.
 ![Frame metadata in frame viewer](../../img/hyperdatasets/frame_filtering_09.png#light-mode-only)
 ![Frame metadata in frame viewer](../../img/hyperdatasets/frame_filtering_09_dark.png#dark-mode-only)
 
-</Collapsible>
 
-<Collapsible type="screenshot" title="Frame Rules: Date and Time Fields">
+</Details>
+
+<Details class="panel screenshot">
+<summary class="panel-title">Frame Rules: Date and Time Fields</summary>
+
 
 If your dataset includes a metadata field that stores date and time information, you can filter 
 based on date ranges or specific time intervals. 
@@ -267,9 +275,12 @@ Filter by date/time metadata fields using Lucene queries.
     ![Frame datetime metadata in frame viewer](../../img/hyperdatasets/frame_filtering_14.png#light-mode-only)
     ![Frame datetime metadata in frame viewer](../../img/hyperdatasets/frame_filtering_14_dark.png#dark-mode-only)
   
-</Collapsible>
 
-<Collapsible type="screenshot" title="Source Rules">
+</Details>
+
+<Details class="panel screenshot">
+<summary class="panel-title">Source Rules</summary>
+
 
 Filter by sources using Lucene queries.    
 
@@ -280,7 +291,8 @@ Filter by sources using Lucene queries.
 
 Lucene queries can also be used in ROI label filters and frame rules.
 
-</Collapsible>      
+
+</Details>      
 
 ### Sorting Frames 
 
