@@ -109,9 +109,7 @@ The column categories are created and uploaded as artifacts, which appear in app
 
 Finally, the training data and validation data are stored as artifacts.
    
-![image](../../../../../img/preprocessing_and_encoding_07.png)   
-
-
+![image](../../../../../img/preprocessing_and_encoding_07.png)
 </Details>
    
 
@@ -173,7 +171,6 @@ The TensorFlow Definitions appear in the **TF_DEFINE** subsection.
 
 ![image](../../../../../img/train_tabular_predictor_02.png)
    
-
 </Details>
    
 
@@ -221,7 +218,6 @@ The model details appear in the **MODELS** table **>** **>GENERAL**.
    
 ![image](../../../../../img/tabular_training_pipeline_04.png)
    
-
 </Details>
    
 
@@ -250,7 +246,6 @@ By hovering over a step or path between nodes, you can view information about it
        
 ![image](../../../../../img/tabular_training_pipeline_06.png)
    
-
 </Details>
 
 

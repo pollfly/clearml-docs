@@ -319,5 +319,4 @@ you find the best ways forward for your own models.
 
 So I hope this kind of inspired you a little bit to try out ClearML. It's free to try at [app.clear.ml](https://app.clear.ml), 
 or you can even host your own open source server with the interface that you can see right now. So why not have a go at 
-it? And thank you for watching.
-</Details>
+it? And thank you for watching.</Details>

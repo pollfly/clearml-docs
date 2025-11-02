@@ -48,7 +48,6 @@ This example demonstrates `sources` for video.
     
 ```
 
-
 </Details>
 
 The `sources` example above details a video from a car that has two cameras. One camera
@@ -86,7 +85,6 @@ This example demonstrates `sources` images.
         "timestamp": 0,
     }
 ```
-
 
 </Details>
 
@@ -177,7 +175,6 @@ This example demonstrates `sources` for video, `masks`, and `preview`.
   ]
 }
 ```
-
 
 </Details>
 

@@ -135,7 +135,6 @@ The panel below describes the details contained within a `frame`:
 * `saved` - The epoch time that the frame was saved.
 * `timestamp` - For images from video, a timestamp that indicates the absolute position of this frame from the source (video).
 
-
 </Details>
 
 ## WebApp 
@@ -154,7 +153,6 @@ This image shows a SingleFrame in the ClearML Enterprise WebApp (UI) [frame view
     
 ![SingleFrame in WebApp](../img/hyperdatasets/frame_overview_01.png#light-mode-only)
 ![SingleFrame in WebApp](../img/hyperdatasets/frame_overview_01_dark.png#dark-mode-only)
-
 
 </Details>
 
@@ -202,7 +200,6 @@ saved : 1598982880693
 saved_in_version : "6ad8b10c668e419f9dd40422f667592c"
 num_frames : 1
 ```
-
 
 </Details>
 

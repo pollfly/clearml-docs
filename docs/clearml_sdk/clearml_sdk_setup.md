@@ -50,8 +50,7 @@ pip install clearml
    
    For more information about running tasks inside Docker containers, see [ClearML Agent Deployment](../clearml_agent/clearml_agent_deployment_bare_metal.md)
    and [ClearML Agent Reference](../clearml_agent/clearml_agent_ref.md).
-    
-   
+
    </Details>
    
 1. The setup wizard prompts for ClearML credentials.

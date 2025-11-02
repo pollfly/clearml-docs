@@ -219,7 +219,6 @@ Vector search results adhere to configured frame filters. For example, if you fi
 ![Add Exclude ROI Rule](../../img/hyperdatasets/frame_filtering_07.png#light-mode-only)
 ![Add Exclude ROI Rule](../../img/hyperdatasets/frame_filtering_07_dark.png#dark-mode-only)
 
-
 </Details>
 
 <Details class="panel screenshot">
@@ -237,7 +236,6 @@ Filter by metadata using Lucene queries.
   
 ![Frame metadata in frame viewer](../../img/hyperdatasets/frame_filtering_09.png#light-mode-only)
 ![Frame metadata in frame viewer](../../img/hyperdatasets/frame_filtering_09_dark.png#dark-mode-only)
-
 
 </Details>
 
@@ -275,7 +273,6 @@ Filter by date/time metadata fields using Lucene queries.
     ![Frame datetime metadata in frame viewer](../../img/hyperdatasets/frame_filtering_14.png#light-mode-only)
     ![Frame datetime metadata in frame viewer](../../img/hyperdatasets/frame_filtering_14_dark.png#dark-mode-only)
   
-
 </Details>
 
 <Details class="panel screenshot">
@@ -290,7 +287,6 @@ Filter by sources using Lucene queries.
 ![Filter by source](../../img/hyperdatasets/frame_filtering_10_dark.png#dark-mode-only)
 
 Lucene queries can also be used in ROI label filters and frame rules.
-
 
 </Details>      
 

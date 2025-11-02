@@ -67,5 +67,4 @@ In the following video we’ll go a little deeper yet into this newly discovered
 
 But for now, feel free to start spinning up some agents on your own machines completely for free at [app.clear.ml](https://app.clear.ml) or by using our self-hosted server on GitHub, and don’t forget to join our [Slack channel](https://joinslack.clear.ml) if you need any help.
 
-
 </Details>

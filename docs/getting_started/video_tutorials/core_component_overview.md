@@ -53,5 +53,4 @@ As a final example of how you could use the agent's functionality, ClearML provi
 
 As you can see ClearML is a large toolbox, stuffed with the most useful components for both data scientists and MLOps engineers. We’re diving deeper into each component in the following videos if you need more details, but feel free to get started now at clear.ml. 
 
-
 </Details>

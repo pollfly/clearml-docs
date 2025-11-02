@@ -90,5 +90,4 @@ In this video, we’ve covered the most important uses of ClearML Data, so hopef
 
 So what are you waiting for? Start tracking your datasets with `clearml-data` and don’t forget to join our [Slack channel](https://joinslack.clear.ml) if you need any help.
 
-
 </Details>

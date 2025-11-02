@@ -70,5 +70,4 @@ For the next videos we’ll finally cover automation and orchestration as well a
 
 Feel free to check out and test all of these features at [app.clear.ml](https://app.clear.ml), or using our self-hosted server on GitHub and don’t forget to join our [Slack channel](https://joinslack.clear.ml) if you need any help.
 
-
 </Details>

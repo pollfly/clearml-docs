@@ -76,5 +76,4 @@ If you’ve been following along with the other Getting Started videos, you shou
 
 If you’re interested in using Hyper-Datasets for your team, then contact us using our website, and we’ll get you going in no time. In the meantime, you can enjoy the power of the open source components at [app.clear.ml](https://app.clear.ml), and don’t forget to join our [Slack channel](https://joinslack.clear.ml), if you need any help!
 
-
 </Details>

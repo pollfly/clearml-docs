@@ -285,5 +285,4 @@ these kinds of things and I hope you learned something valuable today. All of th
 will be available in the link in the description, and if you need any help, join our [Slack channel](https://joinslack.clear.ml), we're always there, 
 always happy to help and thank you for watching.
 
-
 </Details>
