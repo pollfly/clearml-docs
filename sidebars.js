@@ -453,17 +453,31 @@ module.exports = {
                 'references/sdk/hpo_parameters_uniformparameterrange',
                 'references/sdk/hpo_parameters_parameterset',
             ]},
-            {'Enterprise Hyper-Datasets': [
-                {'Hyper-Dataset': [
-                    'references/hyperdataset/hyperdataset',
-                    'references/hyperdataset/hyperdatasetversion'
-                ]},
-                {'DataFrame': [
-                    'references/hyperdataset/singleframe',
-                    'references/hyperdataset/framegroup',
-                    'references/hyperdataset/annotation',
-                ]},
-                'references/hyperdataset/dataview',
+            {'HyperDatasets': [
+                {
+                    'references/sdk/hyperdataset',
+                    'references/sdk/hyperdatasets_dataentry',
+                    'references/sdk/hyperdatasets_datasubentry',
+                    'references/sdk/hyperdatasets_dataentryimage',
+                    'references/sdk/hyperdatasets_datasubentryimage',
+                    'references/sdk/hyperdatasets_hyperdatasetmanagement',
+                    'references/sdk/hyperdatasets_query',
+                    'references/sdk/hyperdatasets_dataview',
+                },
+                {
+                    'Legacy': [
+                        {'HyperDataset': [
+                            'references/hyperdataset/hyperdataset',
+                            'references/hyperdataset/hyperdatasetversion'
+                        ]},
+                        {'DataFrame': [
+                            'references/hyperdataset/singleframe',
+                            'references/hyperdataset/framegroup',
+                            'references/hyperdataset/annotation',
+                        ]},
+                        'references/hyperdataset/dataview',
+                    ]
+                }
             ]},
         ]},
         {'CLI Tools': [
