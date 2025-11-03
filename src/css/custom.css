@@ -61,6 +61,7 @@ html {
   --ifm-toc-link-color:            #E5E5E5; /* body text */
   --ifm-toc-background-color:      #242D37; /* section 2 */
   --ifm-code-background:           #242D37; /* section 2 */
+  --docsearch-modal-background:    #101418;
 }
 
 
@@ -559,6 +560,11 @@ html[data-theme="dark"] input[class^="searchQueryInput"] {
     padding: 1rem;
 }
 
+/* global search modal */
+.DocSearch-Modal {
+    border: 1px solid var(--ifm-hr-background-color);
+}
+
 /* social links icons */
 .footer__link-item[href*="slack"] {
   padding-left: 1.4rem;
@@ -889,9 +895,7 @@ html[data-theme="dark"] .alert.alert--secondary {
 
 /* PANEL COLLAPSIBLE */
 .panel {
-  margin-bottom: 12px;
   padding: 0;
-  border: 1px solid;
   border-radius: var(--ifm-global-radius);
   box-shadow: none;
   overflow: hidden;
@@ -973,10 +977,10 @@ html[data-theme="dark"] .panel-title:hover {
 }
 
 /* PANEL CONTENT */
-.panel [class*="collapsibleContent"] {
+.panel [class*=collapsibleContent] {
     margin-top: 0;
     border-top: 0;
-    padding: 0px 50px 12px 50px;
+    padding: 0 50px 50px;
     color: var(--ifm-font-color-base);
 
 }
@@ -1118,6 +1122,6 @@ html[data-theme=dark] .cml-card i {
 }
 
 html[data-theme=dark] .vid {
-    border-color: rgba(0,0,0,0.3);
+    border-color: rgba(255, 255, 255, 0.3);
     background-color: rgba(0,0,0,0.3);
 }
