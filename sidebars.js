@@ -454,16 +454,14 @@ module.exports = {
                 'references/sdk/hpo_parameters_parameterset',
             ]},
             {'HyperDatasets': [
-                {
-                    'references/sdk/hyperdataset',
-                    'references/sdk/hyperdatasets_dataentry',
-                    'references/sdk/hyperdatasets_datasubentry',
-                    'references/sdk/hyperdatasets_dataentryimage',
-                    'references/sdk/hyperdatasets_datasubentryimage',
-                    'references/sdk/hyperdatasets_hyperdatasetmanagement',
-                    'references/sdk/hyperdatasets_query',
-                    'references/sdk/hyperdatasets_dataview',
-                },
+                'references/sdk/hyperdataset',
+                'references/sdk/hyperdatasets_dataentry',
+                'references/sdk/hyperdatasets_datasubentry',
+                'references/sdk/hyperdatasets_dataentryimage',
+                'references/sdk/hyperdatasets_datasubentryimage',
+                'references/sdk/hyperdatasets_hyperdatasetmanagement',
+                'references/sdk/hyperdatasets_query',
+                'references/sdk/hyperdatasets_dataview',
                 {
                     'Legacy': [
                         {'HyperDataset': [
