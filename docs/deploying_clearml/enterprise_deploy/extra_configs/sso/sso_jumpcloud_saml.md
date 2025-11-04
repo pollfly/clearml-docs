@@ -1,5 +1,5 @@
 ---
-title: JumpCloud Saml
+title: JumpCloud SAML
 ---
 
 This guide explains how to configure JumpCloud as a SAML identity provider for ClearML Single Sign-On (SSO):

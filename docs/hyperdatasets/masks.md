@@ -1,6 +1,6 @@
 ---
 title: Masks
---- 
+---
 
 Masks are source data used in deep learning for image segmentation. Mask URIs are a property of a SingleFrame.
 
@@ -44,7 +44,7 @@ For example:
 
 The frame's sources array contains a masks list of dictionaries that looks something like this:
 
-```editorconfig
+```
 {
  "id": "<framegroup_id>",
  "timestamp": "<timestamp>",
@@ -89,7 +89,7 @@ For example:
 
 The frame's sources array contains a masks list of dictionaries that looks something like this:
 
-```editorconfig
+```
 {
  "sources" : [
    {

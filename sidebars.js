@@ -817,6 +817,7 @@ module.exports = {
                         'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_duo_saml',
                         'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_google_saml',
                         'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_microsoft_ad_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_jumpcloud_saml',
 
                     ]
                 },

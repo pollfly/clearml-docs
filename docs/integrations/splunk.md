@@ -1,6 +1,6 @@
 ---
 title: Splunk
---- 
+---
 
 :::important Enterprise Feature
 Splunk integration is available under the ClearML Enterprise plan.
