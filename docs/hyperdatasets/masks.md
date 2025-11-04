@@ -44,7 +44,7 @@ For example:
 
 The frame's sources array contains a masks list of dictionaries that looks something like this:
 
-```editorconfig
+```
 {
  "id": "<framegroup_id>",
  "timestamp": "<timestamp>",
@@ -89,7 +89,7 @@ For example:
 
 The frame's sources array contains a masks list of dictionaries that looks something like this:
 
-```editorconfig
+```
 {
  "sources" : [
    {
