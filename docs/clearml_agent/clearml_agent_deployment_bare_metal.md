@@ -1,5 +1,5 @@
 ---
-title: Manual Deployment
+title: Bare Metal/Virtual Machines
 ---
 
 This page explains how to install and deploy ClearML Agent on bare-metal servers or VMs.
