@@ -21,7 +21,8 @@ keywords: [llmops, mlops, components, ClearML agent]
 
 <Details class="panel info">
 <summary class="panel-title">Video Transcript</summary>
-Welcome to ClearML. In this video we’ll take a look at the ClearML Agent, which will allow you to run your tasks remotely and open the door for automating your workflows.
+
+Welcome to ClearML. In this video we’ll take a look at the ClearML Agent, which will allow you to run your tasks remotely and open the door for automating your workflows. 
 
 Remember our overview from the previous video? We talked about the pip package that allows us to run experiments and data management as well as the server, which stores everything we track. Today we add a third component: the ClearML Agent.
 

@@ -21,6 +21,7 @@ keywords: [mlops, components, automation, orchestration, pipeline]
 
 <Details class="panel info">
 <summary class="panel-title">Video Transcript</summary>
+
 Hello and welcome to ClearML. In this video we'll take a look at how pipelines can be used as a way to easily automate and orchestrate multiple tasks.
 
 Essentially, pipelines are a way to automate and orchestrate the execution of multiple tasks in a scalable way. Each task in the context of a ClearML pipeline is called a step or component, and it doesn't necessarily have to be an existing ClearML *task*, it can be any code.
