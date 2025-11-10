@@ -140,7 +140,7 @@ module.exports = {
             },
             {
               label: 'Release Notes',
-              to: '/docs/release_notes/clearml_server/open_source/ver_2_2',
+              to: '/docs/release_notes/clearml_server/open_source/ver_2_3',
               activeBaseRegex: '^/docs/latest/docs/release_notes/',
             },
 
