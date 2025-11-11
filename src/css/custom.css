@@ -171,6 +171,16 @@ html[data-theme="dark"] .navbar__link--active {
     color: var(--ifm-link-color);
 }
 
+@media screen and (min-width: 990px) and (max-width: 1300px) {
+    .navbar .navbar__item {
+        font-size: 0.9rem;
+        line-height: normal;
+        padding-left: calc(var(--ifm-navbar-item-padding-horizontal) / 2.5);
+        padding-right: calc(var(--ifm-navbar-item-padding-horizontal) / 2.5);
+        transition: font-size 0.5s, padding 0.5s;
+    }
+}
+
 /* ===HEADER=== */
 
 /* header content */
