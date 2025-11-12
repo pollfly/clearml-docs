@@ -36,9 +36,10 @@ template specification attached to the queue.
    # complex template variables  (default value separator ":")
    # ${CLEARML_TASK.id}
    # ${CLEARML_TASK.name}
-   # ${CLEARML_TASK.project.id}
+   # ${CLEARML_TASK.project}
    # ${CLEARML_TASK.hyperparams.properties.user_key.value}
-   
+   # ${CLEARML_TASK.container.image}
+   # ${CLEARML_TASK.container.arguments}
    
    # example
    #SBATCH --job-name=clearml_task_${CLEARML_TASK.id}       # Job name DO NOT CHANGE
@@ -53,6 +54,13 @@ template specification attached to the queue.
    
    
    ${CLEARML_PRE_SETUP}
+   
+   # control how multi node resource monitoring is reported
+   # -1: only master node (rank zero) is reporting console/resources
+   # 1: graph per node, i.e. machine/gpu graph for every node (console reported with prefix RANK x)
+   # 2: series per node under a unified machine resource graph,
+   #    graph per type of resource e.g. cpu/gpu utilization (console reported with prefix RANK x)
+   export CLEARML_MULTI_NODE_SINGLE_TASK=1
    
    echo whoami $(whoami)
    
