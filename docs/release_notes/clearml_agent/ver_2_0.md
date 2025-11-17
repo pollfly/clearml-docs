@@ -2,6 +2,13 @@
 title: Version 2.0
 ---
 
+
+### ClearML Agent 2.0.5
+
+**Bug Fixes**
+* Don't pass `--locked` to `uv sync` if there's no lock file
+* Fix agent in standalone mode crashes on Python `get` command
+
 ### ClearML Agent 2.0.4
 
 **New Features and Bug Fixes**
