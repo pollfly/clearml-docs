@@ -180,7 +180,7 @@ prevent users from running privileged containers.
 
 These restrictions can be configured by:
 * Configuration File: The `agent.docker_args_filters` setting in the clearml.conf file [agent](../configs/clearml_conf.md#agent-section) section.
-* Environment Variable: The CLEARML_AGENT_DOCKER_ARGS_FILTERS environment variable. (See the [ClearML Agent Environment Variables reference](../clearml_agent/clearml_agent_env_var.md)).
+* Environment Variable: The `CLEARML_AGENT_DOCKER_ARGS_FILTERS` environment variable. (See the [ClearML Agent Environment Variables reference](../clearml_agent/clearml_agent_env_var.md)).
 
 To completely separate the compute fabric from your workloads, it is recommended to deploy the agent onto an orchestrator such as [Kubernetes](clearml_agent_deployment_k8s.md).
 
