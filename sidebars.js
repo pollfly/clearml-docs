@@ -645,7 +645,16 @@ module.exports = {
                 {
                     'Deployment': [
                         'clearml_agent/clearml_agent_deployment_bare_metal',
-                        'clearml_agent/clearml_agent_deployment_k8s',
+                        {
+                            type: 'category',
+                            collapsible: true,
+                            collapsed: true,
+                            label: 'Kubernetes',
+                            link: {type: 'doc', id: 'clearml_agent/clearml_agent_deployment_k8s'},
+                            items: [
+                                'clearml_agent/clearml_agent_custom_workload'
+                            ]
+                        },
                         'clearml_agent/clearml_agent_deployment_slurm',
                     ]
                 },
