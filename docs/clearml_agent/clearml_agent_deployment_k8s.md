@@ -117,117 +117,15 @@ ClearML Enterprise adds advanced Kubernetes features, such as:
    helm upgrade -i -n <WORKER_NAMESPACE> clearml-agent clearml-enterprise/clearml-enterprise-agent --create-namespace -f clearml-agent-values.override.yaml
    ```
 
-#### Queues
+#### Workload Customization
 
-The ClearML Agent monitors [ClearML queues](../fundamentals/agents_and_queues.md) and pulls tasks that are
-scheduled for execution.
+The ClearML Agent monitors [ClearML queues](../fundamentals/agents_and_queues.md) for tasks that are scheduled for execution.
 
-A single agent can monitor multiple queues. By default, all queues share the same base pod template (`agentk8sglue.basePodTemplate`) 
-used when launching tasks on Kubernetes after they have been pulled from the queue.
+ClearML supports specifying custom definitions for individual queues for fine-grained control of workload parameters; you 
+can set Kubernetes overrides such as pod resources and labels, as well as runtime definitions like environment variables, 
+container images, or ClearML worker ID formats.
 
-Each queue can be configured to override the base pod template with its own settings with a `templateOverrides` queue template. 
-This way queue definitions can be tailored to different use cases.
-
-The following are a few examples of agent queue templates:
-
-##### Example: GPU Queues
-
-To support GPU queues, you must deploy the NVIDIA GPU Operator on your Kubernetes cluster. For more information, see [GPU Operator](fractional_gpus/gpu_operator.md).
-
-```yaml
-agentk8sglue:
-  createQueues: true
-  queues:
-    1xGPU:
-      templateOverrides:
-        resources:
-          limits:
-            nvidia.com/gpu: 1
-    2xGPU:
-      templateOverrides:
-        resources:
-          limits:
-            nvidia.com/gpu: 2
-```
-
-##### Example: Custom Pod Template per Queue
-
-This example demonstrates how to override the base pod template definitions on a per-queue basis.
-In this example:
-
-- The `red` queue inherits both the label `team=red` and the 1Gi memory limit from the `basePodTemplate` section.
-- The `blue` queue overrides the label by setting it to `team=blue`, and inherits the 1Gi memory from the `basePodTemplate` section.
-- The `green` queue overrides the label by setting it to `team=green`, and overrides the memory limit by setting it to 2Gi. 
-  It also sets an annotation and an environment variable.
-
-```yaml
-agentk8sglue:
-  # Defines common template
-  basePodTemplate:
-    labels:
-      team: red
-    resources:
-      limits:
-        memory: 1Gi
-  createQueues: true
-  queues:
-    red:
-      # Does not override
-      templateOverrides: {}
-    blue:
-      # Overrides labels
-      templateOverrides:
-        labels:
-          team: blue
-    green:
-      # Overrides labels and resources, plus set new fields
-      templateOverrides:
-        labels:
-          team: green
-        annotations:
-          example: "example value"
-        resources:
-          limits:
-            memory: 2Gi
-        env:
-          - name: MY_ENV
-            value: "my_value"
-```
-
-##### Example: GPU Queues with Shared Memory
-
-This example demonstrates how to configure a queue that uses multiple GPUs and a shared memory volume for improved 
-performance with GPU workloads. 
-
-This example:
-* Creates a 32Gi in-memory volume for the `GPUs_with_shared_memory` queue. Note that you should adjust the memory size based on the GPU's VRAM and the specific 
-  model size.
-* Mounts the volume at `/dev/shm` inside the container
-* Assigns 2 GPUs to the container
-* Sets the environment variable `VLLM_SKIP_P2P_CHECK="1"`. This disables 
-  the peer-to-peer GPU memory check used by vLLM. This is often required when using shared memory volumes (`/dev/shm`) 
-  to avoid initialization errors or performance issues in multi-GPU setups.
-
-```yaml
-agentk8sglue:
-  queues:
-    GPUs_with_shared_memory:
-      templateOverrides:
-        resources:
-          limits:
-            nvidia.com/gpu: "2"
-        env:
-          - name: VLLM_SKIP_P2P_CHECK
-            value: "1"
-        volumeMounts:
-          - name: dshm
-            mountPath: /dev/shm
-        volumes:
-          - name: dshm
-            emptyDir:
-              medium: Memory
-              sizeLimit: 32Gi
-```
+For more information, see [Custom Workload Configuration](clearml_agent_custom_workload.md). 
 
 
 #### Additional Configuration Options
