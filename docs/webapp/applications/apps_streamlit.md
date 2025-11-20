@@ -2,7 +2,7 @@
 title: Streamlit Launcher
 ---
 
-:::info Enterprise Feature
+:::important Enterprise Feature
 The Streamlit Launcher App is available under the ClearML Enterprise plan.
 :::
 

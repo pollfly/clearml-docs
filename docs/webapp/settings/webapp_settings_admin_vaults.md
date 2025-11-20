@@ -2,7 +2,7 @@
 title: Administrator Vaults
 ---
 
-:::info Enterprise Feature
+:::important Enterprise Feature
 Administrator vaults are available under the ClearML Enterprise plan.
 :::
 

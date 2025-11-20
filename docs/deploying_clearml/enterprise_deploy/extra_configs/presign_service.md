@@ -2,7 +2,7 @@
 title: ClearML S3 Presign Service
 ---
 
-:::info Enterprise Feature
+:::important Enterprise Feature
 The S3 presign service is available under the ClearML Enterprise plan.
 :::
 

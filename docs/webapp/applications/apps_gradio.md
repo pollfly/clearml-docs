@@ -2,7 +2,7 @@
 title: Gradio Launcher
 ---
 
-:::info Enterprise Feature
+:::important Enterprise Feature
 The Gradio Launcher App is available under the ClearML Enterprise plan.
 :::
 
