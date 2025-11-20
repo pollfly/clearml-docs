@@ -19,9 +19,9 @@ const config = {
 
 module.exports = {
   markdown: {
-    format: 'detect',
+    format: 'detect', // enable mdx syntax only in .mdx files, disable in .md files
     hooks:  {onBrokenMarkdownLinks: 'warn'}
-  }, // enable mdx syntax only in .mdx files, disable in .md files
+  },
   title: 'ClearML',
   tagline: 'Auto-Magical Suite of tools to streamline your AI workflow',
   url: 'https://clear.ml',
