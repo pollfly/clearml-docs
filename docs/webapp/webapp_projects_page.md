@@ -46,7 +46,8 @@ Project folders display summarized project information:
 * When a project's `default_output_destination` is set, the folder displays the <img src="/docs/latest/icons/ico-info.svg" alt="Info" className="icon size-md space-sm" /> 
   indicator. Hover over the indicator to view the default output destination.
 
-<Collapsible title="Hidden Projects" type="configuration">
+<Details class="panel configuration">
+<summary class="panel-title">Hidden Projects</summary>
 
 By default, ClearML infrastructure projects (i.e. dataset, pipeline, reports, application projects) are not shown in the 
 projects page. You can enable viewing them in **Settings > Configuration > User Preferences**. When enabled, all infrastructure projects 
@@ -57,7 +58,7 @@ are labeled with <img src="/docs/latest/icons/ico-ghost.svg" alt="Hidden project
 ![Hidden project configuration](../img/settings_hidden_projects.png#light-mode-only)
 ![Hidden project configuration](../img/settings_hidden_projects_dark.png#dark-mode-only)
 
-</Collapsible>
+</Details>
 
 ### Project Actions
 

@@ -34,7 +34,8 @@ provider connection is configured and enabled, the option appears in your server
    `Client Secret`, and the `Authorization Endpoint`, must be obtained from your identity provider's ClearML App settings
    and copied to the relevant field.
    
-   <Collapsible title="OIDC Providers" type="configuration">
+   <Details class="panel configuration">
+   <summary class="panel-title">OIDC Providers</summary>
 
       * ClearML WebApp URL - The external URL for the ClearML WebApp. Used to construct the Callback URL used by the 
       identity provider
@@ -81,10 +82,11 @@ provider connection is configured and enabled, the option appears in your server
        to the matched ClearML group. The server will also make sure the ClearML user is removed from the group if 
        a previous membership has been revoked.
 
-   </Collapsible> 
+   </Details> 
 
-   <Collapsible title="SAML Providers" type="configuration">
-
+   <Details class="panel configuration">
+   <summary class="panel-title">SAML Providers</summary>
+   
       * ClearML Webapp URL - The external URL for the ClearML WebApp. This is used to construct the Callback URL used by 
        the identity provider
       * Reply/ACS URL - Copy this field's content into the `Assertion Consumer Service URL` field in your provider's 
@@ -99,16 +101,17 @@ provider connection is configured and enabled, the option appears in your server
         * Require signed assertions - Assume IDP assertions or responses are signed by the identity provider. If enabled, 
          make sure your identity provider's ClearML App is configured to sign assertions or responses.
         * Sign client requests - The ClearML Server will sign requests sent to the identity provider. Make sure your 
-         identity provider's ClearML App is configured to accept signed client requests and its Client Certificate section 
-         there is set up with the same value for the Public Key.
-           1. Sign requests sent to the identity provider. Use the following shell commands to generate a public/private key pair:
+          identity provider's ClearML App is configured to accept signed client requests and its Client Certificate section 
+          there is set up with the same value for the Public Key.
+        
+          1. Sign requests sent to the identity provider. Use the following shell commands to generate a public/private key pair: <br/>
       
-           ```
-           openssl genrsa -out server.key 2048
-           chmod 600 server.key
-           openssl req -new -key server.key -out server.csr
-           openssl x509 -req -days 3650 -in server.csr -signkey server.key -out server.cer
-           ```
+             ```
+             openssl genrsa -out server.key 2048
+             chmod 600 server.key
+             openssl req -new -key server.key -out server.csr
+             openssl x509 -req -days 3650 -in server.csr -signkey server.key -out server.cer
+             ```
            
           2. Paste the content of the `server.cer` file into the `Public Key` field below and the content of the `server.key` 
           file into the `Private Key` field below. Make sure your identity provider's ClearML App is configured to accept 
@@ -126,7 +129,7 @@ provider connection is configured and enabled, the option appears in your server
       to the matched ClearML group. The server will also make sure the ClearML user is removed from the group if 
       a previous membership has been revoked.
 
-   </Collapsible> 
+   </Details> 
 
 1. Click **Test Provider** to make sure that the connection is working. This calls the identity provider, and displays 
   the returned information, so you can verify that the information was mapped correctly. An error will be displayed, if the provider fails to connect.

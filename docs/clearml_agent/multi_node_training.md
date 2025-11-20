@@ -3,7 +3,7 @@ title: Multi-Node Training
 ---
 
 :::important Enterprise Feature
-Multi-note training is only supported by a ClearML Enterprise Server.
+Multi-node training is only supported by a ClearML Enterprise Server.
 :::
 
 The ClearML Enterprise Agent supports horizontal multi-node training, allowing a single ClearML Task to run across multiple pods 

@@ -325,7 +325,7 @@ Without web login authentication, ClearML Server does not restrict access (by de
     }
     ```
    
-    :::info Enterprise Feature
+    :::important Enterprise Feature
     Under the Enterprise plan, you can grant admin privileges by adding `admin: true` to the relevant user entry. 
     For example:
 
