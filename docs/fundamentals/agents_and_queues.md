@@ -76,7 +76,7 @@ reuse machines without the need for any dedicated containers or images.
 
 ## Running Modes
 
-Agents can be deployed bare-metal, with multiple instances allocating 
+Agents can be deployed bare-metal or VMs, with multiple instances allocating 
 specific GPUs to the agents. They can also be deployed as dockers in a Kubernetes cluster.
 
 The Agent supports the following running modes:

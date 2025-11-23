@@ -7,8 +7,8 @@ keywords: [mlops, components, ClearML data]
 
 ## Video Tutorial
 
-<div class="vid" >
-<iframe style={{position: 'absolute', top: '0', left: '0', bottom: '0', right: '0', width: '100%', height: '100%'}} 
+<div class="vid">
+<iframe 
         src="https://www.youtube.com/embed/S2pz9jn26uI?rel=0" 
         title="YouTube video player" 
         frameborder="0" 
@@ -19,8 +19,10 @@ keywords: [mlops, components, ClearML data]
 
 <br/>
 
-<Collapsible type="info" title="Video Transcript">
-Hello and welcome to ClearML. In this video we'll take a look at both the command line and Python interfaces of our data versioning tool called `clearml-data`. 
+<Details class="panel info">
+<summary class="panel-title">Video Transcript</summary>
+
+Hello and welcome to ClearML. In this video we'll take a look at both the command line and Python interfaces of our data versioning tool called `clearml-data`.
 
 In the world of machine learning, you are very likely dealing with large amounts of data that you need to put into a dataset. ClearML Data solves 2 important challenges that occur in this situation:
 
@@ -88,4 +90,4 @@ In this video, we’ve covered the most important uses of ClearML Data, so hopef
 
 So what are you waiting for? Start tracking your datasets with `clearml-data` and don’t forget to join our [Slack channel](https://joinslack.clear.ml) if you need any help.
 
-</Collapsible>
+</Details>

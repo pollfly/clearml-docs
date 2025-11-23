@@ -98,6 +98,24 @@ module.exports = {
         ]},
         'getting_started/task_trigger_schedule',
         'getting_started/project_progress',
+        {'Video Tutorials': [
+            'getting_started/video_tutorials/quick_introduction',
+            'getting_started/video_tutorials/core_component_overview',
+            'getting_started/video_tutorials/experiment_manager_hands-on',
+            'getting_started/video_tutorials/experiment_management_best_practices',
+            'getting_started/video_tutorials/agent_remote_execution_and_automation',
+            'getting_started/video_tutorials/hyperparameter_optimization',
+            'getting_started/video_tutorials/pipelines_from_code',
+            'getting_started/video_tutorials/pipelines_from_tasks',
+            'getting_started/video_tutorials/clearml-data',
+            'getting_started/video_tutorials/the_clearml_autoscaler',
+            'getting_started/video_tutorials/hyperdatasets_data_versioning',
+            {'Hands-on MLOps Tutorials': [
+                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_a_data_scientist',
+                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_an_mlops_engineer',
+                'getting_started/video_tutorials/hands-on_mlops_tutorials/ml_ci_cd_using_github_actions_and_clearml'
+            ]}
+        ]},
     ],
     integrationsSidebar: [
             {
@@ -267,33 +285,17 @@ module.exports = {
                 'hyperdatasets/dataviews',
             ]
         },
-        {'Video Tutorials': [
-            'getting_started/video_tutorials/quick_introduction',
-            'getting_started/video_tutorials/core_component_overview',
-            'getting_started/video_tutorials/experiment_manager_hands-on',
-            'getting_started/video_tutorials/experiment_management_best_practices',
-            'getting_started/video_tutorials/agent_remote_execution_and_automation',
-            'getting_started/video_tutorials/hyperparameter_optimization',
-            'getting_started/video_tutorials/pipelines_from_code',
-            'getting_started/video_tutorials/pipelines_from_tasks',
-            'getting_started/video_tutorials/clearml-data',
-            'getting_started/video_tutorials/the_clearml_autoscaler',
-            'getting_started/video_tutorials/hyperdatasets_data_versioning',
-            {'Hands-on MLOps Tutorials': [
-                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_a_data_scientist',
-                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_an_mlops_engineer',
-                'getting_started/video_tutorials/hands-on_mlops_tutorials/ml_ci_cd_using_github_actions_and_clearml'
-            ]}
-        ]},
+
     ],
     rnSidebar: [
         {'Server': [
             {
                 'Open Source':
                         [
-                           'release_notes/clearml_server/open_source/ver_2_2',
+                           'release_notes/clearml_server/open_source/ver_2_3',
                            {
                                'Older Versions': [
+                                   'release_notes/clearml_server/open_source/ver_2_2',
                                    'release_notes/clearml_server/open_source/ver_2_1', 'release_notes/clearml_server/open_source/ver_2_0',
                                    'release_notes/clearml_server/open_source/ver_1_17', 'release_notes/clearml_server/open_source/ver_1_16',
                                    'release_notes/clearml_server/open_source/ver_1_15', 'release_notes/clearml_server/open_source/ver_1_14',
@@ -413,7 +415,7 @@ module.exports = {
                 {'AI Dev':
                     [
                         'release_notes/apps/ssh_session', 'release_notes/apps/jupyterlab',
-                        'release_notes/apps/vs_code'
+                        'release_notes/apps/vs_code', 'release_notes/apps/vm_desktop',
                     ]
                 },
                 {'Databases':
@@ -526,6 +528,7 @@ module.exports = {
                             'webapp/applications/apps_ssh_session',
                             'webapp/applications/apps_jupyter_lab',
                             'webapp/applications/apps_vscode',
+                            'webapp/applications/apps_vm_desktop',
                         ]},
                         {"UI Dev": [
                             'webapp/applications/apps_gradio',
@@ -642,7 +645,16 @@ module.exports = {
                 {
                     'Deployment': [
                         'clearml_agent/clearml_agent_deployment_bare_metal',
-                        'clearml_agent/clearml_agent_deployment_k8s',
+                        {
+                            type: 'category',
+                            collapsible: true,
+                            collapsed: true,
+                            label: 'Kubernetes',
+                            link: {type: 'doc', id: 'clearml_agent/clearml_agent_deployment_k8s'},
+                            items: [
+                                'clearml_agent/clearml_agent_custom_workload'
+                            ]
+                        },
                         'clearml_agent/clearml_agent_deployment_slurm',
                     ]
                 },
@@ -668,6 +680,7 @@ module.exports = {
                     ]
                 },
                 'clearml_agent/multi_node_training',
+                'clearml_agent/clearml_agent_nvcr',
                 {
                     type: 'category',
                     collapsible: true,
@@ -814,6 +827,7 @@ module.exports = {
                         'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_duo_saml',
                         'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_google_saml',
                         'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_microsoft_ad_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_jumpcloud_saml',
 
                     ]
                 },

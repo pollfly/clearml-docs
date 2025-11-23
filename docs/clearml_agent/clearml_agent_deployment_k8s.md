@@ -117,82 +117,16 @@ ClearML Enterprise adds advanced Kubernetes features, such as:
    helm upgrade -i -n <WORKER_NAMESPACE> clearml-agent clearml-enterprise/clearml-enterprise-agent --create-namespace -f clearml-agent-values.override.yaml
    ```
 
-#### Queues
+#### Workload Customization
 
-The ClearML Agent monitors [ClearML queues](../fundamentals/agents_and_queues.md) and pulls tasks that are
-scheduled for execution.
+The ClearML Agent monitors [ClearML queues](../fundamentals/agents_and_queues.md) for tasks that are scheduled for execution.
 
-A single agent can monitor multiple queues. By default, all queues share the same base pod template (`agentk8sglue.basePodTemplate`) 
-used when launching tasks on Kubernetes after they have been pulled from the queue.
+ClearML supports specifying custom definitions for individual queues for fine-grained control of workload parameters; you 
+can set Kubernetes overrides such as pod resources and labels, as well as runtime definitions like environment variables, 
+container images, or ClearML worker ID formats.
 
-Each queue can be configured to override the base pod template with its own settings with a `templateOverrides` queue template. 
-This way queue definitions can be tailored to different use cases.
+For more information, see [Custom Workload Configuration](clearml_agent_custom_workload.md). 
 
-The following are a few examples of agent queue templates:
-
-##### Example: GPU Queues
-
-To support GPU queues, you must deploy the NVIDIA GPU Operator on your Kubernetes cluster. For more information, see [GPU Operator](fractional_gpus/gpu_operator.md).
-
-```yaml
-agentk8sglue:
-  createQueues: true
-  queues:
-    1xGPU:
-      templateOverrides:
-        resources:
-          limits:
-            nvidia.com/gpu: 1
-    2xGPU:
-      templateOverrides:
-        resources:
-          limits:
-            nvidia.com/gpu: 2
-```
-
-##### Example: Custom Pod Template per Queue
-
-This example demonstrates how to override the base pod template definitions on a per-queue basis.
-In this example:
-
-- The `red` queue inherits both the label `team=red` and the 1Gi memory limit from the `basePodTemplate` section.
-- The `blue` queue overrides the label by setting it to `team=blue`, and inherits the 1Gi memory from the `basePodTemplate` section.
-- The `green` queue overrides the label by setting it to `team=green`, and overrides the memory limit by setting it to 2Gi. 
-  It also sets an annotation and an environment variable.
-
-```yaml
-agentk8sglue:
-  # Defines common template
-  basePodTemplate:
-    labels:
-      team: red
-    resources:
-      limits:
-        memory: 1Gi
-  createQueues: true
-  queues:
-    red:
-      # Does not override
-      templateOverrides: {}
-    blue:
-      # Overrides labels
-      templateOverrides:
-        labels:
-          team: blue
-    green:
-      # Overrides labels and resources, plus set new fields
-      templateOverrides:
-        labels:
-          team: green
-        annotations:
-          example: "example value"
-        resources:
-          limits:
-            memory: 2Gi
-        env:
-          - name: MY_ENV
-            value: "my_value"
-```
 
 #### Additional Configuration Options
 
@@ -204,12 +138,76 @@ helm show readme clearml-enterprise/clearml-enterprise-agent
 helm show values clearml-enterprise/clearml-enterprise-agent
 ```
 
-##### Reporting GPU Availability to Orchestration Dashboard
+##### Reporting GPU Capacity to Orchestration Dashboard
 
-To show GPU availability in the [Orchestration Dashboard](../webapp/webapp_orchestration_dash.md), explicitly set the number of GPUs:
+To show the GPUs available to the agent in ClearML’s [Orchestration Dashboard](../webapp/webapp_orchestration_dash.md),
+configure the agent in one of the following ways:
+
+* **Fixed Value**:
+
+  Use `reportMaxGpu` to report a fixed number of GPUs. This setting overrides GPU auto-discovery if both are enabled.
+    
+  ```yaml
+  agentk8sglue:
+    orchestrationDashboard:
+      # -- Agent reporting to Dashboard max GPU available. This will report 2 GPUs.
+      reportMaxGpu: 2
+  ```
+
+* **Automatic GPU Discovery**:
+
+  Enable automatic discovery to have the agent detect and report GPUs across your Kubernetes cluster.
+  This requires cluster-level access (`agentk8sglue.serviceAccountClusterAccess: true`), since the agent must list and evaluate all cluster nodes.
+
+  When GPU discovery is enabled, the Agent identifies which cluster nodes have GPUs and how many GPUs each node provides.
+  These options control how nodes are selected and how GPUs are counted:
+
+  * `baseSelector` - The default label selector used to identify GPU nodes.
+  * `nodeSelector` - An additional filter applied on top of `baseSelector` to narrow down which nodes are included in discovery. For 
+  example, to limit discovery to a specific node pool, use `"nodepool=gpu-a100"`.
+  * `gpuCountSelector` - Comma-separate list of labels used to count GPUs per node. The first matching label determines the reported GPU count.
+
+  With discovery enabled, the agent evaluates nodes matching the provided selectors and reports their GPU 
+  capacity to the dashboard at the configured interval.
+
+  ```yaml
+  agentk8sglue:
+    # Cluster access is required for GPU discovery
+    serviceAccountClusterAccess: true
+  
+    orchestrationDashboard:
+      discovery:
+        enabled: true
+        baseSelector: "kubernetes.io/os=linux,nvidia.com/gpu.present=true"
+        nodeSelector: ""  # Optional: further restrict discovery
+        gpuCountSelector: "nvidia.com/gpu.count"
+    ```
+
+You can configure how reports are sent and how often:
+
+* `reportType` - How the agent sends reports to the dashboard. Use on of the following options:
+  * `disabled` (or no value) - Do not send any reports. 
+  * `global` - Send a single category-level report that sums up all agents into the category total. Overrides individual 
+  agent reports. For more information about agent categorization, see [Resource Categories and Groups](../webapp/webapp_orchestration_dash.md#resource-categories-and-groups). 
+  * `aggregate` - Send a report per agent. The dashboard aggregates all reports in the category automatically. For more information about agent categorization, see [Resource Categories and Groups](../webapp/webapp_orchestration_dash.md#resource-categories-and-groups)
+* `reportSeconds` - Interval in seconds between dashboard updates. Controls how frequently the agent sends GPU capacity data.
 
 ```yaml
 agentk8sglue:
-  # -- Agent reporting to Dashboard max GPU available. This will report 2 GPUs.
-  dashboardReportMaxGpu: 2
+  # Cluster access is required for GPU discovery
+  serviceAccountClusterAccess: true
+
+  orchestrationDashboard:
+    # Enable periodic reporting to the Orchestration Dashboard
+    reportType: "global"   
+    reportSeconds: 600
+    # Overrides GPU discovery
+    reportMaxGpu: 0
+    # Enable GPU discovery
+    discovery:
+      enabled: true
+      baseSelector: "kubernetes.io/os=linux,nvidia.com/gpu.present=true"
+      nodeSelector: ""  # Optional: further restrict discovery
+      gpuCountSelector: "nvidia.com/gpu.count"
 ```
+

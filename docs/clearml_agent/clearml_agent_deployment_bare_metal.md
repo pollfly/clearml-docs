@@ -1,8 +1,8 @@
 ---
-title: Manual Deployment
+title: Bare Metal/Virtual Machines
 ---
 
-This page explains how to install and deploy ClearML Agent on bare-metal servers.
+This page explains how to install and deploy ClearML Agent on bare-metal servers or VMs.
 
 ## Installation
 
@@ -170,6 +170,19 @@ environment variable keys. For this reason, ClearML Agent will always convert th
 dynamic environment variable's key to lower-case before overriding configuration values with the environment variable 
 value.
 :::
+
+### Security Considerations
+ClearML Agent is designed for maximum flexibility in facilitating users' execution of their workloads.
+For example, users can specify docker arguments that the agent will make use of as part of the `docker` invocation when setting up their task execution environment.
+
+Where stricter controls are required, administrators can restrict the command-line options passed to Docker to, for example,
+prevent users from running privileged containers.
+
+These restrictions can be configured by:
+* Configuration File: The `agent.docker_args_filters` setting in the clearml.conf file [agent](../configs/clearml_conf.md#agent-section) section.
+* Environment Variable: The `CLEARML_AGENT_DOCKER_ARGS_FILTERS` environment variable. (See the [ClearML Agent Environment Variables reference](../clearml_agent/clearml_agent_env_var.md)).
+
+To completely separate the compute fabric from your workloads, it is recommended to deploy the agent onto an orchestrator such as [Kubernetes](clearml_agent_deployment_k8s.md).
 
 ## Spinning Up an Agent
 You can spin up an agent on any machine: on-prem and/or cloud instance. When spinning up an agent, you assign it to 

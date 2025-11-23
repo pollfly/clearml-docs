@@ -328,7 +328,7 @@ a `Summary` table.
 Use the scalar tools to improve analysis of scalar metrics. In the info panel, click <img src="/docs/latest/icons/ico-tune.svg" alt="Tuning" className="icon size-md" /> to access the tools. In the full-screen details view, the tools
 are on the left side of the window. The tools include:
 
-<a id="group_by"/>
+<a id="group_by"></a>
 
 * **Group by** - Select one of the following:
   * **Metric** - Displays all variants for a metric on the same plot. For example, if you have a "Test" metric with 
@@ -485,8 +485,8 @@ buttons (or using the left/right arrow keyboard shortcut).
 
 ## Tagging Tasks
 
-<div class="vid" >
-<iframe style={{position: 'absolute', top: '0', left: '0', bottom: '0', right: '0', width: '100%', height: '100%'}} 
+<div class="vid">
+<iframe 
         src="https://www.youtube.com/embed/uqik38jlBsQ?si=joU-KOPpUNLbn6Ws" 
         title="YouTube video player" 
         frameborder="0" 

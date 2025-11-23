@@ -237,4 +237,148 @@ exact address.
 Once the projects' data has been copied to the target server, and the projects themselves were imported, see 
 [Changing ClearML Artifacts Links](change_artifact_links.md) for information on how to fix the URLs.  
 
+## Updating Embedded Links in Reports and Projects Overview
+
+After migrating your ClearML data to a new server, you should update embedded URLs in your project [overviews](../../webapp/webapp_project_overview.md) 
+and [reports](../../webapp/webapp_reports.md) to reflect the new server address. The following commands connect to your MongoDB instance and perform a find-and-replace operation.
+
+:::note
+This section converts all the embedded links in the projects' overviews and reports. If you have project overviews or 
+reports that contain links to objects in the old URL, you will need to update the links manually using the ClearML web UI.
+:::
+
+### Connect to the MongoDB Shell
+
+First, open a shell session inside your MongoDB container or pod.
+
+For Docker Compose:
+
+```shell
+sudo docker exec -it \
+  <clearml-mongo-container-name> \
+  mongosh
+```
+
+For Kubernetes:
+
+```shell
+kubectl exec -it \
+  <clearml-mongo-pod-name> \
+  -- mongosh
+```
+
+**Note:** To find the container or pod name, you can use `docker ps --filter "name=mongo"` for Docker or `kubectl get pods -n clearml | grep mongo` for Kubernetes.
+
+### Configure Your Server URLs
+
+Once inside the `mongosh` shell, run the following commands. **Please replace the placeholder URLs** with your actual old and new server addresses.
+
+```shell
+// Replace the placeholder URLs below with your actual server addresses.
+// Example old URL: "http://old-clearml.company.com:8080"
+// Example new URL: "https://clearml.my-new-domain.com"
+const OLD_SERVER_URL = "<URL OF OLD SERVER>";
+const NEW_SERVER_URL = "<URL OF NEW SERVER>";
+```
+
+### Use the Backend Database
+
+Set MongoSh to update the `backend` database:
+
+```shell
+use backend;
+```
+
+### Update Reports
+
+These commands find and replace the URL in the `report` and `report_assets` fields within the `task` collection.
+
+Copy and paste the entire block into the `mongosh` shell.
+
+```shell
+print("--- Updating 'task' collection ---");
+
+// Update the 'report' field
+db.task.updateMany(
+  { report: { $regex: OLD_SERVER_URL } },
+  [{
+    $set: {
+      report: {
+        $replaceAll: {
+          input: "$report",
+          find: OLD_SERVER_URL,
+          replacement: NEW_SERVER_URL
+        }
+      }
+    }
+  }]
+);
+
+// Update the 'report_assets' array
+db.task.updateMany(
+  { "report_assets": { $regex: OLD_SERVER_URL } },
+  [{
+    $set: {
+      report_assets: {
+        $map: {
+          input: "$report_assets",
+          as: "asset",
+          in: {
+            $replaceAll: {
+              input: "$$asset",
+              find: OLD_SERVER_URL,
+              replacement: NEW_SERVER_URL
+            }
+          }
+        }
+      }
+    }
+  }]
+);
+
+print("--- 'task' collection update complete. ---");
+```
+
+### Update Project Descriptions
+
+This command updates the `description` field in the `project` collection.
+
+```shell
+print("--- Updating 'project' collection ---");
+
+db.project.updateMany(
+  { description: { $regex: OLD_SERVER_URL } },
+  [{
+    $set: {
+      description: {
+        $replaceAll: {
+          input: "$description",
+          find: OLD_SERVER_URL,
+          replacement: NEW_SERVER_URL
+        }
+      }
+    }
+  }]
+);
+
+print("--- 'project' collection update complete. ---");
+```
+
+### Optional: Validation
+
+To confirm the changes, you can inspect a single document from each collection to ensure the URL has been updated.
+
+```shell
+print("--- Verifying updates (all counts should be 0) ---");
+
+print("Remaining projects with old URL:");
+db.project.countDocuments({ description: { $regex: OLD_SERVER_URL } });
+
+print("Remaining tasks with old URL in 'report' field:");
+db.task.countDocuments({ report: { $regex: OLD_SERVER_URL } });
+
+print("Remaining tasks with old URL in 'report_assets' field:");
+db.task.countDocuments({ "report_assets": { $regex: OLD_SERVER_URL } });
+```
+
 

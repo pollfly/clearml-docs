@@ -1,6 +1,6 @@
 ---
 title: FrameGroups
---- 
+---
 
 The ClearML Enterprise provides **FrameGroup**s as an easy-to-use type of frame supporting multiple sources. 
 Add a list of SingleFrames to a FrameGroup, and then register FrameGroups in a Dataset version. 

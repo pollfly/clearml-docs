@@ -48,29 +48,54 @@ CLEARML__apiserver__auth__fixed_user_providers__ldap__admin_users=["user1_id","u
 
 ### User or Domain Whitelisting
 
-To allow only specific users or domains to register to the system, admins need to enable the white-listing feature by ensuring the following server variable is NOT set:
+ClearML supports restricting access so that only approved users or email domains can register and log into the system.
 
-`CLEARML__apiserver__auth__fixed_user_providers__ldap__default_company`
+The whitelist is managed through API calls, which require the following parameters:
+* `APISERVER_URL` – the ClearML API Server URL
+* `APISERVER_KEY` / `APISERVER_SECRET` – admin user credentials
 
-Each user that should be allowed to log into ClearML must have their e-mail address added by an admin.
-This can be done through the [User management](../../../../webapp/settings/webapp_settings_users.md) admin UI page, using "Add User" and specifying the user's email address.  
-Alternatively, admins can run the following API call (which supports adding multiple users):
+#### Adding Users to the Whitelist
+
+You can add users to the whitelist via the UI or API.
+
+**To add via the UI:** 
+* Open the [User management](../../../../webapp/settings/webapp_settings_users.md) admin UI page
+* Click "Add User" and specify the user's email address.
+
+**To add one or more users using the API,** run the following API call:
 
 ```bash
 curl $APISERVER_URL/login.add_whitelist_entries \
      -H "Content-Type: application/json" \
-     -H "X-Clearml-Act-As: <ADMIN_USER_ID>" \
      -u $APISERVER_KEY:$APISERVER_SECRET \
      -d '{"emails":["<email1>", "<email2>", ...],"is_admin":false}'
 ```
 
-#### Domain Whitelisting
-To whitelist whole email domains, run the following API call:
+#### Whitelisting Domains
+To allow all users from a specific email domain to log in, run the following API call:
 
 ```bash
 curl $APISERVER_URL/login.set_domains \
   -H "Content-Type: application/json" \
-  -H "X-Clearml-Act-As: <ADMIN_USER_ID>" \
   -u $APISERVER_KEY:$APISERVER_SECRET \
   -d '{"domains":["<USERS_EMAIL_DOMAIN>"]}
 ```
+
+#### Enabling Whitelisting
+
+:::important
+Once whitelisting is enabled, only such users will be able to log in (or register), so before turning it on, make sure 
+you have added at least one admin user to the whitelist.
+
+If whitelisting is enabled without any approved users or domains, no one (including administrators) will be able to log 
+in.
+:::
+
+To enable whitelisting (restricting access to approved users or domains only), ensure the following server variable is 
+**NOT** set:
+
+```
+CLEARML__apiserver__auth__fixed_user_providers__ldap__default_company
+```
+
+Once this variable is unset, only users or domains explicitly added to the whitelist can register or log into ClearML.

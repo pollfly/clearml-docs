@@ -27,7 +27,8 @@ The preceding diagram demonstrates the typical flow of hyperparameter optimizati
 ![Optimization results summary chart](../img/fundamentals_hpo_summary_dark.png#dark-mode-only)
 
 
-<Collapsible title="Parallel coordinate and scalar plots" type="screenshot">
+<Details class="panel screenshot">
+<summary class="panel-title">Parallel coordinate and scalar plots</summary>
 
 ![Parallel Coordinates](../img/fundamentals_hpo_parallel_coordinates.png#light-mode-only)
 ![Parallel Coordinates](../img/fundamentals_hpo_parallel_coordinates_dark.png#dark-mode-only)
@@ -35,8 +36,7 @@ The preceding diagram demonstrates the typical flow of hyperparameter optimizati
 ![Scalars](../img/fundamentals_hpo_scalars.png#light-mode-only)
 ![Scalars](../img/fundamentals_hpo_scalars_dark.png#dark-mode-only)
 
-</Collapsible>
-
+</Details>
 ### Supported Optimizers
 
 The `HyperParameterOptimizer` class contains ClearML's hyperparameter optimization modules. Its modular design enables 

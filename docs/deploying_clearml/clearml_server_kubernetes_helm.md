@@ -15,7 +15,7 @@ and delete all cookies under the ClearML Server URL.
 * Set up a Kubernetes cluster - For setting up Kubernetes on various platforms refer to the Kubernetes [getting started guide](https://kubernetes.io/docs/setup).
 * Set up a single node LOCAL Kubernetes on laptop / desktop - For setting up Kubernetes on your laptop/desktop, [kind](https://kind.sigs.k8s.io) is recommended.
 * Install `helm` - Helm is a tool for managing Kubernetes charts. Charts are packages of pre-configured Kubernetes resources.
-To install Helm, refer to the [Helm installation guide](https://helm.sh/docs/using_helm.html#installing-helm) in the Helm documentation.
+To install Helm, refer to the [Helm installation guide](https://helm.sh/docs/intro/install) in the Helm documentation.
 Ensure that the `helm` binary is in the PATH of your shell.
 
 ## Deployment

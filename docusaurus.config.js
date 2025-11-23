@@ -18,16 +18,20 @@ const config = {
 };
 
 module.exports = {
+  markdown: {
+    format: 'detect', // enable mdx syntax only in .mdx files, disable in .md files
+    hooks:  {onBrokenMarkdownLinks: 'warn'}
+  },
   title: 'ClearML',
   tagline: 'Auto-Magical Suite of tools to streamline your AI workflow',
   url: 'https://clear.ml',
   baseUrl: '/',
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'clearml', // Usually your GitHub org/user name.
   projectName: 'ClearML', // Usually your repo name.
   themeConfig: {
+    image: 'img/clearml_docs_meta.png',
     prism: {
       theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
@@ -138,7 +142,7 @@ module.exports = {
             },
             {
               label: 'Release Notes',
-              to: '/docs/release_notes/clearml_server/open_source/ver_2_2',
+              to: '/docs/release_notes/clearml_server/open_source/ver_2_3',
               activeBaseRegex: '^/docs/latest/docs/release_notes/',
             },
 

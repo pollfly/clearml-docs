@@ -3,8 +3,8 @@ title: ClearML Agent
 ---
 
 
-<div class="vid" >
-<iframe style={{position: 'absolute', top: '0', left: '0', bottom: '0', right: '0', width: '100%', height: '100%'}} 
+<div class="vid">
+<iframe
         src="https://www.youtube.com/embed/MX3BrXnaULs" 
         title="YouTube video player" 
         frameborder="0" 
@@ -61,7 +61,7 @@ during execution:
 * Code-level configuration instrumented with [`Task.connect()`](references/sdk/task.md#connect) will be overridden by modified hyperparameters
 
 ClearML Agent can be deployed in various setups to suit different workflows and infrastructure needs:
-* [Bare Metal](clearml_agent/clearml_agent_deployment_bare_metal.md#spinning-up-an-agent)
+* [Bare Metal / VM](clearml_agent/clearml_agent_deployment_bare_metal.md#spinning-up-an-agent)
 * [Kubernetes](clearml_agent/clearml_agent_deployment_k8s.md)
 * [Slurm](clearml_agent/clearml_agent_deployment_slurm.md)
 * [Google Colab](guides/ide/google_colab.md)

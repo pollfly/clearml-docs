@@ -7,8 +7,8 @@ keywords: [mlops, components, GitHub Actions, CI/CD]
 
 ## Video Tutorial
 
-<div class="vid" >
-<iframe style={{position: 'absolute', top: '0', left: '0', bottom: '0', right: '0', width: '100%', height: '100%'}} 
+<div class="vid">
+<iframe 
         src="https://www.youtube.com/embed/k5e-E5oEFUw?rel=0" 
         title="YouTube video player" 
         frameborder="0" 
@@ -19,7 +19,9 @@ keywords: [mlops, components, GitHub Actions, CI/CD]
 
 <br/>
 
-<Collapsible type="info" title="Video Transcript">
+<Details class="panel info">
+<summary class="panel-title">Video Transcript</summary>
+
 Hello, welcome back to ClearML my name is Victor and in this video I'll be going through some CI/CD tips and tricks you 
 can do with ClearML. For this video, I'm going to assume that you already know about ClearML and CI/CD.
 In general, the CI/CD stuff will be relatively easy to understand but if this is your first time working with ClearML, 
@@ -283,4 +285,4 @@ these kinds of things and I hope you learned something valuable today. All of th
 will be available in the link in the description, and if you need any help, join our [Slack channel](https://joinslack.clear.ml), we're always there, 
 always happy to help and thank you for watching.
 
-</Collapsible>
+</Details>

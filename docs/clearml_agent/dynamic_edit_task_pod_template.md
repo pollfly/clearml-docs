@@ -70,7 +70,7 @@ agentk8sglue:
 
 * When defining a custom code module, by default the agent will start watching pods in all namespaces 
   across the cluster. If you do not intend to give a `ClusterRole` permission, make sure to set the 
-  `CLEARML_K8S_GLUE_MONITOR_ALL_NAMESPACES` env to `"0"` to prevent the Agent to try listing pods in all namespaces. 
+  `CLEARML_K8S_GLUE_MONITOR_ALL_NAMESPACES` env to `"0"` to prevent the Agent from trying to list pods in all namespaces. 
   Instead, set it to `"1"` if namespace-related changes are needed in the code.
 
   ```yaml
@@ -175,17 +175,16 @@ In this example, a PVC is created and attached to every pod created from a dedic
 
 Key points:
 
-- `CLEARML_K8S_GLUE_POD_PRE_APPLY_CMD` and `CLEARML_K8S_GLUE_POD_POST_DELETE_CMD` env vars let you define custom bash 
+* `CLEARML_K8S_GLUE_POD_PRE_APPLY_CMD` and `CLEARML_K8S_GLUE_POD_POST_DELETE_CMD` env vars let you define custom bash 
   code hooks to be executed around the main apply command by the Agent, such as creating and deleting a PVC object.
 
-- `CLEARML_K8S_GLUE_TEMPLATE_MODULE` env var and a file mount let you define custom Python code in a specific context, 
+* `CLEARML_K8S_GLUE_TEMPLATE_MODULE` env var and a file mount let you define custom Python code in a specific context, 
   useful to dynamically update the main Pod template before the Agent applies it.
 
-:::note notes
 * This example uses a queue named `pvc-test`, make sure to replace all occurrences of it.
 
-* `CLEARML_K8S_GLUE_POD_PRE_APPLY_CMD` can reference templated vars as `{queue_name}, {pod_name}, {namespace}` that will 
-  get replaced with the actual value by the Agent at execution time.
+* `CLEARML_K8S_GLUE_POD_PRE_APPLY_CMD` can reference templated vars such as `{queue_name}, {pod_name}, {namespace}` that will 
+  be replaced with the actual values by the agent at execution time.
 
 ```yaml
 agentk8sglue:
@@ -275,4 +274,3 @@ rules:
   - delete
 ```
 
-:::

@@ -148,7 +148,7 @@ to open the app's instance launch form.
 
 ![GCP autoscaler instance launch form](../../img/apps_gcp_autoscaler_wizard.png)
 
-<a id="configuration_vault"/>
+<a id="configuration_vault"></a>
 
 :::important Enterprise Feature
 You can utilize the [configuration vault](../settings/webapp_settings_profile.md#configuration-vault) to configure GCP 

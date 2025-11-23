@@ -24,8 +24,11 @@ Once you have launched an app instance, you can view the following information i
 * Restored workspace - If a previous session's workspace was restored, this will display its session ID  
 * Current session ID  
 * Network HTTPS - Links for secure access to the containerized applications over HTTPS  
-* Endpoint - Direct URL to access the containerized application service  
-* Browser Link - URL for accessing the application through a web browser.   
+* Endpoint - A direct URL to the running containerized application service, intended for programmatic access. This endpoint 
+  does not include browser-based authentication, so you must manually provide an [Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md) 
+  access token when sending requests. You can generate a token in the ClearML Web UI under **Settings** > **Workspace** > **AI Application Gateway**. 
+* Browser Link - Opens the containerized application directly in your web browser. This link performs user 
+  authentication automatically through the browser.    
 * Total Number of Requests - Number of requests over time
 * Latency - Request response time (ms) over time
 * Server resources monitoring (CPU / GPU / vMem utilization)  
@@ -35,9 +38,12 @@ Once you have launched an app instance, you can view the following information i
 The Containerized Application Launcher makes use of the App Gateway Router which implements a secure, authenticated 
 network endpoint for the application container.
 
-If the ClearML AI application Gateway is not available, the application container might not be accessible.
+If the ClearML AI Application Gateway is not available, the application container might not be accessible.
 For more information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
+
+![Containerized Application Launcher Dashboard](../../img/apps_container_launcher.png#light-mode-only)
+![Containerized Application Launcher Dashboard](../../img/apps_container_launcher_dark.png#dark-mode-only)
 
 ## Containerized Application Launcher Instance Configuration
 
