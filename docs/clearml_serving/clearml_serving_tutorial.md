@@ -26,7 +26,7 @@ This tutorial shows how to go from setting up `clearml-serving` to a locally dep
 
 ## Run Triton-based Serving Inference Container (Docker Compose)
 
-In the following steps, you will set up up the inference container with Triton using Docker compose:
+In the following steps, you will set up the inference container with Triton using Docker compose:
 
 1. Start a serving session:   
    ```bash  

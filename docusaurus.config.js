@@ -18,13 +18,15 @@ const config = {
 };
 
 module.exports = {
-  markdown: {format: 'detect'}, // enable mdx syntax only in .mdx files, disable in .md files
+  markdown: {
+    format: 'detect', // enable mdx syntax only in .mdx files, disable in .md files
+    hooks:  {onBrokenMarkdownLinks: 'warn'}
+  },
   title: 'ClearML',
   tagline: 'Auto-Magical Suite of tools to streamline your AI workflow',
   url: 'https://clear.ml',
   baseUrl: '/',
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'clearml', // Usually your GitHub org/user name.
   projectName: 'ClearML', // Usually your repo name.
