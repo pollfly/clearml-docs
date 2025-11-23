@@ -645,22 +645,14 @@ module.exports = {
                 {
                     'Deployment': [
                         'clearml_agent/clearml_agent_deployment_bare_metal',
-                        {
-                            type: 'category',
-                            collapsible: true,
-                            collapsed: true,
-                            label: 'Kubernetes',
-                            link: {type: 'doc', id: 'clearml_agent/clearml_agent_deployment_k8s'},
-                            items: [
-                                'clearml_agent/clearml_agent_custom_workload'
-                            ]
-                        },
+                        'clearml_agent/clearml_agent_deployment_k8s',
                         'clearml_agent/clearml_agent_deployment_slurm',
                     ]
                 },
                 'clearml_agent/clearml_agent_execution_env',
                 'clearml_agent/clearml_agent_env_caching',
                 'clearml_agent/clearml_agent_services_mode',
+                'clearml_agent/clearml_agent_custom_workload',
                 {'Pod Template Customization': [
                         {
                             type: 'doc',
