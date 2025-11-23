@@ -913,144 +913,61 @@ metrics, network, AWS S3 buckets and credentials, Google Cloud Storage, Azure St
 
 **`sdk.aws`** (*dict*)
 
-* Dictionary with AWS storage options.
-
-<br/>
-
-##### sdk.aws.boto3
-    
-**`sdk.aws.boto3`** (*dict*)
-    
-* Dictionary of AWS Storage, Boto3 options. The keys include: 
-   * `max_multipart_concurrency` (*integer*) - The maximum number of threads making requests for a transfer.
-   * `multipart_threshold` (*integer*) - The transfer size threshold. If size above threshold, Boto3 will automatically use multipart uploads, downloads, and copies (in bytes)
-   * `multipart_chunksize` (*integer*) - The size of each part of a multipart transfer (in bytes).
-   * `pool_connections` (*integer*) - The maximum number of Boto3 pool connections.
-   
-       
-<br/>
-
-##### sdk.aws.s3
-    
-**`sdk.aws.s3`** (*dict*)
-    
-* Dictionary of AWS Storage, AWS S3 options.
-    
----
-
-**`sdk.aws.s3.extra_args`** (*dict*)
-
-* Additional [ExtraArgs](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-uploading-files.html#the-extraargs-parameter) 
-  passed to boto3 when uploading files. This can be set per-bucket under `sdk.aws.s3.credentials`.
-
----
-    
-**`sdk.aws.s3.key`** (*string*)
-    
-* For AWS S3, the default access key for any bucket that is not specified in the `sdk.aws.s3.credentials` section.
-    
----
-
-**`sdk.aws.s3.profile`** (*string*)
-    
-* For AWS S3, the default profile name for any bucket that is not specified in the `sdk.aws.s3.credentials` section.
-    
----
-
-**`sdk.aws.s3.region`** (*string*)
-    
-* For AWS S3, the default region name for any bucket that is not specified in the `sdk.aws.s3.credentials` section.
-    
----
-    
-**`sdk.aws.s3.secret`** (*string*)
-    
-* For AWS S3, the default secret access key for any bucket that is not specified in the `sdk.aws.s3.credentials` section.
-    
----
-
-**`sdk.aws.s3.use_credentials_chain`** (*bool*)
-
-* Set to `true` to let Boto3 look for and pick the right credentials, instead of using the explicitly provided 
-  default credentials (`sdk.aws.s3.secret` and `sdk.aws.s3.key`). Boto3 looks for credentials in environment variables,
-  a credential file, and metadata service with an IAM role configured. See [Boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#configuring-credentials).
-  
-
-<br/>
-
-###### sdk.aws.s3.credentials
-    
-**`sdk.aws.s3.credentials`** (*[dict]*)
-    
-* List of dictionaries, for AWS S3, each dictionary can contain the credentials for individual S3 buckets or hosts for individual buckets.
-
----
-    
-**`sdk.aws.s3.credentials.bucket`** (*string*)
-    
-* For AWS S3, if specifying credentials for individual buckets, then this is the bucket name for an individual bucket.
+* Dictionary with AWS storage options. Parameters include: 
  
-:::note
-See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) for restrictions 
-and limitations on bucket naming.
-:::
+  * **`sdk.aws.boto3`** (*dict*) - Boto3-specific AWS storage options:
+
+    * `max_multipart_concurrency` (*integer*) - Maximum number of threads making requests for a transfer.
+    * `multipart_threshold` (*integer*) - Transfer size threshold (in bytes). For transfers above this threshold, 
+    Boto3 will automatically use multipart uploads/downloads/copies.
+    * `multipart_chunksize` (*integer*) - Size of each part in a multipart transfer (in bytes).
+    * `pool_connections` (*integer*) - Maximum number of Boto3 pool connections.
+    * `connect_timeout` (*float* or *integer*) - Time till a timeout exception is thrown when attempting to make a 
+    connection (in seconds). Default is 60 seconds. 
+    * `signature_version` (*string*) - AWS Signature version to use when signing requests. 
+    * `read_timeout` (*float* / *integer*) - Time till a timeout exception is thrown when attempting to read from a 
+    connection (in seconds). The default is 60 seconds.
   
----
-    
-**`sdk.aws.s3.credentials.host`** (*string*)
-    
-* For AWS S3, if specifying credentials for individual buckets by host, then this option is the host URL and optionally the port number.
-    
----
-    
-**`sdk.aws.s3.credentials.key`** (*string*)
-    
-* For AWS S3:
+  * **`sdk.aws.s3`** (*dict*) - AWS S3 options:
+    * `credentials` (*[dict]*) - List of dictionaries specifying credentials for individual S3 buckets or hosts.See more information [below](#sdkawss3credentials). 
+    * `key` (*string*) - Default access key for buckets not specified in `sdk.aws.s3.credentials`.
+    * `secret`** (*string*) - Default secret access key for buckets not specified in `sdk.aws.s3.credentials`.
+    * `profile` (*string*) -  Default AWS profile for buckets not specified in `sdk.aws.s3.credentials`.
+    * `region` (*string*) - Default region for buckets not specified in `sdk.aws.s3.credentials`.
+    * `extra_args`** (*dict*) - Additional [ExtraArgs](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-uploading-files.html#the-extraargs-parameter) 
+    passed to Boto3 when uploading files. Can be set per bucket under `sdk.aws.s3.credentials`.
+    * `use_credentials_chain` (*bool*) - Set to `true` to let Boto3 automatically locate credentials via environment 
+    variables, credential files, or IAM role metadata instead of using explicit parameters (key and secret). See [Boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#configuring-credentials).
+  
+##### sdk.aws.s3.credentials
 
-    * If specifying individual bucket, then this is the access key for the bucket.
-    * If specifying individual buckets by host, then this is access key for all buckets on the host.
-    
----
-    
-**`sdk.aws.s3.credentials.multipart`** (*bool*)
-    
-* For AWS S3, if specifying credentials for individual buckets by host, then this indicates whether to allow multipart upload of a single object (object as a set of parts).
+**`sdk.aws.s3.credentials`** (*[dict]*)
 
-    The values are:
+* List of dictionaries containing credentials for individual S3 buckets or hosts for individual buckets. Each dictionary 
+  can override the default credentials for a specific bucket or host. Each dictionary can contain the following options:
 
+  * `bucket` (*string*) - Bucket name. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) for bucket naming restrictions.
+  * `host` (*string*) - Optional host URL (and optionally port). When set, these credentials apply to any bucket on the host
+  * `key` (*string*): 
+    * If `bucket` is specified, the key applies only to that bucket. 
+    * If `host` is specified, the key applies to all buckets on that host.
+  * `secret` (*bool*):
+    * If `bucket` is specified, the secret applies only to that bucket. 
+    * If `host` is specified, the secret applies to all buckets on that host.
+  * `multipart` (*bool*) - Whether to enable multipart uploads.
     * `true` - Enabled
     * `false` - Disabled
-    
----
-    
-**`sdk.aws.s3.credentials.secret`** (*bool*)
-    
-* For AWS S3:
-    
-    * If specifying credentials for a specific bucket, then this is the secret key for the bucket.
-    * If specifying credentials for individual buckets by host, then this is the secret key for all buckets on the host.
-    
----
-    
-**`sdk.aws.s3.credentials.secure`** (*string*)
-    
-* For AWS S3, if specifying credentials for individual buckets by host, then this indicates whether the host is secure.
-
-    The values are:
-    
+  * `secure` (*string*) - Whether the host is secure.
     * `true` - Secure
     * `false` - Not secure
-  
-<br/>
+  * `verify` (*string* / *bool*) - Whether to verify SSL certificates:
+    * `true` (default) - Verify 
+    * `false` - Skip SSL verification , 
+    * Provide a path/URL to a CA bundle.
 
----
-    
-**`sdk.aws.s3.credentials.verify`** (*string*/*boolean*)
+* Other keys from `sdk.aws.s3` such as `region`, `profile`, and `extra_args` are also available per bucket/host and behave 
+  the same as the defaults under `sdk.aws.s3`.
 
-* Specify whether to verify SSL certificates. By default, verification is enabled (`true`). You can provide a path or a 
-URL to a CA bundle, or set this option to `false` to skip SSL certificate verification. 
-
-  
 <br/>
 
 #### sdk.azure.storage
