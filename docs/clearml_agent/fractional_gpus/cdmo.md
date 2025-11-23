@@ -96,6 +96,46 @@ This guide covers:
    kubectl label nodes <NODE_NAME> "cdmo.clear.ml/gpu-partitioning=mig"
    ```
 
+## Assigning MIG Profiles to Workloads
+
+ClearML Agents deployed on Kubernetes support per-queue [customization](../clearml_agent_custom_workload.md) of workload 
+pod definitions.
+
+The example below demonstrates how to configure the ClearML Agent helm chart to use specific MIG profiles depending on 
+the queue a workload is submitted on:
+* Workloads assigned to the `slice-1` queue will be allocated a single 1 GPU instance, 10GB MIG slice.
+* Workloads assigned to the `slice-2` queue will be allocated a single 2 GPU instance, 20GB MIG slice.
+* Workloads assigned to the `slice-4` queue will be allocated a single 4 GPU instance, 40GB MIG slice.
+* Workloads assigned to the `slice-7` queue will be allocated a single 7 GPU instance, 80GB MIG slice. 
+
+```
+agentk8sglue:
+  queues:
+    slice-1:
+      templateOverrides:
+        resources:
+          limits:
+            nvidia.com/mig-1g.10gb: "1"
+
+    slice-2:
+      templateOverrides:
+        resources:
+          limits:
+            nvidia.com/mig-2g.20gb: "1"
+
+    slice-4:
+      templateOverrides:
+        resources:
+          limits:
+            nvidia.com/mig-4g.40gb: "1"
+
+    slice-7:
+      templateOverrides:
+        resources:
+          limits:
+            nvidia.com/mig-7g.80gb: "1"
+```
+
 ## Disabling MIGs
 
 To disable MIG mode and restore standard full-GPU access:
