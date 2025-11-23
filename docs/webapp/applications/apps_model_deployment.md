@@ -183,7 +183,7 @@ instance task will be enqueued (make sure an agent is assigned to that queue)
     weights are not quantized and uses the dtype to determine the data type.  
   * Num Lookahead Slots: Experimental scheduling config necessary for speculative decoding.  
   * Model Overrides: Add to or override this model's configuration. The model options have to correspond to 
-  [vLLM options](https://docs.vllm.ai/en/latest/serving/engine_args.html). For example, `pipeline_parallel_size` 
+  [vLLM options](https://docs.vllm.ai/en/stable/configuration/engine_args/). For example, `pipeline_parallel_size` 
   corresponds to the `--pipeline-parallel-size` option in vLLM. To set a flag, pass `flag: true`, for example, `enforce_eager: true` 
   corresponds to the `--enforce-eager` flag
 * **LoRA Configuration** 
