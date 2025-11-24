@@ -32,12 +32,10 @@ Set the following environment variables for the `apiserver`:
 * KeyCloak Access Token Endpoint: `CLEARML__services__login__sso__oauth_client__keycloak__access_token_url=<token endpoint>`
 * KeyCloak Client ID: `CLEARML__secure__login__sso__oauth_client__keycloak__client_id="${KEYCLOAK_AUTH_CLIENT_ID}"`
 * KeyCloak Client Secret: `CLEARML__secure__login__sso__oauth_client__keycloak__client_secret="${KEYCLOAK_AUTH_CLIENT_SECRET}"`
-
-To allow the identity provider to automatically create new users in ClearML without requiring them to be whitelisted in 
-advance, set the following environment variable:  
-```
-CLEARML__secure__login__sso__oauth_client__keycloak__default_company="<company_id>"
-```
+* KeyCloak IdP Logout Redirect - When logging out of the ClearML UI, this redirects the user to the Keycloak logout page: `CLEARML__services__login__sso__oauth_client__keycloak__idp_logout=true`
+* Username Claim Override - By default, ClearML retrieves the Keycloak username under the `name` claim. Some Keycloak deployments 
+  return the username under `preferred_username`. Use this variable to specify which claim contains the username: `CLEARML__services__login__sso__oauth_client__keycloak__claims__name=preferred_username`
+* Default Company -  Allows the identity provider to automatically create new users in ClearML without requiring them to be whitelisted in advance: `CLEARML__secure__login__sso__oauth_client__keycloak__default_company="<company_id>"`
 
 ## User Group Integration
 ClearML can sync group membership from Keycloak. For each Keycloak group you want to sync user membership with, manually 
