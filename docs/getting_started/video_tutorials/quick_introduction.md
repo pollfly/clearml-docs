@@ -7,8 +7,8 @@ keywords: [mlops, components, features, ClearML]
 
 ## Video Tutorial
 
-<div class="vid" >
-<iframe style={{position: 'absolute', top: '0', left: '0', bottom: '0', right: '0', width: '100%', height: '100%'}} 
+<div class="vid">
+<iframe 
         src="https://www.youtube.com/embed/U7n9qXIBxEg?si=UYM07PJvUKI2fI28" 
         title="YouTube video player" 
         frameborder="0" 
@@ -19,7 +19,9 @@ keywords: [mlops, components, features, ClearML]
 
 <br/>
 
-<Collapsible type="info" title="Video Transcript">
+
+<Details class="panel info"> 
+<summary class="panel-title">Video Transcript</summary>
 ClearML is an open source MLOPS platform.
 
 It's essentially a toolbox stuffed with everything you'll need to go from experimentation to production:
@@ -33,5 +35,4 @@ It's essentially a toolbox stuffed with everything you'll need to go from experi
 Doesn't matter if you're starting small or already in production, there's always a ClearML tool that can make your life easier.
 
 Start for free at [app.clear.ml](https://app.clear.ml) or host your own server from our [GitHub page](https://github.com/clearml/clearml-server).
-
-</Collapsible>
+</Details>

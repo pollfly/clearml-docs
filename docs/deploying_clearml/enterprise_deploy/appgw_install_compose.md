@@ -3,7 +3,7 @@ title: Docker-Compose Deployment
 ---
 
 :::important Enterprise Feature
-The Application Gateway is available under the ClearML Enterprise plan.
+The AI Application Gateway is available under the ClearML Enterprise plan.
 :::
 
 The AI Application Gateway enables external HTTP(S) or direct TCP access to ClearML tasks and applications running on 
@@ -13,6 +13,11 @@ machine, outside the workload's network.
 This guide describes how to install and run the ClearML AI Application Gateway using docker-compose for environments 
 where you manage both the ClearML Server and the workload nodes.
 
+Each App Gateway serves the workloads that are reachable within its network environment.
+You can use a single App Gateway to serve multiple worker hosts, as long as they are on the same network and can 
+communicate with the gateway. If you have isolated networks (for example, three separate environments that cannot reach 
+each other), deploy one App Gateway per network. For example, if you have three workloads on different networks, you must 
+deploy three App Gateways, one per network.
 
 ## Requirements
 
@@ -81,8 +86,8 @@ services:
 Create a `runtime.env` file containing the following entries:
 
 ```
-PROXY_TAG=1.5.1
-ROUTER_TAG=2.6.2
+PROXY_TAG=1.6.0
+ROUTER_TAG=2.9.2
 ROUTER_NAME=main-router
 ROUTER__WEBSERVER__SERVER_PORT=8010
 ROUTER_URL=
@@ -107,6 +112,7 @@ TCP_PORT_END=
 * `ROUTER_URL`: External address to access the router. This can be the IP address or DNS of the node where the router 
   is running, or the address of a load balancer if the router operates behind a proxy/load balancer. This URL is used 
   to access AI workload applications (e.g. remote IDE, model deployment, etc.), so it must be reachable and resolvable for them.
+  The URL should be in the following format: `http://<ADDRESS>:<PORT>`.
 * `CLEARML_API_HOST`: ClearML API server URL starting with `https://api.`
 * `CLEARML_API_ACCESS_KEY`: ClearML server API key.
 * `CLEARML_API_SECRET_KEY`: ClearML server secret key.

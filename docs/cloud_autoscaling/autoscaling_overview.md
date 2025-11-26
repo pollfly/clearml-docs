@@ -2,8 +2,8 @@
 title: Cloud Autoscaling
 ---
 
-<div class="vid" >
-<iframe style={{position: 'absolute', top: '0', left: '0', bottom: '0', right: '0', width: '100%', height: '100%'}} 
+<div class="vid">
+<iframe 
         src="https://www.youtube.com/embed/j4XVMAaUt3E" 
         title="YouTube video player" 
         frameborder="0" 
@@ -96,7 +96,7 @@ enough resources are available.
  
 You can set up Kubernetes' cluster autoscaler to work with your cloud providers, which automatically adjusts the size of 
 your Kubernetes cluster as needed; increasing the amount of nodes when there aren't enough to execute pods and removing 
-underutilized nodes. See [charts](https://github.com/kubernetes/autoscaler/tree/master/charts) for specific cloud providers.
+underutilized nodes. See [charts](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/charts/cluster-autoscaler) for specific cloud providers.
 
 :::important Enterprise features
 The ClearML Enterprise plan supports K8S servicing multiple ClearML queues, as well as providing a pod template for each 

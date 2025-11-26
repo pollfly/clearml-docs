@@ -89,6 +89,12 @@ of a dataset card to open its context menu and access dataset actions:
 * **Rename** - Change the dataset's name
 * **Add Tag** - Add label to the dataset to help easily classify groups of datasets.
 * **Edit Metadata** - Modify dataset-level metadata. This will open the metadata edit window, where you can edit the section
+* **Delete** - Delete the dataset and all its versions.  
+  <br/><br/>
+  :::warning
+  You cannot undo the deletion of a Hyper-Dataset.
+  :::
+
 
 ## Create New Hyper-Datasets
 

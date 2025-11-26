@@ -2,6 +2,10 @@
 title: Multi-Tenant Login Mode
 ---
 
+:::important Enterprise Feature
+Identity provider integration is available under the ClearML Enterprise plan.
+:::
+
 In a multi-tenant setup, each external tenant can be represented by an SSO client defined in the customer Identity provider 
 (Keycloak). Each ClearML tenant can be associated with a particular external tenant. Currently, only one 
 ClearML tenant can be associated with a particular external tenant
@@ -36,8 +40,8 @@ Set the following environment variables in the ClearML enterprise helm chart und
 Enable `onlyPasswordLogin` by setting the following environment variable in the helm chart under the `webserver` section:
 
 ``` 
-- name: WEBSERVER__onlyPasswordLogin`  
-  value: “true”`
+- name: WEBSERVER__onlyPasswordLogin 
+  value: “true”
 ```
 
 ## Setup IdP for a ClearML Tenant

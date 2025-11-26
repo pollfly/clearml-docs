@@ -325,10 +325,10 @@ a `Summary` table.
 
 #### Scalar Plot Tools
 
-Use the scalar tools to improve analysis of scalar metrics. In the info panel, click <img src="/docs/latest/icons/ico-settings.svg" alt="Settings gear" className="icon size-md space-sm" /> to use the tools. In the full screen details view, the tools
+Use the scalar tools to improve analysis of scalar metrics. In the info panel, click <img src="/docs/latest/icons/ico-tune.svg" alt="Tuning" className="icon size-md" /> to access the tools. In the full-screen details view, the tools
 are on the left side of the window. The tools include:
 
-<a id="group_by"/>
+<a id="group_by"></a>
 
 * **Group by** - Select one of the following:
   * **Metric** - Displays all variants for a metric on the same plot. For example, if you have a "Test" metric with 
@@ -349,7 +349,8 @@ are on the left side of the window. The tools include:
   * Time from start - Time since task began
   * Wall time - Local clock time
 * Curve smoothing - Choose which smoothing algorithm to use from the dropdown menu: Exponential moving average, Gaussian, 
-  or Running Average. Use the slider to configure the smoothing factor or specify a value manually. 
+  or Running Average. Use the sliders to configure smoothing factors or specify a value manually.  Use the `Show Originals` 
+  toggle control to show both original and smoothed plots, or smoothed plots only.
 * Show / hide plots - Click <img src="/docs/latest/icons/ico-show.svg" alt="Eye Show" className="icon size-md space-sm" /> to control which 
   plots to display. For example, to display specific plots, click **HIDE ALL**, and then click <img src="/docs/latest/icons/ico-show.svg" alt="Eye Show" className="icon size-md space-sm" /> 
   on each plot you want to view.
@@ -484,8 +485,8 @@ buttons (or using the left/right arrow keyboard shortcut).
 
 ## Tagging Tasks
 
-<div class="vid" >
-<iframe style={{position: 'absolute', top: '0', left: '0', bottom: '0', right: '0', width: '100%', height: '100%'}} 
+<div class="vid">
+<iframe 
         src="https://www.youtube.com/embed/uqik38jlBsQ?si=joU-KOPpUNLbn6Ws" 
         title="YouTube video player" 
         frameborder="0" 

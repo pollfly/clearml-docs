@@ -71,7 +71,7 @@ module.exports = {
                 collapsed: true,
                 label: 'ClearML Serving',
                 link: {type: 'doc', id: 'clearml_serving/clearml_serving'},
-                items: ['clearml_serving/clearml_serving_setup', 'clearml_serving/clearml_serving_cli', 'clearml_serving/clearml_serving_tutorial']
+                items: ['clearml_serving/clearml_serving_tutorial', 'clearml_serving/clearml_serving_extra']
             },
             {
                 type: 'category',
@@ -94,9 +94,28 @@ module.exports = {
         {"Building Interactive Model Demos": [
             {type: 'ref', id: 'webapp/applications/apps_gradio'},
             {type: 'ref', id: 'webapp/applications/apps_streamlit'},
+            {type: 'ref', id: 'webapp/applications/apps_llm_ui'},
         ]},
         'getting_started/task_trigger_schedule',
         'getting_started/project_progress',
+        {'Video Tutorials': [
+            'getting_started/video_tutorials/quick_introduction',
+            'getting_started/video_tutorials/core_component_overview',
+            'getting_started/video_tutorials/experiment_manager_hands-on',
+            'getting_started/video_tutorials/experiment_management_best_practices',
+            'getting_started/video_tutorials/agent_remote_execution_and_automation',
+            'getting_started/video_tutorials/hyperparameter_optimization',
+            'getting_started/video_tutorials/pipelines_from_code',
+            'getting_started/video_tutorials/pipelines_from_tasks',
+            'getting_started/video_tutorials/clearml-data',
+            'getting_started/video_tutorials/the_clearml_autoscaler',
+            'getting_started/video_tutorials/hyperdatasets_data_versioning',
+            {'Hands-on MLOps Tutorials': [
+                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_a_data_scientist',
+                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_an_mlops_engineer',
+                'getting_started/video_tutorials/hands-on_mlops_tutorials/ml_ci_cd_using_github_actions_and_clearml'
+            ]}
+        ]},
     ],
     integrationsSidebar: [
             {
@@ -266,34 +285,18 @@ module.exports = {
                 'hyperdatasets/dataviews',
             ]
         },
-        {'Video Tutorials': [
-            'getting_started/video_tutorials/quick_introduction',
-            'getting_started/video_tutorials/core_component_overview',
-            'getting_started/video_tutorials/experiment_manager_hands-on',
-            'getting_started/video_tutorials/experiment_management_best_practices',
-            'getting_started/video_tutorials/agent_remote_execution_and_automation',
-            'getting_started/video_tutorials/hyperparameter_optimization',
-            'getting_started/video_tutorials/pipelines_from_code',
-            'getting_started/video_tutorials/pipelines_from_tasks',
-            'getting_started/video_tutorials/clearml-data',
-            'getting_started/video_tutorials/the_clearml_autoscaler',
-            'getting_started/video_tutorials/hyperdatasets_data_versioning',
-            {'Hands-on MLOps Tutorials': [
-                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_a_data_scientist',
-                'getting_started/video_tutorials/hands-on_mlops_tutorials/how_clearml_is_used_by_an_mlops_engineer',
-                'getting_started/video_tutorials/hands-on_mlops_tutorials/ml_ci_cd_using_github_actions_and_clearml'
-            ]}
-        ]},
+
     ],
     rnSidebar: [
         {'Server': [
             {
                 'Open Source':
                         [
-                           'release_notes/clearml_server/open_source/ver_2_1',
+                           'release_notes/clearml_server/open_source/ver_2_3',
                            {
                                'Older Versions': [
-                                   'release_notes/clearml_server/open_source/ver_2_0',
+                                   'release_notes/clearml_server/open_source/ver_2_2',
+                                   'release_notes/clearml_server/open_source/ver_2_1', 'release_notes/clearml_server/open_source/ver_2_0',
                                    'release_notes/clearml_server/open_source/ver_1_17', 'release_notes/clearml_server/open_source/ver_1_16',
                                    'release_notes/clearml_server/open_source/ver_1_15', 'release_notes/clearml_server/open_source/ver_1_14',
                                    'release_notes/clearml_server/open_source/ver_1_13', 'release_notes/clearml_server/open_source/ver_1_12',
@@ -314,10 +317,11 @@ module.exports = {
             {
                 'Enterprise':
                         [
-                           'release_notes/clearml_server/enterprise/ver_3_25',
+                           'release_notes/clearml_server/enterprise/ver_3_27',
                            {
                                 'Older Versions': [
-                                     'release_notes/clearml_server/enterprise/ver_3_24',
+                                     'release_notes/clearml_server/enterprise/ver_3_26',
+                                     'release_notes/clearml_server/enterprise/ver_3_25', 'release_notes/clearml_server/enterprise/ver_3_24',
                                      'release_notes/clearml_server/enterprise/ver_3_23', 'release_notes/clearml_server/enterprise/ver_3_22',
                                      'release_notes/clearml_server/enterprise/ver_3_21', 'release_notes/clearml_server/enterprise/ver_3_20'
                                 ]
@@ -366,10 +370,10 @@ module.exports = {
         ]},
         {'ClearML Agent':
             [
-                'release_notes/clearml_agent/ver_1_9',
+                'release_notes/clearml_agent/ver_2_0',
                 {
                     'Older Versions': [
-                        'release_notes/clearml_agent/ver_1_8',
+                        'release_notes/clearml_agent/ver_1_9', 'release_notes/clearml_agent/ver_1_8',
                         'release_notes/clearml_agent/ver_1_7', 'release_notes/clearml_agent/ver_1_6',
                         'release_notes/clearml_agent/ver_1_5', 'release_notes/clearml_agent/ver_1_4',
                         'release_notes/clearml_agent/ver_1_3', 'release_notes/clearml_agent/ver_1_2',
@@ -391,7 +395,37 @@ module.exports = {
                     ]
                 }
             ]
-        }
+        },
+        {'Applications':
+            [
+                {'Deploy':
+                    [
+                        'release_notes/apps/llm_ui', 'release_notes/apps/vllm_model_deployment',
+                        'release_notes/apps/embedding_model_deployment',
+                        'release_notes/apps/llama_model_deployment',
+                        'release_notes/apps/sglang',
+                        'release_notes/apps/containerized_app'
+                    ]
+                },
+                {'NVAIE':
+                    [
+                        'release_notes/apps/nvidia_nim'
+                    ]
+                },
+                {'AI Dev':
+                    [
+                        'release_notes/apps/ssh_session', 'release_notes/apps/jupyterlab',
+                        'release_notes/apps/vs_code', 'release_notes/apps/vm_desktop',
+                    ]
+                },
+                {'Databases':
+                    [
+                        'release_notes/apps/qdrant', 'release_notes/apps/milvus'
+                    ]
+                }
+            ]
+        },
+        {'Autoscalers': ['release_notes/autoscalers/aws_autoscaler', 'release_notes/autoscalers/gcp_autoscaler']}
     ],
     referenceSidebar: [
         {'SDK': [
@@ -439,7 +473,8 @@ module.exports = {
             'apps/clearml_param_search',
             {type: 'ref', id: 'apps/clearml_session'},
             {type: 'ref', id: 'clearml_serving/clearml_serving_cli'},
-            ]        },
+            ]
+        },
         {'ClearML Agent': [
             'clearml_agent/clearml_agent_ref', 'clearml_agent/clearml_agent_env_var'
         ]},
@@ -493,6 +528,7 @@ module.exports = {
                             'webapp/applications/apps_ssh_session',
                             'webapp/applications/apps_jupyter_lab',
                             'webapp/applications/apps_vscode',
+                            'webapp/applications/apps_vm_desktop',
                         ]},
                         {"UI Dev": [
                             'webapp/applications/apps_gradio',
@@ -501,8 +537,14 @@ module.exports = {
                         {"Deploy": [
                             'webapp/applications/apps_embed_model_deployment',
                             'webapp/applications/apps_model_deployment',
-                            'webapp/applications/apps_llama_deployment'
+                            'webapp/applications/apps_llama_deployment',
+                            'webapp/applications/apps_sglang',
+                            'webapp/applications/apps_container_launcher',
+                            'webapp/applications/apps_llm_ui',
                         ]},
+                        {"NVAIE":[
+                            'webapp/applications/apps_nvidia_nim',
+                        ]}
                     ]
                 },
                 {
@@ -542,6 +584,7 @@ module.exports = {
                     'webapp/webapp_home',
                     'webapp/webapp_projects_page',
                     'webapp/webapp_project_overview',
+                    'webapp/webapp_project_workloads',
                     {'Tasks': [
                         'webapp/webapp_exp_table',
                         'webapp/webapp_exp_track_visual',
@@ -584,7 +627,8 @@ module.exports = {
                         'webapp/settings/webapp_settings_resource_configs',
                         'webapp/settings/webapp_settings_app_gw',
                         'webapp/settings/webapp_settings_usage_billing',
-                        'webapp/settings/webapp_settings_storage_credentials'
+                        'webapp/settings/webapp_settings_storage_credentials',
+                        'webapp/settings/webapp_settings_ui_customization'
                     ]
                 },
             ]
@@ -598,7 +642,6 @@ module.exports = {
             collapsed: true,
             label: 'ClearML Agent',
             items: [
-                'clearml_agent/clearml_agent_setup',
                 {
                     'Deployment': [
                         'clearml_agent/clearml_agent_deployment_bare_metal',
@@ -609,6 +652,53 @@ module.exports = {
                 'clearml_agent/clearml_agent_execution_env',
                 'clearml_agent/clearml_agent_env_caching',
                 'clearml_agent/clearml_agent_services_mode',
+                'clearml_agent/clearml_agent_custom_workload',
+                {'Pod Template Customization': [
+                        {
+                            type: 'doc',
+                            label: 'String Templates',
+                            id: 'clearml_agent/clearml_agent_string_template'
+                        },
+                        {
+                            type: 'doc',
+                            label: 'Conditional Templates',
+                            id: 'clearml_agent/clearml_agent_conditional_template'
+                        },
+                        {
+                            type: 'doc',
+                            label: 'Dynamic Templates',
+                            id: 'clearml_agent/dynamic_edit_task_pod_template'
+                        },
+                    ]
+                },
+                'clearml_agent/multi_node_training',
+                'clearml_agent/clearml_agent_nvcr',
+                {
+                    type: 'category',
+                    collapsible: true,
+                    label: 'Fractional GPUs',
+                    items: [
+                        'clearml_agent/fractional_gpus/bare_metal_dynamic_fractional_gpus',
+                        {
+                            type: 'doc',
+                            label: 'ClearML Dynamic MIG Operator (CDMO)',
+                            id: 'clearml_agent/fractional_gpus/cdmo'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'clearml_agent/fractional_gpus/cfgi'
+                        },
+                        {
+                            type: 'doc',
+                            id: 'clearml_agent/fractional_gpus/cdmo_cfgi_same_cluster'
+                        },
+                        {
+                            type: 'doc',
+                            label: 'GPU Operator Basic Deployment',
+                            id: 'clearml_agent/fractional_gpus/gpu_operator'
+                        },
+                    ],
+                },
             ]
         },
         {
@@ -650,10 +740,31 @@ module.exports = {
             label: 'Enterprise Server',
             items: [
                 {'Deployment Options': [
-                    'deploying_clearml/enterprise_deploy/k8s',
-                   'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
+                    {
+                       type: 'category',
+                       collapsible: true,
+                       collapsed: true,
+                       label: 'Kubernetes',
+                       link: {type: 'doc', id: 'deploying_clearml/enterprise_deploy/k8s'},
+                       items: [
+                          {
+                             type: 'doc',
+                             id: 'deploying_clearml/enterprise_deploy/extra_configs/custom_billing'
+                          },
+                          {
+                             type: 'doc',
+                             id: 'deploying_clearml/enterprise_deploy/extra_configs/presign_service'
+                          },
+                          {
+                             type: 'doc',
+                             id: 'deploying_clearml/enterprise_deploy/extra_configs/self_signed_certificates'
+                          },
+                       ]
+                    },
+                    'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
                     'deploying_clearml/enterprise_deploy/vpc_aws',
                     'deploying_clearml/enterprise_deploy/on_prem_ubuntu',
+                    'deploying_clearml/enterprise_deploy/openshift',
                     'deploying_clearml/enterprise_deploy/air_gapped_env',
                     ]
                 },
@@ -663,38 +774,66 @@ module.exports = {
                     'deploying_clearml/enterprise_deploy/delete_tenant',
                     ]
                 },
-                {'ClearML Application Gateway': [
-                    'deploying_clearml/enterprise_deploy/appgw_install_compose',
-                    'deploying_clearml/enterprise_deploy/appgw_install_compose_hosted',
-                    'deploying_clearml/enterprise_deploy/appgw_install_k8s',
-                    ]
-                },
-                {'UI Applications': [
-                   'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
-                   'deploying_clearml/enterprise_deploy/app_install_ex_server',
-                   'deploying_clearml/enterprise_deploy/app_custom',
-                   ]
-                },
                 {'Configuration and Access Controls': [
                    'user_management/user_groups',
                    'user_management/access_rules',
                    'user_management/admin_vaults',
-                   {
-                        type: 'category',
-                        collapsible: true,
-                        collapsed: true,
-                        label: 'Identity Provider Integration',
-                        link: {type: 'doc', id: 'user_management/identity_providers'},
-                        items: [
-                            'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
-                            'deploying_clearml/enterprise_deploy/sso_saml_k8s',
-                            'deploying_clearml/enterprise_deploy/sso_keycloak',
-                            'deploying_clearml/enterprise_deploy/sso_active_directory'
-                        ]
-                   },
                    ]
                 },
+                'deploying_clearml/enterprise_deploy/extra_configs/customizing_ui'
+            ],
+        },
+        {'ClearML Application Gateway': [
+            'deploying_clearml/enterprise_deploy/appgw_install_compose',
+            'deploying_clearml/enterprise_deploy/appgw_install_compose_hosted',
+            'deploying_clearml/enterprise_deploy/appgw_install_k8s',
             ]
+        },
+        {'UI Applications': [
+            'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
+            'deploying_clearml/enterprise_deploy/apps_k8s',
+            'deploying_clearml/enterprise_deploy/app_install_ex_server',
+            'deploying_clearml/enterprise_deploy/app_custom',
+            'deploying_clearml/enterprise_deploy/app_launch_form_custom',
+            ]
+        },
+        {
+           type: 'category',
+           collapsible: true,
+           collapsed: true,
+           label: 'Identity Provider Integration',
+           link: {type: 'doc', id: 'user_management/identity_providers'},
+           items: [
+                { "OAuth":
+                    [
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_amazon_cognito_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_azure_ad_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_google_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_keycloak_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_microsoft_ad_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_ping_id_oauth',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_okta_oauth',
+                    ]
+                },
+                {"SAML":
+                    [
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_duo_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_google_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_microsoft_ad_saml',
+                        'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_jumpcloud_saml',
+
+                    ]
+                },
+                'deploying_clearml/enterprise_deploy/extra_configs/sso/sso_ldap',
+//              'deploying_clearml/enterprise_deploy/sso_multi_tenant_login',
+
+
+           ]
+        },
+        {
+            type: 'doc',
+            label: 'ClearML Serving',
+            id: 'clearml_serving/clearml_serving_setup'
         },
     ],
     bestPracticesSidebar: [
@@ -721,73 +860,5 @@ module.exports = {
             ],
         },
     ],
-    enterpriseDeploy: [
-       {
-          type: 'category',
-          collapsible: true,
-          label: 'ClearML Enterprise K8s Installation and Configuration',
-          link: {type: 'doc', id: 'deploying_clearml/enterprise_deploy/k8s_overview'},
-          items: [
-            'deploying_clearml/enterprise_deploy/agent_k8s',
-            'deploying_clearml/enterprise_deploy/extra_configs/apps',
-            {
-                type: 'category',
-                collapsible: true,
-                label: 'Extra Configuration',
-                items: [
-                    {
-                        type: 'doc',
-                        label: 'GPU Operator Basic Deployment',
-                        id: 'deploying_clearml/enterprise_deploy/extra_configs/gpu_operator'
-                    },                    {
-                        type: 'doc',
-                        id: 'deploying_clearml/enterprise_deploy/extra_configs/custom_billing'
-                    },
-                    {
-                        type: 'doc',
-                        id: 'deploying_clearml/enterprise_deploy/extra_configs/presign_service'
-                    },
-                    {
-                        type: 'doc',
-                        id: 'deploying_clearml/enterprise_deploy/extra_configs/dynamic_edit_task_pod_template'
-                    },
-                    {
-                        type: 'doc',
-                        id: 'deploying_clearml/enterprise_deploy/extra_configs/multi_node_training'
-                    },
 
-                    {
-                        type: 'doc',
-                        label: 'K8s Deployment with Self-Signed Certificates',
-                        id: 'deploying_clearml/enterprise_deploy/extra_configs/self_signed_certificates'
-                    },
-                    {
-                        type: 'doc',
-                        id: 'deploying_clearml/enterprise_deploy/extra_configs/sso_login'
-                    },
-                ],
-            },
-            {
-                type: 'category',
-                collapsible: true,
-                label: 'Fractional GPUs',
-                items: [
-                    {
-                        type: 'doc',
-                        label: 'ClearML Dynamic MIG Operator (CDMO)',
-                        id: 'deploying_clearml/enterprise_deploy/fractional_gpus/cdmo'
-                    },
-                    {
-                        type: 'doc',
-                        id: 'deploying_clearml/enterprise_deploy/fractional_gpus/cfgi'
-                    },
-                    {
-                        type: 'doc',
-                        id: 'deploying_clearml/enterprise_deploy/fractional_gpus/cdmo_cfgi_same_cluster'
-                    },
-                ],
-            },
-          ]
-       }
-    ]
 };

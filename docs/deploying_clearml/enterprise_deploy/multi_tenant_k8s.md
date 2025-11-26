@@ -15,38 +15,12 @@ apiserver:
   extraEnvs:
     - name: CLEARML__services__organization__features__user_management_advanced
       value: "true"
-    - name: CLEARML__services__auth__ui_features_per_role__user__show_datasets
-      value: "false"
-    - name: CLEARML__services__auth__ui_features_per_role__user__show_orchestration
-      value: "false"
-    - name: CLEARML__services__workers__resource_usages__supervisor_company
-      value: "<SUPERVISOR_COMPANY_ID>" 
-    - name: CLEARML__secure__credentials__supervisor__role
-      value: "system"
-    - name: CLEARML__secure__credentials__supervisor__allow_login
-      value: "true"
-    - name: CLEARML__secure__credentials__supervisor__user_key
-      value: "<SUPERVISOR_USER_KEY>"
-    - name: CLEARML__secure__credentials__supervisor__user_secret
-      value: "<SUPERVISOR_USER_SECRET>"
-    - name: CLEARML__secure__credentials__supervisor__sec_groups
-      value: "[\"users\", \"admins\", \"queue_admins\"]"
-    - name: CLEARML__secure__credentials__supervisor__email
-      value: "\"<SUPERVISOR_USER_EMAIL>\""
     - name: CLEARML__apiserver__company__unique_names
       value: "true"
 ```
 
-These values configure a **supervisor** user, an administrator in a designated supervisor tenant. These users can access cross-tenant information, and 
-specifically view an aggregate resource dashboard for all tenants.
 
-The `<SUPERVISOR_USER_KEY>` and `<SUPERVISOR_USER_SECRET>` can be used to log in as the 
-supervisor user from the ClearML Web UI via `app.<BASE_DOMAIN>`.
-
-Note that the `<SUPERVISOR_USER_EMAIL>` value must be explicitly quoted. To do so, put `\"` around the quoted value. 
-Example `"\"email@example.com\""`.
-
-For configuring SSO, see the [SSO (Identity Provider) Setup guide](extra_configs/sso_login.md).
+For configuring SSO, see the [SSO (Identity Provider) Setup guide](../../user_management/identity_providers.md).
 
 ### Create a Tenant
 
@@ -107,7 +81,8 @@ on your installation values.
    The result returns a set of key and secret credentials associated with the new Admin User.
 
    :::note 
-   You can use this set of credentials to set up a [ClearML Agent](agent_k8s.md) or [App Gateway](appgw.md) for the new Tenant.
+   You can use this set of credentials to set up a [ClearML Agent](../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server) 
+   or [App Gateway](appgw.md) for the new Tenant.
    :::
 
 #### Create IDP/SSO Sign-in Rules
@@ -195,7 +170,7 @@ See a list of available features under [Available Features](#available-features)
 ## Workers
 
 To install and configure the ClearML components that run user workloads, refer to:
-* [ClearML Enterprise Agent](agent_k8s.md)
+* [ClearML Enterprise Agent](../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server)
 * [App Gateway](appgw.md).
 
 :::note
@@ -357,7 +332,7 @@ To assign a feature to a group, that feature must first be enabled globally (ser
 To enable a feature for the entire deployment, use: 
 
 ```
-CLEARML__services__organization__features__<FeatureName>`
+CLEARML__services__organization__features__<FeatureName>
 ```
 
 Setting one of these variables to `"true"` enables the feature globally.

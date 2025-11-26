@@ -12,18 +12,33 @@ Inviting new teammates is only available on the ClearML Hosted Service.
 :::
 
 ## Users
-The **USERS** table lists workspace members and shows whether the maximum number of members has been reached. 
-Each row of the table includes: 
+The **USERS** table lists workspace members and details, and shows whether the maximum number of members has been reached. 
+
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" />
+to find a specific user by their name, email, or user ID. 
+
+### Free/Pro Service 
+
+The Free/Pro service's **USERS** table includes the following information: 
 * Username 
 * User status (`Active` or `Pending`) 
 * If the user's invitation is pending, the date the user was added
-* [User groups](#user-groups) (ClearML Enterprise feature)
-
-Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-md" />
-to find a specific user by their name, email, or user ID. 
 
 ![Users table](../../img/settings_user_table.png#light-mode-only)
 ![Users table](../../img/settings_user_table_dark.png#dark-mode-only)
+
+### Enterprise Offering
+
+The ClearML Enterprise **USERS** table includes the following information:
+
+* Email 
+* Username
+* Groups: The [user groups](#user-groups) the user belongs to
+* User ID
+* Login: Last time a user logged in to the system, and the sign on provider that was used
+* API Cred. Used: Last time a user’s API credentials were used to generate an authorization token
+* UI Activity: Last time a user accessed the ClearML UI
+
 
 ### Inviting New Teammates
 
@@ -71,7 +86,7 @@ Each row of the table includes:
 * Credentials - Number of credentials currently available to the account
 * Last active time
 
-Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-md" /> 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
 to find a specific service account by its name or ID.
 
 Hover over a service account in the table to **Edit** or **Delete** it.
@@ -136,6 +151,27 @@ To revoke a set of credentials:
 1. In the editing panel, hover of the relevant credential's row
 2. Click the <img src="/docs/latest/icons/ico-trash.svg" alt="Trash can" className="icon size-md" /> button
 
+### AI Application Gateway Endpoint Access 
+
+The [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md) enables external access to ClearML 
+tasks and applications. The gateway is configured with an 
+endpoint or external address (ingress), accessible from outside ClearML.
+
+Generate tokens providing API access to the AI Application Gateway endpoints:
+
+1. Click **Generate a Token**
+1. Under `Label`, enter a descriptive name for the token
+1. Under `Expiration`, enter the number of days the token should remain valid 
+1. Click `Generate`, which creates a token and copies it to your clipboard 
+
+The **AI Application Gateway Table** displays all tokens available to the service account, and the following details: 
+* Token label
+* Creation time 
+* Expiration time
+
+To revoke a token, hover over the token's row and click <img src="/docs/latest/icons/ico-trash.svg" alt="Trash" className="icon size-md space-sm" />. 
+
+
 ### Service Account Configuration Vault
 Use a service account’s configuration vault to store ClearML configuration entries that can extend the ClearML 
 [configuration file](../../configs/clearml_conf.md) of any ClearML Agents or ClearML SDK running with the service account's 
@@ -188,7 +224,7 @@ The system includes three pre-configured groups that can't be removed:
 * `Queue admins` - Can create / delete / rename queues
 
 The user group table lists all the active user groups. Each row includes a group's name, description, member list, and ID. 
-Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-md" /> 
+Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
 to find a specific user group by its name, description, or ID.
 
 ![User Management Page](../../img/settings_user_management_table.png#light-mode-only)

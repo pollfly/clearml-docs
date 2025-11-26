@@ -295,6 +295,11 @@ Without web login authentication, ClearML Server does not restrict access (by de
 
 1. In ClearML Server `/opt/clearml/config/apiserver.conf`, add the `auth.fixed_users` section and specify the users.
 
+   :::tip
+   If the `apiserver.conf` file does not exist, create your own in ClearML Server's `/opt/clearml/config` directory (or 
+   an alternate folder you configured), and input the modified configuration
+   :::
+
     For example:
 
     ```
@@ -320,10 +325,19 @@ Without web login authentication, ClearML Server does not restrict access (by de
     }
     ```
    
-   :::tip
-   If the `apiserver.conf` file does not exist, create your own in ClearML Server's `/opt/clearml/config` directory (or 
-   an alternate folder you configured), and input the modified configuration
-   :::
+    :::important Enterprise Feature
+    Under the Enterprise plan, you can grant admin privileges by adding `admin: true` to the relevant user entry. 
+    For example:
+
+    ```
+    {
+        username: "jane"
+        password: "12345678"
+        name: "Jane Doe"
+        admin: true
+    }
+    ```
+    :::
 
 1. Restart ClearML Server.
 

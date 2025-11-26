@@ -12,10 +12,10 @@ The package also includes MongoDB, ElasticSearch, and Redis as Helm dependencies
 
 To deploy a ClearML Server, ensure the following components and configurations are in place:
 
-- Kubernetes Cluster: A standard Kubernetes cluster is preferred for optimal GPU support.
+- Kubernetes Cluster: A standard Kubernetes cluster is recommended for optimal GPU support.
 - CLI Tools: `kubectl` and `helm` must be installed and configured.
-- Ingress Controller: An Ingress controller (e.g., `nginx-ingress`) is required. If exposing services externally, a 
-  LoadBalancer-capable solution (e.g. `MetalLB`) should also be configured.
+- Ingress Controller: An Ingress controller (e.g., `nginx-ingress`) is required. If exposing services externally, configure 
+  LoadBalancer-capable solution (e.g. `MetalLB`).
 - Server and workers that communicate on HTTP/S (ports 80 and 443). Additionally, the TCP session feature requires a 
   range of ports for TCP traffic based on your configuration (see [AI App Gateway installation](appgw_install_k8s.md)).
 - DNS Configuration: A domain with subdomain support is required, ideally with trusted TLS certificates. All entries must 
@@ -34,7 +34,7 @@ To deploy a ClearML Server, ensure the following components and configurations a
 
 ### Recommended Cluster Specifications
 
-For optimal performance, a Kubernetes cluster with at least 3 nodes is recommended, each having:
+For optimal performance, a Kubernetes cluster with at least 3 nodes is recommended, each provisioned with:
 
 - 8 vCPUs
 - 32 GB RAM
@@ -98,14 +98,6 @@ Install the ClearML Enterprise Helm chart using the previous values override fil
 ```bash
 helm upgrade -i -n clearml clearml clearml-enterprise/clearml-enterprise --create-namespace -f clearml-values.override.yaml 
 ```
-
-### Applications Installation
-ClearML Applications are plugins that extend the functionality of the ClearML Enterprise Server. They enable users 
-to manage ML workloads and automate recurring workflows--no code required
-
-Applications are installed on top of the ClearML Server and are provided by the ClearML team.
-
-For more information, see [ClearML Applications](extra_configs/apps.md).
 
 ## Additional Configuration Options
 
@@ -171,7 +163,108 @@ apiserver:
       }
 ```
 
+### Using External Databases with ClearML
+
+The ClearML Enterprise Server can be configured to use external services for the ElasticSearch, MongoDB, and Redis databases, 
+instead of those included in the server bundle. Note that if you use external database instances, ClearML will not manage 
+the database's lifecycle or version. For MongoDB specifically, ClearML disables internal version checks (`CLEARML__apiserver__mongo__ensure_db_version_on_startup=false`).
+
+As a result, you are fully responsible for:
+
+* Provisioning and maintaining the database instance
+* Applying security updates and version upgrades
+* Ensuring availability, backups, and disaster recovery
+
+Before upgrading ClearML, always consult the ClearML release notes and documentation to verify which DB versions 
+are supported. Running unsupported versions may cause ClearML to fail or behave unexpectedly.
+
+To connect external databases, configure the `externalServices` section in the `clearml-values.override.yaml` file:
+
+```
+externalServices:
+  # Existing ElasticSearch connectionstring if elasticsearch.enabled is false
+  elasticsearchConnectionString: "[{\"host\":\"es_hostname1\",\"port\":9200},{\"host\":\"es_hostname2\",\"port\":9200},{\"host\":\"es_hostname3\",\"port\":9200}]"
+  # Existing MongoDB connection string for BACKEND to use if mongodb.enabled is false
+  mongodbConnectionStringAuth: "mongodb://mongodb_hostname:27017/auth"
+  # Existing MongoDB connection string for AUTH to use if mongodb.enabled is false
+  mongodbConnectionStringBackend: "mongodb://mongodb_hostnamehostname:27017/backend"
+  # Existing Redis Hostname to use if redis.enabled is false
+  redisHost: "redis_hostname"
+  # Existing Redis Port to use if redis.enabled is false
+  redisPort: 6379
+```
+
 ## Next Steps
 
-Once the ClearML Enterprise Server is up and running, proceed with installing the ClearML Enterprise Agent and 
-[AI App Gateway](appgw_install_k8s.md).
+After installing the ClearML Enterprise Server, you can enhance your deployment by enabling optional services that 
+extend ClearML’s capabilities for scheduling, interactivity, authentication, and more.
+
+### Applications Installation
+ClearML Applications are plugins that extend the functionality of the ClearML Enterprise Server. They enable users 
+to manage ML workloads and automate recurring workflows--no code required
+
+Applications are installed on top of the ClearML Server and are provided by the ClearML team.
+
+For more information, see the [Application Installation guide](apps_k8s.md).
+
+### ClearML Enterprise Agent
+
+The ClearML Enterprise Agent enables scheduling and execution of distributed workloads (Tasks) on your Kubernetes cluster.
+
+See the [ClearML Agent installation guide](../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server).
+
+### AI Application Gateway
+
+The AI App Gateway enables secure, authenticated access to ClearML application endpoints such as model serving or IDE workloads
+based on ClearML user permissions. It routes HTTPS traffic from users to running pods on the cluster.
+
+See the [AI Application Gateway installation guide](appgw_install_k8s.md).
+
+## Advanced Options
+### GPU Operator
+
+Deploy the NVIDIA GPU Operator in order to use Nvidia GPUs in ClearML.
+
+See the [GPU Operator Basic Deployment guide](../../clearml_agent/fractional_gpus/gpu_operator.md).
+
+### Fractional GPU Support
+
+Available GPU fractioning methods:
+
+* ClearML Dynamic MIG Orchestrator (CDMO): Manage GPU fractions using NVIDIA MIGs. See the [CDMO guide](../../clearml_agent/fractional_gpus/cdmo.md)
+* ClearML Fractional GPU Injector (CFGI): Use fractional (non-MIG) GPU slices for efficient resource sharing. See the [CFGI guide](../../clearml_agent/fractional_gpus/cfgi.md)
+* Mixed Deployments: Deploy both CDMO and CFGI in clusters with diverse GPU types. Use the NVIDIA GPU Operator to handle 
+  mixed hardware setups. See the [CDMO and CFGI guide](../../clearml_agent/fractional_gpus/cdmo_cfgi_same_cluster.md).
+
+### Multi-Tenant Setup
+
+Run multiple isolated tenants on a single ClearML Server deployment, each with its own configuration and user namespaces.
+
+See the [Multi-Tenant Service guide](multi_tenant_k8s.md).
+
+### SSO (Identity Provider) Setup
+
+Integrate identity providers to enable SSO login for ClearML Enterprise users.
+
+See the [SSO Setup guide](../../user_management/identity_providers.md).
+
+### ClearML Custom Event Monitoring
+
+ClearML Enterprise supports sending custom events to selected Kafka topics. 
+
+See the [Custom Event guide](extra_configs/custom_billing.md).
+
+### ClearML Presign Service
+
+The ClearML Presign Service securely generates pre-signed storage URLs for authenticated users.
+
+See the [ClearML Presign Service guide](extra_configs/presign_service.md).
+
+### Install with a Non-Root User
+
+In some Helm charts, you will find a values file called `values-enterprise-non-root-privileged.yaml` to be used for a 
+non-root installation.
+
+These values are for Enterprise versions only, and they need to be adapted to specific infrastructure needs. The 
+`containerSecurityContext` is related to the Kubernetes distribution used/configuration and will need to be customized accordingly.
+

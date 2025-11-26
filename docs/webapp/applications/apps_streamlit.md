@@ -2,7 +2,7 @@
 title: Streamlit Launcher
 ---
 
-:::info Enterprise Feature
+:::important Enterprise Feature
 The Streamlit Launcher App is available under the ClearML Enterprise plan.
 :::
 
@@ -14,13 +14,13 @@ where you can make use of your models.
 The Streamlit launcher monitors the Streamlit app activity and shuts down if it is inactive for a specified maximum idle 
 time.
 
-<a id="traffic_router"/>
+<a id="traffic_router"></a>
 
 :::important AI Application Gateway
 The Streamlit Launcher relies on the ClearML App Gateway Router which implements user authentication, and redirects requests 
 to the IP/port served by the Streamlit app. 
 
-If the ClearML AI application Gateway is not available, the Streamlit app might not be accessible.
+If the ClearML AI Application Gateway is not available, the Streamlit app might not be accessible.
 For more information, see [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md).
 :::
 
@@ -70,6 +70,7 @@ to open the app's instance launch form.
 * **Streamlit Script Name** - Name of Streamlit script to be executed
 * **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the Streamlit launcher 
   app instance task will be enqueued (make sure an agent is assigned to that queue)
+* **AI Gateway Route** - Select an available, admin-preconfigured route to use as the service endpoint. If none is selected, an ephemeral endpoint will be created.
 * **Docker Image** - Docker image the ClearML Agent will use for running the Streamlit app
 * **Arguments** - Arguments to be passed to the script
 * **Idle Time Limit** (Hours) - Maximum idle time (period in which no requests are received by the Streamlit app) after 

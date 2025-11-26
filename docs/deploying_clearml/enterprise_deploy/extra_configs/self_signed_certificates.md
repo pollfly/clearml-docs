@@ -1,8 +1,8 @@
 ---
-title: Kubernetes Deployment with Self-Signed Certificates
+title: Deployment with Self-Signed Certificates
 ---
 
-This guide covers how to configure the [AI Application Gateway](../appgw.md) and [ClearML Agent](../agent_k8s.md) 
+This guide covers how to configure the [AI Application Gateway](../appgw.md) and [ClearML Agent](../../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server) 
 to use self-signed or custom SSL certificates. 
 
 ## Certificate Configuration
@@ -86,7 +86,7 @@ agentk8sglue:
         - /bin/sh
         - -c
         - update-ca-certificates
-        image: allegroai/clearml-enterprise-agent-k8s-base:<AGENT-VERSION-AVAIABLE-ON-REPO>
+        image: allegroai/clearml-enterprise-agent-k8s-base:<AGENT-VERSION-AVAILABLE-ON-REPO>
         imagePullPolicy: IfNotPresent
         name: init-task
         volumeMounts:
@@ -96,7 +96,9 @@ agentk8sglue:
             mountPath: "/usr/local/share/ca-certificates"
     env:
       - name: REQUESTS_CA_BUNDLE
-        value: /etc/ssl/certs/ca-certificates.crt
+        value: "/etc/ssl/certs/ca-certificates.crt"
+      - name: SSL_CERT_FILE
+        value: "/etc/ssl/certs/ca-certificates.crt"
     volumeMounts:
       - name: etc-ssl-certs
         mountPath: "/etc/ssl/certs"
