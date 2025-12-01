@@ -931,10 +931,10 @@ metrics, network, AWS S3 buckets and credentials, Google Cloud Storage, Azure St
   * **`sdk.aws.s3`** (*dict*) - AWS S3 options:
     * `credentials` (*[dict]*) - List of dictionaries specifying credentials for individual S3 buckets or hosts.See more information [below](#sdkawss3credentials). 
     * `key` (*string*) - Default access key for buckets not specified in `sdk.aws.s3.credentials`.
-    * `secret`** (*string*) - Default secret access key for buckets not specified in `sdk.aws.s3.credentials`.
+    * `secret` (*string*) - Default secret access key for buckets not specified in `sdk.aws.s3.credentials`.
     * `profile` (*string*) -  Default AWS profile for buckets not specified in `sdk.aws.s3.credentials`.
     * `region` (*string*) - Default region for buckets not specified in `sdk.aws.s3.credentials`.
-    * `extra_args`** (*dict*) - Additional [ExtraArgs](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-uploading-files.html#the-extraargs-parameter) 
+    * `extra_args` (*dict*) - Additional [ExtraArgs](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-uploading-files.html#the-extraargs-parameter) 
     passed to Boto3 when uploading files. Can be set per bucket under `sdk.aws.s3.credentials`.
     * `use_credentials_chain` (*bool*) - Set to `true` to let Boto3 automatically locate credentials via environment 
     variables, credential files, or IAM role metadata instead of using explicit parameters (key and secret). See [Boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#configuring-credentials).
@@ -962,7 +962,7 @@ metrics, network, AWS S3 buckets and credentials, Google Cloud Storage, Azure St
     * `false` - Not secure
   * `verify` (*string* / *bool*) - Whether to verify SSL certificates:
     * `true` (default) - Verify 
-    * `false` - Skip SSL verification , 
+    * `false` - Skip SSL verification
     * Provide a path/URL to a CA bundle.
 
 * Other keys from `sdk.aws.s3` such as `region`, `profile`, and `extra_args` are also available per bucket/host and behave 
@@ -1068,12 +1068,10 @@ metrics, network, AWS S3 buckets and credentials, Google Cloud Storage, Azure St
 
 **`sdk.development.force_analyze_entire_repo`** (*bool*)
       
-* Default auto-generated requirements optimize for smaller requirements.
-
- The values are:        
-    * `true` - Analyze the entire repository regardless of the entry point.
-    * `false`- First analyze the entry point script, if it does not contain other local files, 
-   do not analyze the entire repository.
+* Default auto-generated requirements optimize for smaller requirements. 
+* The values are:
+  * `true` - Analyze the entire repository regardless of the entry point.
+  * `false`- First analyze the entry point script, if it does not contain other local files, do not analyze the entire repository.
 
 ---
 

@@ -63,7 +63,7 @@ or [ClearML Session](../../apps/clearml_session.md) by users in the user groups 
 * The corresponding public keys (`ssh_host_*_key__pub`) are installed on the SSH server to allow clients to verify the 
   server’s identity.
 
-**To create a SSH server vault:**
+**To create an SSH server vault:**
 1. Click + Add Vault
 1. Fill in vault details:
    * Vault name - Name that appears in the Administrator Vaults table
