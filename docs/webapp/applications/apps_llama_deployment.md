@@ -6,7 +6,7 @@ title: Llama.cpp Model Deployment
 The llama.cpp Model Deployment App is available under the ClearML Enterprise plan.
 :::
 
-The llama.cpp Model Deployment app enables users to quickly deploy LLM models in GGUF format using [`llama.cpp`](https://github.com/ggerganov/llama.cpp). 
+The llama.cpp Model Deployment app enables users to quickly deploy LLMs in GGUF format using [`llama.cpp`](https://github.com/ggerganov/llama.cpp). 
 The llama.cpp Model Deployment application serves your model on a machine of your choice. Once an app instance is 
 running, it serves your model through a secure, publicly accessible network endpoint. 
 
