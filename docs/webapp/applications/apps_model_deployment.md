@@ -6,7 +6,7 @@ title: vLLM Model Deployment
 The vLLM Model Deployment App is available under the ClearML Enterprise plan.
 :::
 
-The vLLM Model Deployment application enables users to quickly deploy LLM models as networking services over a secure 
+The vLLM Model Deployment application enables users to quickly deploy LLMs as networking services over a secure 
 endpoint. This application supports various model configurations and customizations to optimize performance and resource 
 usage. The vLLM Model Deployment application serves your model(s) on a machine of your choice. Once an app instance is running, 
 it serves your model through a secure, publicly accessible network endpoint. 
