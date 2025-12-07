@@ -8,8 +8,8 @@ The LLM UI application is available under the ClearML Enterprise plan.
 
 Use the ClearML LLM UI application to launch a visual chat interface to a deployed model.
 
-The app instance uses endpoints of models deployed through the ClearML [Model Deployment](apps_model_deployment.md), 
-[Llama.cpp Model Deployment](apps_llama_deployment.md), and SGLang Model Deployment apps. In the interface, you must 
+The app instance uses endpoints of models deployed through the ClearML [vLLM Model Deployment](apps_model_deployment.md), 
+[Llama.cpp Model Deployment](apps_llama_deployment.md), and [SGLang Model Deployment](apps_sglang.md) apps. In the interface, you must 
 first select the model to query. The interface provides controls for adjusting generation parameters such as temperature, 
 max tokens, and stop sequences. For detailed usage and customization options, see the
 [Open WebUI documentation ](https://docs.openwebui.com/). 
@@ -23,10 +23,10 @@ information, see [AI Application Gateway](../../deploying_clearml/enterprise_dep
 
 After launching an LLM UI instance, its dashboard displays the following:
 * Status indicator
-  * <img src="/docs/latest/icons/ico-llm-ui-active.svg" alt="Active instance" className="icon size-md space-sm" /> - App instance is running and is actively in use
-  * <img src="/docs/latest/icons/ico-llm-ui-loading.svg" alt="Loading instance" className="icon size-md space-sm" /> - App instance is setting up
-  * <img src="/docs/latest/icons/ico-llm-ui-idle.svg" alt="Idle instance" className="icon size-md space-sm" /> - App instance is idle
-  * <img src="/docs/latest/icons/ico-llm-ui-stopped.svg" alt="Stopped instance" className="icon size-md space-sm" /> - App instance is stopped
+  * <img src="/docs/latest/icons/ico-llm-ui-active.svg" alt="Active instance" className="icon size-lg space-sm" /> - App instance is running and is actively in use
+  * <img src="/docs/latest/icons/ico-llm-ui-loading.svg" alt="Loading instance" className="icon size-lg space-sm" /> - App instance is setting up
+  * <img src="/docs/latest/icons/ico-llm-ui-idle.svg" alt="Idle instance" className="icon size-lg space-sm" /> - App instance is idle
+  * <img src="/docs/latest/icons/ico-llm-ui-stopped.svg" alt="Stopped instance" className="icon size-lg space-sm" /> - App instance is stopped
 * Idle time – Time since the last user activity
 * Restored workspace -  If the session was restored, the previous session's ID is shown
 * Current session ID

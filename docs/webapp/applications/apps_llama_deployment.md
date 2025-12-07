@@ -140,13 +140,13 @@ values from the file, which can be modified before launching the app instance
   * Max Concurrent Requests: The maximum number of concurrent requests for this particular deployment. Having a low limit 
   will deny client requests instead of having them wait for too long  
   * NUMA: Select the NUMA (non-uniform memory access) optimization mode:  
-    * 'distributed': Splits across nodes   
-    * 'isolate': Runs on a single node  
-    * 'numactl': Uses system NUMA policy.  
+    * `distributed`: Splits across nodes   
+    * `isolate`: Runs on a single node  
+    * `numactl`: Uses system NUMA policy.  
   * Split Mode: Split mode determines how the model is distributed across multiple GPUs. Select model splitting mode:   
-    * 'none': Uses single GPU for the entire model  
-    * 'Layer': Splits the model by layers across multiple GPUs (default)  
-    * 'row': Splits the model’s weight matrices row-wise  
+    * `none`: Uses single GPU for the entire model  
+    * `Layer`: Splits the model by layers across multiple GPUs (default)  
+    * `row`: Splits the model’s weight matrices row-wise  
   * Main GPU: Index of the primary GPU to use (e.g., '0'). When using multiple GPUs, this GPU will handle the main computation load.  
 * General  
   * Enable Debug Mode: Run deployment in debug mode  
@@ -159,7 +159,7 @@ values from the file, which can be modified before launching the app instance
   *  Max CUDA Memory (GiB): The maximum amount of CUDA memory identified by the system. Can exceed the actual hardware 
   memory. The surplus memory will be offloaded to the CPU memory. Only usable on amd64 machines.  
   *  CUDA Memory Manager Minimum Threshold: Maximum size (Kb) of the allocated chunks that should not be offloaded to 
-  CPU when using automatic CPU offloading. Defaults to `-1` when running on single GPU, and `66000` (64Mib) when running on multiple GPUs  
+  CPU when using automatic CPU offloading. Defaults to `-1` when running on a single GPU, and `66000` (64Mib) when running on multiple GPUs  
 * Idle Options   
   * Idle Time Limit (Hours): Maximum idle time after which the app instance will shut down  
   * Last Action Report Interval (Seconds): The frequency at which the last activity made by the application is reported. 

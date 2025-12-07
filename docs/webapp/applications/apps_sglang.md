@@ -27,10 +27,10 @@ For more information, see [AI Application Gateway](../../deploying_clearml/enter
 
 Once you start a SGLang Model Deployment instance, you can view the following information in its dashboard:
 * Status indicator
-  * <img src="/docs/latest/icons/ico-sglang-active.svg" alt="Active instance" className="icon size-md space-sm" /> - App instance is running and is actively in use
-  * <img src="/docs/latest/icons/ico-sglang-loading.svg" alt="Loading instance" className="icon size-md space-sm" /> - App instance is setting up
-  * <img src="/docs/latest/icons/ico-sglang-idle.svg" alt="Idle instance" className="icon size-md space-sm" /> - App instance is idle
-  * <img src="/docs/latest/icons/ico-sglang-stopped.svg" alt="Stopped instance" className="icon size-md space-sm" /> - App instance is stopped
+  * <img src="/docs/latest/icons/ico-sglang-active.svg" alt="Active instance" className="icon size-lg space-sm" /> - App instance is running and is actively in use
+  * <img src="/docs/latest/icons/ico-sglang-loading.svg" alt="Loading instance" className="icon size-lg space-sm" /> - App instance is setting up
+  * <img src="/docs/latest/icons/ico-sglang-idle.svg" alt="Idle instance" className="icon size-lg space-sm" /> - App instance is idle
+  * <img src="/docs/latest/icons/ico-sglang-stopped.svg" alt="Stopped instance" className="icon size-lg space-sm" /> - App instance is stopped
 * Idle time - Time elapsed since last activity 
 * Generate Token - Link to `AI APPLICATION GATEWAY` section of the Settings page, where you can generate a token for accessing your deployed model
 * Deployed models table:
@@ -136,7 +136,7 @@ instance task will be enqueued (make sure an agent is assigned to that queue)
   * Max CUDA Memory (GiB): The maximum amount of CUDA memory identified by the system. Can exceed the actual hardware 
   memory. The surplus memory will be offloaded to the CPU memory. Only usable on amd64 machines.
   * CUDA Memory Manager Minimum Threshold: Maximum size (Kb) of the allocated chunks that should not be offloaded to CPU 
-  when using automatic CPU offloading. Defaults to `-1` when running on single GPU, and `66000` (64Mib) when running on 
+  when using automatic CPU offloading. Defaults to `-1` when running on a single GPU, and `66000` (64Mib) when running on 
   multiple GPUs.
   * Schedule Policy: How incoming requests are prioritized
     * lpm: Longest Prefix Match: Requests with largest partial match in the prompt cache prioritized.

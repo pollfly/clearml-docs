@@ -24,10 +24,10 @@ For more information, see [AI Application Gateway](../../deploying_clearml/enter
 
 Once you start a NIM instance, you can view the following information in its dashboard:
 * Status indicator
-  * <img src="/docs/latest/icons/ico-nvidia-active.svg" alt="Active instance" className="icon size-md space-sm" /> - App instance is running and is actively in use
-  * <img src="/docs/latest/icons/ico-nvidia-loading.svg" alt="Loading instance" className="icon size-md space-sm" /> - App instance is setting up
-  * <img src="/docs/latest/icons/ico-nvidia-idle.svg" alt="Idle instance" className="icon size-md space-sm" /> - App instance is idle
-  * <img src="/docs/latest/icons/ico-nvidia-stopped.svg" alt="Stopped instance" className="icon size-md space-sm" /> - App instance is stopped
+  * <img src="/docs/latest/icons/ico-nvidia-active.svg" alt="Active instance" className="icon size-lg space-sm" /> - App instance is running and is actively in use
+  * <img src="/docs/latest/icons/ico-nvidia-loading.svg" alt="Loading instance" className="icon size-lg space-sm" /> - App instance is setting up
+  * <img src="/docs/latest/icons/ico-nvidia-idle.svg" alt="Idle instance" className="icon size-lg space-sm" /> - App instance is idle
+  * <img src="/docs/latest/icons/ico-nvidia-stopped.svg" alt="Stopped instance" className="icon size-lg space-sm" /> - App instance is stopped
 * Idle time - Time elapsed since last activity 
 * Endpoint - The publicly accessible URL of the model endpoint. Active model endpoints are also available in the 
   [Model Endpoints](../webapp_model_endpoints.md) table, which allows you to view and compare endpoint details and 

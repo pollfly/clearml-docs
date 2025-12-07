@@ -16,7 +16,7 @@ on completed/failed Tasks via Slack integration.
 * **Dashboard Title** - Name of the project dashboard instance, which will appear in the instance list
 * **Monitoring** - Select what the app instance should monitor. The options are:
     * Project - Monitor a specific project. You can select an option to also monitor the specified project's subprojects
-    * Entire workspace - Monitor all projects in your workspace
+    * Entire workspace - Monitor all projects in your workspace <br/><br/>
             
   :::warning
   If your workspace or specified project contains a large number of tasks, the dashboard can take a while to update.
