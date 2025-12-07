@@ -27,10 +27,10 @@ For more information, see [AI Application Gateway](../../deploying_clearml/enter
 
 Once you start a SGLang Model Deployment instance, you can view the following information in its dashboard:
 * Status indicator
-  * <img src="/docs/latest/icons/ico-sglang-active.svg" alt="Active instance" className="icon size-md space-sm" /> - App instance is running and is actively in use
-  * <img src="/docs/latest/icons/ico-sglang-loading.svg" alt="Loading instance" className="icon size-md space-sm" /> - App instance is setting up
-  * <img src="/docs/latest/icons/ico-sglang-idle.svg" alt="Idle instance" className="icon size-md space-sm" /> - App instance is idle
-  * <img src="/docs/latest/icons/ico-sglang-stopped.svg" alt="Stopped instance" className="icon size-md space-sm" /> - App instance is stopped
+  * <img src="/docs/latest/icons/ico-sglang-active.svg" alt="Active instance" className="icon size-lg space-sm" /> - App instance is running and is actively in use
+  * <img src="/docs/latest/icons/ico-sglang-loading.svg" alt="Loading instance" className="icon size-lg space-sm" /> - App instance is setting up
+  * <img src="/docs/latest/icons/ico-sglang-idle.svg" alt="Idle instance" className="icon size-lg space-sm" /> - App instance is idle
+  * <img src="/docs/latest/icons/ico-sglang-stopped.svg" alt="Stopped instance" className="icon size-lg space-sm" /> - App instance is stopped
 * Idle time - Time elapsed since last activity 
 * Generate Token - Link to `AI APPLICATION GATEWAY` section of the Settings page, where you can generate a token for accessing your deployed model
 * Deployed models table:

@@ -26,10 +26,10 @@ For more information, see [AI Application Gateway](../../deploying_clearml/enter
 Once you start a Gradio launcher instance, you can view the following information in its dashboard:
 
 * Gradio App status indicator
-  * <img src="/docs/latest/icons/ico-gradio-active.svg" alt="Active server" className="icon size-md space-sm" /> - App is running and is actively in use
-  * <img src="/docs/latest/icons/ico-gradio-loading.svg" alt="Loading server" className="icon size-md space-sm" /> - App is setting up 
-  * <img src="/docs/latest/icons/ico-gradio-idle.svg" alt="Idle server" className="icon size-md space-sm" /> - App is idle
-  * <img src="/docs/latest/icons/ico-gradio-stopped.svg" alt="Stopped server" className="icon size-md space-sm" /> - App is stopped 
+  * <img src="/docs/latest/icons/ico-gradio-active.svg" alt="Active server" className="icon size-lg space-sm" /> - App is running and is actively in use
+  * <img src="/docs/latest/icons/ico-gradio-loading.svg" alt="Loading server" className="icon size-lg space-sm" /> - App is setting up 
+  * <img src="/docs/latest/icons/ico-gradio-idle.svg" alt="Idle server" className="icon size-lg space-sm" /> - App is idle
+  * <img src="/docs/latest/icons/ico-gradio-stopped.svg" alt="Stopped server" className="icon size-lg space-sm" /> - App is stopped 
 * Idle time 
 * Gradio App - Externally accessible link to your Gradio app. You can send this link to your colleagues, so they can 
   access the app. Click <img src="/docs/latest/icons/ico-copy-to-clipboard.svg" alt="Copy" className="icon size-md space-sm" />
