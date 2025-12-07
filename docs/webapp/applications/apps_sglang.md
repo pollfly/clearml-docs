@@ -90,7 +90,13 @@ values from the file, which can be modified before launching the app instance
 * **Service Project - Access Control** - The ClearML project where the app instance is created. Access is determined by 
   project-level permissions (i.e. users with read access can use the app).
 * **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the SGLang Model Deployment app 
-instance task will be enqueued (make sure an agent is assigned to that queue)
+instance task will be enqueued. Make sure an agent is assigned to that queue.
+
+  :::tip Multi-GPU inference
+  To run multi-GPU inference, the queue must be associated with a multi-GPU pod template. See [GPU Queues with Shared Memory](../../clearml_agent/clearml_agent_custom_workload.md#example-gpu-queues-with-shared-memory)
+  for an example configuration of a queue that allocates multiple GPUs and shared memory.
+  :::
+
 * **AI Gateway Route** - Select an available, admin-preconfigured route to use as the service endpoint. If none is selected, an ephemeral endpoint will be created.
 * **Model** - A ClearML Model ID or a HuggingFace model name (e.g. `openai-community/gpt2`)
 * **Model Configuration**: Configure the behavior and performance of the language model engine. This allows you to 

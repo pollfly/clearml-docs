@@ -92,6 +92,12 @@ values from the file, which can be modified before launching the app instance
   project-level permissions (i.e. users with read access can use the app).
 * **Queue**: The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the vLLM Model Deployment app 
 instance task will be enqueued (make sure an agent is assigned to that queue)
+
+  :::tip Multi-GPU inference
+  To run multi-GPU inference, the queue must be associated with a multi-GPU pod template. See [GPU Queues with Shared Memory](../../clearml_agent/clearml_agent_custom_workload.md#example-gpu-queues-with-shared-memory)
+  for an example configuration of a queue that allocates multiple GPUs and shared memory.
+  :::
+
 * **AI Gateway Route**: Select an available, admin-preconfigured route to use as the service endpoint. If none is selected, an ephemeral endpoint will be created.
 * **Model Configuration**: Configure the behavior and performance of the model engine.
   * Trust Remote Code: Select to set Hugging Face [`trust_remote_code`](https://huggingface.co/docs/text-generation-inference/main/en/reference/launcher#trustremotecode) 
