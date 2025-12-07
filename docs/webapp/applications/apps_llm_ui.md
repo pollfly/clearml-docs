@@ -8,8 +8,8 @@ The LLM UI application is available under the ClearML Enterprise plan.
 
 Use the ClearML LLM UI application to launch a visual chat interface to a deployed model.
 
-The app instance uses endpoints of models deployed through the ClearML [Model Deployment](apps_model_deployment.md), 
-[Llama.cpp Model Deployment](apps_llama_deployment.md), and SGLang Model Deployment apps. In the interface, you must 
+The app instance uses endpoints of models deployed through the ClearML [vLLM Model Deployment](apps_model_deployment.md), 
+[Llama.cpp Model Deployment](apps_llama_deployment.md), and [SGLang Model Deployment](apps_sglang.md) apps. In the interface, you must 
 first select the model to query. The interface provides controls for adjusting generation parameters such as temperature, 
 max tokens, and stop sequences. For detailed usage and customization options, see the
 [Open WebUI documentation ](https://docs.openwebui.com/). 

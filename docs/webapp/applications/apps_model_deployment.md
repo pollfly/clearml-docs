@@ -212,7 +212,7 @@ instance task will be enqueued (make sure an agent is assigned to that queue)
   * Disable Async Output Processing: Disable async output processing, which may result in lower performance  
   * HuggingFace Token: Token for accessing HuggingFace models that require authentication  
   * Max CUDA Memory (GiB): The maximum amount of CUDA memory identified by the system. Can exceed the actual hardware memory, and the surplus memory will be offloaded to the CPU memory. Only usable on amd64 machines.  
-  *  CUDA Memory Manager Minimum Threshold: Maximum size (Kb) of the allocated chunks that should not be offloaded to CPU when using automatic CPU offloading. Defaults to `-1` when running on single GPU, and `66000` (64Mib) when running on multiple GPUs  
+  *  CUDA Memory Manager Minimum Threshold: Maximum size (Kb) of the allocated chunks that should not be offloaded to CPU when using automatic CPU offloading. Defaults to `-1` when running on a single GPU, and `66000` (64Mib) when running on multiple GPUs  
   * Max Log Length: Max number of prompt characters or prompt ID numbers being printed in log. Default: unlimited.  
   * Device: Device type for vLLM execution.  
   * Guided Decoding Backend: Select engine for decoding `config.json` files:  

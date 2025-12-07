@@ -136,7 +136,7 @@ instance task will be enqueued (make sure an agent is assigned to that queue)
   * Max CUDA Memory (GiB): The maximum amount of CUDA memory identified by the system. Can exceed the actual hardware 
   memory. The surplus memory will be offloaded to the CPU memory. Only usable on amd64 machines.
   * CUDA Memory Manager Minimum Threshold: Maximum size (Kb) of the allocated chunks that should not be offloaded to CPU 
-  when using automatic CPU offloading. Defaults to `-1` when running on single GPU, and `66000` (64Mib) when running on 
+  when using automatic CPU offloading. Defaults to `-1` when running on a single GPU, and `66000` (64Mib) when running on 
   multiple GPUs.
   * Schedule Policy: How incoming requests are prioritized
     * lpm: Longest Prefix Match: Requests with largest partial match in the prompt cache prioritized.
