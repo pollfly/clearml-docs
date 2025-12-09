@@ -93,8 +93,8 @@ values from the file, which can be modified before launching the app instance
 instance task will be enqueued. Make sure an agent is assigned to that queue.
 
   :::tip Multi-GPU inference
-  To run multi-GPU inference, ensure the queue's pod specification (from the base template and/or `templateOverrides`) requests multiple GPUs.  
-  See [GPU Queues with Shared Memory](../../clearml_agent/clearml_agent_custom_workload.md#example-gpu-queues-with-shared-memory) for an example.
+  To run multi-GPU inference, ensure the queue's pod specification (from the base template and/or `templateOverrides`) requests multiple GPUs. See [GPU Queues with Shared Memory](../../clearml_agent/clearml_agent_custom_workload.md#example-gpu-queues-with-shared-memory)
+  for an example configuration of a queue that allocates multiple GPUs and shared memory.
   :::
 
 * **AI Gateway Route** - Select an available, admin-preconfigured route to use as the service endpoint. If none is selected, an ephemeral endpoint will be created.
