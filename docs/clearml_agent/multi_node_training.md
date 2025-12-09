@@ -47,3 +47,14 @@ agentk8sglue:
             # Note you will need to use the lowest-common-denominator of the GPUs distribution defined in `queueSettings.multiNode`.
             nvidia.com/gpu: 2
 ```
+
+## Example: Multi-Node Training with Hyper-Datasets
+
+ClearML provides an example script demonstrating multi-node training with Hyper-Datasets (HPD) LoRA adapters for LLM fine-tuning:
+
+finetune_qa_lora.py on GitHub
+
+This example shows:
+* How to enqueue a multi-node training Task to a ClearML queue
+* How to use HyperDataset entries as the dataset source
+* How to run distributed training with multiple GPUs across nodes
