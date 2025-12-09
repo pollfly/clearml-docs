@@ -91,7 +91,7 @@ values from the file, which can be modified before launching the app instance
 * **Service Project (Access Control)**: The ClearML project where the app instance is created. Access is determined by 
   project-level permissions (i.e. users with read access can use the app).
 * **Queue**: The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the vLLM Model Deployment app 
-instance task will be enqueued (make sure an agent is assigned to that queue)
+instance task will be enqueued. Make sure an agent is assigned to that queue.
 
   :::tip Multi-GPU inference
   To run multi-GPU inference, ensure the queue's pod specification (from the base template and/or `templateOverrides`) requests multiple GPUs. See [GPU Queues with Shared Memory](../../clearml_agent/clearml_agent_custom_workload.md#example-gpu-queues-with-shared-memory)

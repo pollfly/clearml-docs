@@ -92,7 +92,7 @@ values from the file, which can be modified before launching the app instance
 * **Instance name** - Name for the Embedding Model Deployment instance. This will appear in the instance list
 * **Service Project** - ClearML Project where your Embedding Model Deployment app instance will be stored
 * **Queue** - The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the Embedding Model 
-Deployment app instance task will be enqueued (make sure an agent is assigned to it)
+Deployment app instance task will be enqueued. Make sure an agent is assigned to that queue.
 
   :::tip Multi-GPU inference
   To run multi-GPU inference, ensure the queue's pod specification (from the base template and/or `templateOverrides`) requests multiple GPUs. See [GPU Queues with Shared Memory](../../clearml_agent/clearml_agent_custom_workload.md#example-gpu-queues-with-shared-memory)
