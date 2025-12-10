@@ -47,3 +47,8 @@ agentk8sglue:
             # Note you will need to use the lowest-common-denominator of the GPUs distribution defined in `queueSettings.multiNode`.
             nvidia.com/gpu: 2
 ```
+
+## Example: Multi-Node Training with Hyper-Datasets
+
+See multi-node training in action in the [finetune_qa_lora.py](https://github.com/clearml/clearml/blob/master/examples/hyperdatasets/finetune_qa_lora.py)
+example script. This example demonstrates using multi-node distributed training to fine-tune a base LLM with LoRA adapters.
