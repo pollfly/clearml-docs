@@ -51,4 +51,4 @@ agentk8sglue:
 ## Example: Multi-Node Training with Hyper-Datasets
 
 See multi-node training in action in the [finetune_qa_lora.py](https://github.com/clearml/clearml/blob/master/examples/hyperdatasets/finetune_qa_lora.py)
-example script. This example demonstrates multi-node distributed training with Hyper-Datasets LoRA adapters for LLM fine-tuning.
+example script. This example demonstrates using multi-node distributed training to fine-tune a base LLM with LoRA adapters on HyperDataset Q&A entries.
