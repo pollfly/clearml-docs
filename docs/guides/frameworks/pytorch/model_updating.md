@@ -8,7 +8,7 @@ class.
 
 The example does the following:
 * Creates a task named `Model update pytorch` in the `examples` project.
-* Trains a neural network on the CIFAR10 dataset for image classification.
+* Trains a neural network on the CIFAR-10 dataset for image classification.
 * Uses an OutputModel object to log the model, its label enumeration and configuration dictionary.
 
 :::note Disabling automatic framework logging

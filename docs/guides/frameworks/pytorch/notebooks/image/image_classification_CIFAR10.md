@@ -4,7 +4,7 @@ title: Image Classification - Jupyter Notebook
 
 The example [image_classification_CIFAR10.ipynb](https://github.com/clearml/clearml/blob/master/examples/frameworks/pytorch/notebooks/image/image_classification_CIFAR10.ipynb) 
 demonstrates integrating ClearML into a Jupyter Notebook, which uses PyTorch, TensorBoard, and TorchVision to train a 
-neural network on the CIFAR10 dataset for image classification. ClearML automatically logs the example script's 
+neural network on the CIFAR-10 dataset for image classification. ClearML automatically logs the example script's 
 calls to TensorBoard methods in training and testing which report scalars and image debug samples, as well as the model 
 and console log. The example also demonstrates connecting parameters to a Task and logging them. When the script runs, 
 it creates a task named `image_classification_CIFAR10` in the `Image Example` project.

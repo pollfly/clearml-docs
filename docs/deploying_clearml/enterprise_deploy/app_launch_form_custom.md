@@ -71,5 +71,5 @@ Refer to the configuration file of a specific application to view the property I
 
 * `default` - Sets the initial value applied to the property when the form is presented to the user.
 * `placeholder` - Text displayed inside an input field when it does not contain any value, usually used to suggest the expected format or type of input. 
-* `hint` -  A short  informative message displayed below the input field to provide additional instructions to the user.
+* `hint` -  A short informative message displayed below the input field to provide additional instructions to the user.
 * `info` - Text that appears in a property's tooltip.

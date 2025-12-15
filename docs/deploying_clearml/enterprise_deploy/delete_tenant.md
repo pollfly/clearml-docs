@@ -30,7 +30,7 @@ Any external artifacts (ex: AWS S3, GCS, minio) can be removed manually.
      kubectl -n <namespace> exec -it <apiserver pod name> -c clearml-apiserver -- /bin/bash
      ```
 
-1. Set the ID and the name of the  company (tenant) you wish to delete
+1. Set the ID and the name of the company (tenant) you wish to delete
 
    ```
    tenant_to_delete=<tenant-id>
