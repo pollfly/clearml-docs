@@ -861,5 +861,8 @@ module.exports = {
             ],
         },
     ],
+    communitySidebar: [
+        'community', 'contributing'
+    ]
 
 };
