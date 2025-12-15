@@ -27,7 +27,7 @@ The following are just guidelines to get you started, but feel free to use your 
 
 ClearML is maintained across multiple repositories on GitHub. You can explore and contribute to any of the following:
 
-* [**clearml**](https://github.com/clearml/clearml): The ClearML  SDK and command line utilities, which includes experiment management and automation tools.  
+* [**clearml**](https://github.com/clearml/clearml): The ClearML SDK and command line utilities, which includes experiment management and automation tools.  
 * [**clearml-server**](https://github.com/clearml/clearml-server): The backend server code that powers ClearML.  
 * [**clearml-agent**](https://github.com/clearml/clearml-agent): The orchestration agent for running tasks on remote machines.  
 * [**clearml-web**](https://github.com/clearml/clearml-web): The web interface to the ClearML server.  
@@ -37,11 +37,12 @@ ClearML is maintained across multiple repositories on GitHub. You can explore an
 ### Documentation
 
 One of the easiest ways to contribute is by helping with the documentation. If you find areas that could be clearer or 
-more accurate, feel free to submit an issue or a pull request on the **clearml-docs** repository. We welcome examples, explanations, and improvements.
+more accurate, feel free to submit an issue or a pull request on the [**clearml-docs**](https://github.com/clearml/clearml-docs) 
+repository. We welcome examples, explanations, and improvements.
 
 ### SDK
 
-If you're working with the ClearML SDK, here are some valuable ways to contribute:
+If you're working with the [ClearML SDK]((https://github.com/clearml/clearml)), here are some valuable ways to contribute:
 
 * **Add ClearML as an External Logger:** ClearML can be integrated as an external logger in third-party experiment 
   managers like HuggingFace and YOLOv5 (as long as maintainers approve 😀).   
@@ -58,7 +59,7 @@ If you're working with the ClearML SDK, here are some valuable ways to contribut
 ## Reporting Issues and Suggesting New Features
 
 To help maintainers and the community understand your report, reproduce the behavior, and find related discussions, 
-follow these guidelines:
+follow these guidelines.
 
 Before reporting an issue, please check whether it already appears [here](https://github.com/clearml/clearml/issues). If 
 it does, join the ongoing discussion instead.
