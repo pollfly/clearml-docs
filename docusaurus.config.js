@@ -149,9 +149,9 @@ module.exports = {
           ],
         },
         {
-          label: 'Community Resources',
+          label: 'Community',
           position: 'left', // or 'right'
-          to: '/docs/latest/docs/community',
+          to: '/docs/community',
         },
         {
           href: 'https://joinslack.clear.ml',
