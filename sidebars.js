@@ -216,7 +216,6 @@ module.exports = {
             items: [
                 'clearml_sdk/task_sdk',
                 'clearml_sdk/model_sdk',
-                'hyperdatasets/task',
                 'clearml_sdk/hpo_sdk',
                 'clearml_sdk/apiclient_sdk'
             ]
@@ -227,12 +226,11 @@ module.exports = {
             collapsed: true,
             label: 'ClearML Pipelines',
             link: {type: 'doc', id: 'pipelines/pipelines'},
-            items: [{
-                "Building Pipelines": [
-                    'pipelines/pipelines_sdk_tasks',
-                    'pipelines/pipelines_sdk_function_decorators'
-                ]
-            }]
+            items: [
+               'pipelines/pipelines_sdk_tasks',
+               'pipelines/pipelines_sdk_function_decorators'
+            ]
+
         },
         {
             type: 'category',
