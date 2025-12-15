@@ -56,7 +56,7 @@ UI storage credential vaults configure UI access to cloud storage credentials fo
 1. Click **Save**
 
 ## SSH Server
-SSH Server Vaults configure SSH keys for SSH sessions spun up  through the [SSH Session application](../applications/apps_ssh_session.md) 
+SSH Server Vaults configure SSH keys for SSH sessions spun up through the [SSH Session application](../applications/apps_ssh_session.md) 
 or [ClearML Session](../../apps/clearml_session.md) by users in the user groups assigned to the vaults. 
 
 * The private keys (`ssh_host_*_key`) are stored in the vault.

@@ -4,7 +4,7 @@ title: Auto-logging Experiments
 
 In ClearML, experiments are organized as [Tasks](../fundamentals/task.md).
 
-When you integrate the ClearML SDK  with your code, the ClearML task manager automatically captures:
+When you integrate the ClearML SDK with your code, the ClearML task manager automatically captures:
 * Source code and uncommitted changes
 * Installed packages
 * General information such as machine details, runtime, creation date etc.

@@ -69,7 +69,7 @@ Set the following environment variables to the `apiserver`:
 You can designate ClearML users as administrators either by Keycloak [group association](#setting-administrators-by-group-association) or by [role association](#setting-administrator-by-user-role-association).
 
 ##### Setting Administrators by Group Association
-If you want the members of the particular Keycloak group to be  ClearML admins, set the following environment variable 
+If you want the members of the particular Keycloak group to be ClearML admins, set the following environment variable 
 (the Keycloak group does not need to exist in ClearML):
 
 ```

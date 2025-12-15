@@ -23,7 +23,7 @@ limits.
   values from the file, which can be modified before launching the app instance
 * **Initial Task to Optimize** - ID of a ClearML task to optimize. This task will be cloned, and each clone will 
   sample a different set of hyperparameters values
-* **Optimization Method** - The optimization strategy to employ (e.g. random, grid, hyperband)
+* **Optimization Method** - The optimization strategy to employ (e.g. random, grid, Hyperband)
 * **Objectives** - Set the optimization targets of minimizing or maximizing the values of a specified metric(s)
     * Optimization Objective Metric's Title - Title of metric to optimize
     * Optimization Objective Metric's Series - Metric series (variant) to optimize

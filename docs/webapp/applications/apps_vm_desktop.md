@@ -3,7 +3,7 @@ title: Virtual Machine Remote Desktop
 ---
 
 :::important Enterprise Feature
-The Virtual Machine Remote Desktop application  is available under the ClearML Enterprise plan.
+The Virtual Machine Remote Desktop application is available under the ClearML Enterprise plan.
 :::
 
 The **Virtual Machine Remote Desktop** application allows you to launch a VM on a remote machine in your cluster complete 

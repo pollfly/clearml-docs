@@ -18,7 +18,7 @@ example script, which demonstrates the integration of ClearML in a code that use
 
 The script does the following:
 1. Creates a `Hyperband` object, which uses Keras Tuner's `Hyperband` tuner. It finds the best hyperparameters to train a 
-   network on a CIFAR10 dataset.
+   network on a CIFAR-10 dataset.
 1. When the `Hyperband` object is created, instantiates a `ClearMLTunerLogger` object and assigns it to the `Hyperband` logger.
 The `ClearMLTunerLogger` class provides the required binding for ClearML automatic logging. 
 

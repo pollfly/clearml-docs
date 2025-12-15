@@ -155,10 +155,10 @@ To find the frames most similar to one of the frames in the version:
 1. Hover over the desired frame
 1. Click <img src="/docs/latest/icons/ico-dots-v-menu.svg" alt="Dot menu" className="icon size-md space-sm" />
 1. Select `Find Nearest Frames By`
-1. Choose the frame’s vector field  that will be compared against the reference vector
+1. Choose the frame’s vector field that will be compared against the reference vector
 1. Input the [search configuration](#search-configuration)
 
-To find the frames  most similar to an arbitrary vector:
+To find the frames most similar to an arbitrary vector:
 1. In the **FRAMES** tab, click  <img src="/docs/latest/icons/ico-filter-off.svg" alt="Filter" className="icon size-md" /> (filters)
 1. Under **Vector search**, enter the vector values under **Reference vector**.
 1. Input the [search configuration](#search-configuration)
