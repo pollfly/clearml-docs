@@ -7,9 +7,9 @@ The S3 presign service is available under the ClearML Enterprise plan.
 :::
 
 The ClearML Presign Service is a secure service that allows ClearML WebApp users to access data stored in S3-like storage 
-from their browser in a seamless way, without requiring S3 credentials to be configured in the ClearML WebApp. 
+from their browser seamlessly, without requiring S3 credentials to be configured in the ClearML WebApp. 
 
-CLearML generates and redirects pre-signed storage URLs to the user’s browser session, enabling direct access to S3 data without exposing credentials.
+CLearML generates and redirects pre-signed storage URLs to the user's browser session, enabling direct access to S3 data without exposing credentials.
 
 When configured, the ClearML WebApp automatically redirects requests for matching storage URLs (like `s3://...`) to the 
 Presign Service. The service:
