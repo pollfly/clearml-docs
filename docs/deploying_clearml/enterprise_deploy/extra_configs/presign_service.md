@@ -35,20 +35,16 @@ Please note, the ClearML Presign service is an internal service and is not an al
   :::
  
 - The worker environment must be able to access the ClearML Server over the same network.
-- Token to access `clearml-enterprise` Helm chart repo
+- A DockerHub token to access the OCI enterprise Helm charts and Docker images
 
 ## Installation
 
-### Add the Helm Repo Locally
+### Log into the ClearML OCI Registry
 
-Add the ClearML Helm repository:
-```bash
-helm repo add clearml-enterprise https://raw.githubusercontent.com/clearml/clearml-enterprise-helm-charts/gh-pages --username <HELM_REPO_TOKEN> --password <HELM_REPO_TOKEN>
-```
+Log into the ClearML OCI registry:
 
-Update the local repository:
 ```bash
-helm repo update
+helm registry login docker.io --username allegroaienterprise --password <CLEARML_DOCKERHUB_TOKEN>
 ```
 
 ### Prepare Configuration
@@ -72,7 +68,7 @@ ingress:
 Install the `clearml-presign-service` Helm chart in the same namespace as the ClearML Enterprise server:
 
 ```bash
-helm install -n clearml clearml-presign-service clearml-enterprise/clearml-presign-service -f presign-service.override.yaml
+helm upgrade -i -n clearml clearml-presign-service oci://docker.io/clearml/clearml-presign-service -f presign-service.override.yaml
 ```
 
 ### Update ClearML Enterprise Server Configuration
@@ -87,5 +83,5 @@ apiserver:
       value: "[{\"type\":\"presign\",\"url\":\"https://<PRESIGN_SERVICE_URL>\",\"use_fallback\":\"false\",\"match_sets\":[{\"rules\":[{\"field\":\"\",\"obj_type\":\"\",\"regex\":\"^s3://\"}]}]}]"
 ```
 
-Apply the changes with a Helm upgrade.
+Apply the changes with a Helm upgrade command.
 
