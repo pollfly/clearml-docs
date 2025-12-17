@@ -33,9 +33,9 @@ This setup ensures secure access to S3-hosted data.
 
 ## Installation
 
-### Login to the ClearML OCI Registry
+### Log into the ClearML OCI Registry
 
-Login to the ClearML OCI registry:
+Log into the ClearML OCI registry:
 
 ```bash
 helm registry login docker.io --username allegroaienterprise --password <CLEARML_DOCKERHUB_TOKEN>

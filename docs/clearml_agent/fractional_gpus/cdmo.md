@@ -64,7 +64,7 @@ This guide covers:
 
 ### Installing CDMO 
 
-1. Login to the ClearML OCI Registry:
+1. Log into the ClearML OCI Registry:
 
    ```bash
    helm registry login docker.io --username allegroaienterprise --password <CLEARML_DOCKERHUB_TOKEN>

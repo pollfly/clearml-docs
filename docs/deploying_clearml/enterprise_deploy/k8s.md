@@ -40,7 +40,7 @@ For optimal performance, a Kubernetes cluster with at least 3 nodes is recommend
 
 ## Installation
 
-### Login to the ClearML OCI Registry
+### Log into the ClearML OCI Registry
 
 Login to the ClearML OCI registry:
 

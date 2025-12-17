@@ -11,7 +11,7 @@ on Kubernetes clusters, maximizing hardware efficiency and performance.
 
 ## Installation
 
-### Login to the ClearML OCI Registry
+### Log into the ClearML OCI Registry
 
 ```bash
 helm registry login docker.io --username allegroaienterprise --password <CLEARML_DOCKERHUB_TOKEN>
