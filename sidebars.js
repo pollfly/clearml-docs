@@ -453,6 +453,7 @@ module.exports = {
                 'references/sdk/hpo_parameters_uniformparameterrange',
                 'references/sdk/hpo_parameters_parameterset',
             ]},
+            'references/sdk/http_router',
             {'Enterprise Hyper-Datasets': [
                 {'Hyper-Dataset': [
                     'references/hyperdataset/hyperdataset',
@@ -684,7 +685,29 @@ module.exports = {
                     'Deployment': [
                         'clearml_agent/clearml_agent_deployment_bare_metal',
                         'clearml_agent/clearml_agent_deployment_k8s',
-                        'clearml_agent/clearml_agent_deployment_slurm',
+                        {
+                            type: 'category',
+                            collapsible: true,
+                            collapsed: true,
+                            label: 'Slurm',
+                            items: [
+                                {
+                                    type: 'doc',
+                                    label: 'Native',
+                                    id: 'clearml_agent/clearml_agent_deployment_slurm'
+                                },
+                                {
+                                    type: 'doc',
+                                    label: 'With Singularity',
+                                    id: 'clearml_agent/clearml_agent_deployment_slurm_singularity'
+                                },
+                                {
+                                    type: 'doc',
+                                    label: 'With Pyxis',
+                                    id: 'clearml_agent/clearml_agent_deployment_slurm_pyxis'
+                                },
+                            ]
+                        }
                     ]
                 },
                 'clearml_agent/clearml_agent_execution_env',
