@@ -2,6 +2,13 @@
 title: Version 2.1
 ---
 
+### ClearML 2.1.1
+
+**New Features and Bug Fixes**
+* Fix space is missing from the safe characters list when quoting downloaded file names
+* Add support for `sdk.storage.http.legacy_fileservers` to allow downloading data from legacy fileservers
+* Add Python 3.14 support
+
 ### ClearML 2.1.0
 
 **New Features**

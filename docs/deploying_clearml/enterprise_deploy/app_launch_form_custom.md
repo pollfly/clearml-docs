@@ -1,5 +1,6 @@
 ---
 title: Application Launch Form Customization
+slug: app_launch_form_custom
 ---
 
 :::important Enterprise Feature
