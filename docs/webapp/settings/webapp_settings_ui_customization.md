@@ -2,6 +2,10 @@
 title: UI Customization
 ---
 
+:::important Enterprise Feature
+The UI Customization admin settings page is available under the ClearML Enterprise plan.
+:::
+
 ## Task Clone Name Template
 
 Control the template used to provide default suggestions for [cloning tasks](../webapp_exp_reproducing.md) e.g. `"Clone Of <Original task name>"`. 

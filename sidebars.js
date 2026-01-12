@@ -821,6 +821,10 @@ module.exports = {
                              type: 'doc',
                              id: 'deploying_clearml/enterprise_deploy/extra_configs/self_signed_certificates'
                           },
+                          {
+                             type: 'doc',
+                             id: 'deploying_clearml/enterprise_deploy/extra_configs/bitnami_mongo_mitigation'
+                          },
                        ]
                     },
                     'deploying_clearml/enterprise_deploy/multi_tenant_k8s',
@@ -834,6 +838,7 @@ module.exports = {
                     'deploying_clearml/enterprise_deploy/import_projects',
                     'deploying_clearml/enterprise_deploy/change_artifact_links',
                     'deploying_clearml/enterprise_deploy/delete_tenant',
+                    'deploying_clearml/enterprise_deploy/api_audit',
                     ]
                 },
                 {'Configuration and Access Controls': [

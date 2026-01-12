@@ -47,7 +47,7 @@ helm registry login docker.io --username allegroaienterprise --password <CLEARML
 1. Create a `gpu-operator.override.yaml` file as follows:
    * Set `devicePlugin.repository` to `docker.io/clearml` 
    * Configure `devicePlugin.config.data.renamed-resources.sharing.timeSlicing.resources` for each GPU index on the host
-   * Use `nvidia.com/gpu-<INDEX>` format for the `rename` field, and set `replicas` to `8`.
+   * Use `nvidia.com/gpu-<INDEX>` format for the `rename` field, and set `replicas` to `8`. <br/><br/>
 
    ```yaml
    gfd:
@@ -107,6 +107,17 @@ helm registry login docker.io --username allegroaienterprise --password <CLEARML
                  - "1"
                  replicas: 8
    ```
+   
+   :::note k3s
+   If using **k3s**, you must set the `containerd` socket path. Add the following entry to your `gpu-operator.override.yaml`:
+
+   ```yaml
+   toolkit:
+     env:
+       - name: CONTAINERD_SOCKET
+         value: "/run/k3s/containerd/containerd.sock"
+   ```
+   :::
 
 #### For CFGI version < 1.3.0 (Legacy)
 
@@ -152,6 +163,17 @@ devicePlugin:
               - name: nvidia.com/gpu
                 replicas: 8
 ```
+
+:::note k3s
+If using **k3s**, you must set the `containerd` socket path. Add the following entry to your `gpu-operator.override.yaml`:
+
+```yaml
+toolkit:
+  env:
+    - name: CONTAINERD_SOCKET
+      value: "/run/k3s/containerd/containerd.sock"
+```
+:::
 
 ### Install GPU Operator and CFGI 
 

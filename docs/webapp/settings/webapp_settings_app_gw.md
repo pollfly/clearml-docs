@@ -2,6 +2,10 @@
 title: Application Gateway
 ---
 
+:::important Enterprise Feature
+The AI Application Gateway is available under the ClearML Enterprise plan.
+:::
+
 The ClearML [AI Application Gateway](../../deploying_clearml/enterprise_deploy/appgw.md) facilitates setting up secure, 
 authenticated access to jobs running on your compute nodes from external networks (see application gateway installation
 for [Kubernetes](../../deploying_clearml/enterprise_deploy/appgw_install_k8s.md), Docker-Compose for [Self-Hosted Deployment](../../deploying_clearml/enterprise_deploy/appgw_install_compose.md) 

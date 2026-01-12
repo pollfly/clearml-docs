@@ -260,4 +260,3 @@ non-root installation.
 
 These values are for Enterprise versions only, and they need to be adapted to specific infrastructure needs. The 
 `containerSecurityContext` is related to the Kubernetes distribution used/configuration and will need to be customized accordingly.
-
