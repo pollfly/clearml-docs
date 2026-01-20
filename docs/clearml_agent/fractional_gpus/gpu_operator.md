@@ -47,6 +47,17 @@ devicePlugin:
       value: all
 ```
 
+:::note k3s
+If using **k3s**, you must set the `containerd` socket path.  Add the following entry to your `gpu-operator.override.yaml`:
+
+```yaml
+toolkit:
+  env:
+    - name: CONTAINERD_SOCKET
+      value: "/run/k3s/containerd/containerd.sock"
+```
+:::
+
 Install the `gpu-operator`:
 
 ```bash

@@ -2,6 +2,12 @@
 title: Version 2.1
 ---
 
+### ClearML 2.1.2
+
+**Bug Fix**
+
+* Fix broken ArgParser integration with `SUPPRESS`
+
 ### ClearML 2.1.1
 
 **New Features and Bug Fixes**
