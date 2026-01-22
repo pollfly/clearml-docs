@@ -55,13 +55,16 @@ Access dataset version actions, by right-clicking a version, or through the menu
 
 * **Rename** - Change the version's name
 * **Create New Version** - Creates a child version of a *Published* dataset version. The new version is created in a *draft*
-  state, and inherits all the parent version's frames
+  state, and inherits all the parent version's frames. The template for the default value of new dataset version names 
+  can be set in [**Settings > Hyper-Dataset New Version Name Template**](../../webapp/settings/webapp_settings_ui_customization.md#hyper-dataset-new-version-name-template).
 * **Delete** - Delete the version. Only *Draft* versions can be deleted.  
 * **Publish** - Make a *Draft* version read-only to preserve its contents. 
  
 :::tip Publishing versions
 When publishing a version, you can create an additional working copy. The new version is created in a *draft* state, and 
-inherits all the published version's frames. 
+inherits all the published version's frames. By default, the newly created working copy inherits the original version's 
+name, while the published original version is automatically renamed to reflect its published state. The template for 
+the default value of published  version names can be set in [**Settings > Hyper-Dataset New Version Name Template**](../../webapp/settings/webapp_settings_ui_customization.md#hyper-dataset-new-version-name-template).
 
 <div class="max-w-75">
 

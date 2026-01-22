@@ -37,6 +37,18 @@ app_wizard_overrides {
 
 Refer to the configuration file of a specific application to view the property IDs for use when overriding. 
 
+The `app-id`, configuration-parameter and property names for a specific app are the same ones used in the `wizard` 
+section of its configuration file.
+
+:::tip Live configuration reference
+Admins can get the required field names for a specific application through a builtin reference in the app’s UI form as follows: 
+* Click the `+` to open the app instance launch form
+* In the form enable `Show Form Spec` (the application ID is available in the information tooltip for this UI control). 
+
+Hover over <img src="/docs/latest/icons/ico-settings.svg" alt="Setting Gear" className="icon size-md" /> next to a field 
+to view the name of that field in the application specification file.
+:::
+
 ### Supported Properties
 
 * `options` - Accepts an array of strings or mappings in the format of `{"label": "<option label>", "value": "<option value>"}`

@@ -90,10 +90,11 @@ of a dataset card to open its context menu and access dataset actions:
 * **Add Tag** - Add label to the dataset to help easily classify groups of datasets.
 * **Edit Metadata** - Modify dataset-level metadata. This will open the metadata edit window, where you can edit the section
 * **Delete** - Delete the dataset and all its versions.  
-  <br/><br/>
+  <br/>
   :::warning
   You cannot undo the deletion of a Hyper-Dataset.
   :::
+* **Move to Project** - Move the dataset to another project.
 
 
 ## Create New Hyper-Datasets
@@ -101,7 +102,7 @@ of a dataset card to open its context menu and access dataset actions:
 To create a Hyper-Dataset, click the **+ NEW DATASET** button in the top right of the page, which will open a 
 **New Dataset** modal.
 
-<div class="max-w-50">
+<div class="max-w-75">
 
 ![Hyper-Dataset creation modal](../../img/hyperdatasets/webapp_hyperdataset_creation.png#light-mode-only)
 ![Hyper-Dataset creation modal](../../img/hyperdatasets/webapp_hyperdataset_creation_dark.png#dark-mode-only)

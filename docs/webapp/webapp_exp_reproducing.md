@@ -2,13 +2,13 @@
 title: Reproducing Task Runs
 ---
 
-Reproducing task runs on local or remote machines in one of the following ways:
+You can reproduce task runs on local or remote machines in one of the following ways:
 * Cloning any task - Make an exact copy, while maintaining the original task
 * Resetting a task whose status is not *Published* - Delete the previous run's logs and output
 
 After cloning or resetting, enqueue the reset or newly cloned task for execution by a worker.
 
-Tasks can also be modified and then executed remotely, see [Tuning Tasks](webapp_exp_tuning.md).
+Tasks can also be modified before execution. See [Tuning Tasks](webapp_exp_tuning.md).
 
 ## Cloning
 To clone a task:
@@ -22,6 +22,8 @@ To clone a task:
      ::: 
    
    * Set `<cloned_task>` as parent - Select to set this task as the new task's parent
+   * Clear Dataviews (Enterprise feature) - If selected, the new task will start with no Dataviews 
+   * Force Original Packages - If selected, use the parent tasks's `original pip`/`original conda` for the new task’s [`Python Packages`](webapp_exp_track_visual.md#python-packages).
    * Description (optional)
 1. Click **Clone**
 
@@ -31,9 +33,12 @@ have a parent, in which case the original task is set as the parent. Select `Set
 the original task to become the clone's parent. 
 :::
 
+<div class="max-w-75">
+
 ![Clone modal](../img/webapp_clone.png#light-mode-only)
 ![Clone modal](../img/webapp_clone_dark.png#dark-mode-only)
 
+</div>
 
 ## Resetting
 

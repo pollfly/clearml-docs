@@ -19,6 +19,14 @@ Control the optimization process with the advanced configuration options, which 
 limits.
 
 ## HPO Instance Configuration
+
+:::note
+Administrators can [customize](../../deploying_clearml/enterprise_deploy/app_launch_form_custom.md) the launch form and 
+modify field names and/or available options and defaults. 
+
+This section describes the default configuration provided by ClearML
+:::
+
 * **Import Configuration** - Import an app instance configuration file. This will fill the instance launch form with the 
   values from the file, which can be modified before launching the app instance
 * **Initial Task to Optimize** - ID of a ClearML task to optimize. This task will be cloned, and each clone will 

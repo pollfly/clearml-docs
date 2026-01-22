@@ -56,6 +56,13 @@ to open the app's configuration form.
 
 ### Configuration Options
 
+:::note
+Administrators can [customize](../../deploying_clearml/enterprise_deploy/app_launch_form_custom.md) the launch form and 
+modify field names and/or available options and defaults. 
+
+This section describes the default configuration provided by ClearML
+:::
+
 * Instance Name – Name for the LLM UI app instance. This will appear in the instance list
 * Service Project (Access Control) – The ClearML project where the app instance is created. Access is determined by 
   project-level permissions (i.e. users with read access can use the app).
