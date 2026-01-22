@@ -13,3 +13,11 @@ Control the template used to provide default suggestions for [cloning tasks](../
 The template supports dynamic variable references that are filled in when a task is cloned:
 * `${name}` - The original task’s name
 * `${date}` – The time the clone was created (e.g. `21/3/2025 12:45:15`)
+
+## Hyper-Dataset New Version Name Template
+Control the default name assigned to a new Hyper-Dataset version when it is created.
+
+The template supports dynamic variables that are filled when a version is created:
+* `${dataset}` - The dataset name
+* `${version}` - The parent version name
+* `${date}` - The version creation time (e.g., `21/3/2025 12:45:15`)

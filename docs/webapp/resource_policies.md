@@ -67,6 +67,8 @@ The policy details panel displays:
 The top card displays the policy information:
 * Policy name
 * Current usage - The number of resources currently in use (i.e. by currently running jobs)
+* Resource consumption breakdown - Click <img src="/docs/latest/icons/ico-resource-list.svg" alt="task list" className="icon size-md space-sm" />
+  to view tasks currently using  this policy’s resources: Task name, number of resources consumed, and more. Click a task name to go to its [task page](webapp_exp_track_visual.md).
 * Reserved resources
 * Resource limit
 * User group that the policy applies to - click to show list of users in the group
@@ -99,8 +101,17 @@ To modify a resource policy, click **Edit** to open the details panel in editor 
 ### To Modify Policy Parameters
 
 1. On the resource policy card, click <img src="/docs/latest/icons/ico-bars-menu.svg" alt="Menu" className="icon size-md space-sm" /> **> Edit**
-1. In the Edit Resource Policy modal, you can modify the policy’s name, number of reserved resources, resource limit, 
-and description
+1. In the `Edit Resource Policy` modal, you can modify the following:
+   * Policy name
+   * Number of reserved resources
+   * Resource limit
+   * [User group](settings/webapp_settings_users.md#user-groups) to which the policy applies.
+     :::note
+     Changing the user group will remove any pending tasks from users not in the new group from the policy’s queues..
+     :::
+   
+   * Description
+
 1. Click **Save**
 
 ### To Add a Resource Profile to a Policy

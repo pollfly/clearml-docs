@@ -11,6 +11,14 @@ view of task status and a chosen metric over time, as well as project GPU and wo
 on completed/failed Tasks via Slack integration.
 
 ## Project Dashboard Instance Configuration
+
+:::note
+Administrators can [customize](../../deploying_clearml/enterprise_deploy/app_launch_form_custom.md) the launch form and 
+modify field names and/or available options and defaults. 
+
+This section describes the default configuration provided by ClearML
+:::
+
 * **Import Configuration** - Import an app instance configuration file. This will fill the instance launch form with the 
   values from the file, which can be modified before launching the app instance
 * **Dashboard Title** - Name of the project dashboard instance, which will appear in the instance list

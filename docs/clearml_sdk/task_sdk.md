@@ -8,7 +8,7 @@ The following page provides an overview of the basic Pythonic interface to Clear
 
 [`Task.init`](../references/sdk/task.md) is the main method used to create tasks in ClearML. It will create a task, and 
 populate it with:
-* A link to the running git repository (including commit ID and local uncommitted changes)
+* A link to the Git repository that contains the source code (including commit ID and local uncommitted changes)
 * Python packages used (i.e. directly imported Python packages, and the versions available on the machine)
 * Argparse arguments (default and specific to the current execution)
 * Reports to Tensorboard and Matplotlib and model checkpoints.
@@ -19,7 +19,7 @@ To ensure every run will provide the same results, ClearML controls the determin
 :::
 
 :::note
-ClearML object (such as task, project) names are required to be at least 3 characters long
+Task names are required to be at least 3 characters long.
 :::
 
 ```python
@@ -28,7 +28,7 @@ from clearml import Task
 
 task = Task.init(
     project_name='example',    # project name of at least 3 characters
-    task_name='task template', # task name of at least 3 characters
+    task_name='task template',
     task_type=None,
     tags=None,
     reuse_last_task_id=True,

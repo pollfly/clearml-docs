@@ -85,6 +85,14 @@ To configure a new app instance, click `Launch New` <img src="/docs/latest/icons
 to open the app's configuration form.
 
 ### Configuration Options
+
+:::note
+Administrators can [customize](../../deploying_clearml/enterprise_deploy/app_launch_form_custom.md) the launch form and 
+modify field names and/or available options and defaults. 
+
+This section describes the default configuration provided by ClearML
+:::
+
 * **Import Configuration**: Import an app instance configuration file. This will fill the instance launch form with the 
 values from the file, which can be modified before launching the app instance
 * **Instance name**: Name for the vLLM Model Deployment instance. This will appear in the instance list
