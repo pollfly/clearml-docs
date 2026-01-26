@@ -37,11 +37,11 @@ app_wizard_overrides {
 
 Refer to the configuration file of a specific application to view the property IDs for use when overriding. 
 
-The `app-id`, configuration-parameter and property names for a specific app are the same ones used in the `wizard` 
+The `app-id`, configuration-parameter, and property names for a specific app are the same ones used in the `wizard` 
 section of its configuration file.
 
 :::tip Live configuration reference
-Admins can get the required field names for a specific application through a builtin reference in the app’s UI form as follows: 
+Admins can get the required field names for a specific application through a built-in reference in the app’s UI form as follows: 
 * Click the `+` to open the app instance launch form
 * In the form enable `Show Form Spec` (the application ID is available in the information tooltip for this UI control). 
 

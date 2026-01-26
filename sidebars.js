@@ -455,18 +455,38 @@ module.exports = {
                 'references/sdk/hpo_parameters_parameterset',
             ]},
             'references/sdk/http_router',
-            {'Enterprise Hyper-Datasets': [
-                {'Hyper-Dataset': [
-                    'references/hyperdataset/hyperdataset',
-                    'references/hyperdataset/hyperdatasetversion'
-                ]},
-                {'DataFrame': [
-                    'references/hyperdataset/singleframe',
-                    'references/hyperdataset/framegroup',
-                    'references/hyperdataset/annotation',
-                ]},
-                'references/hyperdataset/dataview',
-            ]},
+            {
+
+                type: 'category',
+                collapsible: true,
+                collapsed: true,
+                label: 'Hyper-Datasets',
+                link: {type: 'doc', id: 'references/hpd_overview'},
+                items: [
+                    {
+                        'clearml ≥ 2.1' : [
+                            'references/sdk/hpd_hyperdataset',
+                            'references/sdk/hpd_hyperdatasetmanagement',
+                            'references/sdk/hpd_dataentry',
+                            'references/sdk/hpd_datasubentry',
+                            'references/sdk/hpd_dataentryimage',
+                            'references/sdk/hpd_datasubentryimage',
+                            'references/sdk/hpd_dataview',
+                            'references/sdk/hpd_hyperdatasetquery',
+                        ]
+                    },
+                    {
+                         'allegroai (Legacy)' : [
+                            'references/hyperdataset/hyperdataset',
+                            'references/hyperdataset/hyperdatasetversion',
+                            'references/hyperdataset/singleframe',
+                            'references/hyperdataset/framegroup',
+                            'references/hyperdataset/annotation',
+                            'references/hyperdataset/dataview',
+                        ]
+                    }
+                ]
+            },
         ]},
         {'CLI Tools': [
             'apps/clearml_task',
