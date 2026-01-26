@@ -2,6 +2,13 @@
 title: Version 2.1
 ---
 
+### ClearML 2.1.3
+
+**New Features and Bug Fixes**
+* Fix GPU reporting for `NVIDIA_VISIBLE_DEVICES=void`
+* Fix default example parameters for `sklearn joblib`
+* Add support for ClearML App Gateway static routes in Gradio binding
+
 ### ClearML 2.1.2
 
 **Bug Fix**

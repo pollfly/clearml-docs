@@ -105,9 +105,9 @@ To modify a resource policy, click **Edit** to open the details panel in editor 
    * Policy name
    * Number of reserved resources
    * Resource limit
-   * [User group](settings/webapp_settings_users.md#user-groups) to which the policy applies.
+   * [User group](settings/webapp_settings_users.md#user-groups) to which the policy applies
      :::note
-     Changing the user group will remove any pending tasks from users not in the new group from the policy’s queues..
+     Changing the user group will remove any pending tasks from users not in the new group from the policy’s queues.
      :::
    
    * Description

@@ -890,6 +890,10 @@ html[data-theme="dark"] .alert.alert--secondary {
     background-color: var(--ifm-toc-background-color);
 }
 
+.alert a {
+    text-decoration-color: unset;
+}
+
 /* show visual identification for external links */
 .markdown a[href^="https://"] {
   background: url('/icons/ico-open-in-new.svg') center right no-repeat;
