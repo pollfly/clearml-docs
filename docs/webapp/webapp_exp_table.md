@@ -50,6 +50,7 @@ To create a task through the UI interface:
 1. In the `Create Task` modal, input the following information:
    * **Code** - What this task is going to run
      * Task name
+     * Task Type - See [Task Types](../fundamentals/task.md#task-types) for more information.
      * Git - Optional fields for checking out the code from a git repository: 
        * Repository URL
        * Version specification - one of the following:

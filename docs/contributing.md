@@ -42,7 +42,7 @@ repository. We welcome examples, explanations, and improvements.
 
 ### SDK
 
-If you're working with the [ClearML SDK]((https://github.com/clearml/clearml)), here are some valuable ways to contribute:
+If you're working with the [ClearML SDK](https://github.com/clearml/clearml), here are some valuable ways to contribute:
 
 * **Add ClearML as an External Logger:** ClearML can be integrated as an external logger in third-party experiment 
   managers like HuggingFace and YOLOv5 (as long as maintainers approve 😀).   

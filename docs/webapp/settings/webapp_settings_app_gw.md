@@ -14,6 +14,7 @@ or Docker-Compose for [Hosted Deployment](../../deploying_clearml/enterprise_dep
 **Application Gateway** Settings include:
 * **Routers** – Monitor gateway routers and verify routing functionality
 * **Static Routes** – Define and monitor fixed, externally accessible endpoints that route to specific tasks or services.
+* **Access Tokens** – Manage tokens for secure access to gateway endpoints
 
 ## Routers 
 
@@ -131,3 +132,29 @@ in the **Static Routes** table.
 To delete a static route details, hover and click **Delete** <img src="/docs/latest/icons/ico-trash.svg" alt="Trash" className="icon size-md space-sm" /> 
 in the **Static Routes** table. Disabling or Deleting a route removes the external endpoint and stops routing any active 
 connections. 
+
+## Access Tokens
+
+Tokens provide access to AI Application Gateway endpoints. The **Access Tokens** table lists all manually created tokens 
+in the system. The table shows each token's:
+* Label
+* Creation Time
+* Expiration Time
+* User - The user or service account the token grants access as
+* Created by - User who generated the token
+
+![Application Gateway token table](../../img/settings_app_gateway_tokens.png#light-mode-only)
+![Application Gateway token table](../../img/settings_app_gateway_tokens_dark.png#dark-mode-only)
+
+You can search <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
+the tokens list using labels or usernames.
+
+### Generating an Access Token
+To generate an access token:
+1. Click **Generate a Token**
+1. Under `Label`, enter a descriptive name for the token
+1. Under `Expiration`, enter the number of days the token should remain valid
+1. Click `Generate`, which creates a token and copies it to your clipboard
+
+### Revoking an Access Token
+To revoke a token, hover over the token's row and click <img src="/docs/latest/icons/ico-trash.svg" alt="Trash" className="icon size-md space-sm" />.
