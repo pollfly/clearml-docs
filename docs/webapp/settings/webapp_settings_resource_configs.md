@@ -164,7 +164,11 @@ page.
 To make any change (create, delete, or modify a component) to the resource configuration, follow the following steps:
 1. Click **Open Editor** to go into Editing mode 
 1. After making the desired changes you have the following options:
-    * **Save** - Save the changes you made. These changes will not be applied until you click on Provision 
+    * **Save** - Save the changes you made. These changes will not be applied until you click on **Provision**
+    * **Validate** - Check whether the saved configuration is valid and can be provisioned. If the configuration is valid, 
+    a confirmation message is displayed. If the configuration is invalid, validation fails and displays the reason (e.g., 
+    resource profiles that are not linked to any resource pool). Validation does **not** apply any changes. This option 
+    is available only after the configuration has been saved.
     * **Provision** - Apply the resource policy’s saved changes 
     * **Reset Configuration** - Set the editor to the currently provisioned values. This will delete any unprovisioned 
     changes (both saved and unsaved)

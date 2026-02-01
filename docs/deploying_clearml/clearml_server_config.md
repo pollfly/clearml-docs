@@ -514,3 +514,23 @@ When clicking the custom action, the UI sends the target endpoint (`url`) the ap
 with the object's ID.
 
 The UI will display a toast message conveying action success or failure.
+
+### Default Task Clone Name
+
+You can customize the template used for the default name of newly cloned tasks, e.g. `"Clone Of <Original_task_name>"`.
+
+To set a custom template, set the `WEBSERVER__interfaceCustomization` environment variable in the `webserver` service in 
+your `docker-compose.yml` file.
+
+For example:
+
+```yaml
+services:
+  webserver:
+    environment:
+      WEBSERVER__interfaceCustomization: {"clonePrefix": "New ${name} clone on ${date}"}
+```
+
+The following dynamic variables can be used within the `clonePrefix` string:
+* `${name}` - The original task’s name
+* `${date}` – The time the new task was created (e.g. `21/3/2025 12:45:15`)

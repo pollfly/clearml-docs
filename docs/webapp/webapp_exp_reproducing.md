@@ -17,8 +17,12 @@ To clone a task:
    * Project - The project where the task will be saved
    * Name - The name for the new task. 
    
-     :::note Enterprise feature
-     the ClearML Enterprise plan supports setting the template for the default value of new task names in **Settings >** [**Task clone name template**](settings/webapp_settings_ui_customization.md#task-clone-name-template)
+     :::note New task name template
+     By default, the new task is named `Clone of <original_task_name>`.
+     
+     This default name can be customized:
+     - In **ClearML Enterprise**, via UI **Settings** page **>** [**Task clone name template**](settings/webapp_settings_ui_customization.md#task-clone-name-template)
+     - In **ClearML Open Source**, via server configuration setting. For more information, see [Default Task Clone Name](../deploying_clearml/clearml_server_config.md#default-task-clone-name).
      ::: 
    
    * Set `<cloned_task>` as parent - Select to set this task as the new task's parent

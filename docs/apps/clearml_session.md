@@ -248,7 +248,7 @@ clearml-session --continue-session <session_id> --store-workspace ~/workspace
 | `--session-tags` | Add tags to the interactive session for increased visibility | `none` |
 | `--shell` | Open the SSH session directly. Notice, quitting the SSH session will not shut down the remote session|`none`|
 | `--shutdown`, `-S`| Shut down an active session | Previous session|
-| `--skip-docker-network` | Don't pass the `--network host` flag to the Docker that is launching the remote session. See [Networking using the host network](https://docs.docker.com/network/network-tutorial-host/) | `false`|
+| `--skip-docker-network` | Don't pass the `--network host` flag to the Docker that is launching the remote session. See the [Docker documentation](https://docs.docker.com/engine/network/drivers/host/) | `false`|
 | `--store-workspace` |  Upload/Restore remote workspace folder and extract it into the next session. Use with `--continue-session` to continue your previous work from your exact container state | `none` |
 | `--upload-files`|  Specify local files/folders to upload to the remote session|`none`|
 | `--user-folder` | Specify the path for the session's remote base folder for the session | Home folder(`~/`) or previously entered user folder path |
