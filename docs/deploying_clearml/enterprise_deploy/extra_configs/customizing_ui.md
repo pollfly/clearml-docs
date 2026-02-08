@@ -38,6 +38,19 @@ The following parameters can be used to customize the ClearML UI:
     * `true`: Display ClearML built-in tips and suggestions in the UI  
     * `false`: Hide tips for a cleaner, more white-label experience.
 
+* `blockUserScript?: boolean;`
+  * Controls whether user-provided and third-party scripts are allowed to run in the ClearML Web UI.
+  * **Possible Values:**
+    * `true`: The Web UI blocks execution of all user and embedded scripts, including:
+      * Debug samples
+      * Hyper-Dataset frame previews
+      * Embedded resources in reports
+      
+      This behavior is enforced globally and overrides the user-level **Block running user's scripts in the browser** toggle
+      in the UI **User Settings**. 
+    * `false`: Users can enable/disable script execution using the **Block running user's scripts in the browser** toggle 
+      in **User Settings**.
+
 ### Theming and Styling
 
 * `forceTheme?: 'light' | 'dark';`  
@@ -146,6 +159,8 @@ webserver:
       value: "\"tenant\""
     - name: WEBSERVER__displayTips
       value: "false"
+    - name: WEBSERVER__blockUserScript
+      value: "true"      
     - name: WEBSERVER__forceTheme
       value: "light"
     - name: WEBSERVER__defaultTheme

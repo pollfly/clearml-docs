@@ -2,6 +2,9 @@
 title: VS Code
 ---
 
+### 1.17.0
+* Improve security
+
 ### 1.15.2 
 * Ensure tasks created by SDK from VS Code sessions by default use the same Docker image as the running environment.
 

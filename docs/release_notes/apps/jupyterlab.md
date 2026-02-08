@@ -2,6 +2,9 @@
 title: Jupyter Lab
 ---
 
+### 1.17.0
+* Improve security
+
 ### 1.15.2
 
 * Fix Jupyter application failing to launch app instances 
