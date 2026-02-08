@@ -425,7 +425,8 @@ module.exports = {
                 }
             ]
         },
-        {'Autoscalers': ['release_notes/autoscalers/aws_autoscaler', 'release_notes/autoscalers/gcp_autoscaler']}
+        {'Autoscalers': ['release_notes/autoscalers/aws_autoscaler', 'release_notes/autoscalers/gcp_autoscaler']},
+        {'AI Application Gateway': ['release_notes/appgw/ver_2_14', 'release_notes/appgw/ver_2_13']}
     ],
     referenceSidebar: [
         {'SDK': [

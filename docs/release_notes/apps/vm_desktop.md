@@ -2,6 +2,9 @@
 title: Virtual Machine Remote Desktop
 ---
 
+### 1.17.0
+* Improve security
+
 ### 1.16.0
 
 **Bug Fix**

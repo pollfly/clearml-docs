@@ -53,22 +53,22 @@ This is an example of the `docker-compose` file you will need:
 ```
 version: '3.5'
 services:
-  task_traffic_webserver:
+  ai-gateway-proxy:
     image: clearml/ai-gateway-proxy:${PROXY_TAG:?err}
     network_mode: "host"
     restart: unless-stopped
-    container_name: task_traffic_webserver
+    container_name: ai-gateway-proxy
     volumes:
-    - ./task_traffic_router/config/nginx:/etc/nginx/conf.d:ro
-    - ./task_traffic_router/config/lua:/usr/local/openresty/nginx/lua:ro
-  task_traffic_router:
+    - ./application-gateway/config/nginx:/etc/nginx/conf.d:ro
+    - ./application-gateway/config/lua:/usr/local/openresty/nginx/lua:ro
+  ai-gateway-router:
     image: clearml/ai-gateway-router:${ROUTER_TAG:?err}
     restart: unless-stopped
-    container_name: task_traffic_router
+    container_name: ai-gateway-router
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - ./task_traffic_router/config/nginx:/etc/nginx/conf.d:rw
-    - ./task_traffic_router/config/lua:/usr/local/openresty/nginx/lua:rw
+    - ./application-gateway/config/nginx:/etc/nginx/conf.d:rw
+    - ./application-gateway/config/lua:/usr/local/openresty/nginx/lua:rw
     environment:
     - ROUTER_NAME=${ROUTER_NAME:?err}
     - ROUTER__WEBSERVER__SERVER_PORT=${ROUTER__WEBSERVER__SERVER_PORT:?err}
@@ -77,17 +77,17 @@ services:
     - CLEARML_API_ACCESS_KEY=${CLEARML_API_ACCESS_KEY:?err}
     - CLEARML_API_SECRET_KEY=${CLEARML_API_SECRET_KEY:?err}
     - AUTH_COOKIE_NAME=${AUTH_COOKIE_NAME:?err}
-    - AUTH_SECURE_ENABLED=${AUTH_SECURE_ENABLED}
-    - TCP_ROUTER_ADDRESS=${TCP_ROUTER_ADDRESS}
-    - TCP_PORT_START=${TCP_PORT_START}
-    - TCP_PORT_END=${TCP_PORT_END}
+    - ROUTER__HTTP__AUTHORIZATION__COOKIE__SECURE=${AUTH_SECURE_ENABLED}
+    - ROUTER__STREAM__EXTERNAL_URL=${STREAM_ROUTER_ADDRESS}
+    - ROUTER__STREAM__PORT_RANGE__START=${STREAM_PORT_START}
+    - ROUTER__STREAM__PORT_RANGE__END=${STREAM_PORT_END}
 ```
 
 Create a `runtime.env` file containing the following entries:
 
 ```
-PROXY_TAG=1.7.0
-ROUTER_TAG=2.13.1
+PROXY_TAG=1.8.1
+ROUTER_TAG=2.14.0
 ROUTER_NAME=main-router
 ROUTER__WEBSERVER__SERVER_PORT=8010
 ROUTER_URL=
@@ -96,9 +96,9 @@ CLEARML_API_ACCESS_KEY=
 CLEARML_API_SECRET_KEY=
 AUTH_COOKIE_NAME=
 AUTH_SECURE_ENABLED=true
-TCP_ROUTER_ADDRESS=
-TCP_PORT_START=
-TCP_PORT_END=
+STREAM_ROUTER_ADDRESS=
+STREAM_PORT_START=
+STREAM_PORT_END=
 ```
 
 **Configuration Options:**
@@ -120,9 +120,9 @@ TCP_PORT_END=
   found in the `envoy.yaml` file in the ClearML server installation (`/opt/allegro/config/envoy/envoy.yaml`), under the
   `value_prefix` key starting with `allegro_token`
 * `AUTH_SECURE_ENABLED`: Enable the Set-Cookie `secure` parameter. Set to `false` in case services are exposed with `http`.
-* `TCP_ROUTER_ADDRESS`: Router external address, can be an IP or the host machine or a load balancer hostname, depends on network configuration
-* `TCP_PORT_START`: Start port for the TCP Session feature
-* `TCP_PORT_END`: End port for the TCP Session feature
+* `STREAM_ROUTER_ADDRESS`: Router external address, can be an IP or the host machine or a load balancer hostname, depends on network configuration
+* `STREAM_PORT_START`: Start port for the TCP-UDP Session feature
+* `STREAM_PORT_END`: End port for the TCP-UDP Session feature
 
 Run the following command to start the router:
 
