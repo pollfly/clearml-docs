@@ -290,10 +290,10 @@ module.exports = {
             {
                 'Open Source':
                         [
-                           'release_notes/clearml_server/open_source/ver_2_3',
+                           'release_notes/clearml_server/open_source/ver_2_4',
                            {
                                'Older Versions': [
-                                   'release_notes/clearml_server/open_source/ver_2_2',
+                                   'release_notes/clearml_server/open_source/ver_2_3', 'release_notes/clearml_server/open_source/ver_2_2',
                                    'release_notes/clearml_server/open_source/ver_2_1', 'release_notes/clearml_server/open_source/ver_2_0',
                                    'release_notes/clearml_server/open_source/ver_1_17', 'release_notes/clearml_server/open_source/ver_1_16',
                                    'release_notes/clearml_server/open_source/ver_1_15', 'release_notes/clearml_server/open_source/ver_1_14',
@@ -845,6 +845,10 @@ module.exports = {
                           {
                              type: 'doc',
                              id: 'deploying_clearml/enterprise_deploy/extra_configs/bitnami_mongo_mitigation'
+                          },
+                          {
+                             type: 'doc',
+                             id: 'deploying_clearml/enterprise_deploy/k8s_mckmongo_migration'
                           },
                        ]
                     },
