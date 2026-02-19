@@ -21,6 +21,8 @@ Available single-value variables:
 - `QUEUE_NAME` - Name of the queue from which the task is pulled
 - `QUEUE_ID` - ID of the queue from which the task is pulled
 - `WORKER_ID` - ID of the agent running the task
+- `PROJECT_NAME` - Task's project name
+- `PROJECT_ID` - Task's project ID
 
 ## Compound Variables (Path-Based)
 
@@ -44,7 +46,13 @@ The following compound variables are supported:
   from vaults applied for the user who’s the task owner.
 - `PROVIDERS_INFO` - Contains user data retrieved from the identity provider (SSO), if configured on the ClearML Server.
 
-## Examples
+### List Type Variables
+
+If a variable resolves to a list of simple values (e.g. string or number), it is expanded as a comma-separated list of values.
+
+For example, if a task has the tags `["tag1", "tag2", "tag3"]`, the variable `${CLEARML_TASK.tags}` expands to `tag1,tag2,tag3`.
+
+### Examples
 
 ```
 ${CLEARML_TASK.name}

@@ -3,6 +3,32 @@ title: Version 2.0
 ---
 
 
+### ClearML Agent 2.0.7
+
+**New Features and Bug Fixes**
+* Resolve `uv run` missing environment variables ([#257](https://github.com/clearml/clearml-agent/pull/257))
+* Add support for extra git repo credentials under the `agent.git.extra_credentials` configuration option, with support 
+  for matching git host full URL with `agent.git_host_match_prefix`
+* Add support for shlex parsing of script, to pass arguments directly to Python by setting execution script to 
+  `sub/dir/script.py --arg1=a --arg2=b`
+* Add info prints on locking cache folders for increased visibility
+* Change behavior to not ask to skip setting execution queue on open source servers ([#223](https://github.com/clearml/clearml-agent/issues/223))
+* Fix template string handling for YAML
+* Fix bash tasks created via CLI
+* Fix `setuptools` dependency since `pkg_resources` was removed in 82.0.0
+* Ensure venv folder was actually created after venv returned success status code (sometime happens with Python wrappers)
+* Fix `clearml` installation when forcing `Task.init` patch and using UV as package manager
+* Fix `CLEARML_AGENT_FORCE_TASK_INIT` sometimes does not patch requirements correctly
+* Fix UV to keep `UV_CACHE_DIR` env if exists
+* Fix UV sync, if failing revert to `toml` file
+* Fix environment variables not passed when using non `os.exec`
+* Fix when using `CLEARML_AGENT_SKIP_PIP_VENV_INSTALL` and `CLEARML_AGENT_SKIP_PYTHON_ENV_INSTALL=1`, make sure `CLEARML_AGENT_SKIP_PIP_VENV_INSTALL` binary is used 
+  and not the default Python
+* Fix when no container image is provided, default image zeroes out all container arguments and bash script
+* Fix obtaining task information when running where the task and the task session refer to a different tenant
+* Fix GPU reporting when `NVIDIA_VISIBLE_DEVICES=void`
+
+
 ### ClearML Agent 2.0.5
 
 **Bug Fixes**
