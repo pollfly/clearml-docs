@@ -29,6 +29,46 @@ If you're using Microsoft LDAP (Active Directory), you'll need to override this 
 ```
 CLEARML__apiserver__auth__fixed_user_providers__ldap__search_filter: "(&(objectclass=user)(sAMAccountName={0}))"
 ```
+
+### LDAP Secure Transport (TLS / LDAPS)
+
+If the LDAP server URL starts with `ldaps://`, the connection is secure by default.
+
+If you are using `ldap://`, you can enable TLS by setting the following environment variable in the apiserver container:
+
+```
+CLEARML__apiserver__auth__fixed_user_providers__ldap__use_tls=true
+```
+
+#### Server Certificate Validation
+
+By default, ClearML verifies the LDAP server certificate.
+
+If the LDAP server uses a private CA or self-signed certificate, you can provide the CA certificate chain to the API server: 
+1. Copy the certificate file to a folder on the host (for example: `/opt/allegro/config/onprem_poc`).
+1. Set the path to the certificate so the apiserver can find it:
+
+   ``` 
+   CLEARML__apiserver__auth__fixed_user_providers__ldap__tls__ca_certs=/opt/allegro/config/onprem_poc/<certificate_file>
+   ```
+  
+   You can skip certificate validation by setting the following variable:
+
+   ```
+   CLEARML__apiserver__auth__fixed_user_providers__ldap__tls__validate_cert=false 
+   ```
+
+
+#### Client Certificates
+
+If your LDAP server requires client certificates, add the client certificate and private key files to the server, and 
+provide their locations using the following environment variables:
+
+```
+CLEARML__apiserver__auth__fixed_user_providers__ldap__tls__client_cert=/opt/allegro/config/onprem_poc/<client_certificate_file>
+CLEARML__apiserver__auth__fixed_user_providers__ldap__tls__client_key=/opt/allegro/config/onprem_poc/<client_private_key_file>
+```
+
 ### Retrieving Email and Display Name
 The user’s email and name are pulled from the LDAP "email" and "displayName" attributes by default. If needed, you 
 can configure the system to use different attributes, like this:

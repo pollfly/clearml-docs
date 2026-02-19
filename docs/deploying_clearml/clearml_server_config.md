@@ -14,6 +14,8 @@ This page describes the ClearML Server [deployment](#clearml-server-deployment-c
 * [Using hashed passwords](#using-hashed-passwords) - Option to use hashed passwords instead of plain-text passwords
 * [Non-responsive Task watchdog](#non-responsive-task-watchdog) - For inactive tasks
 * [Custom UI context menu actions](#custom-ui-context-menu-actions)
+* [Default Task Clone Name](#default-task-clone-name)
+* [Third-Party Script Execution](#third-party-script-execution-web-ui) -  Control whether user-provided and third-party scripts are allowed to run in the ClearML Web UI
 
 For all configuration options, see the [ClearML Configuration Reference](../configs/clearml_conf.md) page.
 
@@ -534,3 +536,31 @@ services:
 The following dynamic variables can be used within the `clonePrefix` string:
 * `${name}` - The original task’s name
 * `${date}` – The time the new task was created (e.g. `21/3/2025 12:45:15`)
+
+### Third-Party Script Execution (Web UI)
+
+You can control whether user-provided and third-party scripts are allowed to run in the ClearML Web UI. 
+Note that when script execution is blocked, the WebApp will not display debug samples and embedded resources in [reports](../webapp/webapp_reports.md).
+
+The behavior is configured using the `blockUserScript` setting in the `webserver` service:
+* `true`: The Web UI blocks execution of all user and embedded scripts. This behavior is enforced globally and overrides 
+  the user-level **Block running user's scripts in the browser** toggle
+  in the UI **User Settings**. 
+* `false`: Users can enable/disable script execution using the **Block running user's scripts in the browser** toggle 
+  in **User Settings**.
+
+For Docker Compose, add the following environment variable to the `webserver` service:
+
+```yaml
+services:
+  webserver:
+    environment:
+      WEBSERVER__blockUserScript: true|false
+```
+
+For Helm, set the `blockUserScript` value in your Helm values file:
+
+```yaml
+webserver:
+  blockUserScript: true|false
+```
