@@ -689,6 +689,7 @@ module.exports = {
                         'webapp/settings/webapp_settings_app_gw',
                         'webapp/settings/webapp_settings_usage_billing',
                         'webapp/settings/webapp_settings_storage_credentials',
+                        'webapp/settings/webapp_settings_analytics',
                         'webapp/settings/webapp_settings_ui_customization'
                     ]
                 },
@@ -872,9 +873,11 @@ module.exports = {
                    'user_management/admin_vaults',
                    ]
                 },
+                'deploying_clearml/enterprise_deploy/extra_configs/event_metering',
                 'deploying_clearml/enterprise_deploy/extra_configs/customizing_ui'
             ],
         },
+        'webapp/platform_management_center',
         {'ClearML Application Gateway': [
             'deploying_clearml/enterprise_deploy/appgw_install_compose',
             'deploying_clearml/enterprise_deploy/appgw_install_compose_hosted',

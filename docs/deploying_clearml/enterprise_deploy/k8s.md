@@ -88,6 +88,9 @@ webserver:
 clearmlApplications:
   enabled: true
 ```
+
+<a id="special-clean"></a>
+
 :::important Special Clean installation overrides
 Add the following settings in your `clearml-values.override.yaml` file to use the new (10.11.7) bundled MongoDB dependency (mckMongodb) instead of the legacy MongoDB chart:
 
