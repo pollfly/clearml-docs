@@ -7,6 +7,11 @@ This guide provides step-by-step instructions for installing the ClearML Enterpr
 The ClearML Enterprise Server includes the ClearML `apiserver`, `fileserver`, and `webserver` components. 
 The package also includes MongoDB, ElasticSearch, and Redis as Helm dependencies.
 
+:::warning Upgrading from chart versions 10.11.6 and below
+Starting in chart version `10.11.7`, ClearML is transitioning to a new mongodb chart source (mckMongodb).
+
+To upgrade an existing installation follow the [MongoDB chart Migration Guide](k8s_mckmongo_migration.md) to ensures data consistency and compatibility with future chart versions.
+:::
 
 ## Prerequisites
 
@@ -83,6 +88,20 @@ webserver:
 clearmlApplications:
   enabled: true
 ```
+
+<a id="special-clean"></a>
+
+:::important Special Clean installation overrides
+Add the following settings in your `clearml-values.override.yaml` file to use the new (10.11.7) bundled MongoDB dependency (mckMongodb) instead of the legacy MongoDB chart:
+
+```yaml
+mongodb:
+  enabled: false
+mckMongodb:
+  enabled: true
+  migrated: true
+```
+:::
 
 ### Install the Chart
 
@@ -190,7 +209,7 @@ externalServices:
 ## Next Steps
 
 After installing the ClearML Enterprise Server, you can enhance your deployment by enabling optional services that 
-extend ClearML’s capabilities for scheduling, interactivity, authentication, and more.
+extend ClearML's capabilities for scheduling, interactivity, authentication, and more.
 
 ### Applications Installation
 ClearML Applications are plugins that extend the functionality of the ClearML Enterprise Server. They enable users 

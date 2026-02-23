@@ -27,7 +27,7 @@ title: Version 1.2
 - Add additional k8s-glue dockerfiles ([#94](https://github.com/clearml/clearml-agent/pull/94) )
 - Update default docker image to `nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04`
 - Add support for custom docker image resolving using the `agent.default_docker.match_rules` configuration setting (see [here](https://github.com/clearml/clearml-agent/blob/8712c5e636d9a02e939a9759348d29521a3939a9/docs/clearml.conf#L169))
-- Add `agent.force_git_root_python_path` configuration setting to force adding the git repository root folder to the `PYTHONPATH` (if set working directory is not added to the `PYHTONPATH`)
+- Add `agent.force_git_root_python_path` configuration setting to force adding the git repository root folder to the `PYTHONPATH` (if set working directory is not added to the `PYTHONPATH`)
 - Add `build --force-docker` command line argument to the to allow ignoring task container data
 - Add `agent.poetry_version` configuration setting to specify poetry version (and force installation of poetry if missing, see [here](https://github.com/clearml/clearml-agent/blob/8712c5e636d9a02e939a9759348d29521a3939a9/docs/clearml.conf#L65))
 - Add custom build script support

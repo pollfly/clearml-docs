@@ -2,6 +2,9 @@
 title: LLM UI
 ---
 
+### 1.17.0
+* Improve security
+
 ### 1.15.0
 **New Features**
 * Add automatic model setup: ClearML model endpoints (e.g. created with model deployment apps) are automatically available in LLM UI 

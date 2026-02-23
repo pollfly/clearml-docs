@@ -255,8 +255,8 @@ optional shell script executes inside the Docker on startup, before the task sta
 
 **`agent.force_git_root_python_path`** (*bool*)
 
-* Force the root folder of the git repository (instead of the working directory) into the `PYHTONPATH` environment variable.
-`false` by default, so only the working directory will be added to `PYHTONPATH`
+* Force the root folder of the git repository (instead of the working directory) into the `PYTHONPATH` environment variable.
+`false` by default, so only the working directory will be added to `PYTHONPATH`
 
 ---
 
