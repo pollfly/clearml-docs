@@ -62,3 +62,4 @@ In the details view, you can:
   * Cost - View cost over time and a breakdown by event categories (e.g. Compute: cost per GPU type, Storage: cost per storage service)
   * Category totals for the period are also available below the chart.
 
+![Platform Management Center Compute details](../img/platform_management_compute.png)
