@@ -22,6 +22,15 @@ Tenant admins can view detailed usage and spend information through the [**Setti
 
 Platform maintainers can view tenant usage and spend information in the tenant page of the [platform management center](../../../webapp/platform_management_center.md).
 
+## Service Setup
+
+To enable the ClearML metering service, set the following in your Helm `values.yaml` file (or override file):
+
+```yaml
+usageAggregator:
+ enabled: true
+```
+
 ## Defining Events
 
 Before usage data can be collected, the events must first be defined in the server metering service (Usage Aggregator).
@@ -162,7 +171,11 @@ The events may belong to one or more (when reported by a platform admin) tenants
 An event report is comprised of:
 * `template_key` - Identifies the event type
 * `id` - A unique identifier for the event 
-* `clearml_tenant` - The tenant ID the event belongs to 
+* `clearml_tenant` - The tenant ID the event belongs to. You can find the tenant ID in the following places:
+   * [Platform Management Center](../../../webapp/platform_management_center.md) tenant list (landing page). Click `ID` 
+   on the relevant row to copy the tenant ID
+   * [**WebApp settings > Profile**](../../../webapp/settings/webapp_settings_profile.md) under `Company`. Click `ID` to 
+   copy the tenant ID   
 * `timestamp_millis` - The time the report applies to
 * Additional parameters as required by event type
 
@@ -189,3 +202,250 @@ curl -XPOST -u "$ADMIN_USER_KEY":"$ADMIN_USER_SECRET" \
 Data aggregated in the metering service is available in:
 * Tenant admin settings UI [Analytics](../../../webapp/settings/webapp_settings_analytics.md) section
 * [Platform management center](../../../webapp/platform_management_center.md) UI tenant pages
+
+The metering service also makes the data accessible through direct API to facilitate connecting with 3rd party billing 
+systems, BI platforms, etc.
+
+The data is available through the `get_usages` endpoint:
+
+```
+POST <metering service URL>/get_usages
+```
+
+
+| Parameter | Type | Description |
+|-----| :---: |---|
+| `tenant` | String | The tenant ID to query. If omitted, data for all tenants is returned. |
+| `from_date` / `to_date` | String |  Start and end dates (YYYY-MM-DD). Aggregation spans from 00:00 on the start date to 23:59 UTC on the end date. |
+| `categories` | List[String] | Optional list of event categories (event types), for example `["storage"]`. |
+| `include_labels` | Bool | Optional. Default true. When enabled, returns per-label breakdown inside each category. |
+
+#### Request Example
+
+```
+curl -XPOST \
+  -u <API KEY>:<API SECRET> \
+  <Service URL>/get_usages \
+  -d '{
+    "tenant": "1",
+    "from_date": "2026-01-20",
+    "to_date": "2026-01-22",
+    "categories": ["storage", "compute"],
+    "include_labels": true
+  }'
+```
+
+Where `<API KEY>` and `<API SECRET>` are stored in the usage-aggregator Kubernetes secret. 
+
+#### Response Structure
+
+The API returns a JSON object containing usage information for each tenant:
+
+* **Total Cost**: The calculated cost for the requested period.  
+* **Category Breakdown**: Includes daily usage, costs, and the specific `count_strategy` (sum or max) used for each day.  
+* **Labels**: If requested, provides per-label breakdown inside each category.
+
+#### Response Example
+
+```
+{
+    "tenants":
+    [
+        {
+            "categories":
+            {
+                "compute":
+                {
+                    "costs":
+                    [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "count_strategy": "sum",
+                    "dates":
+                    [
+                        "2026-01-20",
+                        "2026-01-21",
+                        "2026-01-22"
+                    ],
+                    "display_name": "compute",
+                    "free": false,
+                    "labels":
+                    {
+                        "gpu1":
+                        {
+                            "costs":
+                            [
+                                0.0,
+                                0.0,
+                                0.0
+                            ],
+                            "display_name": "gpu1",
+                            "pricing":
+                            {
+                                "price": 2.5,
+                                "units": 3600
+                            },
+                            "total_cost": 0.0,
+                            "total_usage": 0,
+                            "usages":
+                            [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    },
+                    "total_cost": 0.0,
+                    "total_usage": 0,
+                    "total_usage_type": "total",
+                    "unit_name": "sec",
+                    "usages":
+                    [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "storage":
+                {
+                    "costs":
+                    [
+                        12.3762,
+                        12.3762,
+                        12.3762
+                    ],
+                    "count_strategy": "max",
+                    "dates":
+                    [
+                        "2026-01-20",
+                        "2026-01-21",
+                        "2026-01-22"
+                    ],
+                    "display_name": "storage",
+                    "free": false,
+                    "labels":
+                    {
+                        "fileserver":
+                        {
+                            "costs":
+                            [
+                                12.3762,
+                                12.3762,
+                                12.3762
+                            ],
+                            "display_name": "fileserver",
+                            "pricing":
+                            {
+                                "price": 2.4,
+                                "units": 1024
+                            },
+                            "total_cost": 37.1286,
+                            "total_usage": 5280.517719268799,
+                            "usages":
+                            [
+                                5280.517719268799,
+                                5280.517719268799,
+                                5280.517719268799
+                            ]
+                        }
+                    },
+                    "total_cost": 37.1286,
+                    "total_usage": 5280.5177,
+                    "total_usage_type": "latest",
+                    "unit_name": "MB",
+                    "usages":
+                    [
+                        5280.5177,
+                        5280.5177,
+                        5280.5177
+                    ]
+                },
+                "users":
+                {
+                    "costs":
+                    [
+                        9.6,
+                        9.8,
+                        9.8
+                    ],
+                    "count_strategy": "max",
+                    "dates":
+                    [
+                        "2026-01-20",
+                        "2026-01-21",
+                        "2026-01-22"
+                    ],
+                    "display_name": "users",
+                    "free": false,
+                    "labels":
+                    {
+                        "admins":
+                        {
+                            "costs":
+                            [
+                                7.2,
+                                7.2,
+                                7.2
+                            ],
+                            "display_name": "admins",
+                            "pricing":
+                            {
+                                "price": 0.2,
+                                "units": 1
+                            },
+                            "total_cost": 21.6,
+                            "total_usage": 36.0,
+                            "usages":
+                            [
+                                36.0,
+                                36.0,
+                                36.0
+                            ]
+                        },
+                        "users":
+                        {
+                            "costs":
+                            [
+                                2.4,
+                                2.6,
+                                2.6
+                            ],
+                            "display_name": "users",
+                            "pricing":
+                            {
+                                "price": 0.1,
+                                "units": 1
+                            },
+                            "total_cost": 7.6,
+                            "total_usage": 26.0,
+                            "usages":
+                            [
+                                24.0,
+                                26.0,
+                                26.0
+                            ]
+                        }
+                    },
+                    "total_cost": 29.2,
+                    "total_usage": 62.0,
+                    "total_usage_type": "latest",
+                    "unit_name": "",
+                    "usages":
+                    [
+                        60.0,
+                        62.0,
+                        62.0
+                    ]
+                }
+            },
+            "currency": "USD",
+            "tenant": "1",
+            "total_cost": 66.3286
+        }
+    ]
+}
+```
+
+

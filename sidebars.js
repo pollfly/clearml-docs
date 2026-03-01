@@ -50,6 +50,7 @@ module.exports = {
                 'custom_apps'
             ]
         },
+        'webapp/platform_management_center',
     ],
     usecaseSidebar: [
         /*'getting_started/main',*/
@@ -877,7 +878,7 @@ module.exports = {
                 'deploying_clearml/enterprise_deploy/extra_configs/customizing_ui'
             ],
         },
-        'webapp/platform_management_center',
+        'deploying_clearml/enterprise_deploy/extra_configs/platform_management_center_deploy',
         {'ClearML Application Gateway': [
             'deploying_clearml/enterprise_deploy/appgw_install_compose',
             'deploying_clearml/enterprise_deploy/appgw_install_compose_hosted',

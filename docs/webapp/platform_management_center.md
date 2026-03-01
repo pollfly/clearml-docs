@@ -63,3 +63,8 @@ In the details view, you can:
   * Category totals for the period are also available below the chart.
 
 ![Platform Management Center Compute details](../img/platform_management_compute.png)
+
+## Deployment
+
+For deployment instructions, see [Platform Management Center](../deploying_clearml/enterprise_deploy/extra_configs/platform_management_center_deploy.md). 
+
