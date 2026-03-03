@@ -29,3 +29,5 @@ The Settings page consists of the following sections:
   * [Billing & Usage](webapp_settings_usage_billing.md) (ClearML Hosted Service) - View current billing details and usage information 
   * [Storage Cleanup](webapp_settings_storage_credentials.md) (ClearML Enterprise Server) - Configure storage provider access credentials to 
   enable ClearML to delete artifacts stored in cloud storage when tasks and models are deleted
+  * [UI Customization](webapp_settings_ui_customization.md) (ClearML Enterprise Server) - Configure default naming templates for cloned tasks and new Hyper-Dataset versions
+  * [Analytics](webapp_settings_analytics.md) (ClearML Enterprise Server) - Monitor usage and spend over time

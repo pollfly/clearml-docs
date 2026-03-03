@@ -115,10 +115,10 @@ agentk8sglue:
         env:
           - name: VLLM_SKIP_P2P_CHECK
             value: "1"
-        volumeMounts:
+        extraVolumeMounts:
           - name: dshm
             mountPath: /dev/shm
-        volumes:
+        extraVolumes:
           - name: dshm
             emptyDir:
               medium: Memory

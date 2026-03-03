@@ -6,7 +6,7 @@ title: Version 1.2
 
 **New Features and Improvements**
 * Add functionality to "Abort all children" UI action for controller and optimizer tasks
-* Add parameter search to task configuration UI section ([ClearML GitHub issue #467](https://github.com/clearml/clearml/issues/467))
+* Add parameter search to task configuration UI section ([ClearML #467](https://github.com/clearml/clearml/issues/467))
 * Add tag exclusion filters in UI experiment and model tables
 * Add "Clear Filters" functionality button to UI table filters
 * Improve full screen scalar graph to display all data points
