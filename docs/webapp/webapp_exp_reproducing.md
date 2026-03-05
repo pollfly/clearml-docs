@@ -27,7 +27,7 @@ To clone a task:
    
    * Set `<cloned_task>` as parent - Select to set this task as the new task's parent
    * Clear Dataviews (Enterprise feature) - If selected, the new task will start with no Dataviews 
-   * Force Original Packages - If selected, use the parent tasks's `original pip`/`original conda` for the new task’s [`Python Packages`](webapp_exp_track_visual.md#python-packages).
+   * Force Original Packages - If selected, use the parent task's `original pip`/`original conda` for the new task’s [`Python Packages`](webapp_exp_track_visual.md#python-packages).
    * Description (optional)
 1. Click **Clone**
 

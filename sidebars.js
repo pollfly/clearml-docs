@@ -592,6 +592,10 @@ module.exports = {
                             'webapp/applications/apps_vscode',
                             'webapp/applications/apps_vm_desktop',
                         ]},
+                        {"Databases": [
+                            'webapp/applications/apps_milvus',
+                            'webapp/applications/apps_qdrant',
+                        ]},
                         {"UI Dev": [
                             'webapp/applications/apps_gradio',
                             'webapp/applications/apps_streamlit'

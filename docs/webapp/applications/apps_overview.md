@@ -30,6 +30,11 @@ detached interactive SSH session (available under ClearML Enterprise Plan)
 * [**Jupyter Lab**](apps_jupyter_lab.md) - Launch a Jupyter Lab session on a remote machine (available under ClearML Enterprise Plan)
 * [**VS Code**](apps_vscode.md) - Launch a VS Code session on a remote machine (available under ClearML Enterprise Plan)
 
+### Databases
+Applications for deploying standalone, detachable vector database sessions:
+* [**Milvus DB Session**](apps_milvus.md ) - Launch a detachable [Milvus](https://github.com/milvus-io/milvus) database session (available under ClearML Enterprise Plan)
+* [**Qdrant DB Session**](apps_qdrant.md) - Launch a detachable [Qdrant](https://github.com/qdrant/qdrant) database session (available under ClearML Enterprise Plan)
+
 ### UI Dev
 Applications for deploying user interfaces for models:
 * [**Gradio Launcher**](apps_gradio.md) - Create visual web interfaces for your models with Gradio (available under ClearML Enterprise Plan)
