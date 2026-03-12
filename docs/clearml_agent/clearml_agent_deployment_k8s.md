@@ -18,13 +18,13 @@ The ClearML Kubernetes-Glue performs the following:
 ## Deployment Options
 You can deploy ClearML Agent onto Kubernetes using one of the following methods:
 
-1. **K8s Glue Script**:
-   Run a [K8s Glue script](https://github.com/clearml/clearml-agent/blob/master/examples/k8s_glue_example.py) on a Kubernetes CPU node. This approach is less scalable and typically suited for simpler use cases.
+* **K8s Glue Script**:
+  Run a [K8s Glue script](https://github.com/clearml/clearml-agent/blob/master/examples/k8s_glue_example.py) on a Kubernetes CPU node. This approach is less scalable and typically suited for simpler use cases.
 
-1. **ClearML Agent Helm Chart (Recommended)**:
-   Use the ClearML Agent Helm Chart to spin up an agent pod acting as a controller. This is the recommended and 
-   scalable approach. ClearML provides both [open-source](https://github.com/clearml/clearml-helm-charts/tree/main/charts/clearml-agent) 
-   and [Enterprise](#agent-with-an-enterprise-server) Helm charts. See more details below. 
+* **ClearML Agent Helm Chart (Recommended)**:
+  Use the ClearML Agent Helm Chart to spin up an agent pod acting as a controller. This is the recommended and 
+  scalable approach. ClearML provides both [open-source](https://github.com/clearml/clearml-helm-charts/tree/main/charts/clearml-agent) 
+  and [Enterprise](#agent-with-an-enterprise-server) Helm charts. See more details below. 
 
 
 ## ClearML Helm Chart
@@ -122,6 +122,11 @@ container images, or ClearML worker ID formats.
 
 For more information, see [Custom Workload Configuration](clearml_agent_custom_workload.md). 
 
+#### Agent Configuration for Orchestration Dashboard
+
+ClearML Agents can be configured to report resource availability and control how workers appear in the [Orchestration Dashboard](../webapp/webapp_orchestration_dash.md).
+
+For configuration details, see [Orchestration Dashboard Customization](clearml_agent_orch_dash_k8s.md).
 
 #### Additional Configuration Options
 
@@ -131,78 +136,5 @@ To view available configuration options for the Helm chart, run the following co
 helm show readme oci://docker.io/clearml/clearml-enterprise-agent
 # or
 helm show values oci://docker.io/clearml/clearml-enterprise-agent
-```
-
-##### Reporting GPU Capacity to Orchestration Dashboard
-
-To show the GPUs available to the agent in ClearML’s [Orchestration Dashboard](../webapp/webapp_orchestration_dash.md),
-configure the agent in one of the following ways:
-
-* **Fixed Value**:
-
-  Use `reportMaxGpu` to report a fixed number of GPUs. This setting overrides GPU auto-discovery if both are enabled.
-    
-  ```yaml
-  agentk8sglue:
-    orchestrationDashboard:
-      # -- Agent reporting to Dashboard max GPU available. This will report 2 GPUs.
-      reportMaxGpu: 2
-  ```
-
-* **Automatic GPU Discovery**:
-
-  Enable automatic discovery to have the agent detect and report GPUs across your Kubernetes cluster.
-  This requires cluster-level access (`agentk8sglue.serviceAccountClusterAccess: true`), since the agent must list and evaluate all cluster nodes.
-
-  When GPU discovery is enabled, the Agent identifies which cluster nodes have GPUs and how many GPUs each node provides.
-  These options control how nodes are selected and how GPUs are counted:
-
-  * `baseSelector` - The default label selector used to identify GPU nodes.
-  * `nodeSelector` - An additional filter applied on top of `baseSelector` to narrow down which nodes are included in discovery. For 
-  example, to limit discovery to a specific node pool, use `"nodepool=gpu-a100"`.
-  * `gpuCountSelector` - Comma-separate list of labels used to count GPUs per node. The first matching label determines the reported GPU count.
-
-  With discovery enabled, the agent evaluates nodes matching the provided selectors and reports their GPU 
-  capacity to the dashboard at the configured interval.
-
-  ```yaml
-  agentk8sglue:
-    # Cluster access is required for GPU discovery
-    serviceAccountClusterAccess: true
-  
-    orchestrationDashboard:
-      discovery:
-        enabled: true
-        baseSelector: "kubernetes.io/os=linux,nvidia.com/gpu.present=true"
-        nodeSelector: ""  # Optional: further restrict discovery
-        gpuCountSelector: "nvidia.com/gpu.count"
-    ```
-
-You can configure how reports are sent and how often:
-
-* `reportType` - How the agent sends reports to the dashboard. Use on of the following options:
-  * `disabled` (or no value) - Do not send any reports. 
-  * `global` - Send a single category-level report that sums up all agents into the category total. Overrides individual 
-  agent reports. For more information about agent categorization, see [Resource Categories and Groups](../webapp/webapp_orchestration_dash.md#resource-categories-and-groups). 
-  * `aggregate` - Send a report per agent. The dashboard aggregates all reports in the category automatically. For more information about agent categorization, see [Resource Categories and Groups](../webapp/webapp_orchestration_dash.md#resource-categories-and-groups)
-* `reportSeconds` - Interval in seconds between dashboard updates. Controls how frequently the agent sends GPU capacity data.
-
-```yaml
-agentk8sglue:
-  # Cluster access is required for GPU discovery
-  serviceAccountClusterAccess: true
-
-  orchestrationDashboard:
-    # Enable periodic reporting to the Orchestration Dashboard
-    reportType: "global"   
-    reportSeconds: 600
-    # Overrides GPU discovery
-    reportMaxGpu: 0
-    # Enable GPU discovery
-    discovery:
-      enabled: true
-      baseSelector: "kubernetes.io/os=linux,nvidia.com/gpu.present=true"
-      nodeSelector: ""  # Optional: further restrict discovery
-      gpuCountSelector: "nvidia.com/gpu.count"
 ```
 

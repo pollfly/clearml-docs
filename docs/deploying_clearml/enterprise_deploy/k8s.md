@@ -10,7 +10,7 @@ The package also includes MongoDB, ElasticSearch, and Redis as Helm dependencies
 :::warning Upgrading from chart versions 10.11.6 and below
 Starting in chart version `10.11.7`, ClearML is transitioning to a new mongodb chart source (mckMongodb).
 
-To upgrade an existing installation follow the [MongoDB chart Migration Guide](k8s_mckmongo_migration.md) to ensures data consistency and compatibility with future chart versions.
+To upgrade an existing installation follow the [MongoDB chart Migration Guide](k8s_mckmongo_migration.md) to ensure data consistency and compatibility with future chart versions.
 :::
 
 ## Prerequisites
@@ -20,7 +20,7 @@ To deploy a ClearML Server, ensure the following components and configurations a
 - Kubernetes Cluster: A standard Kubernetes cluster is recommended for optimal GPU support.
 - CLI Tools: `kubectl` and `helm` must be installed and configured.
 - Ingress Controller: An Ingress controller (e.g., `nginx-ingress`) is required. If exposing services externally, configure 
-  LoadBalancer-capable solution (e.g. `MetalLB`).
+  a LoadBalancer-capable solution (e.g. `MetalLB`).
 - Server and workers that communicate on HTTP/S (ports 80 and 443). Additionally, the TCP session feature requires a 
   range of ports for TCP traffic based on your configuration (see [AI App Gateway installation](appgw_install_k8s.md)).
 - DNS Configuration: A domain with subdomain support is required, ideally with trusted TLS certificates. All entries must 
@@ -173,6 +173,63 @@ apiserver:
           ]
         }
       }
+```
+
+
+### Internal Database Authentication
+
+:::important  
+Internal Database Authentication is supported starting from `clearml-enterprise` Helm chart version `10.9.0`  
+:::
+
+By default, the ClearML Enterprise Helm chart deploys its internal DB components (MongoDB, ElasticSearch, and Redis) 
+through dependent charts configured for open authentication. You can enable authentication for these internal databases 
+to improve security. 
+
+This following procedure applies specifically to dependency databases deployed as part of the `clearml-enterprise` Helm 
+chart (see [here](#using-external-databases-with-clearml) for additional database configuration options).
+
+To enable authentication, update the control-plane `clearml-values.override.yaml` file.
+
+For example, the following configuration:
+
+* Enables username/password authentication on all bundled databases  
+* Ensures ClearML services use the configured credentials automatically
+
+```yaml
+# Enable Redis Auth
+redis:
+  auth:
+    enabled: true
+    password: "MyStrongPassword123"
+# Enable MongoDB Auth
+mongodb:
+  enabled: true
+  auth:
+    enabled: true
+    rootUser: root
+    rootPassword: "MyStrongPassword123"
+# Enable ElasticSearch Auth
+elasticsearch:
+  extraEnvs:
+    - name: bootstrap.memory_lock
+      value: "false"
+    - name: cluster.routing.allocation.node_initial_primaries_recoveries
+      value: "500"
+    - name: cluster.routing.allocation.disk.watermark.low
+      value: "500mb"
+    - name: cluster.routing.allocation.disk.watermark.high
+      value: "500mb"
+    - name: cluster.routing.allocation.disk.watermark.flood_stage
+      value: "500mb"
+    - name: http.compression_level
+      value: "7"
+    - name: reindex.remote.whitelist
+      value: '"*.*"'
+  esConfig: {}
+  secret:
+    enabled: true
+    password: "MyStrongPassword123"
 ```
 
 ### Using External Databases with ClearML

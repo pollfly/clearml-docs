@@ -43,6 +43,9 @@ Once you start a Milvus DB Session instance, you can view the following informat
   * GPU temperature
 * Console log - The console log shows the app instance's console output: setup progress, status changes, error messages, etc.
 
+![Milvus Dashboard](../../img/apps_milvus.png#light-mode-only)
+![Milvus Dashboard](../../img/apps_milvus_dark.png#dark-mode-only) 
+
 ## Milvus DB Session Instance Configuration
 
 When configuring a new Milvus DB Session instance, you can fill in the required parameters or reuse the configuration of 

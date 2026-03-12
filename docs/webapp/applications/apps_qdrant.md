@@ -48,6 +48,9 @@ Once you start a Qdrant DB Session instance, you can view the following informat
   * GPU temperature
 * Console log - The console log shows the app instance's console output: setup progress, status changes, error messages, etc.
 
+![Qdrant Dashboard](../../img/apps_qdrant.png#light-mode-only)
+![Qdrant Dashboard](../../img/apps_qdrant_dark.png#dark-mode-only) 
+
 ## Qdrant DB Session Instance Configuration
 
 When configuring a new Qdrant DB Session instance, you can fill in the required parameters or reuse the configuration of a 

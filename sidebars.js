@@ -788,6 +788,7 @@ module.exports = {
                         },
                     ],
                 },
+                'clearml_agent/clearml_agent_orch_dash_k8s',
             ]
         },
         {
@@ -870,6 +871,7 @@ module.exports = {
                     'deploying_clearml/enterprise_deploy/change_artifact_links',
                     'deploying_clearml/enterprise_deploy/delete_tenant',
                     'deploying_clearml/enterprise_deploy/api_audit',
+                    'deploying_clearml/enterprise_deploy/extra_configs/backups',
                     ]
                 },
                 {'Configuration and Access Controls': [

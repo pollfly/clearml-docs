@@ -394,24 +394,10 @@ service tasks download or upload artifacts via the external fileserver URL. If s
 and report status via the internal API, they may function without CA setup.
 
 ## Backups
-The main components that contain data are the databases: 
-* MongoDB
-* ElasticSearch
-* File server
 
-It is recommended to back them periodically.
+To ensure data consistency and prevent corruption during a restore, it is recommended to regularly back up the storage 
+components where ClearML saves its data. See [Backups](extra_configs/backups.md) for more information.
 
-### Fileserver
-It is recommended to back up the entire file server volume.
-* Recommended to perform at least a daily backup.
-* Recommended backup retention of 2 days at the least.
-
-### ElasticSearch
-Please refer to [ElasticSearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) for creating snapshots.
-
-
-#### MongoDB
-Please refer to [MongoDB’s documentation](https://www.mongodb.com/docs/manual/core/backups/) for backing up / restoring. 
 
 ## Monitoring
 
