@@ -87,7 +87,7 @@ Go to a specific app’s documentation page to view all configuration options:
 * [AWS Autoscaler](../webapp/applications/apps_aws_autoscaler.md)
 * [GCP Autoscaler](../webapp/applications/apps_gcp_autoscaler.md) 
 
-## Kubernetes 
+## Kubernetes
 You can install `clearml-agent` through a Helm chart. 
  
 The Clearml Agent deployment is set to service a queue(s). When tasks are added to the queues, the agent pulls the task 

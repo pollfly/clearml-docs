@@ -16,7 +16,7 @@ title: Contributing
 
 Thank you for your interest in contributing to ClearML! There are many ways you can help improve the project, such as:
 
-* Reporting issues you encounter on [GitHub](https://github.com/allegroai/clearml/issues)  
+* Reporting issues you encounter on [GitHub](https://github.com/clearml/clearml/issues)  
 * Participating in discussions on GitHub issues or in the [ClearML Slack channel](https://joinslack.clear.ml)  
 * Suggesting new features or improvements  
 * Submitting pull requests to fix bugs or implement new features

@@ -29,7 +29,7 @@ apiserver:
       value: "<PLATFORM_MANAGEMENT_USER_KEY>"
 
     - name: CLEARML__secure__credentials__platform_management__user_secret
-      value: "PLATFORM_MANAGEMENT_USER_SECRET>"
+      value: "<PLATFORM_MANAGEMENT_USER_SECRET>"
 ```
 
 Then apply the new configuration:

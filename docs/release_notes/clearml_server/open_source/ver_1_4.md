@@ -29,5 +29,5 @@ title: Version 1.4
 - Fix breadcrumb links don't navigate anywhere
 - Fix horizontal scroll in UI experiment table causes column headers to jump
 - Fix removing UI table column creates a blank column
-- Fix internal server error (500) on `events.get_scalar_metrics_and_variants` ([ClearML Server GitHub issue #120](https://github.com/clearml/clearml-server/issues/120))
+- Fix internal server error (500) on `events.get_scalar_metrics_and_variants` ([ClearML Server #120](https://github.com/clearml/clearml-server/issues/120))
 

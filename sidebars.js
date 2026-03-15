@@ -592,6 +592,10 @@ module.exports = {
                             'webapp/applications/apps_vscode',
                             'webapp/applications/apps_vm_desktop',
                         ]},
+                        {"Databases": [
+                            'webapp/applications/apps_milvus',
+                            'webapp/applications/apps_qdrant',
+                        ]},
                         {"UI Dev": [
                             'webapp/applications/apps_gradio',
                             'webapp/applications/apps_streamlit'
@@ -784,6 +788,7 @@ module.exports = {
                         },
                     ],
                 },
+                'clearml_agent/clearml_agent_orch_dash_k8s',
             ]
         },
         {
@@ -866,6 +871,7 @@ module.exports = {
                     'deploying_clearml/enterprise_deploy/change_artifact_links',
                     'deploying_clearml/enterprise_deploy/delete_tenant',
                     'deploying_clearml/enterprise_deploy/api_audit',
+                    'deploying_clearml/enterprise_deploy/extra_configs/backups',
                     ]
                 },
                 {'Configuration and Access Controls': [

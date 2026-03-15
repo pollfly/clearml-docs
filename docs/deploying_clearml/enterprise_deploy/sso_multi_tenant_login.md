@@ -41,7 +41,7 @@ Enable `onlyPasswordLogin` by setting the following environment variable in the 
 
 ``` 
 - name: WEBSERVER__onlyPasswordLogin 
-  value: “true”
+  value: "true"
 ```
 
 ## Setup IdP for a ClearML Tenant

@@ -80,7 +80,7 @@ Now that you have a model in the ClearML model repository, you can serve it thro
 2. Access the endpoint with a CURL command:  
    
    ```bash
-   $ curl -X POST "http://127.0.0.1:8080/serve/test_model_pytorch" -H "accept: application/json" -H "Content-Type: application/json" -d '{"url": "https://raw.githubusercontent.com/allegroai/clearml-serving/main/examples/pytorch/5.jpg"}'  
+   $ curl -X POST "http://127.0.0.1:8080/serve/test_model_pytorch" -H "accept: application/json" -H "Content-Type: application/json" -d '{"url": "https://raw.githubusercontent.com/clearml/clearml-serving/main/examples/pytorch/5.jpg"}'  
    ```
 
    The `url` parameter points to the payload. You can play around with it now and change the URL to any image from [this dataset](https://www.kaggle.com/datasets/ben519/mnist-as-png). 

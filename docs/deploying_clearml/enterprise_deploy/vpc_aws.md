@@ -201,7 +201,7 @@ Backup is done by running the `elastic_backup.py` Python script periodically.
 2. Install the required packages:  
    
    ``` 
-   pip3 install “elasticsearch\>=6.0.0,\<=7.17.7”  
+   pip3 install "elasticsearch\>=6.0.0,\<=7.17.7"  
    pip3 install boto3  
    ```
    
