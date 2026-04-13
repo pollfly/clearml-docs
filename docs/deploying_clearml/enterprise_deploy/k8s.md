@@ -133,13 +133,13 @@ If you need to define your own credentials to be used instead, replace the defau
 ```yaml
 clearml:
   # Replace the following values to use custom internal credentials.
-  apiserverKey: ""
-  apiserverSecret: ""
-  fileserverKey: ""
-  fileserverSecret: ""
-  secureAuthTokenSecret: ""
-  testUserKey: ""
-  testUserSecret: ""
+  apiserverKey: "<generated_key>"
+  apiserverSecret: "<generated_key>"
+  fileserverKey: "<generated_key>"
+  fileserverSecret: "<generated_key>"
+  secureAuthTokenSecret: "<generated_key>"
+  testUserKey: "<generated_key>"
+  testUserSecret: "<generated_key>"
 ```
 
 In a shell, if `openssl` is installed, you can use this simple command to generate random strings suitable as keys and secrets:
@@ -179,7 +179,7 @@ apiserver:
 ### Internal Database Authentication
 
 :::important  
-Internal Database Authentication is supported starting from `clearml-enterprise` Helm chart version `10.9.0`  
+Internal Database Authentication is supported starting from `clearml-enterprise` Helm chart version `10.9.0`. 
 :::
 
 By default, the ClearML Enterprise Helm chart deploys its internal DB components (MongoDB, ElasticSearch, and Redis) 
@@ -262,6 +262,11 @@ externalServices:
   # Existing Redis Port to use if redis.enabled is false
   redisPort: 6379
 ```
+
+## Monitoring
+
+Monitoring your ClearML deployment is recommended to ensure service availability and detect performance or resource 
+issues early. For monitoring guidelines and recommended metrics, see [Monitoring](extra_configs/monitoring_k8s.md).
 
 ## Next Steps
 

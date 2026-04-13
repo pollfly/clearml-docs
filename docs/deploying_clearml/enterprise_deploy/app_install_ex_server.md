@@ -13,7 +13,7 @@ Applications run inside Docker containers, which can either reside on the ClearM
 The `clearml-apps-agent` polls an internal applications queue, and spawns additional Docker containers for application 
 instances that are launched using the ClearML web UI. 
 
-This document provides a short guide on how to configure an external applications server.
+This guide provides instructions on how to configure an external applications server.
 
 ## Requirements
 

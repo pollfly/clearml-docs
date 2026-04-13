@@ -3,7 +3,7 @@ title: Install CDMO and CFGI on the Same Cluster
 ---
 
 :::important Enterprise Feature
-CDMO and CFGI require the agent to use a ClearML Enterprise Server
+CDMO and CFGI require the agent to use a ClearML Enterprise Server.
 :::
 
 You can install both CDMO (ClearML Dynamic MIG Orchestrator) and CFGI (ClearML Fractional GPU Injector) on a shared Kubernetes cluster. 
@@ -84,6 +84,26 @@ toolkit:
       value: "/run/k3s/containerd/containerd.sock"
 ```
 :::
+
+
+:::note MicroK8s
+If using MicroK8s, you must configure the `containerd` paths used by MicroK8s. Add the following entries to your 
+`gpu-operator.override.yaml`:
+
+```yaml
+toolkit:
+ env:
+   - name: CONTAINERD_CONFIG
+     value: "/var/snap/microk8s/current/args/containerd-template.toml"
+   - name: CONTAINERD_SOCKET
+     value: "/var/snap/microk8s/common/run/containerd.sock"
+   - name: CONTAINERD_RUNTIME_CLASS
+     value: "nvidia"
+   - name: CONTAINERD_SET_AS_DEFAULT
+     value: "true"
+```
+:::
+
 
 ## Applying Configuration to Nodes
 

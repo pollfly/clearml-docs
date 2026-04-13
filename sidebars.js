@@ -399,6 +399,11 @@ module.exports = {
         },
         {'Applications':
             [
+                {'General':
+                    [
+                        'release_notes/apps/task_scheduler',
+                    ]
+                },
                 {'Deploy':
                     [
                         'release_notes/apps/llm_ui', 'release_notes/apps/vllm_model_deployment',
@@ -495,7 +500,7 @@ module.exports = {
             {type: 'ref', id: 'clearml_data/clearml_data_cli'},
             'apps/clearml_param_search',
             {type: 'ref', id: 'apps/clearml_session'},
-            {type: 'ref', id: 'clearml_serving/clearml_serving_cli'},
+            'clearml_serving/clearml_serving_cli',
             ]
         },
         {'ClearML Agent': [
@@ -739,7 +744,13 @@ module.exports = {
                     ]
                 },
                 'clearml_agent/clearml_agent_execution_env',
-                'clearml_agent/clearml_agent_env_caching',
+                {
+                    'File Caching': [
+                        'clearml_agent/clearml_agent_env_caching',
+                        'clearml_agent/clearml_agent_data_caching',
+                        'clearml_agent/clearml_agent_hf_caching',
+                    ]
+                },
                 'clearml_agent/clearml_agent_services_mode',
                 'clearml_agent/clearml_agent_custom_workload',
                 {'Pod Template Customization': [
@@ -762,6 +773,7 @@ module.exports = {
                 },
                 'clearml_agent/multi_node_training',
                 'clearml_agent/clearml_agent_nvcr',
+                'clearml_agent/fractional_gpus/gpu_operator',
                 {
                     type: 'category',
                     collapsible: true,
@@ -780,11 +792,6 @@ module.exports = {
                         {
                             type: 'doc',
                             id: 'clearml_agent/fractional_gpus/cdmo_cfgi_same_cluster'
-                        },
-                        {
-                            type: 'doc',
-                            label: 'GPU Operator Basic Deployment',
-                            id: 'clearml_agent/fractional_gpus/gpu_operator'
                         },
                     ],
                 },
@@ -866,12 +873,31 @@ module.exports = {
                     'deploying_clearml/enterprise_deploy/air_gapped_env',
                     ]
                 },
-                {'Maintenance and Migration': [
-                    'deploying_clearml/enterprise_deploy/import_projects',
-                    'deploying_clearml/enterprise_deploy/change_artifact_links',
-                    'deploying_clearml/enterprise_deploy/delete_tenant',
-                    'deploying_clearml/enterprise_deploy/api_audit',
-                    'deploying_clearml/enterprise_deploy/extra_configs/backups',
+                {
+                    'Maintenance and Migration': [
+                        'deploying_clearml/enterprise_deploy/import_projects',
+                        'deploying_clearml/enterprise_deploy/change_artifact_links',
+                        'deploying_clearml/enterprise_deploy/delete_tenant',
+                        'deploying_clearml/enterprise_deploy/api_audit',
+                        'deploying_clearml/enterprise_deploy/extra_configs/backups',
+                        {
+                           type: 'category',
+                           collapsible: true,
+                           collapsed: true,
+                           label: 'Monitoring',
+                           items: [
+                              {
+                                 type: 'doc',
+                                 label: 'K8s',
+                                 id: 'deploying_clearml/enterprise_deploy/extra_configs/monitoring_k8s'
+                              },
+                              {
+                                 type: 'doc',
+                                 label: 'VM / Docker',
+                                 id: 'deploying_clearml/enterprise_deploy/extra_configs/monitoring_vm_docker'
+                              },
+                           ]
+                        }
                     ]
                 },
                 {'Configuration and Access Controls': [
