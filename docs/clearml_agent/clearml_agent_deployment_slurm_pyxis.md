@@ -2,7 +2,7 @@
 title: Slurm with Pyxis
 ---
 
-:::important Enterprise Feature
+:::important[Enterprise Feature]
 Slurm Glue is available under the ClearML Enterprise plan.
 :::
 
@@ -24,7 +24,7 @@ Install the Slurm Glue on a machine where you can run `sbatch` / `squeue` etc.
 pip3 install -U --extra-index-url https://*****@*****.allegro.ai/repository/clearml_agent_slurm/simple clearml-agent-slurm
 ```
    
-:::tip Python repository credentials
+:::tip[Python repository credentials]
 Your credentials for `--extra-index-url` are available in the WebApp under the **Help** menu  <img src="/docs/latest/icons/ico-help-outlined.svg" alt="Help menu" className="icon size-md space-sm" /> **>** 
 **ClearML Python Package setup** **>** **Install** step.
 :::
@@ -155,3 +155,9 @@ If using the **srun approach** add `--srun-delegation` to the command line:
 clearml-agent-slurm --srun-delegation --template-files slurm.example_pyxis.template --queue default
 ``` 
 
+## User Impersonation
+
+By default, Slurm jobs are submitted as the Linux user running the glue process.
+
+You can configure the agent to submit jobs as different Linux users based on the ClearML user who enqueued the task. 
+See [Slurm User Impersonation](clearml_agent_slurm_impersonation.md).

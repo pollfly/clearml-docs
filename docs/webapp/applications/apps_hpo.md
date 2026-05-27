@@ -30,7 +30,7 @@ Once you have launched an app instance, you can view the following information i
 ![HPO Dashboard](../../img/apps_format_overview.png#light-mode-only)
 ![HPO Dashboard](../../img/apps_format_overview_dark.png#dark-mode-only)
 
-:::tip[EMBEDDING CLEARML VISUALIZATION]
+:::tip[Embedding ClearML Visualization]
 You can embed plots from the app instance dashboard into [ClearML Reports](../webapp_reports.md). The Enterprise Plan and 
 Hosted Service also support embedding resources in third-party platforms that support embedded content (e.g. Notion). These visualizations 
 are updated live as the app instance(s) updates. Hover over the plot and click <img src="/docs/latest/icons/ico-plotly-embed-code.svg" alt="Embed code" className="icon size-md space-sm" /> 
@@ -64,8 +64,9 @@ This section describes the default configuration provided by ClearML.
 
 * **Import Configuration** - Import an app instance configuration file. This will fill the instance launch form with the 
   values from the file, which can be modified before launching the app instance
-* **Initial Task to Optimize** - ID of a ClearML task to optimize. This task will be cloned, and each clone will 
-  sample a different set of hyperparameters values
+* **Initial Task to Optimize** - Select a task or enter its ID. This task will be cloned, and each clone will sample a 
+  different set of hyperparameter values. Click **Select** to open the task selection modal, where you can browse and 
+  search for a task, then apply it.
 * **Optimization Method** - The optimization strategy to employ (e.g. random, grid, Hyperband)
 * **Objectives** - Set the optimization targets of minimizing or maximizing the values of a specified metric(s)
     * Optimization Objective Metric's Title - Title of metric to optimize
@@ -84,7 +85,7 @@ This section describes the default configuration provided by ClearML.
         * Discrete Parameters - A set of values to sample
             * Values - Comma separated list of values to sample
     * Name - The original task's configuration parameter name (including section name e.g. `Args/lr`)  <br/><br/>
-    :::tip Hydra Parameters
+    :::tip[Hydra Parameters]
     For tasks using Hydra, input parameters from the OmegaConf in the following format:
     `Hydra/<param>`. Specify `<param>` using dot notation. For example, if your OmegaConf looks like this: 
     ```

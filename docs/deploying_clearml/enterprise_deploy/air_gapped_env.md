@@ -13,27 +13,23 @@ The guide covers:
 
 ## Preparing ClearML Applications for Air-Gapped Use
 
-Various application dependencies that are auto-downloaded from the internet can be locally hosted and configured for offline access.
+Some ClearML Applications require additional Python packages to be available in the container used to run the application 
+instance, otherwise they are downloaded and installed at instance launch.
 
 ### Hosting Required Python Packages
 
-Ensure the following Python packages are locally hosted in your PyPI proxy or Python packages artifactory, and are
-accessible using a local URL. Alternatively, if you are going to use custom images, make sure they are installed.
+Ensure the Python packages are locally hosted in your PyPI proxy or Python packages artifactory, and are accessible using 
+a local URL. Alternatively, use custom images that have these packages installed.
 
-```requirements
-jupyter
-jupyterlab>4,<4.4
-traitlets
-mitmproxy<10.2
-werkzeug>2,<3.0 ; python_version < '3.9'
-clearml>=1.9
-clearml_session==0.16.0
-tqdm
-boto3>=1.9
-pylint
-clearml-agent
-```
+To view an application’s package requirements: Open the relevant application and hover over the `Container requirements` 
+button under the app description. 
 
+<div class="max-w-75">
+
+![Required packages](../../img/app_required_packages.png#light-mode-only)
+![Required packages](../../img/app_required_packages_dark.png#dark-mode-only)
+
+</div>
 
 ### Setting PIP Indexes
 
@@ -82,7 +78,7 @@ following methods:
         templateOverrides:
           fileMounts:
             - name: "pip.conf"
-              folderPath: "/root/.pip"
+              folderPath: "/home/nonroot/.pip"
               fileContent: |-
                 [global]
                 index-url = <LOCAL_REPO_URL>
@@ -191,16 +187,37 @@ kubectl create secret docker-registry -n <NAMESPACE> <SECRET_NAME> \
 
 ### List Images Used in a ClearML Helm Chart
 
-To see all container images used by a ClearML Helm chart:
+ClearML is deployed using several Helm charts, each with its own set of container images.
 
-```bash
-helm template oci://docker.io/clearml/<CHART_NAME> | yq '..|.image? | select(.)' | sort -u
-```
-
+To see all container images used by each chart use the following commands:
 
 :::note
 This requires the `helm` and `yq` commands to be installed.
 :::
+
+* `clearml-enterprise` (Control Plane): 
+  ```
+  helm template oci://docker.io/clearml/clearml-enterprise | yq '..|.image? | select(.)' | sort -u
+  ```
+  
+* `clearml-enterprise-agent`  (ClearML k8s Agent):
+   ```
+   helm template oci://docker.io/clearml/clearml-enterprise-agent | yq '..|.image? | select(.)' | sort -u
+   ```
+
+* `clearml-enterprise-app-gateway` (ClearML Application Gateway):
+   ```
+   helm template oci://docker.io/clearml/clearml-enterprise-app-gateway \
+     --set clearml.apiKey=dummy \
+     --set clearml.apiSecret=dummy \
+     --set clearml.apiServerUrlReference=dummy | yq '..|.image? | select(.)' | sort -u
+   ```
+  
+  :::note
+  The Application Gateway chart requires placeholder values for required parameters (`apiKey`, `apiSecret`,
+  `apiServerUrlReference`) to render successfully with helm template. 
+  :::
+
 
 
 ## Customize Agent Containers Start Script

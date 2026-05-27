@@ -2,7 +2,7 @@
 title: Llama.cpp Model Deployment 
 ---
 
-:::important Enterprise Feature
+:::important[Enterprise Feature]
 The llama.cpp Model Deployment App is available under the ClearML Enterprise plan.
 :::
 
@@ -17,7 +17,7 @@ memory options to free GPU resources:
 * Disk storage – via `Disk Swapping` (requires `Automatic CPU Offloading` to be disabled).
 
 The app monitors endpoint activity and shuts down if the model remains inactive over a specified maximum idle time.
-:::important AI Application Gateway
+:::important[AI Application Gateway]
 The llama.cpp Model Deployment app makes use of the App Gateway Router which implements a secure, authenticated 
 network endpoint for the model. 
 
@@ -60,7 +60,7 @@ in the `AI APPLICATION GATEWAY` section
 ![llama deployment dashboard](../../img/apps_llama_dashboard.png#light-mode-only)
 ![llama deployment dashboard](../../img/apps_llama_dashboard_dark.png#dark-mode-only)
 
-:::tip EMBEDDING CLEARML VISUALIZATION
+:::tip[Embedding ClearML Visualization]
 You can embed plots from the app instance dashboard into [ClearML Reports](../webapp_reports.md) and other third-party platforms that support embedded content
 (e.g. Notion). These visualizations are updated live as the app instance(s) updates. Hover over the plot and click <img src="/docs/latest/icons/ico-plotly-embed-code.svg" alt="Embed code" className="icon size-md space-sm" /> 
 to copy the embed code, and navigate to a report to paste the embed code.
@@ -97,7 +97,7 @@ values from the file, which can be modified before launching the app instance
 * **Queue**: The [ClearML Queue](../../fundamentals/agents_and_queues.md#what-is-a-queue) to which the 
   llama.cpp Model Deployment app instance task will be enqueued. Make sure an agent is assigned to that queue. 
 
-  :::tip Multi-GPU inference
+  :::tip[Multi-GPU inference]
   To run multi-GPU inference, ensure the queue's pod specification (from the base template and/or `templateOverrides`) defines multiple GPUs. See [GPU Queues with Shared Memory](../../clearml_agent/clearml_agent_custom_workload.md#example-gpu-queues-with-shared-memory)
   for an example configuration of a queue that allocates multiple GPUs and shared memory.
   :::
@@ -106,6 +106,18 @@ values from the file, which can be modified before launching the app instance
 * **Model Configuration**: Configure the behavior and performance of the model serving engine.   
   * CLI: Llama.cpp CLI arguments. If set, these arguments will be passed to Llama.cpp and all following entries will be 
   ignored, except for the `Model` field.  
+  
+  :::important 
+  For models that use `mmproj` (multimodal projection) weights, such as vision models, you must explicitly specify the 
+  mmproj weights URL with the  `--mmproj-url` argument. Without this, the model's vision capabilities will not function. 
+  
+  For example, for Qwen3.6 35B:
+
+  ```
+  -m unsloth/Qwen3.6-35B-A3B-GGUF/main/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf --mmproj-url https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF/resolve/main/mmproj-F16.gguf
+  ```
+  :::
+
   * Verbose: Enable detailed logging   
   * No MMAP: Disable memory-mapping of model files. May improve performance on some systems but increases memory usage.  
   * Continuous Batching: Enable continuous batching for processing multiple requests efficiently. Improves throughput for 

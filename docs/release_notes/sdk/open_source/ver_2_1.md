@@ -2,6 +2,32 @@
 title: Version 2.1
 ---
 
+### ClearML 2.1.7
+
+**Bug fixes and improvements**
+* Add optional (opt-out) parameter to prevent processing of pickled artifacts ([#1619](https://github.com/clearml/clearml/pull/1619), 
+  [#1621](https://github.com/clearml/clearml/pull/1621)):
+  * Use `task.artifacts[0].get(block_unsafe_artifacts=True)`, or
+  * Via configuration with the environment variable `CLEARML_BLOCK_PICKLED_ARTIFACTS=1`
+  * Via `sdk.storage.block_pickled_artifacts: true`
+* Prevent resource leak during interrupted queries in `GPUStatCollection._new_query_nvidia` ([#1617](https://github.com/clearml/clearml/pull/1617))
+* Add vulnerability check in `Task.import_offline_session` when extracting `.zip` archives to prevent path-traversal attacks ([#1620](https://github.com/clearml/clearml/pull/1620))
+
+### ClearML 2.1.6
+
+**Bug Fixes and Improvements**
+
+* Add default shell binary option for script execution ([#1586](https://github.com/clearml/clearml/pull/1586))
+* Add option to set plots upload destination ([#1587](https://github.com/clearml/clearml/pull/1587))
+* Add `exc_info` param to improve error logging ([#1550](https://github.com/clearml/clearml/issues/1550))
+* Raise duplicate `InputModel` import log from debug to info ([#1582](https://github.com/clearml/clearml/pull/1582))
+* Add pickle file integrity hash verification for `pd.DataFrame` pickled artifacts ([#1599](https://github.com/clearml/clearml/pull/1599))
+* Add check to avoid `KeyError` in dataset ([#1598](https://github.com/clearml/clearml/pull/1598))
+* Routing fixes when using queues on autoscaler instances ([#1602](https://github.com/clearml/clearml/pull/1602))
+* Refactor `clearml/storage`
+* Add hash comparison for external link change detection, subset file pulling in `Dataset.get_local_copy()`, and stale 
+  link entry pruning in `Dataset.sync_folder` ([#1611](https://github.com/clearml/clearml/pull/1611))
+
 ### ClearML 2.1.5
 
 **Bug fixes and improvements**

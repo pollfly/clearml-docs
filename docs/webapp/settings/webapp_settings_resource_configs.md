@@ -41,13 +41,53 @@ following information:
 * Number of resources currently in use out of the total available resources
 * Execution Priority - List of [linked profiles](#connecting-profiles-to-pools) in order of execution priority. 
 
+### Assigning Resources to Pools
+
+To utilize a resource pool for task execution, ClearML agents are assigned to the pool servicing its specific queues. 
+Tasks assigned by the resource policy manager to that pool will be sent to these queues for execution.
+
+To configure an agent for a resource pool:
+
+1. Open the resource pool’s information panel by clicking <img src="/docs/latest/icons/ico-info.svg" alt="Info" className="icon size-md space-sm" /> on the pool card. This displays:   
+   * Resource profiles linked to the pool  
+   * Resource allocation per task  
+   * Correlated Queue information
+
+	![Resource_pool_info](../../img/resource_pool_info.png#light-mode-only)
+	![Resource_pool_info](../../img/resource_pool_info_dark.png#dark-mode-only)
+
+2. Copy the ID for the queue you want the agent to service.  
+3. Configure an agent to listen to the queue. For example, on Kubernetes:   
+   ```yaml
+   agentk8sglue:  
+     queues:  
+       <pool_queue_id>:   # Paste the Queue ID from the Resource Pool card here  
+         templateOverrides:   
+          resources:  
+            limits:  
+              nvidia.com/gpu: 2
+
+   ```
+   :::important
+   The Resource Manager performs logical scheduling and accounting only. It does not control the actual hardware 
+   allocated to a task.
+
+   You must explicitly configure the ClearML Agent (for example, by setting GPU limits in `templateOverrides`) to match 
+   the resource profile. Otherwise, tasks may be scheduled correctly but still run with incorrect resource allocation.
+   :::
+
+Tasks assigned to the resource profile connected to this pool will now be executed by your agent..
+
 ## Resource Profiles 
 Resource profiles represent the resource consumption requirements of jobs, such as the number of GPUs needed. They are 
 the interface that administrators use to provide users with access to the available resource pools based on their job 
 resource requirements via [Resource Policies](../resource_policies.md).
 
+A resource profile can have a fixed [resource allotment](#resource-allotment) (i.e. all jobs running through the profile will be assigned that 
+number of resources) or let tasks specify their own resource requirements.
+
 Administrators can control the resource pool allocation precedence within a profile (e.g. only run jobs on `pool B` if 
-`pool A` cannot currently satisfy the profile's resource requirements).
+`pool A` cannot currently satisfy the its resource requirements).
 
 Administrators can control the queuing priority within a profile across resource policies making use of it (e.g. if the 
 R&D team and DevOps team both have pending jobs - run the R&D team's jobs first or vice versa).
@@ -74,6 +114,26 @@ of resources allocated to jobs in this profile
 * <img src="/docs/latest/icons/ico-queued-jobs.svg" alt="Queued jobs" className="icon size-md space-sm" /> - Number of currently pending jobs
 * <img src="/docs/latest/icons/ico-running-jobs.svg" alt="Running jobs" className="icon size-md space-sm" /> - Number of currently running jobs
 * Number of resource policies. Click to open resource policy list and to order queuing priority.  
+
+### Resource Allotment
+Resource allotment is the number of resources allocated to each job running under a resource profile. The profile can 
+have a [fixed](#fixed-requirement) or [dynamic](#dynamic-resource-capacity) resource allotment. 
+
+#### Fixed Requirement
+Each job uses the fixed number of resources you set in `Resource Allotment` (for example, 4 GPUs per job).
+
+This is best suited for workloads where all jobs have similar resource requirements.
+
+#### Dynamic Resource Capacity
+Dynamic Resource Capacity allows each job to define its own resource requirement, through a task parameter. This is useful
+when jobs within the same profile require different amounts of resources, avoiding the need to create multiple similar 
+profiles.
+
+When a job is run under a dynamic capacity resource profile, the resource manager will look for the specified parameter 
+for the job’s resource requirement. If no such value is found, the task will be considered as requiring the profiles 
+default resource allotment
+
+For more information see instructions for [creating a resource profile](#resource-profile). 
 
 ## Example Workflow
 
@@ -175,7 +235,7 @@ To make any change (create, delete, or modify a component) to the resource confi
 1. Click **Exit** to leave Editor mode. The page will show the provisioned configuration. Unprovisioned saved changes will 
 still be available in Editor mode. 
 
-### Resource Pool 
+### Resource Pool
 
 **To create a resource pool:** 
 1. Click **+ Add Pool**
@@ -184,6 +244,14 @@ still be available in Editor mode.
     * Number of Resources - Number of resources available in this pool
     * Description - Optional free form text for additional descriptive information
 1. Click **Create**
+
+:::important[Sizing Guidance]
+The "Number of Resources" value should match the physical capacity of the underlying cluster, expressed in whole GPUs. 
+For example, a cluster of 2 servers with 8 GPUs each should be configured as a pool of 16, regardless of whether jobs will consume whole GPUs, fractional GPUs or MIG slices. 
+Compute resources draw down from the pool are controlled by the profile's Resource Allotment (Resource Profiles)  e.g. 1 for a full GPU, 0.5 for a half, or approximately 0.143 (1/7) for a 1g.10gb MIG slice. 
+Keeping the pool sized to physical quantities ensures the accounting layer stays aligned with real hardware across all consumption patterns.
+:::
+
 
 **To modify a resource pool** 
 1. Click <img src="/docs/latest/icons/ico-bars-menu.svg" alt="Menu" className="icon size-md space-sm" /> on the relevant 
@@ -195,12 +263,25 @@ You can also change the Execution Priority of the [linked resource profiles](#co
 drag the profile connection anchor <img src="/docs/latest/icons/ico-resource-anchor.svg" alt="Resourch anchor" className="icon size-md space-sm" /> 
 to change its position in the order of priority.
 
-### Resource Profile 
+### Resource Profile
 **To create a resource profile:** 
 1. Click **+ Add Profile**
 1. In the **Create Profile** modal, input:
     * Name - The resource profile’s name. This will appear in the profile’s information card in the Resource Configuration settings page
     * Resource Allotment - Number of resources allocated to each job running in this profile
+    * Dynamic Resource Capacity - Allow each job to define its own resource requirement through a task parameter (for 
+      more information, see [Dynamic Resource Capacity](#dynamic-resource-capacity)). When enabled, the following options 
+      are available:
+      * Task Configuration Parameter - The task parameter used to retrieve the job’s resource usage at runtime. Supported 
+        configuration parameters:
+        * `runtime.*`
+        * `hyperparams.*`
+        * `configuration.*`
+        
+        For example, `runtime.gpus_request`, `hyperparams.Args.cost`, or `configuration.test`.
+   
+      * Default Resource Allotment - The resource requirement for jobs with no valid value under the specified parameter
+
 3. Click **Create**
 
 **To modify a resource profile:**

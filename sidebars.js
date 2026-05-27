@@ -316,9 +316,10 @@ module.exports = {
             {
                 'Enterprise':
                         [
-                           'release_notes/clearml_server/enterprise/ver_3_28',
+                           'release_notes/clearml_server/enterprise/ver_3_29',
                            {
                                 'Older Versions': [
+                                     'release_notes/clearml_server/enterprise/ver_3_28',
                                      'release_notes/clearml_server/enterprise/ver_3_27', 'release_notes/clearml_server/enterprise/ver_3_26',
                                      'release_notes/clearml_server/enterprise/ver_3_25', 'release_notes/clearml_server/enterprise/ver_3_24',
                                      'release_notes/clearml_server/enterprise/ver_3_23', 'release_notes/clearml_server/enterprise/ver_3_22',
@@ -371,9 +372,10 @@ module.exports = {
         ]},
         {'ClearML Agent':
             [
-                'release_notes/clearml_agent/ver_2_0',
+                'release_notes/clearml_agent/ver_3_0',
                 {
                     'Older Versions': [
+                        'release_notes/clearml_agent/ver_2_0',
                         'release_notes/clearml_agent/ver_1_9', 'release_notes/clearml_agent/ver_1_8',
                         'release_notes/clearml_agent/ver_1_7', 'release_notes/clearml_agent/ver_1_6',
                         'release_notes/clearml_agent/ver_1_5', 'release_notes/clearml_agent/ver_1_4',
@@ -382,6 +384,58 @@ module.exports = {
                         'release_notes/clearml_agent/ver_0_17', 'release_notes/clearml_agent/ver_0_16',
                         'release_notes/clearml_agent/ver_0_15', 'release_notes/clearml_agent/ver_0_14',
                         'release_notes/clearml_agent/ver_0_13', 'release_notes/clearml_agent/ver_0_12',
+                    ]
+                }
+            ]
+        },
+        {
+            'Enterprise Helm Charts': [
+                {
+                    'ClearML Server': [
+                        'release_notes/helm/clearml-enterprise/10.12',
+
+                        {
+                            'Older Versions': [
+                                'release_notes/helm/clearml-enterprise/10.11',
+                                'release_notes/helm/clearml-enterprise/10.10', 'release_notes/helm/clearml-enterprise/10.9',
+                                'release_notes/helm/clearml-enterprise/10.8', 'release_notes/helm/clearml-enterprise/10.7'
+                            ]
+                        }
+                    ]
+                },
+                {
+                    'ClearML Agent': [
+                        'release_notes/helm/clearml-enterprise-agent/6.13',
+
+                        {
+                            'Older Versions': [
+                                'release_notes/helm/clearml-enterprise-agent/6.12', 'release_notes/helm/clearml-enterprise-agent/6.11',
+                                'release_notes/helm/clearml-enterprise-agent/6.10', 'release_notes/helm/clearml-enterprise-agent/6.9',
+                            ]
+                        }
+                    ]
+                },
+                {
+                    'AI Application Gateway': [
+                        'release_notes/helm/clearml-enterprise-app-gateway/3.1',
+
+                        {
+                            'Older Versions': [
+                                'release_notes/helm/clearml-enterprise-app-gateway/3.0',
+                                'release_notes/helm/clearml-enterprise-app-gateway/2.1', 'release_notes/helm/clearml-enterprise-app-gateway/2.0'
+                            ]
+                        }
+                    ]
+                },
+                {
+                    'Platform Management Center': [
+                        'release_notes/helm/clearml-enterprise-platform-management/1.2',
+
+                        {
+                            'Older Versions': [
+                                'release_notes/helm/clearml-enterprise-platform-management/1.1',
+                            ]
+                        }
                     ]
                 }
             ]
@@ -698,7 +752,9 @@ module.exports = {
                         'webapp/settings/webapp_settings_resource_configs',
                         'webapp/settings/webapp_settings_app_gw',
                         'webapp/settings/webapp_settings_usage_billing',
-                        'webapp/settings/webapp_settings_storage_credentials',
+                        {
+                            "Storage": ['webapp/settings/webapp_settings_storage_volumes', 'webapp/settings/webapp_settings_storage_credentials',]
+                        },
                         'webapp/settings/webapp_settings_analytics',
                         'webapp/settings/webapp_settings_ui_customization'
                     ]
@@ -739,16 +795,27 @@ module.exports = {
                                     label: 'With Pyxis',
                                     id: 'clearml_agent/clearml_agent_deployment_slurm_pyxis'
                                 },
+                                {
+                                    type: 'doc',
+                                    label: 'User Impersonation',
+                                    id: 'clearml_agent/clearml_agent_slurm_impersonation'
+                                },
                             ]
                         }
                     ]
                 },
                 'clearml_agent/clearml_agent_execution_env',
                 {
+                    type: 'doc',
+                    label: 'Bootstrap',
+                    id: 'clearml_agent/clearml_agent_bootstrap',
+                },
+                {
                     'File Caching': [
                         'clearml_agent/clearml_agent_env_caching',
                         'clearml_agent/clearml_agent_data_caching',
                         'clearml_agent/clearml_agent_hf_caching',
+                        'clearml_agent/clearml_agent_nim_caching',
                     ]
                 },
                 'clearml_agent/clearml_agent_services_mode',
@@ -880,6 +947,7 @@ module.exports = {
                         'deploying_clearml/enterprise_deploy/delete_tenant',
                         'deploying_clearml/enterprise_deploy/api_audit',
                         'deploying_clearml/enterprise_deploy/extra_configs/backups',
+                        'deploying_clearml/enterprise_deploy/container_debug',
                         {
                            type: 'category',
                            collapsible: true,
@@ -904,6 +972,7 @@ module.exports = {
                    'user_management/user_groups',
                    'user_management/access_rules',
                    'user_management/admin_vaults',
+                   'deploying_clearml/enterprise_deploy/extra_configs/api_cred_expiration_policy'
                    ]
                 },
                 'deploying_clearml/enterprise_deploy/extra_configs/event_metering',

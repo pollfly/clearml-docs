@@ -145,7 +145,7 @@ a task. For example: `docker_args_filters: ["^--env$", "^-e$"]`.
 
 **`agent.docker_container_name_format`** (*string*)
 
-:::note Compatibility Required
+:::note[Compatibility Required]
 Compatible with Docker versions 0.6.5 and above
 :::
 
@@ -433,7 +433,7 @@ These settings define which Docker image and arguments should be used unless [ex
   example: `arguments: ["--ipc=host", ]`.
   * **`agent.default_docker.match_rules`** (*[dict]*)
 
-    :::important Enterprise Feature
+    :::important[Enterprise Feature]
     The `match_rules` configuration option is available under the ClearML Enterprise plan.
     :::
     
@@ -442,7 +442,7 @@ These settings define which Docker image and arguments should be used unless [ex
     * Each dictionary in the list lays out rules, and the container and container arguments to be used if the rules are 
     matched.  
   
-    :::note Match rule arguments
+    :::note[Match rule arguments]
     `default_docker.match_rules.arguments` should be formatted as a single string (for example: `"-e VALUE=1 --ipc=host"`),
     unlike  `agent.default_docker.arguments`
     :::
@@ -709,6 +709,12 @@ Torch Nightly builds are ephemeral and are deleted from time to time.
 **`agent.package_manager.uv_sync_extra_args`** (*list*)
 
 * List extra command-line arguments to pass when using `uv`. 
+
+---
+
+**`agent.package_manager.uv_sync_locked_if_lock_file`** (*bool*)
+
+* If `True` (default), passes `--locked` to `uv sync` when a lockfile exists in the repository.
 
 ---
 
@@ -1069,6 +1075,13 @@ metrics, network, AWS S3 buckets and credentials, Google Cloud Storage, Azure St
 
 ---
 
+**`sdk.development.default_shell_binary`** (*str*)
+
+* Path to the executable binary [`Task.create()`](../references/sdk/task.md#taskcreate) will use as the default value 
+  for the new task’s script.binary,
+
+---
+
 
 **`sdk.development.force_analyze_entire_repo`** (*bool*)
       
@@ -1325,6 +1338,13 @@ will not exceed the value of `matplotlib_untitled_history_size`
         
 ---
         
+**`sdk.metrics.plot_upload_destination`** (*str*)
+        
+* Upload destination for plots only (e.g. `"https://files.clearml.com"`). If set to a destination other than the ClearML 
+  file server, plots will be uploaded as debug samples instead of being reported as plots.  
+
+---
+        
 **`sdk.metrics.tensorboard_single_series_per_graph`** (*bool*)
     
 :::note
@@ -1428,7 +1448,7 @@ This option is deprecated. This plot behavior is now controlled via the UI
   * `default_base_dir` (*str*) - The default base directory for caching. The default is the `<system_temp_folder>/clearml_cache`.
   * `default_cache_manager_size` (*int*) - Maximum number of files in the cache (default 100 files).
   
-:::important Enterprise features 
+:::important[Enterprise features] 
 The ClearML Enterprise plan also supports the following configuration options under `sdk.storage.cache`:   
   * `size.max_used_bytes` (*str*) - Maximum size of the local cache directory. If set to `-1`, the directory can use 
   the available disk space. Specified in storage units (for example: `1GB`, `2TB`, `500MB`).
@@ -1566,7 +1586,7 @@ sdk {
 
 ## Configuration Vault
 
-:::important Enterprise Feature
+:::important[Enterprise Feature]
 Configuration vaults are available under the ClearML Enterprise plan.
 :::
 

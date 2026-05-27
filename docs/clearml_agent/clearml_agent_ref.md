@@ -69,16 +69,13 @@ With the `daemon` command you can configure your agent's behavior: allocate reso
 in a Docker, and more. 
 
 ```bash
-clearml-agent daemon [-h] [--foreground] [--queue QUEUES [QUEUES ...]] [--order-fairness] 
-                     [--standalone-mode] [--services-mode [SERVICES_MODE]] 
-                     [--child-report-tags CHILD_REPORT_TAGS [CHILD_REPORT_TAGS ...]]
-                     [--create-queue] [--detached] [--stop] [--dynamic-gpus] 
-                     [--uptime [UPTIME [UPTIME ...]]] [--downtime [DOWNTIME [DOWNTIME ...]]] 
-                     [--status] [--use-owner-token] [-O] 
-                     [--git-user GIT_USER] [--git-pass GIT_PASS] 
-                     [--log-level {DEBUG,INFO,WARN,WARNING,ERROR,CRITICAL}] 
-                     [--gpus GPUS] [--cpu-only] 
-                     [--docker [DOCKER [DOCKER ...]]] [--force-current-version]
+clearml-agent daemon [-h] [--polling-interval POLLING_INTERVAL] [--foreground] [--queue QUEUES [QUEUES ...]]
+                     [--order-fairness] [--standalone-mode] [--services-mode [SERVICES_MODE]]
+                     [--child-report-tags CHILD_REPORT_TAGS [CHILD_REPORT_TAGS ...]] [--create-queue]
+                     [--detached] [--stop [STOP ...]] [--dynamic-gpus] [--uptime [UPTIME ...]]
+                     [--downtime [DOWNTIME ...]] [--status] [--check-bootstrap] [--use-owner-token] [-O] 
+                     [--git-user GIT_USER] [--git-pass GIT_PASS] [--log-level {DEBUG,INFO,WARN,WARNING,ERROR,CRITICAL}] 
+                     [--gpus GPUS] [--cpu-only] [--podman [PODMAN ...]] [--docker [DOCKER ...]] [--force-current-version]
 ```
 
                            
@@ -88,12 +85,13 @@ clearml-agent daemon [-h] [--foreground] [--queue QUEUES [QUEUES ...]] [--order-
 
 |Name | Description| Mandatory |
 |---|----|---|
+|`--check-bootstrap`| On daemon startup, check whether the installed `clearml-agent-bootstrap` package is the latest released version and print a warning if not. Has no effect if `bootstrap` is not detected.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--child-report-tags`| List of tags to send with the status reports from the worker that executes a task.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--cpu-only`| If running in Docker mode (see the `--docker` option), disable GPU access for the Docker container or virtual environment.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--create-queue`| If the queue name provided with `--queue` does not exist in the server, create it on-the-fly and use it.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--detached`| Run agent in the background. The `clearml-agent` command returns immediately.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|  
 |`--docker`| Run in Docker mode. Execute the Task inside a Docker container. To specify the image name and optional arguments, either: <ul><li> Use `--docker <image_name> <args>` on the command line, or </li><li>Use `--docker` on the command line, and specify the default image name and arguments in the configuration file.</li></ul> Environment variable settings for Docker containers: <ul><li>`CLEARML_DOCKER_SKIP_GPUS_FLAG` - Ignore the `--gpus` flag inside the Docker container. This also lets you execute ClearML Agent using Docker versions earlier than 19.03.</li><li>`NVIDIA_VISIBLE_DEVICES` - Limit GPU visibility for the Docker container.</li><li> `CLEARML_AGENT_GIT_USER` and `CLEARML_AGENT_GIT_PASS` - Pass these credentials to the Docker container at execution.</li></ul>|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|        
-|`--downtime`| Specify downtime for clearml-agent in `<hours> <days>` format. For example, use `09-13 TUE` to set Tuesday's downtime to 09-13. <br/><br/>NOTES: <ul><li>This feature requires the agent to use a ClearML Enterprise Server</li><li>Make sure to configure only `--uptime` or `--downtime`, but not both.</li></ul> |<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
+|`--downtime`| Specify downtime for `clearml-agent` in `<hours> <days>` format. For example, use `09-13 TUE` to set Tuesday's downtime to 09-13. <br/><br/>NOTES: <ul><li>This feature requires the agent to use a ClearML Enterprise Server</li><li>Make sure to configure only `--uptime` or `--downtime`, but not both.</li></ul> |<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--dynamic-gpus`| Allow to dynamically allocate GPUs based on queue properties, configure with `--queue <queue_name>=<num_gpus>`. For example: `--dynamic-gpus --queue dual_gpus=2 single_gpu=1` <br/><br/>NOTE: **This feature requires the agent to use a ClearML Enterprise Server** |<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--force-current-version`| To use your current version of ClearML Agent when running in Docker mode (the `--docker` argument is specified), instead of the latest ClearML Agent version which is automatically installed, specify `force-current-version`. <br/><br/> For example, if your current ClearML Agent version is `0.13.1`, but the latest version of ClearML Agent is `0.13.3`, use `--force-current-version` and your Task will execute in the Docker container with ClearML Agent version `0.13.1`.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--foreground`| Pipe full log to stdout/stderr. Do not use this option if running in background.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
@@ -104,12 +102,14 @@ clearml-agent daemon [-h] [--foreground] [--queue QUEUES [QUEUES ...]] [--order-
 |`--log-level`| SDK log level. The values are:<ul><li>`DEBUG`</li><li>`INFO`</li><li>`WARN`</li><li>`WARNING`</li><li>`ERROR`</li><li>`CRITICAL`</li></ul>|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`-O`| Compile optimized pyc code (see [python documentation](https://docs.python.org/3/using/cmdline.html#cmdoption-O)). Repeat for more optimization.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--order-fairness`| Pull from each queue in a round-robin order, instead of priority order.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
+| `--podman` | Run execution task inside a container using Podman. Optionally, specify `args <image> <arguments>`, or set the default docker image and arguments in `agent.default_docker.image` / `agent.default_docker.arguments` in the `clearml.conf`. Use `--gpus`/`--cpu-only` (or set `NVIDIA_VISIBLE_DEVICES`) to limit GPU visibility for docker. This behaves identically to `--docker`, except the resulting `docker run` command includes the adjustments required by Podman.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
+|`--polling-interval`|Polling interval in seconds. Minimum value is `5` (default `5`)|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--queue`| Specify the queues which the worker is listening to. The values can be any combination of:<ul><li>One or more queue IDs</li><li>One or more queue names</li><li>`default` indicating the default queue</li></ul>|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--services-mode`| Launch multiple long-term docker services. Spin multiple, simultaneous Tasks, each in its own Docker container, on the same machine. Each Task will be registered as a new node in the system, providing tracking and transparency capabilities. Start up and shutdown of each Docker is verified. Use in CPU mode (`--cpu-only`) only. <br/> To limit the number of simultaneous tasks run in services mode, pass the maximum number immediately after the `--services-mode` option (e.g. `--services-mode 5`)|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--standalone-mode`| Do not use any network connects. This assumes all requirements are pre-installed.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|            
 |`--status`| Print the worker's schedule (uptime properties, server's runtime properties and listening queues)|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--stop`| Terminate a running ClearML Agent, if other arguments are the same. If no additional arguments are provided, agents are terminated in lexicographical order.|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|  
-|`--uptime`| Specify uptime for clearml-agent in `<hours> <days>` format. For example, use `17-20 TUE` to set Tuesday's uptime to 17-20. <br/><br/>NOTES:<ul><li>This feature requires the agent to use a ClearML Enterprise Server</li><li>Make sure to configure only `--uptime` or `--downtime`, but not both.</li></ul>|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
+|`--uptime`| Specify uptime for `clearml-agent` in `<hours> <days>` format. For example, use `17-20 TUE` to set Tuesday's uptime to 17-20. <br/><br/>NOTES:<ul><li>This feature requires the agent to use a ClearML Enterprise Server</li><li>Make sure to configure only `--uptime` or `--downtime`, but not both.</li></ul>|<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 |`--use-owner-token`| Run tasks under the identity of each task's owner: all calls made by the task code during execution will use the owner's credentials instead of the agent's. See example use case under [Service Accounts](../webapp/settings/webapp_settings_users.md#service-accounts). **This feature requires the agent to use a ClearML Enterprise Server**. |<img src="/docs/latest/icons/ico-optional-no.svg" alt="No" className="icon size-md center-md" />|
 
 </div>

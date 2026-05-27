@@ -37,7 +37,7 @@ and embedded resources in [reports](../webapp_reports.md).
 When printed, the variable values are replaced with `********`. By default, `CLEARML_API_SECRET_KEY`, `CLEARML_AGENT_GIT_PASS`,
 `AWS_SECRET_ACCESS_KEY`, and `AZURE_STORAGE_KEY` values are redacted. To modify the hidden container argument list, click **Edit**.
 
-:::note[Self-hosted ClearML Server ]
+:::note[Self-hosted ClearML Server]
 The self-hosted ClearML Server has an additional option to enable sharing anonymous telemetry data with the ClearML 
 engineering team.
 :::
@@ -58,7 +58,7 @@ In the **Web App Cloud Access** section, enter the following credentials:
 ### Multiple Workspaces
 
 :::note[ClearML Hosted Service Feature]
-Multiple workspaces is only available on the ClearML Hosted Service.
+Multiple workspaces are only available on the ClearML Hosted Service.
 :::
 
 ClearML Hosted Service users can be members of multiple workspaces, which are listed under **WORKSPACE**. 
@@ -83,6 +83,10 @@ You can create credentials for any workspace that you are a member of.
 1. In **API Credentials**, click **+ Create new credentials**
 
 1. In the dialog that pops up, you can input a label for the new credentials 
+
+  :::important[Credential Expiration]
+  The ClearML Hosted Service and the ClearML Enterprise plan support setting an expiration period for API credentials.
+  :::
 
 The dialog displays new credentials, formatted as a ready-to-copy configuration file section (including server configuration 
 information).

@@ -113,7 +113,7 @@ resources will be displayed. See [Dynamic Queries](#dynamic-queries) below.
 * `company` - Workspace ID. Applicable to the ClearML hosted service, for embedding content from a different workspace 
 * `light` - add parameter to switch visualization to light theme
 
-:::tip URL encoding
+:::tip[URL encoding]
 For strings, make sure to use the appropriate URL encoding. For example, if the metric name is "Metric Name", 
 write `Metric%20Name`
 :::
@@ -159,7 +159,7 @@ used.
   
 <a id="event_id"></a>
 
-:::tip Metric/Variant IDs
+:::tip[Metric/Variant IDs]
 Metric names need to be MD5 encoded for parallel coordinate plots and for ordering query results by metric
 performance. You can encode the strings in Python with `hashlib.md5(str("<metric_string>").encode("utf-8")).hexdigest()`,
 and use the returned MD5 hash in your query.
@@ -175,8 +175,19 @@ or in List view <img src="/docs/latest/icons/ico-flat-view.svg" alt="List view" 
 view, all reports are shown side-by-side. In Project view, reports are organized according to their projects, and 
 top-level projects are displayed. Click on a project card to view the project's reports.
 
-Use the search bar <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" /> 
-to find specific reports. You can query by the report name, ID, tags, project, description, and report content.
+Filter page contents by specific fields  <img src="/docs/latest/icons/ico-filter-off.svg" alt="Filter" className="icon size-md" />
+or through free form search <img src="/docs/latest/icons/ico-search.svg" alt="Magnifying glass" className="icon size-md space-sm" />.
+
+Field filters support:
+* My Work - Show only reports that you created
+* Tags - Choose which tags to filter by from a list of tags used in the reports.
+  * Filter by multiple tag values using the **ANY** or **ALL** options, which correspond to the logical "AND" and "OR" 
+  respectively. These options appear on the top of the tag list.
+  * Filter by the absence of a tag (logical "NOT") by clicking its checkbox twice. An X will appear in the tag's checkbox.
+* User – Filter reports by the user who created them.
+* Status (available in List view only) – Filter reports by their status (Published or Draft).
+
+Free form search queries report name, ID, tags, project, description, and report content. 
 To search using regex, click the `.*` icon on the search bar.
 
 ![Report page](../img/webapp_report_page.png#light-mode-only)

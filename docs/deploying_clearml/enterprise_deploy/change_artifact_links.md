@@ -17,7 +17,7 @@ point to the data.
 
 ### Version Confirmation
 
-To change the links, use the `fix_fileserver_urls.py` script, located inside the `allegro-apiserver` 
+To change the links, use the `fix_fileserver_urls.py` script, located inside the `clearml-apiserver` 
 Docker container. This script will be executed from within the `apiserver` container. Make sure the `apiserver` version 
 is 3.20 or higher.
 
@@ -33,7 +33,7 @@ script changes the values in the databases, and can't be undone.
    * In `docker-compose`:
     
       ```commandline
-      sudo docker exec -it allegro-apiserver /bin/bash
+      sudo docker exec -it clearml-apiserver /bin/bash
        ```
     
    * In Kubernetes:
@@ -53,7 +53,7 @@ script changes the values in the databases, and can't be undone.
     :::important
     Before running the script, verify that this is indeed the correct version (`apiserver` v3.20 or higher, 
     or that the script provided by ClearML was copied into the container).
-    ::::
+    :::
  
     ```commandline
     python3 fix_fileserver_urls.py \
@@ -63,7 +63,7 @@ script changes the values in the databases, and can't be undone.
     --host-target "<new fileserver host and/or port>" --datasets
     ```
 
-:::note Notes
+:::note[Notes]
 * If MongoDB or ElasticSearch services are accessed from the `apiserver` container using custom addresses, then 
 `--mongo-host` and `--elastic-host` arguments should be updated accordingly.  
 * If ElasticSearch is set up to require authentication then the following arguments should be used to pass the user 

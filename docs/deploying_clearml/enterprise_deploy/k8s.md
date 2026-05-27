@@ -7,7 +7,7 @@ This guide provides step-by-step instructions for installing the ClearML Enterpr
 The ClearML Enterprise Server includes the ClearML `apiserver`, `fileserver`, and `webserver` components. 
 The package also includes MongoDB, ElasticSearch, and Redis as Helm dependencies.
 
-:::warning Upgrading from chart versions 10.11.6 and below
+:::warning[Upgrading from chart versions 10.11.6 and below]
 Starting in chart version `10.11.7`, ClearML is transitioning to a new mongodb chart source (mckMongodb).
 
 To upgrade an existing installation follow the [MongoDB chart Migration Guide](k8s_mckmongo_migration.md) to ensure data consistency and compatibility with future chart versions.
@@ -91,7 +91,7 @@ clearmlApplications:
 
 <a id="special-clean"></a>
 
-:::important Special Clean installation overrides
+:::important[Special Clean installation overrides]
 Add the following settings in your `clearml-values.override.yaml` file to use the new (10.11.7) bundled MongoDB dependency (mckMongodb) instead of the legacy MongoDB chart:
 
 ```yaml
@@ -262,6 +262,76 @@ externalServices:
   # Existing Redis Port to use if redis.enabled is false
   redisPort: 6379
 ```
+
+### Using External Storage Instead of the Fileserver
+
+The ClearML Enterprise Server can be configured to use external object storage (e.g. AWS S3, MinIO, GCS, Azure Blob) 
+instead of the bundled file server. In this setup, artifact and model URLs reference the external storage directly. The 
+ClearML control plane, the [ClearML Enterprise Agent](../../clearml_agent/clearml_agent_deployment_k8s.md#agent-with-an-enterprise-server), 
+and other ClearML clients must all be configured to use the same new external storage URL. 
+
+
+#### Control Plane Configuration
+
+In the server's `clearml-values.override.yaml`, disable the bundled fileserver and set the external storage URL 
+references used by the control plane components:
+
+```yaml
+fileserver:
+  enabled: false
+
+clearmlApplications:
+  fileServerUrlReferenceOverride: "<EXTERNAL_STORAGE_URL>"
+
+webserver:
+  displayedServerURLs:
+    apiserver: "<APISERVER_URL>"
+    fileserver: "<EXTERNAL_STORAGE_URL>"
+  extraEnvs:
+    - name: WEBSERVER__fileBaseUrl
+      value: "<EXTERNAL_STORAGE_URL>"
+```
+
+#### Agent Configuration
+
+In the agent's `clearml-agent-values.override.yaml`, point the agent's fileserver reference to the same external storage 
+URL:
+
+```yaml
+agentk8sglue:
+  fileServerUrlReference: "<EXTERNAL_STORAGE_URL>"
+```
+
+#### Client Configuration
+
+To ensure ClearML clients (SDK and Agent-launched tasks) upload artifacts, models, and debug samples to the correct 
+location, configure the credentials and default output URI. The recommended approach is via an [Administrator Vault](../../user_management/admin_vaults.md),
+though credentials can also be set directly in the `clearml.conf` file on each client machine. 
+
+For example, the following configures credentials and sets a default output URI for an S3-compatible endpoint:  
+
+```hocon
+sdk {
+    aws {
+        s3 {
+            credentials: [
+                {
+                    host: "s3://<EXTERNAL_STORAGE_URL>"
+                    key: "<EXTERNAL_STORAGE_KEY>"
+                    secret: "<EXTERNAL_STORAGE_SECRET>"
+                    multipart: false
+                    secure: true
+                    verify: false
+                }
+            ]
+        }
+    }
+}
+
+sdk.development.default_output_uri = "s3://<EXTERNAL_STORAGE_URL>"
+```
+
+For configuration examples covering other storage backends (Azure, GCS, non-AWS S3 endpoints, and more), see [Storage](../../integrations/storage.md). 
 
 ## Monitoring
 
