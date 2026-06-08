@@ -405,10 +405,11 @@ module.exports = {
                 },
                 {
                     'ClearML Agent': [
-                        'release_notes/helm/clearml-enterprise-agent/6.13',
+                        'release_notes/helm/clearml-enterprise-agent/6.14',
 
                         {
                             'Older Versions': [
+                                'release_notes/helm/clearml-enterprise-agent/6.13',
                                 'release_notes/helm/clearml-enterprise-agent/6.12', 'release_notes/helm/clearml-enterprise-agent/6.11',
                                 'release_notes/helm/clearml-enterprise-agent/6.10', 'release_notes/helm/clearml-enterprise-agent/6.9',
                             ]
@@ -417,11 +418,11 @@ module.exports = {
                 },
                 {
                     'AI Application Gateway': [
-                        'release_notes/helm/clearml-enterprise-app-gateway/3.1',
+                        'release_notes/helm/clearml-enterprise-app-gateway/3.2',
 
                         {
                             'Older Versions': [
-                                'release_notes/helm/clearml-enterprise-app-gateway/3.0',
+                                'release_notes/helm/clearml-enterprise-app-gateway/3.1', 'release_notes/helm/clearml-enterprise-app-gateway/3.0',
                                 'release_notes/helm/clearml-enterprise-app-gateway/2.1', 'release_notes/helm/clearml-enterprise-app-gateway/2.0'
                             ]
                         }
@@ -658,6 +659,9 @@ module.exports = {
                         {"UI Dev": [
                             'webapp/applications/apps_gradio',
                             'webapp/applications/apps_streamlit'
+                        ]},
+                        {"Cluster": [
+                            'webapp/applications/apps_multi_node_trainer',
                         ]},
                         {"Deploy": [
                             'webapp/applications/apps_embed_model_deployment',
@@ -987,11 +991,20 @@ module.exports = {
             ]
         },
         {'UI Applications': [
-            'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
-            'deploying_clearml/enterprise_deploy/apps_k8s',
-            'deploying_clearml/enterprise_deploy/app_install_ex_server',
-            'deploying_clearml/enterprise_deploy/app_custom',
-            'deploying_clearml/enterprise_deploy/app_launch_form_custom',
+            {
+                'Installation': [
+                    'deploying_clearml/enterprise_deploy/app_install_ubuntu_on_prem',
+                    'deploying_clearml/enterprise_deploy/apps_k8s',
+                    'deploying_clearml/enterprise_deploy/app_install_ex_server',
+                    'deploying_clearml/enterprise_deploy/app_custom',
+                ]
+            },
+            {
+                'Configuration': [
+                    'deploying_clearml/enterprise_deploy/app_launch_form_custom',
+                    'deploying_clearml/enterprise_deploy/app_visibility_policy',
+                ]
+            }
             ]
         },
         {
